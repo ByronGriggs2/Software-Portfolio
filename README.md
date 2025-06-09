@@ -1,2 +1,5 @@
 # Software-Portfolio
-Hello, this is Byron Griggs' portfolio. It goes into more details on some of the projects I've completed.
+If you're seeing this, thanks for taking an interest in my work! Each of the top level folders in this repository represents a software development project that I worked on in 2024/2025. They are organized reverse chronologically. 
+Please excuse the lack of detail in the dissertation project, that project is ongoing and expected to finish in early September 2025.
+
+Byron Griggs, 9th June, 2025
