@@ -1,6 +1,5 @@
 ## Introduction
-I made this mod right before I started my master's programme. The mod adds female playable characters to the game. Check it out on Nexus Mods here: https://www.nexusmods.com/battlebrothers/mods/771?tab=files&file_id=5386
-
+I made this mod right before I started my master's programme. The mod adds female playable characters to the game. Check it out on Nexus Mods here: https://www.nexusmods.com/battlebrothers/mods/771?tab=description
 It is admittedly not without bugs, but I would say it works 95% of the time and whenever I play the game I certainly use it. If you look at the comments/bug reports you can see that I made _some_
 effort to iron out the bugs with user feedback, but unfortunately I do not have as much free time as I did when I made the mod. I do plan on finishing it off in the next half year though!
 ## Implementation
