@@ -1,8 +1,3 @@
-# Software-Portfolio
-If you're seeing this, thanks for taking an interest in my work! Each of the top level folders in this repository represents a software development project that I worked on in 2024/2025.
+As my undergraduate degree is in computer engineering, this is not a pure software project, but rather uses embedded systems.
 
-I apologize for the lack of source code in these folders, but I am concerned about the plagerism/copyright violations in sharing code that I wrote for my school projects. The mod I created (Mod for Battle Brothers) does actually contain code, since that was not a university project.
-
-Please excuse the lack of detail in the dissertation project, that project is ongoing and expected to finish in early September 2025.
-
-Byron Griggs, 9th June, 2025
+The project was to program an M5Stack Core2 microcontroller and multiple M5Stick C-Plus microcontrollers to serve as a reminder system to prevent users from forgetting personal items. It works similarly to airtag, though it also warns you if you open your door without the personal item on your person. 
