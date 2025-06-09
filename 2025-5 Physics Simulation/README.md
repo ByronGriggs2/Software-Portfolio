@@ -1,6 +1,6 @@
 # Networked Antigravity Chamber
 ## Introduction
-This was my final project for the Simulation and Concurrency course of my master's programme. The goal was to simulate the motion and collision of various objects while leveraging multithreading as well as networking using sockets.
+This was my final project for the Simulation and Concurrency course of my master's programme. The goal was to simulate the motion and collision of various objects while leveraging multithreading as well as networking using sockets. The only libraries permitted were ImGui, DDS Texture loader, flatbuffers, and the C++ standard library.
 
 My mark for the course was 75% (An overall mark/grade of 70% is distinction/honours in the UK).
 ## Video demonstration 

@@ -1,6 +1,6 @@
 # 2.5D Platformer
 ## Introduction
-This was my final project for the C++ Programming and Design and Real Time Graphics courses of my master's programme. The goal was to use DirectX 11 3D to render a simple platform game.  
+This was my final project for the C++ Programming and Design and Real Time Graphics courses of my master's programme. The goal was to use DirectX 11 3D to render a simple platform game. The only libraries permitted were ImGui, DDS Texture loader, and the C++ standard library.  
 
 My mark for the course was 69% (An overall mark/grade of 70% is distinction/honours in the UK).
 ## Video demonstration
