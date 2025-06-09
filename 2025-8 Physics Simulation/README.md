@@ -8,8 +8,9 @@ As part of the project, I was asked to record a short demonstration that closely
 
 ## Diagrams
 Class diagram
+![Class diagram](https://github.com/user-attachments/assets/ecbd7590-9df2-4c15-8535-cd21ef35d2ca)
 Sequence diagram
-
+![Sequence diagram](https://github.com/user-attachments/assets/f78261f0-d474-40d3-96ca-9c2e01de460a)
 ## Grading rubric
 Core Functionality (marked out of 10)	77%
 Newtonian Physics	 
