@@ -5,4 +5,4 @@ This was accomplished by creating a .dll file to run in Awaria.exe, which contai
 The game code was then modified to call the setter functions periodically to update the .dll's 230 byte representation of the current frame's game state. </br>
 As the game's state is decentralised in the game code, this unfortunately did require modification of many different files, and not always in the same way.
 However, despite the extensive modification, the .dll and modifications are still not capable of directly changing the game state.
-![](Interface_Diagram.png)
+![](Interface_Diagram.jpeg)
