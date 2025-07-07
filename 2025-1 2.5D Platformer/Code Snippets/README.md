@@ -20,10 +20,12 @@ class CompleteObject final{
 	CComPtr <ID3D11Buffer> _pVertexBuffer;
 	CComPtr <ID3D11Buffer> _pIndexBuffer;
 	XMFLOAT3 _spawnPoint;
+	//...
+}
 ```
 
 # Physics
-The game only has very basic physics, and really only for the player object. If the player is above solid ground, they don't fall, and if they aren't they do fall. Other movement for a given frame is set based on buttons that are pressed on that frame.
+The game only has very basic physics, and really only for the player object. If the player is above solid ground, they don't fall, and if they aren't, they do fall. Other movement for a given frame is set based on buttons that are pressed on that frame.
 ```C++
 void PlayerWrap::physics(bool abovePlatform) {
 	//grounded

@@ -32,9 +32,67 @@ public:
 	void updateSemiEuler(float deltaT);
 	void updateRungeKutta(float deltaT);
 	void setBuffers(const CComPtr<ID3D11Device>&);
-	// ...
+	//...
 }
 ```
+## Improved mesh creation
+This project does away with the .obj files entirely, and instead creats the vertex and index lists for each GameObject whenever a scene is loaded. </br>
+The best example to showcase this is the parameterised constructor for GameObject, which sets its vertex and index lists (_geometry) to a value given 
+by GeometryGenerator. The creation of vertex and index buffers is done later, but typically right after the construction.
+```C++
+GameObject::GameObject(const ObjectPresets& preset) :
+	_geometry(),
+	_physics(nullptr),
+	_ptrPreset(preset._ptrs),
+	_myColor(undef),
+	_vertexBuffer(nullptr),
+	_indexBuffer(nullptr)
+{
+	switch (preset._type) {
+	case capsule:
+	{
+		const float height = preset._initData._capsule._height;
+		const float radius = preset._initData._capsule._radius;
+		const int tesselation = preset._initData._capsule._tesselation;
+		_physics = std::make_unique<Capsule>(preset._params, height, radius);
+		_geometry = GeometryGenerator::createCapsule(height, radius, tesselation);
+	}
+		break;
+	case hollowCube:
+	{
+		const float sideLength = preset._initData._hollowCube._sideLength;
+		_physics = std::make_unique<HollowCube>(preset._params, sideLength);
+		_geometry = GeometryGenerator::createRectangularPrism(sideLength, sideLength, sideLength);
+	}
+		break;
+	case plane:
+	{
+		_physics = std::make_unique<Plane>(preset._params);
+		_geometry = GeometryGenerator::createPlane(1);
+	}
+		break;
+	case sphere:
+	{
+		const float radius = preset._initData._sphere._radius;
+		const int tesselation = preset._initData._sphere._tesselation;
+		_physics = std::make_unique<Sphere>(preset._params, radius);
+		_geometry = GeometryGenerator::createSphere(radius, tesselation);
+	}
+		break;
+#ifdef _DEBUG
+	case physObj:
+	{ throw AbstractClassException(); }
+	break;
+	default:
+	{ throw NotImplementedException(); }
+	break;
+#endif
+	}
+}
+```
+
+
+## GameObject physics
 The physical behaviour of a GameObject is defined by its pointer to a PhysicsObject, which can point to any inheritor of PhysicsObject (sphere, cube, etc.).
 ```C++
 class PhysicsObject
@@ -130,7 +188,7 @@ The simulation runs in 4 threads: main, render, physics, and network. The main t
 handles user inputs and uses transformation matrices, vertex and index buffers, and DirectX11 3D to draw each object. The physics thread moves objects,
 thereby chaging their transformation matrices, as well as detecting collisions and applying forces to objects. The network thread unfortunately does nothing of note, due to time constraints. </br>
 The 4 threads run asynchronously and do not pause execution to wait for another thread unless accessing shared memory.
-## Shared memory
+# Shared memory
 SharedMemory, ostensibly owned by the main thread, contains all data that multiple threads can access. Thread safety is enforced by placing the entire struct in a mutex, and blocking is reduced by 
 only allowing each thread to acquire the mutex twice per runtime loop- once to read, and once to write. </br>
 The two main members of SharedMemory are 
@@ -213,5 +271,51 @@ void PhysicsSimulation::simLoop() {
 	}
 	endOfFrame();
 	sleepUntilNextFrame();
+}
+```
+This loop is where the majority of the physics calculations take place, and you may notice that objects are prevented from sticking together
+via a "collision exemption list" rather than a backstep. I found that this worked much better for multiple collisions in rapid succession. Objects
+out of bounds are also always immediately pushed towards the origin, so that even high velocity objects at a large time step will always stay in bounds.
+```C++
+for (auto i = 0; i < currentObjects.size() - 1; i++) {
+	for (auto j = i + 1; j < currentObjects.size(); j++) {
+		// Box is not exempt from collision
+		if (i == 0) {
+			const float boxLength = currentScene().getObjectPresets()[0]._initData._hollowCube._sideLength;
+			if (currentObjects[0].testIntersect(currentObjects[j]))
+				GameObject::addCollision(currentObjects[0], currentObjects[j], _globalFriction);
+			while (isOutsideBox(currentObjects[j]))
+				currentObjects[j].pushTowardsOrigin(0.01f * boxLength);
+			while (currentObjects[0].testIntersect(currentObjects[j]))
+				currentObjects[j].pushTowardsOrigin(0.01f * boxLength);
+		}
+		const bool& collisionExempt = _record.get(i, j);
+		if (i != 0 && currentObjects[i].testIntersect(currentObjects[j])) {
+			// Two colliding objects are exempt from collision until they have been observed not colliding for at least one frame
+			if (!collisionExempt) {
+				GameObject::addCollision(currentObjects[i], currentObjects[j], _globalFriction);
+				_record.set(i, j);
+			}
+		}
+		else {
+			_record.clear(i, j);
+		}
+	}
+```
+Finally, floating point and integration errors are compensated for by keeping the sum of all kinetic and potential energy in the scene constant.
+```C++
+void ScenarioManager::stabilizeEnergy(bool invertedGravity) {
+	const std::vector<GameObject>& objects = currentScene().getObjects();
+	const ObjectPresets& boxPreset = currentScene().getObjectPresets()[0];
+
+	const float currentEnergy = calculateEnergy(invertedGravity);
+	const float difference = currentEnergy - _idealEnergy;
+
+	if (difference <= -0.05 * _idealMomentum)
+		_globalFriction = -0.05f;
+	else if (difference >= 0.05 * _idealMomentum)
+		_globalFriction = 0.05f;
+	else
+		_globalFriction = 0.00f;
 }
 ```
