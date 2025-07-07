@@ -1,6 +1,6 @@
 # Codebase Structure
 Most of the functionality is in the form of classes seperated into header and .cpp files. There is also a .pch file that greatly speeds up compilation, a .fx file for vertex and pixel shaders, and a static library for most of the vectorised physics maths.
-![Alt text](code_structure)
+![Alt text](code_structure.png)
 This project exhibits much better object oriented design than the 2.5D platformer, and encapsulates each thread to minimise the potential for race conditions. </br>
 Something worth noting is the heavy use of singletons that seemingly damages encapsulation. At the time I was not aware that singletons are primarily used 
 as global variables, and I instead used them to emphasise that instantiating more than 1 of each would fundamentally undermine the purpose of the class.
