@@ -8,4 +8,4 @@ The goal of this project was to create a neural network with random weights and 
 5. Train the neural network via reinforcement learning
 6. Evaluate the trained network and compare to human gameplay
 
-As of 9th June, 2025, this project is still in development, expected to finish in early September 2025.
+As of 7th July, 2025, this project is still in development, expected to finish in early September 2025.

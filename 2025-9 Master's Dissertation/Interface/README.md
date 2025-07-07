@@ -1,8 +1,8 @@
 # Game Interface
-As the game has already been thoroughly tested and part of the goal of the project is to change it as little as possible, I developed a server/client architecture to isolate the game from my code. The client runs as a .dll inside of Awaria.exe, and communicates via pipes with an external application.
-
-The external application contains the neural network and training algorithm, and is implemented in C++ rather than C#. This is just so that I can code in a familiar environment.
-
-The client is expected to send game state data (e.g. player position) to the server, while the server is expected to send inputs. As of 9th June, only the inputs have been implemented, and the communication is thus one way.
-
-![one way server client](https://github.com/user-attachments/assets/b7002a8d-ce3d-415a-b0d0-7235de3b38bc)
+The purpose of the game interface is to autonomously send control inputs to Awaria.exe from another application while getting game state updates in return each frame.
+Ideally the implementation would also modify the game to the least extent possible, both for ease of programming and to minimise the risk of altering the gameplay.
+This was accomplished by creating a .dll file to run in Awaria.exe, which contained a class with a variety of setter functions, and 1 getter function for the control inputs.
+The game code was then modified to call the setter functions periodically to update the .dll's 230 byte representation of the current frame's game state.
+As the game's state is decentralised in the game code, this unfortunately did require modification of many different files, and not always in the same way.
+However, despite the extensive modification, the .dll and modifications are still not capable of directly changing the game state.
+![](Interface_Diagram)
