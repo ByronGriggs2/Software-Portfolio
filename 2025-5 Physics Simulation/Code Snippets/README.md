@@ -36,7 +36,7 @@ public:
 }
 ```
 ## Improved mesh creation
-This project does away with the .obj files entirely, and instead creats the vertex and index lists for each GameObject whenever a scene is loaded. </br>
+This project does away with the .obj files entirely, and instead creates the vertex and index lists for each GameObject whenever a scene is loaded. </br>
 The best example to showcase this is the parameterised constructor for GameObject, which sets its vertex and index lists (_geometry) to a value given 
 by GeometryGenerator. The creation of vertex and index buffers is done later, but typically right after the construction.
 ```C++
@@ -184,7 +184,7 @@ bool Intersect::testIntersect(const Capsule& c1, const Capsule& c2) {
 }
 ```
 # Multithreading
-The simulation runs in 4 threads: main, render, physics, and network. The main thread handles communication with Windows, the render thread
+The simulation runs in 4 threads: main, render, physics, and network. The main thread handles communication with Windows. The render thread
 handles user inputs and uses transformation matrices, vertex and index buffers, and DirectX11 3D to draw each object. The physics thread moves objects,
 thereby chaging their transformation matrices, as well as detecting collisions and applying forces to objects. The network thread unfortunately does nothing of note, due to time constraints. </br>
 The 4 threads run asynchronously and do not pause execution to wait for another thread unless accessing shared memory.
@@ -195,7 +195,82 @@ The two main members of SharedMemory are
 _ImGuiState and _globalObjects. _ImGuiState is really just the current settings of the simulator, such as simulation timestep or integration type.
 _globalObjects is a structure containing each object in the scene, but uses the significantly lighter weight GlobalObjectStruct rather than 
 GameObject, which notably does not include the vertex and index lists/buffers, and is much more efficient to regularly copy and move around.
+```C++
+// For each thread loop, the thread is expected to lock ALL of the shared memory, copy to its cache, unlock, do calculations, lock, and write to cache (and unlock)
+class SharedMemory final {
+	SharedMemory();
+public:
+	SharedMemory(SharedMemory&) = delete;
+	SharedMemory(SharedMemory&&) = delete;
+	SharedMemory& operator=(const SharedMemory&) = delete;
+	SharedMemory& operator=(const SharedMemory&&) = delete;
+	static std::shared_ptr<SharedMemory> getInstance() {
+		static std::shared_ptr<SharedMemory> instance(new SharedMemory);
+		return instance;
+	}
+	std::mutex _mx;
 
+	// This is prepared by the render and network loops and used to initilize the physics loop.
+	struct SimulationInitStruct {
+		// Supposedly the device is threadsafe
+		CComPtr <ID3D11Device> _device;
+		std::atomic<bool> _renderDone = false;
+		helpers::peerColor _peerColor;
+		std::atomic<bool> _networkDone = false;
+	};
+	SimulationInitStruct _simInit;
+
+// Reset controls
+// These may only be set to false by the thread that performs the reset
+	// This indicates that a reset was input on the local machine
+		// only network may set this to false (not enforced)
+	bool _resetPeers = false;
+
+	// These are for resetting individual threads locally
+		// only render may set this to false (not enforced). Also, only physics may set it to true
+	bool _renderReset = false;
+		// only physics may set this to false (not enforced)
+	bool _physicsReset = false;
+		// only network may set this to false (not enforced)
+	bool _networkReset = false;
+/////////
+ 
+	////////////////////////
+	// These members are organized by what threads need to copy them at the start of their loop
+	////////////////////////
+	// Physics thread (none)
+
+	// Render thread
+	float _actualSimulationSpeed = 200.0f;
+	float _actualNetworkSpeed = 20.0f;
+	DirectX::XMVECTOR _cameraPosition = DirectX::XMVectorSet(0, 1.0f, -1.5f, 1.0f);
+	DirectX::XMVECTOR _lightPosition = DirectX::XMVectorSet(0, 1000, 0, 1);
+private:
+	float _backgroundColor[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+public:
+	void getBackgroundColor(std::shared_ptr<float[]>& colorToSet) const {
+		for (auto i = 0; i < 4; i++) {
+			colorToSet.get()[i] = _backgroundColor[i];
+		}
+	}
+	void setbackgroundColor(const float* backgroundColor) {
+		for (auto i = 0; i < 4; i++) {
+			_backgroundColor[i] = backgroundColor[i];
+		}
+	}
+
+	// Network thread (none)
+
+	// All 3 thread types
+	NetCompatibleImGuiState _ImGuiState;
+
+	// Red, yellow, green, blue
+	// The physics thread can read and write this computer's color. It doesn't need to see the other colors.
+	// The render and network thread can only read all 4 colors
+	//ObjectColorStruct _objectData[4];
+	std::vector<GlobalObjectStruct> _globalObjects[4] = {};
+};
+```
 # Render loop
 Here you can see the main runtime loop of the render thread, which uses vertex/index buffers created during initialisation and transformation
 matrices calculated by the physics thread along with DirectX11 3D to render each object in the scene. </br>
@@ -273,7 +348,7 @@ void PhysicsSimulation::simLoop() {
 	sleepUntilNextFrame();
 }
 ```
-This loop is where the majority of the physics calculations take place, and you may notice that objects are prevented from sticking together
+This loop in ScenarioManager is where the majority of the physics calculations take place, and you may notice that objects are prevented from sticking together
 via a "collision exemption list" rather than a backstep. I found that this worked much better for multiple collisions in rapid succession. Objects
 out of bounds are also always immediately pushed towards the origin, so that even high velocity objects at a large time step will always stay in bounds.
 ```C++
