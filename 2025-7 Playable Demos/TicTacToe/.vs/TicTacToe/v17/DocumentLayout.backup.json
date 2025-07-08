@@ -41,10 +41,10 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Tools\\MSVC\\14.43.34808\\include\\xstring||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B19F7B42-9ABB-4A48-8B28-E6D4765FF23E}|TicTacToe.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\ENTERPRISE\\VC\\TOOLS\\MSVC\\14.43.34808\\INCLUDE\\MEMORY||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Tools\\MSVC\\14.43.34808\\include\\exception||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Tools\\MSVC\\14.43.34808\\include\\exception||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Tools\\MSVC\\14.43.34808\\include\\memory||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -56,6 +56,10 @@
           "DockedWidth": 200,
           "SelectedChildIndex": 9,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -75,8 +79,8 @@
               "Title": "AI.cpp",
               "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Software-Portfolio\\2025-7 Playable Demos\\TicTacToe\\AI.cpp",
               "RelativeDocumentMoniker": "AI.cpp",
-              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Software-Portfolio\\2025-7 Playable Demos\\TicTacToe\\AI.cpp*",
-              "RelativeToolTip": "AI.cpp*",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Software-Portfolio\\2025-7 Playable Demos\\TicTacToe\\AI.cpp",
+              "RelativeToolTip": "AI.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-08T07:37:10.917Z",
@@ -101,8 +105,8 @@
               "Title": "AI.h",
               "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Software-Portfolio\\2025-7 Playable Demos\\TicTacToe\\AI.h",
               "RelativeDocumentMoniker": "AI.h",
-              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Software-Portfolio\\2025-7 Playable Demos\\TicTacToe\\AI.h*",
-              "RelativeToolTip": "AI.h*",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Software-Portfolio\\2025-7 Playable Demos\\TicTacToe\\AI.h",
+              "RelativeToolTip": "AI.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-07-08T07:31:58.344Z",
@@ -136,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "memory",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Tools\\MSVC\\14.43.34808\\include\\memory",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Tools\\MSVC\\14.43.34808\\include\\memory",
@@ -159,10 +163,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-07-08T07:32:40.861Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
             },
             {
               "$type": "Document",
@@ -205,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "exception",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Tools\\MSVC\\14.43.34808\\include\\exception",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Tools\\MSVC\\14.43.34808\\include\\exception",

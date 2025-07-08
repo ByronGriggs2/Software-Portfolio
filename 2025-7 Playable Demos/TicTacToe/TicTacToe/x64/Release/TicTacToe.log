@@ -1,10 +1,1 @@
-﻿  AI.cpp
-  Game.cpp
-  GameBoard.cpp
-  TicTacToe.cpp
-  Generating code
-  136 of 237 functions (57.4%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    16 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  TicTacToe.vcxproj -> C:\Users\Byron\Documents\GitHub\Software-Portfolio\2025-7 Playable Demos\TicTacToe\x64\Release\TicTacToe.exe
+﻿
