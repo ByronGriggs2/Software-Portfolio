@@ -3,18 +3,25 @@
 
 constexpr int HEIGHT = 4;
 constexpr int WIDTH = 4;
-constexpr double BUILDING_STRENGTH = 1577.72 * 2.99;
+
+constexpr double level7BoostStrength = 1.88578;
+constexpr double level7BoostCost = 1e9;
+constexpr double level8BoostStrength = 1.97436;
+constexpr double level8BoostCost = 1e10;
+constexpr double buildingMatMultiplier = 6.19;
+
+constexpr double BUILDING_STRENGTH = 1577.72 * buildingMatMultiplier;
 constexpr double BUILDING_UPGRADE_COST = 1.29e9;
 constexpr double BATTLE_INPUT = 969.35;
 constexpr double BATTLE_STRENGTH = 1007.69;
 constexpr double BATTLE_UPGRADE_COST = 3.2e8;
-constexpr double BOOST_STRENGTH = 1.80526;
-constexpr double BOOST_UPGRADE_COST = 1e9;
+constexpr double BOOST_STRENGTH = level7BoostStrength;
+constexpr double BOOST_UPGRADE_COST = level8BoostCost;
 
 constexpr double NEXT_LEVEL_BUILDING_STRENGTH = 1972.15;
 constexpr double NEXT_LEVEL_BATTLE_INPUT = 1211.69;
 constexpr double NEXT_LEVEL_BATTLE_STRENGTH = 1310.0;
-constexpr double NEXT_LEVEL_BOOST_STRENGTH = 1.88578;
+constexpr double NEXT_LEVEL_BOOST_STRENGTH = level8BoostStrength;
 
 class Base1 final : public Base
 {

@@ -29,12 +29,10 @@ int main()
 		cout << "To exit, enter 'Q'" << endl;
 		cout << "Example: B 3.1415e7" << endl;
 		string line;
-		cin >> line;
-		std::istringstream iss(line);
 		char option;
 		double currentCash;
-		iss >> option;
-		iss >> currentCash;
+		cin >> option;
+		cin >> currentCash;
 
 		if (option == 'Q') {
 			return 0;
@@ -47,6 +45,8 @@ int main()
 			cin.clear();
 			cin.ignore(100, '\n');
 			cin >> option;
+			cin.clear();
+			cin.ignore(100, '\n');
 			continue;
 		}
 		else if (option == 'C') {
@@ -57,6 +57,8 @@ int main()
 			cin.clear();
 			cin.ignore(100, '\n');
 			cin >> option;
+			cin.clear();
+			cin.ignore(100, '\n');
 			continue;
 		}
 	}
