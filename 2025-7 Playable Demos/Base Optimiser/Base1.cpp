@@ -1,18 +1,49 @@
 #include "Base1.h"
+#ifdef _DEBUG
+#include <iostream>
+#endif
 
 using std::vector;
+
+Base1::Base1(int buildingLevel, int boostLevel, int battleLevel) :
+    _buildingStrength(0.8 * pow(1.25, buildingLevel) * BUILDING_MAT_MULTIPLIER),
+    _buildingCost(809.41085281 * pow(1.50387596899,buildingLevel)),
+    _boostStrength(1.27951459663 * pow(1.0569726055, boostLevel)),
+    _boostCost(100 * pow(10.0, boostLevel + 1)),
+    _battleInput(1.2 * pow(1.25, battleLevel)),
+    _battleStrength(0.5 * pow(1.3, battleLevel - 1) * BATTLE_COMP_MULTIPLIER),
+    _battleCost(1668.75* pow(1.5, battleLevel)),
+    _nextBuildingStrength(0.8 * pow(1.25, buildingLevel + 1) * BUILDING_MAT_MULTIPLIER),
+    _nextBoostStrength(1.27951459663 * pow(1.0569726055, boostLevel + 1)),
+    _nextBattleInput(1.2 * pow(1.25, battleLevel + 1)),
+    _nextBattleStrength(0.5 * pow(1.3, battleLevel) * BATTLE_COMP_MULTIPLIER)
+{
+    // These are either holes in the grid or tiles the player hasn't bought yet. Haven't yet implemented a way for the user to specify what tiles they have bought, these are just for me and my current game
+    _grid = vector<vector<elemType>>(HEIGHT, std::vector<elemType>(WIDTH, building));
+    _grid[0][2] = blank;
+    _grid[2][3] = blank;
+    _grid[3][1] = blank;
+    _grid[3][2] = blank;
+    _grid[3][3] = blank;
+}
 
 vector<vector<Base1::elemType>> Base1::optimizeBuildingMats() const {
     OptimizationResult result(_grid);
     vector<vector<elemType>> workingVector = _grid;
-    maxBuildingMaterials(0, 0, workingVector, result);
+    maxBuildingMaterials(0, 0, workingVector, result, _buildingStrength, _boostStrength);
+#ifdef _DEBUG
+    std::cout << "Optimal output: " << result._value << std::endl;
+#endif
     return result._optimizedGrid;
 }
 
 vector<vector<Base1::elemType>> Base1::optimizeBattleComponents() const {
     OptimizationResult result(_grid);
     vector<vector<elemType>> workingVector = _grid;
-    maxBattleComponents(0, 0, workingVector, result);
+    maxBattleComponents(0, 0, workingVector, result, _buildingStrength, _boostStrength, _battleInput, _battleStrength);
+#ifdef _DEBUG
+    std::cout << "Optimal output: " << result._value << std::endl;
+#endif
     return result._optimizedGrid;
 }
 
@@ -126,19 +157,22 @@ double Base1::calculateBaseYield(const vector<vector<Base1::elemType>>& base, Ba
 // (time to afford + time to pay for itself).
 Base1::elemType Base1::optimalUpgradeBuildingMats(double currentCash) const {
     vector<vector<elemType>> workingVector = _grid;
-    auto getOptimalIncome = [this, &workingVector](double buildingStrength = BUILDING_STRENGTH, double boostStrength = BOOST_STRENGTH) {
+    auto getOptimalIncome = [this, &workingVector](double buildingStrength, double boostStrength) {
         OptimizationResult result(_grid);
         maxBuildingMaterials(0, 0, workingVector, result, buildingStrength, boostStrength);
         return result._value;
         };
 
-    const double currentIncome = getOptimalIncome();
+    const double currentIncome = getOptimalIncome(_buildingStrength, _boostStrength);
 
-    const double buildingUpgradeIncome = getOptimalIncome(NEXT_LEVEL_BUILDING_STRENGTH, BOOST_STRENGTH);
-    const double paybackPeriodBuilding = (BUILDING_UPGRADE_COST - currentCash) / currentIncome + BUILDING_UPGRADE_COST / buildingUpgradeIncome;
+    const double buildingUpgradeIncome = getOptimalIncome(_nextBuildingStrength, _boostStrength);
+    const double paybackPeriodBuilding = (_buildingCost - currentCash) / currentIncome + _buildingCost / buildingUpgradeIncome;
 
-    const double boostUpgradeIncome = getOptimalIncome(BUILDING_STRENGTH, NEXT_LEVEL_BOOST_STRENGTH);
-    const double paybackPeriodBoost = (BOOST_UPGRADE_COST - currentCash) / currentIncome + BOOST_UPGRADE_COST / boostUpgradeIncome;
+    const double boostUpgradeIncome = getOptimalIncome(_buildingStrength, _nextBoostStrength);
+    const double paybackPeriodBoost = (_boostCost - currentCash) / currentIncome + _boostCost / boostUpgradeIncome;
+#ifdef _DEBUG
+    std::cout << "New income will be" << (buildingUpgradeIncome > boostUpgradeIncome ? buildingUpgradeIncome : boostUpgradeIncome) << std::endl;
+#endif
 
     return paybackPeriodBuilding < paybackPeriodBoost ? building : boost;
 }
@@ -148,7 +182,7 @@ Base1::elemType Base1::optimalUpgradeBuildingMats(double currentCash) const {
 // Does not look more than 1 upgrade ahead.
 Base1::elemType Base1::optimalUpgradeBattleComponents(double currentCash) const {
     vector<vector<elemType>> workingVector = _grid;
-    auto getOptimalIncome = [this, &workingVector](elemType type, double buildingStrength = BUILDING_STRENGTH, double boostStrength = BOOST_STRENGTH, double battleInput = BATTLE_INPUT, double battleStrength = BATTLE_STRENGTH) {
+    auto getOptimalIncome = [this, &workingVector](elemType type, double buildingStrength, double boostStrength, double battleInput, double battleStrength) {
         OptimizationResult result(_grid);
         if (type == building)
             maxBuildingMaterials(0, 0, workingVector, result, buildingStrength, boostStrength);
@@ -157,16 +191,16 @@ Base1::elemType Base1::optimalUpgradeBattleComponents(double currentCash) const 
         return result._value;
         };
 
-    const double currentIncome = getOptimalIncome(building);
-    const double currentBattleIncome = getOptimalIncome(battle);
+    const double currentIncome = getOptimalIncome(building, _buildingStrength, _boostStrength, _battleInput, _battleStrength);
+    const double currentBattleIncome = getOptimalIncome(battle, _buildingStrength, _boostStrength, _battleInput, _battleStrength);
 
-    const double buildingUpgradeBattleIncome = getOptimalIncome(battle, NEXT_LEVEL_BUILDING_STRENGTH, BOOST_STRENGTH, BATTLE_INPUT, BATTLE_STRENGTH);
-    const double boostUpgradeBattleIncome = getOptimalIncome(battle, BUILDING_STRENGTH, NEXT_LEVEL_BOOST_STRENGTH, BATTLE_INPUT, BATTLE_STRENGTH);
-    const double battleUpgradeBattleIncome = getOptimalIncome(battle, BUILDING_STRENGTH, BOOST_STRENGTH, NEXT_LEVEL_BATTLE_INPUT, NEXT_LEVEL_BATTLE_STRENGTH);
+    const double buildingUpgradeBattleIncome = getOptimalIncome(battle, _nextBuildingStrength, _boostStrength, _battleInput, _battleStrength);
+    const double boostUpgradeBattleIncome = getOptimalIncome(battle, _buildingStrength, _nextBoostStrength, _battleInput, _battleStrength);
+    const double battleUpgradeBattleIncome = getOptimalIncome(battle, _buildingStrength, _boostStrength, _nextBattleInput, _nextBattleStrength);
 
-    const double affordTimeBuilding = (BUILDING_UPGRADE_COST - currentCash) / currentIncome;
-    const double affordTimeBoost = (BOOST_UPGRADE_COST - currentCash) / currentIncome;
-    const double affordTimeBattle = (BATTLE_UPGRADE_COST - currentCash) / currentIncome;
+    const double affordTimeBuilding = (_buildingCost - currentCash) / currentIncome;
+    const double affordTimeBoost = (_boostCost - currentCash) / currentIncome;
+    const double affordTimeBattle = (_battleCost - currentCash) / currentIncome;
 
     const double opportunityCostBuilding = affordTimeBuilding * currentBattleIncome;
     const double opportunityCostBoost = affordTimeBoost * currentBattleIncome;
@@ -176,9 +210,20 @@ Base1::elemType Base1::optimalUpgradeBattleComponents(double currentCash) const 
     const double paybackPeriodBoost = affordTimeBoost + (opportunityCostBoost / boostUpgradeBattleIncome);
     const double paybackPeriodBattle = affordTimeBattle + (opportunityCostBattle / battleUpgradeBattleIncome);
 
-    if (paybackPeriodBuilding < paybackPeriodBoost && paybackPeriodBuilding < paybackPeriodBattle)
+    if (paybackPeriodBuilding < paybackPeriodBoost && paybackPeriodBuilding < paybackPeriodBattle) {
+#ifdef _DEBUG
+        std::cout << "New income will be " << buildingUpgradeBattleIncome << std::endl;
+#endif
         return building;
-    if (paybackPeriodBoost < paybackPeriodBuilding && paybackPeriodBoost < paybackPeriodBattle)
+    }
+    if (paybackPeriodBoost < paybackPeriodBuilding && paybackPeriodBoost < paybackPeriodBattle) {
+#ifdef _DEBUG
+        std::cout << "New income will be " << boostUpgradeBattleIncome << std::endl;
+#endif
         return boost;
+    }
+#ifdef _DEBUG
+    std::cout << "New income will be " << battleUpgradeBattleIncome << std::endl;
+#endif
     return battle;
 }
