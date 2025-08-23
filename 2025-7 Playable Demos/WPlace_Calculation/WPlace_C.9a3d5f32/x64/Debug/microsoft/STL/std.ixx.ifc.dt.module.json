@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "WPlace_C.9a3d5f32\\x64\\Debug\\microsoft\\STL\\std.obj",
+            "outputs": [
+                "WPlace_C.9a3d5f32\\x64\\Debug\\microsoft\\STL\\std.ixx.ifc.dt.module.json",
+                "WPlace_C.9a3d5f32\\x64\\Debug\\microsoft\\STL\\std.ixx.ifc.dt.d.json",
+                "WPlace_C.9a3d5f32\\x64\\Debug\\microsoft\\STL\\std.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "std",
+                    "source-path": "c:\\program files\\microsoft visual studio\\2022\\enterprise\\vc\\tools\\msvc\\14.43.34808\\modules\\std.ixx",
+                    "is-interface": true
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
