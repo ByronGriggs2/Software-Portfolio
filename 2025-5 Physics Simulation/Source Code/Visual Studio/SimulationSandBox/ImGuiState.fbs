@@ -1,0 +1,30 @@
+namespace net;
+
+enum IntegrationType : int {
+	euler = 0,
+	semi_euler = 1
+}
+
+struct Matrix4x4ImGui{
+	m: [float:16];
+}
+
+table ImGuiState {
+	requesting_reset : bool;
+	new_data : bool;
+
+	target_render_frequency : int;
+	target_simulation_frequency : int;
+	target_network_frequency : int;
+	current_scenario_index : int;
+	paused : bool;
+	gravity_on : bool;
+	gravity_inverted : bool;
+	timestep : float;
+	background_color : [float];
+	integration_type : IntegrationType;
+	camera_position_offset : [float];
+	camera_rotation_offset : Matrix4x4ImGui;
+}
+
+root_type ImGuiState;

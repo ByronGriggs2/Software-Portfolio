@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{eb41e885-a59d-46df-a0ce-c6394b74ff47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main Thread">
+      <UniqueIdentifier>{36b6f784-6f6b-432e-948c-94e413185ee5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render Thread">
+      <UniqueIdentifier>{9d7eb504-aefc-47a8-b82b-af61f2767b52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics Thread">
+      <UniqueIdentifier>{2b67acac-d4d4-4fea-b5c7-8808aef47866}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Physics Thread\Scenarios">
+      <UniqueIdentifier>{c75ce183-4984-4f2c-8298-07c66b4836cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared Memory">
+      <UniqueIdentifier>{0528461e-cc13-4c6e-8bb7-7adfa9a85894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Unused/Admin">
+      <UniqueIdentifier>{05cbd41f-74bc-430a-a705-53f29df498c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Unused/Admin\Lab 4">
+      <UniqueIdentifier>{57292e61-6358-4368-9ea5-962d0bdd84e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Networking Thread">
+      <UniqueIdentifier>{0f6f5f64-bffc-4c8c-923c-750a2446fe98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Networking Thread\Socket Classes">
+      <UniqueIdentifier>{c293a9d4-76aa-49db-a740-de1e3ebdcfc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{4efc2a4b-aa9e-4049-9ac8-b076fab93d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared Memory\NetworkCompatibleGameObject">
+      <UniqueIdentifier>{f923b9af-0340-4074-afa2-5bfcf355f5f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Libraries">
+      <UniqueIdentifier>{a14f0ac0-e1df-43b3-8574-7ecf36ae4240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared Memory\DistributedImGuiState">
+      <UniqueIdentifier>{663a5602-11cf-4391-b40a-c25e8d07c1a5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Scenario.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioA.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioB.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab4_Q2A.cpp">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab4_Q1.cpp">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab4_Q2B.cpp">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab4_Q2C.cpp">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab4_Q2D.cpp">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab4_Q3A.cpp">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab4_Q3B.cpp">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab4_Q3C.cpp">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab4_Q3D.cpp">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectSpawner.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioC.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioD.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioMeshTest.cpp">
+      <Filter>Resources\Unused/Admin</Filter>
+    </ClCompile>
+    <ClCompile Include="GenerateObj.cpp">
+      <Filter>Resources\Unused/Admin</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadObj.cpp">
+      <Filter>Resources\Unused/Admin</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GeometryGenerator.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedMemory.cpp">
+      <Filter>Shared Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadManager.cpp">
+      <Filter>Main Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulation.cpp">
+      <Filter>Main Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="AdvancedSetup.cpp">
+      <Filter>Render Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DFramework.cpp">
+      <Filter>Render Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiHandler.cpp">
+      <Filter>Render Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioManager.cpp">
+      <Filter>Physics Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSimulation.cpp">
+      <Filter>Physics Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPPeer.cpp">
+      <Filter>Networking Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkManager.cpp">
+      <Filter>Networking Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="UDPBroadcastSend.cpp">
+      <Filter>Networking Thread\Socket Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="UDPBroadcastReceive.cpp">
+      <Filter>Networking Thread\Socket Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPStreamingSocket.cpp">
+      <Filter>Networking Thread\Socket Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPListeningSocket.cpp">
+      <Filter>Networking Thread\Socket Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectGeometry.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SingletonReferences.cpp">
+      <Filter>Main Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioVector.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="peerColor.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPresets.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="NetCompatibleGameObject.cpp">
+      <Filter>Shared Memory\NetworkCompatibleGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\DDS\DDSTextureLoader.cpp">
+      <Filter>Resources\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\ImGui\imgui.cpp">
+      <Filter>Resources\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\ImGui\imgui_impl_dx11.cpp">
+      <Filter>Resources\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\ImGui\imgui_impl_win32.cpp">
+      <Filter>Resources\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\ImGui\imgui_widgets.cpp">
+      <Filter>Resources\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\ImGui\imgui_tables.cpp">
+      <Filter>Resources\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\ImGui\imgui_stdlib.cpp">
+      <Filter>Resources\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\ImGui\imgui_demo.cpp">
+      <Filter>Resources\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libraries\ImGui\imgui_draw.cpp">
+      <Filter>Resources\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="NetCompatibleImGuiState.cpp">
+      <Filter>Shared Memory\DistributedImGuiState</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioE.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioF.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioG.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioH.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioI.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioC2.cpp">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenario.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioA.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioB.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="Lab4_Q2A.h">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Lab4_Q1.h">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioVector.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="Lab4_Q2B.h">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Lab4_Q2C.h">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Lab4_Q2D.h">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Lab4_Q3A.h">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Lab4_Q3B.h">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Lab4_Q3C.h">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Lab4_Q3D.h">
+      <Filter>Resources\Unused/Admin\Lab 4</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectSpawner.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioC.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioD.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerateObj.h">
+      <Filter>Resources\Unused/Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadObj.h">
+      <Filter>Resources\Unused/Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioMeshTest.h">
+      <Filter>Resources\Unused/Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectGeometry.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GeometryGenerator.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedMemory.h">
+      <Filter>Shared Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonReferences.h">
+      <Filter>Main Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadManager.h">
+      <Filter>Main Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="AdvancedSetup.h">
+      <Filter>Render Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DFramework.h">
+      <Filter>Render Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiHandler.h">
+      <Filter>Render Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioManager.h">
+      <Filter>Physics Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSimulation.h">
+      <Filter>Physics Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkManager.h">
+      <Filter>Networking Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="UDPBroadcastSend.h">
+      <Filter>Networking Thread\Socket Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="UDPBroadcastReceive.h">
+      <Filter>Networking Thread\Socket Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPStreamingSocket.h">
+      <Filter>Networking Thread\Socket Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPListeningSocket.h">
+      <Filter>Networking Thread\Socket Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="structs.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="peerColor.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="socketTest.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="filepathHelpers.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPresets.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="PtrPreset.h">
+      <Filter>Render Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject_generated.h">
+      <Filter>Shared Memory\NetworkCompatibleGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="NetCompatibleGameObject.h">
+      <Filter>Shared Memory\NetworkCompatibleGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="NetCompatibleImGuiState.h">
+      <Filter>Shared Memory\DistributedImGuiState</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiState_generated.h">
+      <Filter>Shared Memory\DistributedImGuiState</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioE.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioF.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioG.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioH.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioI.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionExemptionRecord.h">
+      <Filter>Physics Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioC2.h">
+      <Filter>Physics Thread\Scenarios</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Simulation_PS.hlsl">
+      <Filter>Render Thread</Filter>
+    </FxCompile>
+    <FxCompile Include="Simulation_VS.hlsl">
+      <Filter>Render Thread</Filter>
+    </FxCompile>
+    <FxCompile Include="Simulation.fx">
+      <Filter>Render Thread</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TCPPeer.h">
+      <Filter>Networking Thread</Filter>
+    </None>
+    <None Include="GameObject.fbs">
+      <Filter>Shared Memory\NetworkCompatibleGameObject</Filter>
+    </None>
+    <None Include="ImGuiState.fbs">
+      <Filter>Shared Memory\DistributedImGuiState</Filter>
+    </None>
+  </ItemGroup>
+</Project>

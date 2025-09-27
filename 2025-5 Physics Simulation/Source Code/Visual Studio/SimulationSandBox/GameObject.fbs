@@ -1,0 +1,50 @@
+namespace net;
+
+table SimpleVertex {
+	pos: [float];
+	norm: [float];
+	tex: [float];
+}
+
+table BufferData {
+	vertex_data: [SimpleVertex];
+	index_data: [ushort];
+}
+
+enum ObjType : int {
+	capsule = 0,
+	cylinder = 1,
+	hollowCube = 2,
+	plane = 3, 
+	sphere = 4,
+	physObj = 5
+}
+
+struct Matrix4x4{
+	m: [float:16];
+}
+
+enum StaticPtrPreset : int {
+	def = 0,
+	texture = 1
+}
+
+enum PeerColor : int {
+	undef = 0,
+	red = 1,
+	yellow = 2,
+	green = 3,
+	blue = 4
+}
+
+table GameObject {
+	uid : int;
+	type : ObjType;
+	orientation: Matrix4x4;
+	ptr_type : StaticPtrPreset;
+	index_count : int;
+	color : PeerColor;
+	buffer : BufferData;
+}
+
+root_type GameObject;

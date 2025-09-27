@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Constructions">
+      <UniqueIdentifier>{641f2cd7-4c7e-4696-9570-4334cd924dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsObjects">
+      <UniqueIdentifier>{fc2d18e5-93b0-4607-9485-08a19a2abe90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{f820d13d-c780-4553-8d0f-fae3b79421ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unused/testlib">
+      <UniqueIdentifier>{c4ddf80e-7778-47a3-ae01-0ba0fd8599ac}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="shapeHelpers.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="LineSegment.h">
+      <Filter>Constructions</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Constructions</Filter>
+    </ClInclude>
+    <ClInclude Include="definitions.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="Capsule.h">
+      <Filter>PhysicsObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HollowCube.h">
+      <Filter>PhysicsObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObject.h">
+      <Filter>PhysicsObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>PhysicsObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>PhysicsObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObjectCollisionHelper.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Intersect.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="staticPch.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="staticFramework.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="NotImplementedException.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObjectTestHelper.h">
+      <Filter>Unused/testlib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Line.cpp">
+      <Filter>Constructions</Filter>
+    </ClCompile>
+    <ClCompile Include="LineSegment.cpp">
+      <Filter>Constructions</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationLib.cpp">
+      <Filter>Unused/testlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Capsule.cpp">
+      <Filter>PhysicsObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HollowCube.cpp">
+      <Filter>PhysicsObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>PhysicsObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObject.cpp">
+      <Filter>PhysicsObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>PhysicsObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Intersect.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="staticPch.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObjectTestHelper.cpp">
+      <Filter>Unused/testlib</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObjectCollisionHelper.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

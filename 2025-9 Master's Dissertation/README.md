@@ -11,8 +11,8 @@ below. "networkTest" is the only mode that will function without installing and 
 The source code for this project is located in the following folders:
 DLL_Mod (AwariaInterface.dll)
 Main_Application2
-vsdecompile (modified Assembly-CSharp.dll)
-//////////////////////////////////////////////////////////////////////
+vsdecompile (modified Assembly-CSharp.dll) </br>
+////////////////////////////////////////////////////////////////////// </br>
 For the system to function, Awaria must be modded. To mod Awaria with the provided code there are 2 options:
 
 A. (Direct overwrite, Recommended) 
@@ -22,8 +22,8 @@ A. (Direct overwrite, Recommended)
 B. (Using source code)
 	1. Install Steam and install Awaria (free).
 	2. Build the VS solutions found in DLL_Mod and vsdecompile.
-	3. Run the pushMod batch script.
-/////////////////////////////////////////////////////////////////////
+	3. Run the pushMod batch script. </br>
+///////////////////////////////////////////////////////////////////// </br>
 Once Awaria has been modded, MainApplication2.exe can be compiled via its Visual Studio solution and launched with any of the valid command line arguments in "Main Application2.cpp". It is recommended to launch the application via Visual Studio by specifying command line arguments in [Main Application2]->[Properties]->[Configuration Properties]->[Debugging]. Release mode is recommended.
 
 The important command line arguments for the system are as follows:
