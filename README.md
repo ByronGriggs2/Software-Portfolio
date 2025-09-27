@@ -6,6 +6,6 @@ degree. For an example of a more gameplay focused commercially viable game, you 
 
 # Biography
 I completed my undergraduate degree in Computer Engineering in 2023 at the University of Nevada, Las Vegas. I expect to complete my graduate degree in Computer Games Programming with a
-distinction in 2026 at the University of Hull, UK. </br>
+distinction in 2026 at the University of Hull, UK. </br> </br>
 My graduate programme primarily focused on high performance engineless/custom engine C++ programming and DirectX11. Having seen that companies are looking for developers experienced in 
 engines such as Unreal and Unity, I'm currently learning to work with such engines full time. To learn these engines, I am (slowly) using them to create new games, which you can find on my itch.io: https://nauphy.itch.io/
