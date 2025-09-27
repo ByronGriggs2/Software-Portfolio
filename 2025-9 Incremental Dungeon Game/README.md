@@ -6,4 +6,4 @@ Incremental Dungeon Game is definitely a working title, but I kind of like it, a
 other text or UI based incremental games like Your Chronicle, Idling to Rule The Gods, Magic Research, and Untitled Space Sim. I hope to make this game stand out
 by placing less focus on prestige and much more focus on simultaneous party based combat. Combat is to be a 5v5 autobattler with customisable ability rotations. </br> </br> 
 
-Every time I release a new version of the game on itch.io, I will update the source code in this repository. The application itself is too large to upload to GitHub.
+Every time I release a new version of the game on itch.io, I will update the source code and application in this repository.
