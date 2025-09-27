@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://dstnsfwjs1sa"]
+
+[ext_resource type="Texture2D" uid="uid://b3sqqlv8cob34" path="res://Images/triangle.svg" id="1_k56po"]
+[ext_resource type="Texture2D" uid="uid://b72sn464q8khi" path="res://Images/triangle/trianglePressed.svg" id="2_2djdv"]
+[ext_resource type="Texture2D" uid="uid://d0hv0563tepsa" path="res://Images/triangle/triangleHover.svg" id="3_08jnk"]
+[ext_resource type="Texture2D" uid="uid://bbd3fx07r838g" path="res://Images/triangle/triangleDisable.svg" id="4_ijcte"]
+[ext_resource type="BitMap" uid="uid://btsnppjb3pttd" path="res://Images/triangle/triangleClickMap.png" id="5_ke21t"]
+
+[node name="triangleButton" type="TextureButton"]
+anchors_preset = -1
+offset_left = -200.0
+offset_top = -231.0
+pivot_offset = Vector2(200, 231)
+texture_normal = ExtResource("1_k56po")
+texture_pressed = ExtResource("2_2djdv")
+texture_hover = ExtResource("3_08jnk")
+texture_disabled = ExtResource("4_ijcte")
+texture_click_mask = ExtResource("5_ke21t")

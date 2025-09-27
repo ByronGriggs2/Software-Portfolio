@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Assembly-CSharp</RootNamespace>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AstarPathfindingProject">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\AstarPathfindingProject.dll</HintPath>
+    </Reference>
+    <Reference Include="AwariaInterface">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\AwariaInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="com.rlabrecque.steamworks.net">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\com.rlabrecque.steamworks.net.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>..\..\Awaria_Data\Managed\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Awaria\Awaria_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AiScript.cs" />
+    <Compile Include="AnimSoundScript.cs" />
+    <Compile Include="AparatusScript.cs" />
+    <Compile Include="AppearAnimation.cs" />
+    <Compile Include="ArmScript.cs" />
+    <Compile Include="ArmSummonScript.cs" />
+    <Compile Include="AudioSourceRemover.cs" />
+    <Compile Include="BigStrigaScript.cs" />
+    <Compile Include="BoilerScript.cs" />
+    <Compile Include="BouncerScript.cs" />
+    <Compile Include="BulletScript.cs" />
+    <Compile Include="BulletSpreadPoolScript.cs" />
+    <Compile Include="BulletSpreadScript.cs" />
+    <Compile Include="ButtonScript.cs" />
+    <Compile Include="CameraCleanScript.cs" />
+    <Compile Include="CameraScript.cs" />
+    <Compile Include="ChapterButton.cs" />
+    <Compile Include="CoilboxScript.cs" />
+    <Compile Include="CreditButton.cs" />
+    <Compile Include="cutsceneElement.cs" />
+    <Compile Include="CutsceneScript.cs" />
+    <Compile Include="CutterHoloScript.cs" />
+    <Compile Include="CutterLineScript.cs" />
+    <Compile Include="CutterScript.cs" />
+    <Compile Include="CutwireAiScript.cs" />
+    <Compile Include="DestroyScript.cs" />
+    <Compile Include="DogoAiScript.cs" />
+    <Compile Include="DoppelAiScript.cs" />
+    <Compile Include="ElectroVfxScript.cs" />
+    <Compile Include="ElectroWipeScript.cs" />
+    <Compile Include="EndCreditsScript.cs" />
+    <Compile Include="EngineScript.cs" />
+    <Compile Include="FireballScript.cs" />
+    <Compile Include="GalleryButton.cs" />
+    <Compile Include="GhostAiScript.cs" />
+    <Compile Include="HitboxScript.cs" />
+    <Compile Include="IceSpikePool.cs" />
+    <Compile Include="IceSpikeScript.cs" />
+    <Compile Include="IcewaveScript.cs" />
+    <Compile Include="IHighlightable.cs" />
+    <Compile Include="InputScript.cs" />
+    <Compile Include="InteractionScript.cs" />
+    <Compile Include="IVulnerable.cs" />
+    <Compile Include="LoadLevelButton.cs" />
+    <Compile Include="ManagerScript.cs" />
+    <Compile Include="MenuScript.cs" />
+    <Compile Include="MinionAiScript.cs" />
+    <Compile Include="MinionDeathScript.cs" />
+    <Compile Include="NextMenuButton.cs" />
+    <Compile Include="NikitaAiScript.cs" />
+    <Compile Include="PartsScatterScript.cs" />
+    <Compile Include="PhaseScript.cs" />
+    <Compile Include="PlayerScript.cs" />
+    <Compile Include="PrefButton.cs" />
+    <Compile Include="ProgressButton.cs" />
+    <Compile Include="ProjectileScript.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResolutionButton.cs" />
+    <Compile Include="ReturnButton.cs" />
+    <Compile Include="RotationScript.cs" />
+    <Compile Include="RotoScrapScript.cs" />
+    <Compile Include="ScrapBarrageScript.cs" />
+    <Compile Include="ShockwaveScript.cs" />
+    <Compile Include="SkullbombScript.cs" />
+    <Compile Include="SteamManager.cs" />
+    <Compile Include="StrigaAiScript.cs" />
+    <Compile Include="SubmenuScript.cs" />
+    <Compile Include="TextScript.cs" />
+    <Compile Include="ThrowableScript.cs" />
+    <Compile Include="ThunderScript.cs" />
+    <Compile Include="TransitionScript.cs" />
+    <Compile Include="TrapScript.cs" />
+    <Compile Include="UpscaleAnimatorScript.cs" />
+    <Compile Include="VolumeButton.cs" />
+    <Compile Include="ZmoraAiScript.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

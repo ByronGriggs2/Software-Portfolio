@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{a5be8bbf-618d-4354-a08d-ccdf0773dc03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{d4bab94f-7a26-46b1-a726-96472354c895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Neural Network">
+      <UniqueIdentifier>{60572efd-306a-4a73-b6d3-671c3f277251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{5709217e-9f62-4e9c-b526-54111be419a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{e88ebfd7-c044-443e-b618-059f8b03a155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Training">
+      <UniqueIdentifier>{b03090bc-55fa-48be-84f9-3967290e84fc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main Application2.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceServer.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Neural Network</Filter>
+    </ClCompile>
+    <ClCompile Include="MLP.cpp">
+      <Filter>Neural Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Neuron.cpp">
+      <Filter>Neural Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Control.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="StatePacket.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="definitions.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="actionMacros.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="InOutTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="NeuralNetwork.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoRecoveryTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TrainingStateTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TrainingState.cpp">
+      <Filter>Training</Filter>
+    </ClCompile>
+    <ClCompile Include="RewardManager.cpp">
+      <Filter>Training</Filter>
+    </ClCompile>
+    <ClCompile Include="CurriculumManager.cpp">
+      <Filter>Training</Filter>
+    </ClCompile>
+    <ClCompile Include="DeepQManager.cpp">
+      <Filter>Training</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplayBuffer.cpp">
+      <Filter>Training</Filter>
+    </ClCompile>
+    <ClCompile Include="MyExcept.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="MaximumRewardTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkData.cpp">
+      <Filter>Training</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="definitions.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceServer.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Neural Network</Filter>
+    </ClInclude>
+    <ClInclude Include="MLP.h">
+      <Filter>Neural Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Neuron.h">
+      <Filter>Neural Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Control.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="StatePacket.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="actionMacros.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="InOutTest.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="NeuralNetwork.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoRecoveryTest.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="TrainingStateTest.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="CurriculumManager.h">
+      <Filter>Training</Filter>
+    </ClInclude>
+    <ClInclude Include="RewardManager.h">
+      <Filter>Training</Filter>
+    </ClInclude>
+    <ClInclude Include="TrainingState.h">
+      <Filter>Training</Filter>
+    </ClInclude>
+    <ClInclude Include="DeepQManager.h">
+      <Filter>Training</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplayBuffer.h">
+      <Filter>Training</Filter>
+    </ClInclude>
+    <ClInclude Include="MyExcept.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ForwardPropNetwork.h">
+      <Filter>Neural Network</Filter>
+    </ClInclude>
+    <ClInclude Include="MaximumRewardTest.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkData.h">
+      <Filter>Training</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+</Project>

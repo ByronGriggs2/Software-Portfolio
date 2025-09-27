@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterClass" load_steps=2 format=3 uid="uid://cxr3lhkuao7js"]
+
+[ext_resource type="Script" uid="uid://rkr30nwxygl8" path="res://Definitions/Classes/CharacterClass.gd" id="1_ignmm"]
+
+[resource]
+script = ExtResource("1_ignmm")
+text = "Fighter"
+baseDUR = 11
+scalingDUR = 1.1
+baseSTR = 14
+scalingSTR = 1.2
+baseSKI = 8
+scalingSKI = 0.9
+baseINT = 5
+scalingINT = 0.75
+metadata/_custom_type_script = "uid://rkr30nwxygl8"

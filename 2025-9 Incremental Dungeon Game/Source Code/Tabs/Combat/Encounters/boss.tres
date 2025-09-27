@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://cvqkj6ljcwvab"]
+
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Tabs/Combat/Actors/actor_preset.gd" id="1_8ul0r"]
+[ext_resource type="Resource" uid="uid://drguuck45xco8" path="res://Tabs/Combat/Actors/rat.tres" id="2_7fkny"]
+[ext_resource type="Script" uid="uid://niduj63p80ej" path="res://Tabs/Combat/Encounters/encounter.gd" id="2_gab0t"]
+[ext_resource type="Resource" uid="uid://5ivfmv3wx6sf" path="res://Tabs/Combat/Actors/Demon.tres" id="3_ryrq3"]
+
+[resource]
+script = ExtResource("2_gab0t")
+enemies = Array[ExtResource("1_8ul0r")]([ExtResource("2_7fkny"), ExtResource("3_ryrq3")])
+metadata/_custom_type_script = "uid://niduj63p80ej"

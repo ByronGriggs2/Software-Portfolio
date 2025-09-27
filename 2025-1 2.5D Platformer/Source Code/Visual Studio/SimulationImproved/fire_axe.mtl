@@ -1,0 +1,14 @@
+# Blender 4.2.3 LTS MTL File: 'fire_axe.blend'
+# www.blender.org
+
+newmtl fire_axe_mat.001
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Byron/Downloads/blender_cycles (1)/textures/fire_axe_bcolor.png
+map_Ns C:/Users/Byron/Downloads/blender_cycles (1)/textures/fire_axe_Roughness.png
+map_refl C:/Users/Byron/Downloads/blender_cycles (1)/textures/fire_axe_Metallic.png
+map_Bump -bm 1.000000 C:/Users/Byron/Downloads/blender_cycles (1)/textures/fire_axe_Normal.png

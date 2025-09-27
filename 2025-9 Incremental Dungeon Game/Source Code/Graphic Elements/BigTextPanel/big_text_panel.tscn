@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy0ut342a7t4q"]
+
+[ext_resource type="Texture2D" uid="uid://c12qnnl5d03jm" path="res://Images/IntroScreenBackground.jpeg" id="1_qr3ew"]
+[ext_resource type="Script" uid="uid://cewjmcosggivt" path="res://Graphic Elements/BigTextPanel/big_text_panel.gd" id="2_ucj3u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucj3u"]
+texture = ExtResource("1_qr3ew")
+
+[node name="BigTextPanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ucj3u")
+script = ExtResource("2_ucj3u")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.5
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 39
+fit_content = true
+scroll_active = false
+
+[node name="ElementSlot" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.5
+anchor_right = 0.95
+anchor_bottom = 0.95

@@ -1,5 +1,11 @@
 # Software-Portfolio
 If you're seeing this, thanks for taking an interest in my work! Each of the top level folders in this repository represents a software development project that I worked on in 2024/2025. </br> </br>
-For the most complete, high quality example of my work, please refer to 2025-5 Physics Simulation. </br> </br>
-Due to academic conduct concerns, I cannot share the full code base for projects completed during my Master's. However, I have been authorised to share code snippets. </br> </br>
-Please excuse the lack of detail in the dissertation project, that project is ongoing and expected to finish in early September 2025.
+
+For my most complicated codebases, I recommend looking at Physics Simulation and 2.5D platformer, which were essentially the final projects for the first and second trimester of my graduate
+degree. For an example of a more gameplay focused commercially viable game, you can check out Incremental Dungeon Game, though that is still in development. </br> </br>
+
+# Biography
+I completed my undergraduate degree in Computer Engineering in 2023 at the University of Nevada, Las Vegas. I expect to complete my graduate degree in Computer Games Programming with a
+distinction in 2026 at the University of Hull, UK. </br>
+My graduate programme primarily focused on high performance engineless/custom engine C++ programming and DirectX11. Having seen that companies are looking for developers experienced in 
+engines such as Unreal and Unity, I'm currently learning to work with such engines full time. To learn these engines, I am (slowly) using them to create new games, which you can find on my itch.io: https://nauphy.itch.io/

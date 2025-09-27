@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmeoqahxkto01"]
+
+[ext_resource type="PackedScene" uid="uid://b0dk8gsoe4wgw" path="res://Tabs/tab.tscn" id="1_7mb42"]
+[ext_resource type="Script" uid="uid://fgxbprq6p5s7" path="res://Tabs/attribute_tab.gd" id="1_5051c"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="2_pp7ox"]
+[ext_resource type="PackedScene" uid="uid://badyxxmry8i7p" path="res://Graphic Elements/ProgressBars/attribute_bar_container.tscn" id="3_pp7ox"]
+
+[node name="AttributeTab" instance=ExtResource("1_7mb42")]
+script = ExtResource("1_5051c")
+
+[node name="UnlockButton" parent="." index="0" instance=ExtResource("2_pp7ox")]
+layout_mode = 0
+offset_left = 962.0
+offset_top = 205.0
+offset_right = 1285.6
+offset_bottom = 405.0
+text = "Placeholder"
+
+[node name="AttributeBarContainer" parent="." index="1" instance=ExtResource("3_pp7ox")]
+layout_mode = 0
+offset_left = 1055.0
+offset_top = 574.0
+offset_right = 1155.0
+offset_bottom = 744.0
+
+[connection signal="pressed" from="UnlockButton" to="." method="_on_unlock_button_pressed"]

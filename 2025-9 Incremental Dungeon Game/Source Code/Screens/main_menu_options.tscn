@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmihk3wsee86g"]
+
+[ext_resource type="Script" uid="uid://ckeuiupfho21k" path="res://Screens/main_menu_options.gd" id="1_alnam"]
+[ext_resource type="Texture2D" uid="uid://c2dhufvubbafl" path="res://Images/MainMenuOptionsBackground.png" id="2_kihkw"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_f6618"]
+
+[node name="MainMenuOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_alnam")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kihkw")
+
+[node name="ReturnButton" parent="." instance=ExtResource("3_f6618")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -315.0
+offset_right = 182.6
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Return"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

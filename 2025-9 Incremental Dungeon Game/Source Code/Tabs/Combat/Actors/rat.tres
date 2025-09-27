@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=3 format=3 uid="uid://drguuck45xco8"]
+
+[ext_resource type="Resource" uid="uid://cvoiemo7ofd4x" path="res://Tabs/Combat/Actions/nibble.tres" id="1_k7swx"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Tabs/Combat/Actors/actor_preset.gd" id="2_l7w82"]
+
+[resource]
+script = ExtResource("2_l7w82")
+text = "Rat"
+MAXHP = 1
+HP = 1
+PHYSATK = 1.0
+PHYSDEF = 1.0
+MAGATK = 0.0
+MAGDEF = 1.0
+dead = false
+actions = Array[Resource]([ExtResource("1_k7swx")])
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

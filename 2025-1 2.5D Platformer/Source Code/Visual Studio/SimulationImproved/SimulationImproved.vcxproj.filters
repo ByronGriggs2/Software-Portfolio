@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <FxCompile Include="Simulation.fx" />
+    <FxCompile Include="Simulation_PS.hlsl" />
+    <FxCompile Include="Simulation_VS.hlsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D3DFramework.cpp" />
+    <ClCompile Include="Simulation.cpp" />
+    <ClCompile Include="imgui.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_demo.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_draw.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_tables.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_widgets.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_stdlib.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_dx11.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_win32.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="GenerateObj.cpp">
+      <Filter>ObjHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadObj.cpp">
+      <Filter>ObjHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="CompleteObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerWrap.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigReader.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="DDSTextureLoader.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="StringLiterals.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3f.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D3DFramework.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="imgui.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="imconfig.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_internal.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_rectpack.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_textedit.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_truetype.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_stdlib.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_dx11.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_win32.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerateObj.h">
+      <Filter>ObjHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadObj.h">
+      <Filter>ObjHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="CompleteObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerWrap.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigReader.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="DDSTextureLoader.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="StringLiterals.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3f.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Simulation.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Simulation.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ObjHandling">
+      <UniqueIdentifier>{b1de44a1-9fe9-46c4-9230-ddf96c51d26c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{f0a3b585-367f-4ba1-b284-72a0405ea5f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{a45ebd70-75c0-4b0e-a664-18f5d8995f9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{226da6ea-00fb-49fd-81f5-33cff8d033f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{a08ce490-52e1-446b-88ad-12530279e4be}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgui.natstepfilter">
+      <Filter>Libraries</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="imgui.natvis">
+      <Filter>Libraries</Filter>
+    </Natvis>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="config.txt">
+      <Filter>Config</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

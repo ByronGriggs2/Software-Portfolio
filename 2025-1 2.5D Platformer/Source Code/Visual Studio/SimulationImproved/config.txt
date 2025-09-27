@@ -1,0 +1,64 @@
+//sky must be done first
+Background sky1 sky
+//special
+Player player player
+Misc arrow arrow
+//fancy graphics objects
+Misc sphere1 gouradSphere :O162.5_85_0 :C :Rcw
+Misc sphere1 phongSphere :O345_85_0 :C :Rccw
+Misc sphere2 sphere :O485_85_0 :C :Rcw
+Misc cube1 bumpCube :O697_85_0 :C :Rccw
+Misc sphere2 toonSphere :O877.5_85_0 :C :Rcw
+Misc cube1 mirrorCube :O1005_85_0 :C :Rccw
+//
+//fancy graphics objects again on the left side
+Misc sphere1 gouradSphere :O-50_40_0 :C :Rccw
+Misc sphere1 phongSphere :O-100_40_0 :C :Rcw
+Misc sphere2 sphere :O-150_40_0 :C :Rccw
+Misc cube1 bumpCube :O-200_40_0 :C :Rcw
+Misc sphere2 toonSphere :O-250_40_0 :C :Rccw
+Misc cube1 mirrorCube :O-300_40_0 :C :Rcw
+//
+//background
+//background floor
+Background ground1 ground :O0_100_50
+//background trees
+Background tree1 background :x25_200 :O0_100_100
+Background tree1 background :x25_200 :O100_100_200
+Background tree1 background :x25_200 :O0_100_300
+//background clouds
+Background cloud1 background :x4_1200 :O0_690_800
+//
+//
+//longest gap is 125. 135 is possible but I don't want to waste the examiner's time lol
+//radius 250
+Platforms platform1 platform :O-150_0_-2.5
+//radius 40, gap 125
+Platforms platform2 platform :O265_0_-2.5
+//radius 25, gap 80
+Platforms platform3 platform :O410_0_-2.5
+//radius 50, gap 100
+Platforms platform4 platform :O585_0_-2.5
+//radius 5, gap 125
+Platforms platform5 platform :O765_0_-2.5
+//radius 50, gap 120
+Platforms platform6 platform :O940_0_-2.5
+//radius 45, gap 110
+Platforms platform7 platform :O1145_0_-2.5
+//radius 50, gap 125
+Platforms platform8 platform :O1365_0_-2.5
+//radius 20, gap 80
+Platforms platform9 platform :O1515_0_-2.5
+//radius 5, gap 120
+Platforms platform10 platform :O1660_0_-2.5
+//
+//foreground
+Foreground horizontal1 ground :O0_-130_-500
+Foreground wallFace1 cliff :x25_230 :O0_-15_5
+//fire
+Misc fire1 fire :x100_50
+//
+//trees
+Foreground treeF1 treeF foreground :x25_200 :O100_-130_-300
+Foreground treeF1 treeF foreground :x25_200 :O0_-130_-400
+Foreground treeF1 treeF foreground :x25_200 :O100_-130_-500

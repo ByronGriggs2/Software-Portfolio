@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhwunjc66mam0"]
+
+[ext_resource type="Script" uid="uid://drtqtqin6nsok" path="res://Screens/main_menu.gd" id="1_wk3tx"]
+[ext_resource type="Texture2D" uid="uid://csupcwk2aund" path="res://Images/MainMenuBackground.png" id="2_te60y"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_kqc0l"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wk3tx")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_te60y")
+
+[node name="ButtonContainer" type="Node" parent="."]
+
+[node name="NewButton" parent="ButtonContainer" instance=ExtResource("3_kqc0l")]
+offset_left = 136.0
+offset_top = 718.0
+offset_right = 459.6
+offset_bottom = 918.0
+text = "New Game"
+
+[node name="LoadButton" parent="ButtonContainer" instance=ExtResource("3_kqc0l")]
+offset_left = 586.0
+offset_top = 718.0
+offset_right = 909.6
+offset_bottom = 918.0
+text = "Load Game"
+
+[node name="OptionsButton" parent="ButtonContainer" instance=ExtResource("3_kqc0l")]
+offset_left = 1011.0
+offset_top = 717.0
+offset_right = 1334.6
+offset_bottom = 917.0
+text = "Options"
+
+[node name="QuitButton" parent="ButtonContainer" instance=ExtResource("3_kqc0l")]
+offset_left = 1451.0
+offset_top = 718.0
+offset_right = 1774.6
+offset_bottom = 918.0
+text = "Quit"
+
+[connection signal="pressed" from="ButtonContainer/NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

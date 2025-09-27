@@ -1,0 +1,15 @@
+Hidden layers,2
+Neurons per layer,64
+Input size,18
+Learning rate,0.0001
+Batch size,32
+Discount,0.99
+Update ratio,1000
+Replay buffer size,100000
+Target episodes,1
+Epsilon decay function,linear
+Reward multiplier,1
+Input type,Default
+
+Loss,Reward,Epsilon,Epsilon adjusted loss,Epsilon adjusted reward,bias gradient,weight gradient
+10.199069976806641,10.000000000000000,1.000000000000000,10.199069976806641,10.000000000000000,0.000004892588522,0.000002261688781

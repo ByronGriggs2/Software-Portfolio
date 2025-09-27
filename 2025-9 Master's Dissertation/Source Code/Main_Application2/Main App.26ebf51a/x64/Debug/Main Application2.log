@@ -1,0 +1,62 @@
+﻿  AutoRecoveryTest.cpp
+  Control.cpp
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\Control.cpp(416,24): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+  (compiling source file '/Control.cpp')
+  
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\Control.cpp(419,19): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+  (compiling source file '/Control.cpp')
+  
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\Control.cpp(431,24): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+  (compiling source file '/Control.cpp')
+  
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\Control.cpp(437,28): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+  (compiling source file '/Control.cpp')
+  
+  CurriculumManager.cpp
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(10,46): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  (compiling source file '/CurriculumManager.cpp')
+  
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(21,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/CurriculumManager.cpp')
+  
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(28,58): warning C4305: 'argument': truncation from 'const double' to 'const _Ty'
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(28,58): warning C4305:         with
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(28,58): warning C4305:         [
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(28,58): warning C4305:             _Ty=float
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(28,58): warning C4305:         ]
+  (compiling source file '/CurriculumManager.cpp')
+  
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(69,41): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(69,41): warning C4244:         with
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(69,41): warning C4244:         [
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(69,41): warning C4244:             _Ty=float
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\CurriculumManager.cpp(69,41): warning C4244:         ]
+  (compiling source file '/CurriculumManager.cpp')
+  
+  DeepQManager.cpp
+  InOutTest.cpp
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\InOutTest.cpp(693,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/InOutTest.cpp')
+  
+  InterfaceServer.cpp
+  Layer.cpp
+  MLP.cpp
+  Main Application2.cpp
+  NetworkData.cpp
+  Neuron.cpp
+  ReplayBuffer.cpp
+  RewardManager.cpp
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\RewardManager.cpp(10,37): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file '/RewardManager.cpp')
+  
+  StatePacket.cpp
+  TrainingState.cpp
+  TrainingStateTest.cpp
+  actionMacros.cpp
+  definitions.cpp
+  helpers.cpp
+  Generating Code...
+C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\Layer.cpp(31,1): warning C4715: 'Layer::operator=': not all control paths return a value
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
+actionMacros.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:REF' specification
+  Main Application2.vcxproj -> C:\Users\Byron\Documents\GitHub\Graduate-Dissertation-Byron-Griggs\Code\Main_Application2\x64\Debug\Main Application2.exe

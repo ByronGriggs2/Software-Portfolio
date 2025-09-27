@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterClass" load_steps=2 format=3 uid="uid://dlgaqau6rdxvq"]
+
+[ext_resource type="Script" uid="uid://rkr30nwxygl8" path="res://Definitions/Classes/CharacterClass.gd" id="1_e27ap"]
+
+[resource]
+script = ExtResource("1_e27ap")
+text = "Rogue"
+baseDUR = 10
+scalingDUR = 1.0
+baseSTR = 9
+scalingSTR = 0.95
+baseSKI = 14
+scalingSKI = 1.2
+baseINT = 7
+scalingINT = 0.875
+metadata/_custom_type_script = "uid://rkr30nwxygl8"

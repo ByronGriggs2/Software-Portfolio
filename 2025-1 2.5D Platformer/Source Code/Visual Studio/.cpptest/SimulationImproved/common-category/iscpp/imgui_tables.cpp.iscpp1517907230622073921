@@ -1,0 +1,6 @@
+fileName=C:\Users\868592\OneDrive - hull.ac.uk\GitHub\final-lab-ByronGriggs2\SimulationImproved\imgui_tables.cpp
+isCpp=
+compilerOpts=-I"C:\Program Files\Parasoft\C++test for Visual Studio (x86_64)\10.7\engine\runtime\include" /ZI /W4 /Od /EHsc /RTC1 /MDd /Gd /GS /sdl /Gm- /D"_DEBUG" /D"_WINDOWS" /D"_UNICODE" /D"UNICODE" /Zc:wchar_t /Zc:forScope /Zc:inline /WX- /nologo /FC /permissive- /diagnostics:column /std:c++20 /JMC -DPARASOFT_CPPTEST -I.
+compilerId=vc_14_3-64
+workingDir=C:\Users\868592\OneDrive - hull.ac.uk\GitHub\final-lab-ByronGriggs2\SimulationImproved\
+advancedOptionsHash=0

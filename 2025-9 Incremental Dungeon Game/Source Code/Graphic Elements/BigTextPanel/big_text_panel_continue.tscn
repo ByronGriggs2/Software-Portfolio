@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbdgbqhrxfw02"]
+
+[ext_resource type="PackedScene" uid="uid://dy0ut342a7t4q" path="res://Graphic Elements/BigTextPanel/big_text_panel.tscn" id="1_qlavd"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="2_2msg7"]
+[ext_resource type="Script" uid="uid://b5vxubufs31lb" path="res://Graphic Elements/BigTextPanel/big_text_panel_continue.gd" id="2_fb03c"]
+
+[node name="BigTextPanelContinue" instance=ExtResource("1_qlavd")]
+script = ExtResource("2_fb03c")
+
+[node name="MyButton" parent="ElementSlot" index="0" instance=ExtResource("2_2msg7")]
+custom_minimum_size = Vector2(324, 150)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.0
+offset_top = -150.0
+offset_right = 162.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continue"
+
+[connection signal="pressed" from="ElementSlot/MyButton" to="." method="_on_my_button_pressed"]

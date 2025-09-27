@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://badyxxmry8i7p"]
+
+[ext_resource type="Script" uid="uid://bd87jcbmrnjq8" path="res://Graphic Elements/ProgressBars/bar_container.gd" id="1_1i1sj"]
+[ext_resource type="PackedScene" uid="uid://cfcoie8y6ymwa" path="res://Graphic Elements/ProgressBars/labelled_progress_bar.tscn" id="2_0x73v"]
+
+[node name="AttributeBarContainer" type="VBoxContainer"]
+offset_left = 733.0
+offset_top = 340.0
+offset_right = 773.0
+offset_bottom = 380.0
+script = ExtResource("1_1i1sj")
+
+[node name="DurabilityBar" parent="." instance=ExtResource("2_0x73v")]
+layout_mode = 2
+
+[node name="NameLabel" parent="DurabilityBar" index="0"]
+text = "Durability"
+
+[node name="StrengthBar" parent="." instance=ExtResource("2_0x73v")]
+layout_mode = 2
+
+[node name="NameLabel" parent="StrengthBar" index="0"]
+text = "Strength"
+
+[node name="SkillBar" parent="." instance=ExtResource("2_0x73v")]
+layout_mode = 2
+
+[node name="NameLabel" parent="SkillBar" index="0"]
+text = "Skill"
+
+[node name="IntelligenceBar" parent="." instance=ExtResource("2_0x73v")]
+layout_mode = 2
+
+[node name="NameLabel" parent="IntelligenceBar" index="0"]
+text = "Intelligence"
+
+[editable path="DurabilityBar"]
+[editable path="StrengthBar"]
+[editable path="SkillBar"]
+[editable path="IntelligenceBar"]

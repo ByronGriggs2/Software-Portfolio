@@ -1,0 +1,325 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|c:\\users\\byron\\documents\\github\\graduate-dissertation-byron-griggs\\code\\vsdecompile\\assembly-csharp\\menuscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\menuscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\chapterbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\chapterbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\managerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\managerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\rotationscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\rotationscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\loadlevelbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\loadlevelbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\playerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\playerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\enginescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\enginescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\bouncerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\bouncerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\endcreditsscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\endcreditsscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\aiscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\aiscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\trapscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\trapscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\thunderscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\thunderscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\throwablescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\throwablescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\skullbombscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\skullbombscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\shockwavescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\shockwavescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\scrapbarragescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\scrapbarragescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\minionaiscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\minionaiscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\icespikescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\icespikescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\assembly-csharp\\bulletscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F79E4C42-B409-4C83-A414-FAEC6FEFAE85}|Assembly-CSharp\\Assembly-CSharp.csproj|solutionrelative:assembly-csharp\\bulletscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoadLevelButton.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\LoadLevelButton.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\LoadLevelButton.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\LoadLevelButton.cs",
+              "RelativeToolTip": "Assembly-CSharp\\LoadLevelButton.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAApwCwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T11:15:58.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChapterButton.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ChapterButton.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\ChapterButton.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ChapterButton.cs",
+              "RelativeToolTip": "Assembly-CSharp\\ChapterButton.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwC0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T11:15:56.549Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ManagerScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ManagerScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\ManagerScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ManagerScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\ManagerScript.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAQwI8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T08:09:11.289Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RotationScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\RotationScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\RotationScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\RotationScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\RotationScript.cs",
+              "ViewState": "AgIAANsAAAAAAAAAAAAYwOQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T13:41:59.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EngineScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\EngineScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\EngineScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\EngineScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\EngineScript.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAWwL8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T13:41:36.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BouncerScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\BouncerScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\BouncerScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\BouncerScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\BouncerScript.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwBUAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T10:24:09.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MenuScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\MenuScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\MenuScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\MenuScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\MenuScript.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAYwIgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T10:21:09.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EndCreditsScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\EndCreditsScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\EndCreditsScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\EndCreditsScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\EndCreditsScript.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA0AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T10:19:08.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PlayerScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\PlayerScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\PlayerScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\PlayerScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\PlayerScript.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAA9wEkAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T10:18:06.538Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AiScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\AiScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\AiScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\AiScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\AiScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T10:17:41.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ThunderScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ThunderScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\ThunderScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ThunderScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\ThunderScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T09:42:21.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ThrowableScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ThrowableScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\ThrowableScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ThrowableScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\ThrowableScript.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwB8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T09:42:20.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SkullbombScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\SkullbombScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\SkullbombScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\SkullbombScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\SkullbombScript.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAswIkAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T09:42:18.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ShockwaveScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ShockwaveScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\ShockwaveScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ShockwaveScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\ShockwaveScript.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwD8AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T09:42:16.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ScrapBarrageScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ScrapBarrageScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\ScrapBarrageScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\ScrapBarrageScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\ScrapBarrageScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T09:42:15.758Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MinionAiScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\MinionAiScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\MinionAiScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\MinionAiScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\MinionAiScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T09:42:14.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BulletScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\BulletScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\BulletScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\BulletScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\BulletScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T09:42:11.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IceSpikeScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\IceSpikeScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\IceSpikeScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\IceSpikeScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\IceSpikeScript.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwDAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T09:42:10.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TrapScript.cs",
+              "DocumentMoniker": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\TrapScript.cs",
+              "RelativeDocumentMoniker": "Assembly-CSharp\\TrapScript.cs",
+              "ToolTip": "C:\\Users\\Byron\\Documents\\GitHub\\Graduate-Dissertation-Byron-Griggs\\Code\\vsdecompile\\Assembly-CSharp\\TrapScript.cs",
+              "RelativeToolTip": "Assembly-CSharp\\TrapScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T09:40:57.511Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

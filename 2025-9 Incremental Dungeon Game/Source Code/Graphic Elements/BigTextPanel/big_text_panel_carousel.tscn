@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cduky2j13lfpe"]
+
+[ext_resource type="PackedScene" uid="uid://dy0ut342a7t4q" path="res://Graphic Elements/BigTextPanel/big_text_panel.tscn" id="1_mht37"]
+[ext_resource type="Script" uid="uid://bqqaggre5kjpa" path="res://Graphic Elements/BigTextPanel/big_text_panel_carousel.gd" id="2_7tkka"]
+[ext_resource type="PackedScene" uid="uid://yj5ihx4e0ed8" path="res://Graphic Elements/Carousel/carousel_continue.tscn" id="3_ewo06"]
+
+[node name="BigTextPanelCarousel" instance=ExtResource("1_mht37")]
+script = ExtResource("2_7tkka")
+
+[node name="Carousel" parent="ElementSlot" index="0" instance=ExtResource("3_ewo06")]
+layout_mode = 1
+
+[connection signal="choiceMade" from="ElementSlot/Carousel" to="." method="_on_carousel_choice_made"]
+[connection signal="move" from="ElementSlot/Carousel" to="." method="_on_carousel_continue_move"]

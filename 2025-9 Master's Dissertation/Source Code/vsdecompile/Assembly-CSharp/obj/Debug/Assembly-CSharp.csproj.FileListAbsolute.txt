@@ -1,0 +1,2 @@
+C:\Program Files (x86)\Steam\steamapps\common\Awaria\vsdecompile\Assembly-CSharp\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\Awaria\vsdecompile\Assembly-CSharp\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
