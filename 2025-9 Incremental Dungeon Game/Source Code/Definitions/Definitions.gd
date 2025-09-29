@@ -1,23 +1,26 @@
 extends Node
+const currentVersion : String = "V0.2 release"
+
+enum baseStatEnum {
+	MAXHP,HP,PHYSATK,PHYSDEF,MAGATK,MAGDEF
+}
 const baseStatDictionary = {
-	"HP" : "Current HP",
-	"MAXHP" : "Max HP",
-	"PHYSATK" : "Physical Attack",
-	"PHYSDEF" : "Physical Defense",
-	"MAGATK": "Magic Attack",
-	"MAGDEF" : "Magic Defense"
+	baseStatEnum.HP : "Current HP",
+	baseStatEnum.MAXHP : "Max HP",
+	baseStatEnum.PHYSATK : "Physical Attack",
+	baseStatEnum.PHYSDEF : "Physical Defense",
+	baseStatEnum.MAGATK : "Magic Attack",
+	baseStatEnum.MAGDEF : "Magic Defense"
 }
 enum attributeEnum {
-	NUL,DUR,SKI,STR,INT
+	DUR,INT,SKI,STR
 }
 const attributeDictionary = {
-	attributeEnum.NUL : "NullAttribute",
 	attributeEnum.DUR : "Durability",
+	attributeEnum.INT : "Intelligence",
 	attributeEnum.SKI : "Skill",
-	attributeEnum.STR : "Strength",
-	attributeEnum.INT : "Intelligence"
+	attributeEnum.STR : "Strength"
 }
-
 enum classEnum {
 	FIGHTER,MAGE,ROGUE
 }

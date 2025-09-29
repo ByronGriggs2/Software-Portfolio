@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsxi11w4ip7vb"]
+
+[ext_resource type="Script" uid="uid://dhibsfbnb83v4" path="res://Screens/GameScreen/Player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cv3es4nxtpjqv" path="res://Screens/GameScreen/Player/derived_stat_display.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://v4fsrg8xdp8s" path="res://Screens/GameScreen/Player/attribute_display.gd" id="2_pd85m"]
+
+[node name="Player" type="Panel" groups=["Saveable"]]
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.975
+script = ExtResource("1_4flbx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="NameLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Undefined Name"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClassLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Class: Sample Text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AttributeTitle" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Attributes"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttributeDisplay" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_pd85m")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="StatTitle" type="RichTextLabel" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Derived Stats"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DerivedStatDisplay" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+script = ExtResource("2_onrkg")

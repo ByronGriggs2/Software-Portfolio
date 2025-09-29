@@ -4,12 +4,9 @@ signal newGame
 signal loadGame
 signal swapToMainMenuOptions
 
-var hasSavedGame : bool = false #placeholder
-
 func _ready() :
-	if (!hasSavedGame) :
+	if (!FileAccess.file_exists("res://save.json")) :
 		$ButtonContainer.get_node("LoadButton").set_disabled(true)
-
 
 func _on_new_button_pressed() -> void:
 	emit_signal("newGame")

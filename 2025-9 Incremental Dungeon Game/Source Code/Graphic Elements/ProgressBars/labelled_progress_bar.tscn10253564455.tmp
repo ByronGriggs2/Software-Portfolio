@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfcoie8y6ymwa"]
+
+[ext_resource type="Script" uid="uid://db0en2k12raw4" path="res://Graphic Elements/ProgressBars/labelled_progress_bar.gd" id="1_4yho2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rg8h0"]
+bg_color = Color(0, 0, 0.360784, 1)
+
+[node name="LabelledProgressBar" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+anchors_preset = -1
+theme_override_constants/separation = 10
+script = ExtResource("1_4yho2")
+
+[node name="EnableButton" type="CheckButton" parent="."]
+layout_mode = 2
+disabled = true
+
+[node name="NameLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Placeholder"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_rg8h0")
+show_percentage = false
+
+[node name="LevelLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "lv X"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[connection signal="pressed" from="EnableButton" to="ProgressBar" method="_on_enable_button_pressed"]

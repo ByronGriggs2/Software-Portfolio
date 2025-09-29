@@ -6,6 +6,13 @@
 
 [node name="BigTextPanelCarousel" instance=ExtResource("1_mht37")]
 script = ExtResource("2_7tkka")
+title = ""
+
+[node name="Title" parent="VBoxContainer" index="0"]
+text = ""
+
+[node name="RichTextLabel" parent="VBoxContainer" index="1"]
+text = ""
 
 [node name="Carousel" parent="ElementSlot" index="0" instance=ExtResource("3_ewo06")]
 layout_mode = 1

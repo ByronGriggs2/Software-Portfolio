@@ -9,7 +9,7 @@ func initialise(options, details) :
 	$ElementSlot/Carousel.refresh()
 
 func _on_carousel_continue_move(details) -> void:
-	$RichTextLabel.text = details
+	$VBoxContainer/RichTextLabel.text = details
 
 func _on_carousel_choice_made(option) -> void:
 	emit_signal("continueSignal", option)

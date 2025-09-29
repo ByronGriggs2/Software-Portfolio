@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjkba3r58vrt7"]
+
+[ext_resource type="Script" uid="uid://c8wg3arf71lrm" path="res://Screens/GameScreen/game_screen.gd" id="1_ri4dt"]
+[ext_resource type="Texture2D" uid="uid://cceg33dgmldgx" path="res://Images/afdsafs.png" id="2_uk4bo"]
+[ext_resource type="PackedScene" uid="uid://dmeoqahxkto01" path="res://Screens/GameScreen/Tabs/Attributes/attribute_tab.tscn" id="3_wv6b4"]
+[ext_resource type="PackedScene" uid="uid://6dlrgv7rgovn" path="res://Screens/GameScreen/Tabs/Combat/combat_tab.tscn" id="4_atnoe"]
+[ext_resource type="PackedScene" uid="uid://dsxi11w4ip7vb" path="res://Screens/GameScreen/Player/player.tscn" id="5_0vvmv"]
+[ext_resource type="Script" uid="uid://nwd7qr8quksy" path="res://Screens/GameScreen/autosave.gd" id="6_uk4bo"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="7_wv6b4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wv6b4"]
+texture = ExtResource("2_uk4bo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wv6b4"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[node name="GameScreen" type="Panel" groups=["Saveable"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wv6b4")
+script = ExtResource("1_ri4dt")
+
+[node name="TabContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Combat" parent="TabContainer" instance=ExtResource("4_atnoe")]
+layout_mode = 1
+
+[node name="Attributes" parent="TabContainer" instance=ExtResource("3_wv6b4")]
+visible = false
+layout_mode = 1
+
+[node name="TabButtonContainer" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.263
+anchor_right = 1.0
+anchor_bottom = 0.1
+offset_top = 30.0
+offset_right = -30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wv6b4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabButtonContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Player" parent="." instance=ExtResource("5_0vvmv")]
+layout_mode = 1
+anchor_left = 0.0
+anchor_right = 0.237
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_bottom = -30.0
+
+[node name="Autosave" type="Timer" parent="."]
+autostart = true
+script = ExtResource("6_uk4bo")
+
+[node name="OptionsButton" parent="." instance=ExtResource("7_wv6b4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.025
+anchor_right = 0.025
+anchor_bottom = 0.025
+text = "Options"
+
+[connection signal="timeout" from="Autosave" to="Autosave" method="_on_timeout"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

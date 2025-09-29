@@ -20,16 +20,32 @@ func swapToMenu() -> void :
 	currentScreen.connect("newGame", _onNewGame)
 	currentScreen.connect("loadGame", _onLoadGame)
 	currentScreen.connect("swapToMainMenuOptions", _onSwapToMainMenuOptions)
+	
+func swapToGame() -> void :
+	swapScreen("Screens/GameScreen/game_screen.tscn")
+	currentScreen.connect("exitToMenu", swapToMenu)
 
 func _onNewGame() :
-	swapScreen("Screens/intro_screen.tscn")
+	swapScreen("Screens/IntroScreen/intro_screen.tscn")
 	currentScreen.connect("characterDone", _onIntroEnd)
-func _onIntroEnd(character : CharacterClass) :
-	swapScreen("Screens/game_screen.tscn")
-	currentScreen.initialStartup(character)
+func _onIntroEnd(character : CharacterClass, characterName : String) :
+	swapToGame()
+	#Gives ownership of class struct to Player
+	currentScreen.setPlayerClass(character)
+	currentScreen.setPlayerName(characterName)
 func _onLoadGame() :
-	pass
+	swapToGame()
+	SaveManager.loadGame()
 func _onSwapToMainMenuOptions() :
 	swapScreen("Screens/main_menu_options.tscn")
 	currentScreen.connect("swapToMainMenu", swapToMenu)
 ##############################
+
+func getSaveDictionary() -> Dictionary :
+	var tempDict = {}
+	var key : String = "Version"
+	tempDict[key] = Definitions.currentVersion
+	return tempDict
+
+func setFromSaveDictionary(_loadDict) -> void :
+	pass

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://6dlrgv7rgovn"]
+
+[ext_resource type="PackedScene" uid="uid://b0dk8gsoe4wgw" path="res://Screens/GameScreen/Tabs/tab.tscn" id="1_sfv5i"]
+[ext_resource type="PackedScene" uid="uid://cv7pv3yq6gra3" path="res://Screens/GameScreen/Tabs/Combat/combat_map.tscn" id="2_cq0ne"]
+[ext_resource type="Script" uid="uid://h4t80xg2j3yj" path="res://Screens/GameScreen/Tabs/Combat/combat_tab.gd" id="2_d5esk"]
+[ext_resource type="PackedScene" uid="uid://ctkqbkp62y3av" path="res://Screens/GameScreen/Tabs/Combat/combat_panel.tscn" id="2_fs65j"]
+
+[node name="CombatTab" instance=ExtResource("1_sfv5i")]
+script = ExtResource("2_d5esk")
+
+[node name="CombatMap" parent="." index="0" instance=ExtResource("2_cq0ne")]
+layout_mode = 1
+
+[node name="CombatPanel" parent="." index="1" instance=ExtResource("2_fs65j")]
+visible = false
+layout_mode = 1
+
+[connection signal="levelChosen2" from="CombatMap" to="." method="_on_level_chosen"]
+[connection signal="defeat" from="CombatPanel" to="." method="_on_combat_panel_defeat"]
+[connection signal="retreat" from="CombatPanel" to="." method="_on_combat_panel_retreat"]
+[connection signal="victory" from="CombatPanel" to="." method="_on_combat_panel_victory"]

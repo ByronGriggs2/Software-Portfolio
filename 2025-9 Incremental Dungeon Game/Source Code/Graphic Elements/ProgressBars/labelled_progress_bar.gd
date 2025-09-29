@@ -1,21 +1,18 @@
-extends ProgressBar
+extends Control
 
 signal setSelfAsActive
 
 var active : bool = false
 
 var currentLevel : int = 0
-const baseGrowth = 100
+const baseGrowth = 10
 const maxGrowth = 10000
 var currentGrowth = baseGrowth
 var actualProgress = 0
 
-func _ready() :
-	visible = false
-
 func _process(delta) :
 	if (!active) : #may later want to update the internals even when not active for a tooltip
-		$HBoxContainer/LevelLabel.text = "Lv " + str(currentLevel)
+		$LevelLabel.text = "Lv " + str(currentLevel)
 		return
 	updateCurrentGrowth()
 	#I'm using a very explicit [get data]->[calculate]->[set data] pattern here because I'm a noob
@@ -29,11 +26,11 @@ func _process(delta) :
 	var newLevel : int = oldLevel + levelGained
 	actualProgress = newProgress
 	currentLevel = newLevel
-	$HBoxContainer/LevelLabel.text = "Lv " + str(newLevel)	
+	$LevelLabel.text = "Lv " + str(newLevel)	
 	if (is_equal_approx(currentGrowth, maxGrowth)) :
-		value = 100
+		$ProgressBar.value = 100
 	else :
-		value = actualProgress
+		$ProgressBar.value = actualProgress
 	
 func updateCurrentGrowth() -> void :
 	var tempGrowth = baseGrowth
@@ -44,8 +41,8 @@ func updateCurrentGrowth() -> void :
 
 func unlock() :
 	visible = true
-	$HBoxContainer/EnableButton.visible = true
-	$HBoxContainer/EnableButton.disabled = false
+	$EnableButton.visible = true
+	$EnableButton.disabled = false
 
 func _on_enable_button_pressed() -> void:
 	if (active) :
@@ -56,7 +53,26 @@ func _on_enable_button_pressed() -> void:
 	
 func deactivate() -> void :
 	active = false
-	$HBoxContainer/EnableButton.button_pressed = false
+	$EnableButton.button_pressed = false
 
 func getLevel() -> int :
 	return currentLevel
+	
+func setLevel(val : int) -> void :
+	currentLevel = val
+
+func setLabel(val : String) :
+	$NameLabel.text = val
+
+func getLabelWidth() :
+	return $NameLabel.size.x
+	
+func setLabelWidth(val) :
+	$NameLabel.custom_minimum_size.x = val
+	
+func getValue() :
+	return actualProgress
+	
+func setValue(val) :
+	actualProgress = val
+	$ProgressBar.value = val

@@ -1,0 +1,303 @@
+[gd_scene load_steps=10 format=3 uid="uid://cewpfcujhrm8h"]
+
+[ext_resource type="Texture2D" uid="uid://c12qnnl5d03jm" path="res://Images/IntroScreenBackground.jpeg" id="1_5nr3a"]
+[ext_resource type="PackedScene" uid="uid://doco0f71p4yi8" path="res://Graphic Elements/Carousel/carousel.tscn" id="2_i7g2o"]
+[ext_resource type="Script" uid="uid://bj1el14tervk3" path="res://Screens/IntroScreen/character_creator.gd" id="2_m2v6i"]
+[ext_resource type="Script" uid="uid://no8m72wqjvhr" path="res://Screens/IntroScreen/stat_description.gd" id="4_28w80"]
+[ext_resource type="Resource" uid="uid://cxr3lhkuao7js" path="res://Definitions/Classes/fighter.tres" id="5_e4spg"]
+[ext_resource type="Resource" uid="uid://bv7tt7xp3qjaj" path="res://Definitions/Classes/mage.tres" id="6_7tlyr"]
+[ext_resource type="Resource" uid="uid://dlgaqau6rdxvq" path="res://Definitions/Classes/rogue.tres" id="7_0d258"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="8_7tlyr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7g2o"]
+texture = ExtResource("1_5nr3a")
+
+[node name="CharacterCreator" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i7g2o")
+script = ExtResource("2_m2v6i")
+
+[node name="Carousels" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.1
+anchor_right = 0.95
+anchor_bottom = 0.5
+
+[node name="Backstory" type="RichTextLabel" parent="Carousels"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Backstory"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Reason" parent="Carousels" instance=ExtResource("2_i7g2o")]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Class2" type="RichTextLabel" parent="Carousels"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Class"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="ClassContainer" type="Control" parent="Carousels"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Class" parent="Carousels/ClassContainer" instance=ExtResource("2_i7g2o")]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+size_flags_horizontal = 3
+
+[node name="ClassWarning" type="RichTextLabel" parent="Carousels/ClassContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.73
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "(You can respec later in the game)"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Spacer" type="Control" parent="Carousels"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ClassDescriptor" type="RichTextLabel" parent="Carousels"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Sample Text"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="StatDescription" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.6
+anchor_right = 0.3
+anchor_bottom = 0.95
+script = ExtResource("4_28w80")
+fighterStats = ExtResource("5_e4spg")
+mageStats = ExtResource("6_7tlyr")
+rogueStats = ExtResource("7_0d258")
+
+[node name="Title" type="RichTextLabel" parent="StatDescription"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.12
+theme_override_font_sizes/normal_font_size = 35
+text = "Class Attributes"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatNames" type="VBoxContainer" parent="StatDescription"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.16
+anchor_right = 0.4
+anchor_bottom = 1.0
+theme_override_constants/separation = 20
+
+[node name="Spacer" type="RichTextLabel" parent="StatDescription/StatNames"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = " "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="DUR" type="RichTextLabel" parent="StatDescription/StatNames"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Durability"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="STR" type="RichTextLabel" parent="StatDescription/StatNames"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Strength"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="SKI" type="RichTextLabel" parent="StatDescription/StatNames"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Skill"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="INT" type="RichTextLabel" parent="StatDescription/StatNames"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Intelligence"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="StatAmounts" type="VBoxContainer" parent="StatDescription"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.16
+anchor_right = 0.675
+anchor_bottom = 1.0
+theme_override_constants/separation = 20
+
+[node name="Subtitle" type="RichTextLabel" parent="StatDescription/StatAmounts"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Initial"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DUR" type="RichTextLabel" parent="StatDescription/StatAmounts"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="STR" type="RichTextLabel" parent="StatDescription/StatAmounts"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SKI" type="RichTextLabel" parent="StatDescription/StatAmounts"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="INT" type="RichTextLabel" parent="StatDescription/StatAmounts"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatScaling" type="VBoxContainer" parent="StatDescription"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.675
+anchor_top = 0.16
+anchor_right = 0.95
+anchor_bottom = 1.0
+theme_override_constants/separation = 20
+
+[node name="Subtitle" type="RichTextLabel" parent="StatDescription/StatScaling"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Scaling"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DUR" type="RichTextLabel" parent="StatDescription/StatScaling"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="STR" type="RichTextLabel" parent="StatDescription/StatScaling"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SKI" type="RichTextLabel" parent="StatDescription/StatScaling"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="INT" type="RichTextLabel" parent="StatDescription/StatScaling"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MyButton" parent="." instance=ExtResource("8_7tlyr")]
+custom_minimum_size = Vector2(323.6, 149)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 0.95
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(161.8, 70)
+text = "Confirm"
+
+[connection signal="move" from="Carousels/ClassContainer/Class" to="." method="_on_class_move"]
+[connection signal="pressed" from="MyButton" to="." method="_on_my_button_pressed"]

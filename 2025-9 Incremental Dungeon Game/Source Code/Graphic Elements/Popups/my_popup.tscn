@@ -11,7 +11,7 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 
 [node name="MyPopup" type="CanvasLayer"]
-layer = 2
+layer = 3
 script = ExtResource("1_e510b")
 
 [node name="Window" type="Panel" parent="."]
@@ -57,7 +57,6 @@ fit_content = true
 scroll_active = false
 
 [node name="Dimming Effect" type="Control" parent="."]
-visible = false
 z_index = -1
 layout_mode = 3
 anchors_preset = 15

@@ -14,16 +14,31 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ucj3u")
 script = ExtResource("2_ucj3u")
+title = null
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.05
 anchor_right = 0.95
 anchor_bottom = 0.5
+theme_override_constants/separation = 40
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "asdfasdf"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 39
+text = "safdasfd"
 fit_content = true
 scroll_active = false
 

@@ -6,6 +6,7 @@
 
 [node name="BigTextPanelContinue" instance=ExtResource("1_qlavd")]
 script = ExtResource("2_fb03c")
+title = null
 
 [node name="MyButton" parent="ElementSlot" index="0" instance=ExtResource("2_2msg7")]
 custom_minimum_size = Vector2(324, 150)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Incremental Dungeon Game"
-config/version="0.1"
+config/version="0.2"
 run/main_scene="uid://s0vapgk0mw0b"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Images/icon.svg"
@@ -19,8 +19,14 @@ config/icon="res://Images/icon.svg"
 [autoload]
 
 Definitions="*res://Definitions/Definitions.gd"
+SaveManager="*res://save_manager.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
+
+[global_group]
+
+Saveable=""
