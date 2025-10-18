@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmdea3hs3w0ff"]
+
+[ext_resource type="PackedScene" uid="uid://c3qx8g3ihbre0" path="res://Global Scene Preloads/Equipment/Scenes/equipment.tscn" id="1_438cg"]
+[ext_resource type="Script" uid="uid://c0v6ec4m8asbj" path="res://Global Scene Preloads/Equipment/Scenes/weapon.gd" id="2_ek85t"]
+
+[node name="Weapon" instance=ExtResource("1_438cg")]
+script = ExtResource("2_ek85t")
+
+[editable path="SuperButton"]

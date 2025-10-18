@@ -130,6 +130,15 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
+[node name="SKI" type="RichTextLabel" parent="StatDescription/StatNames"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Dexterity"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
 [node name="DUR" type="RichTextLabel" parent="StatDescription/StatNames"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 28
@@ -139,28 +148,19 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="STR" type="RichTextLabel" parent="StatDescription/StatNames"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 28
-text = "Strength"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-vertical_alignment = 1
-
-[node name="SKI" type="RichTextLabel" parent="StatDescription/StatNames"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 28
-text = "Skill"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-vertical_alignment = 1
-
 [node name="INT" type="RichTextLabel" parent="StatDescription/StatNames"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 28
 text = "Intelligence"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="STR" type="RichTextLabel" parent="StatDescription/StatNames"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Strength"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -185,26 +185,6 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DUR" type="RichTextLabel" parent="StatDescription/StatAmounts"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 28
-text = "def"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="STR" type="RichTextLabel" parent="StatDescription/StatAmounts"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 28
-text = "def"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="SKI" type="RichTextLabel" parent="StatDescription/StatAmounts"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 28
@@ -215,7 +195,27 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="DUR" type="RichTextLabel" parent="StatDescription/StatAmounts"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="INT" type="RichTextLabel" parent="StatDescription/StatAmounts"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="STR" type="RichTextLabel" parent="StatDescription/StatAmounts"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 28
 text = "def"
@@ -244,27 +244,17 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DUR" type="RichTextLabel" parent="StatDescription/StatScaling"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 28
-text = "def"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="STR" type="RichTextLabel" parent="StatDescription/StatScaling"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 28
-text = "def"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="SKI" type="RichTextLabel" parent="StatDescription/StatScaling"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DUR" type="RichTextLabel" parent="StatDescription/StatScaling"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 28
 text = "def"
@@ -284,20 +274,40 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MyButton" parent="." instance=ExtResource("8_7tlyr")]
-custom_minimum_size = Vector2(323.6, 149)
+[node name="STR" type="RichTextLabel" parent="StatDescription/StatScaling"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "def"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.95
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.95
-offset_right = 0.0
-offset_bottom = 0.0
+anchor_bottom = 1.0
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
-pivot_offset = Vector2(161.8, 70)
+theme_override_constants/separation = 20
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Enter Player Name"
+alignment = 1
+expand_to_text_length = true
+
+[node name="MyButton" parent="VBoxContainer" instance=ExtResource("8_7tlyr")]
+custom_minimum_size = Vector2(323.6, 149)
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Confirm"
 
 [connection signal="move" from="Carousels/ClassContainer/Class" to="." method="_on_class_move"]
-[connection signal="pressed" from="MyButton" to="." method="_on_my_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MyButton" to="." method="_on_my_button_pressed"]

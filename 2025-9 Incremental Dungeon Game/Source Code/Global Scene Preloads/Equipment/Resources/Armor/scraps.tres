@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=2 format=3 uid="uid://b05xyojihbonj"]
+
+[ext_resource type="Script" uid="uid://bnh3m73ifmphh" path="res://Global Scene Preloads/Equipment/Resources/armor.gd" id="1_x0wvw"]
+
+[resource]
+script = ExtResource("1_x0wvw")
+PHYSDEF = 2.0
+MAGDEF = 0.0
+title = "Leather Scraps"
+description = "Karlach would be proud"
+statBonus = {
+"Attack Rating": 0.0,
+"Magic Defense": 0.0,
+"Max HP": 0.0,
+"Physical Defense": 0.0
+}
+attributeBonus = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.0,
+"Strength": 0.0
+}
+isUnarmed = false
+metadata/_custom_type_script = "uid://bnh3m73ifmphh"

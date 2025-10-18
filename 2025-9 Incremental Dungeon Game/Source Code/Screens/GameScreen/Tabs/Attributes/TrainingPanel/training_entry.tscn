@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlw0bmvd28j5l"]
+
+[ext_resource type="Script" uid="uid://cqdbbfa8daivo" path="res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/training_entry.gd" id="1_ha7ar"]
+
+[node name="TrainingEntry" type="Panel"]
+custom_minimum_size = Vector2(0, 30)
+offset_bottom = 24.0
+script = ExtResource("1_ha7ar")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+text = "Sample text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Dexterity" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+text = "DEX: "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Durability" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+text = "DUR: "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Intelligence" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+text = "INT: "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Strength" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+text = "STR: "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[connection signal="toggled" from="HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

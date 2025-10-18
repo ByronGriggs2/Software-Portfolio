@@ -2,10 +2,12 @@ extends Panel
 
 signal actionTaken
 var core : ActorPreset
+var combatPosition : int = -1
 
 #Add more sophisticated AI later
 func _ready() :
 	$TitleCard/Title.text = core.text
+	core.HP = core.MAXHP
 	takeAction(core.actions[0])
 	
 func _process(_delta) :

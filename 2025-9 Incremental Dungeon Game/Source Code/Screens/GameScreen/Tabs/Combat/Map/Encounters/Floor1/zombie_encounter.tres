@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=6 format=3 uid="uid://bbmpwu048gx1d"]
+
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="1_0orjb"]
+[ext_resource type="Resource" uid="uid://reendmqtqqra" path="res://Screens/GameScreen/Tabs/Combat/Actors/Floor1/zombie.tres" id="2_147k5"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="3_lg8iw"]
+[ext_resource type="Resource" uid="uid://b05xyojihbonj" path="res://Global Scene Preloads/Equipment/Resources/Armor/scraps.tres" id="4_yldl4"]
+[ext_resource type="Script" uid="uid://niduj63p80ej" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/encounter.gd" id="5_qk6lv"]
+
+[resource]
+script = ExtResource("5_qk6lv")
+enemies = Array[ExtResource("1_0orjb")]([ExtResource("2_147k5"), ExtResource("2_147k5")])
+rewards = Array[ExtResource("3_lg8iw")]([ExtResource("4_yldl4")])
+introTitle = ""
+introText = ""
+victoryTitle = "After the Fight"
+victoryText = ""
+metadata/_custom_type_script = "uid://niduj63p80ej"

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://pfcog1nvaymj"]
+
+[ext_resource type="PackedScene" uid="uid://bxmrjljnfauit" path="res://SaveManager/save_game_menu.tscn" id="1_fgv2s"]
+
+[node name="NewGameMenu" instance=ExtResource("1_fgv2s")]
+
+[node name="Title" parent="Window/VBoxContainer" index="0"]
+text = "Select save slot"
+
+[node name="ReturnButton" parent="Window" index="1"]
+text = "Return to menu"

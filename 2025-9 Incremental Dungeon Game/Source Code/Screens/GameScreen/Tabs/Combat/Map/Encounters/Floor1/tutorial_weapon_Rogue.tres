@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://nxlb5qrkto5a"]
+
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="1_eqa4x"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="2_4jlfm"]
+[ext_resource type="Resource" uid="uid://jpm737hbvc0p" path="res://Global Scene Preloads/Equipment/Resources/Weapon/shiv.tres" id="3_7wavt"]
+[ext_resource type="Script" uid="uid://niduj63p80ej" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/encounter.gd" id="4_lxk0u"]
+
+[resource]
+script = ExtResource("4_lxk0u")
+enemies = Array[ExtResource("1_eqa4x")]([])
+rewards = Array[ExtResource("2_4jlfm")]([ExtResource("3_7wavt")])
+introTitle = ""
+introText = ""
+victoryTitle = "Retracing Your Steps"
+victoryText = "While backtracking, you see a weapon sitting in the middle of the floor! Did you just miss it, or did someone leave it there?"
+metadata/_custom_type_script = "uid://niduj63p80ej"

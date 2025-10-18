@@ -1,26 +1,128 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmeoqahxkto01"]
+[gd_scene load_steps=7 format=3 uid="uid://dmeoqahxkto01"]
 
 [ext_resource type="PackedScene" uid="uid://b0dk8gsoe4wgw" path="res://Screens/GameScreen/Tabs/tab.tscn" id="1_7mb42"]
 [ext_resource type="Script" uid="uid://fgxbprq6p5s7" path="res://Screens/GameScreen/Tabs/Attributes/attribute_tab.gd" id="1_5051c"]
-[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="2_pp7ox"]
-[ext_resource type="PackedScene" uid="uid://bdxq514rp3om4" path="res://Screens/GameScreen/Tabs/Attributes/attribute_bar_container.tscn" id="3_pp7ox"]
+[ext_resource type="PackedScene" uid="uid://m5cfqap585hd" path="res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/training_panel.tscn" id="3_ufysl"]
+[ext_resource type="Theme" uid="uid://b2ljt3am18e3i" path="res://Graphic Elements/Themes/myTheme.tres" id="5_ufysl"]
+[ext_resource type="Script" uid="uid://d2vxrnfocc0f8" path="res://Screens/GameScreen/Tabs/Attributes/AttributeMultipliers/attribute_multipliers.gd" id="6_6euej"]
+[ext_resource type="Script" uid="uid://bd3fcw6n8b35c" path="res://Screens/GameScreen/Tabs/Attributes/AttributeLevels/attribute_levels.gd" id="6_ufysl"]
 
 [node name="AttributeTab" groups=["Saveable"] instance=ExtResource("1_7mb42")]
 script = ExtResource("1_5051c")
 
-[node name="UnlockButton" parent="." index="0" instance=ExtResource("2_pp7ox")]
-layout_mode = 0
-offset_left = 962.0
-offset_top = 205.0
-offset_right = 1285.6
-offset_bottom = 405.0
-text = "Placeholder"
+[node name="TrainingPanel" parent="." index="0" instance=ExtResource("3_ufysl")]
+layout_mode = 1
 
-[node name="AttributeBarContainer" parent="." index="1" instance=ExtResource("3_pp7ox")]
-layout_mode = 0
-offset_left = 1055.0
-offset_top = 574.0
-offset_right = 1155.0
-offset_bottom = 744.0
+[node name="AttributeLevels" type="Panel" parent="." index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.333
+offset_left = 8.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -7.0
+script = ExtResource("6_ufysl")
 
-[connection signal="pressed" from="UnlockButton" to="." method="_on_unlock_button_pressed"]
+[node name="Title" type="Control" parent="AttributeLevels" index="0"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -7.0
+
+[node name="Title" type="RichTextLabel" parent="AttributeLevels/Title" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_ufysl")
+text = "Level Progress"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Con" type="VBoxContainer" parent="AttributeLevels" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -13.0
+offset_right = -25.0
+offset_bottom = -15.0
+grow_vertical = 0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="AttributeMultipliers" type="Panel" parent="." index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.333
+anchor_right = 1.0
+anchor_bottom = 0.667
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -15.0
+offset_bottom = -7.0
+script = ExtResource("6_6euej")
+
+[node name="Title" type="RichTextLabel" parent="AttributeMultipliers" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 15.0
+grow_horizontal = 2
+theme = ExtResource("5_ufysl")
+text = "Multipliers"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Con" type="VBoxContainer" parent="AttributeMultipliers" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 90.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttributeBonuses" type="Panel" parent="." index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.667
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -15.0
+offset_bottom = -15.0
+
+[node name="Title" type="RichTextLabel" parent="AttributeBonuses" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 15.0
+grow_horizontal = 2
+theme = ExtResource("5_ufysl")
+text = "Flat Bonuses"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="trainingChanged" from="TrainingPanel" to="." method="_on_training_panel_training_changed"]

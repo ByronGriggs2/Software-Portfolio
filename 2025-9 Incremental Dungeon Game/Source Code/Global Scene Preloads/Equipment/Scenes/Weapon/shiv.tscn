@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ou8mbpf2fjyi"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://Global Scene Preloads/Equipment/Scenes/weapon.tscn" id="1_4r4jg"]
+[ext_resource type="Resource" uid="uid://jpm737hbvc0p" path="res://Global Scene Preloads/Equipment/Resources/Weapon/shiv.tres" id="2_0ypsp"]
+[ext_resource type="Texture2D" uid="uid://bjecslpr0nqg" path="res://Images/CC0 Assets/iron-weapons.png" id="2_1huwo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u6uq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Shiv" instance=ExtResource("1_4r4jg")]
+custom_minimum_size = Vector2(68, 68)
+offset_right = 68.0
+offset_bottom = 68.0
+core = ExtResource("2_0ypsp")
+
+[node name="SuperButton" parent="." index="0"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_5u6uq")
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_1huwo")
+region_rect = Rect2(103, 280, 16, 16)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=2 format=3 uid="uid://1ftbeiopqnu0"]
+
+[ext_resource type="Script" uid="uid://bmbbygpmfs6mv" path="res://Global Scene Preloads/Equipment/Resources/accessory.gd" id="1_y6tl5"]
+
+[resource]
+script = ExtResource("1_y6tl5")
+title = "Silver Bracers"
+description = "You feel kind of bad blocking hits with these"
+statBonus = {
+"Attack Rating": 0.0,
+"Magic Defense": 0.0,
+"Max HP": 0.0,
+"Physical Defense": 2.0
+}
+attributeBonus = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.0,
+"Strength": 0.0
+}
+isUnarmed = false
+metadata/_custom_type_script = "uid://bmbbygpmfs6mv"

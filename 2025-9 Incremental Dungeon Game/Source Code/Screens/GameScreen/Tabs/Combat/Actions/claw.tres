@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://dsrsr046bs13s"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Screens/GameScreen/Tabs/Combat/Actions/attack_action.gd" id="1_jbucr"]
+
+[resource]
+script = ExtResource("1_jbucr")
+type = 0
+power = 1.33
+text = "Claw"
+mode = 0
+warmup = 4.0
+metadata/_custom_type_script = "uid://6o4dw2binuis"

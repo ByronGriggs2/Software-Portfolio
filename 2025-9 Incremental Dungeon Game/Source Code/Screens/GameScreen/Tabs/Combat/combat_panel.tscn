@@ -1,23 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctkqbkp62y3av"]
+[gd_scene load_steps=3 format=3 uid="uid://ctkqbkp62y3av"]
 
 [ext_resource type="Script" uid="uid://c71muab7xlxbj" path="res://Screens/GameScreen/Tabs/Combat/combat_panel.gd" id="1_mh31m"]
 [ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="2_iagom"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ro8dm"]
-bg_color = Color(0.996794, 0.872416, 0.733254, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
-
-[node name="CombatPanel" type="Panel"]
+[node name="CombatPanel" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ro8dm")
 script = ExtResource("1_mh31m")
 
 [node name="EnemyParty" type="HBoxContainer" parent="."]

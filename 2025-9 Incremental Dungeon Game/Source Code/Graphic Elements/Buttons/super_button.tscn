@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c74nurywvrmkl"]
+
+[ext_resource type="Script" uid="uid://c6or1k4h8toj6" path="res://Graphic Elements/Buttons/super_button.gd" id="1_7rflq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rflq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="SuperButton" type="PanelContainer"]
+offset_right = 6.0
+offset_bottom = 6.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7rflq")
+script = ExtResource("1_7rflq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

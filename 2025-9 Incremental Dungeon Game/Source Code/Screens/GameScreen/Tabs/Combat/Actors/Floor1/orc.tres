@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=4 format=3 uid="uid://xjelkubsln8"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Screens/GameScreen/Tabs/Combat/Actions/action.gd" id="1_qygur"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="2_dpjoe"]
+[ext_resource type="Resource" uid="uid://com268rakyqk7" path="res://Screens/GameScreen/Tabs/Combat/Actions/bludgeon.tres" id="2_rjj24"]
+
+[resource]
+script = ExtResource("2_dpjoe")
+text = "Orc"
+MAXHP = 30.0
+AR = 21.1
+PHYSDEF = 1.0
+MAGATK = 1.0
+MAGDEF = 1.0
+actions = Array[ExtResource("1_qygur")]([ExtResource("2_rjj24")])
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

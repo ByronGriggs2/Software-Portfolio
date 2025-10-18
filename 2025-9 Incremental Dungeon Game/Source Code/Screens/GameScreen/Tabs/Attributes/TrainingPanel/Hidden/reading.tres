@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttributeTraining" load_steps=2 format=3 uid="uid://d132ylod8wdq7"]
+
+[ext_resource type="Script" uid="uid://dqi4f2avtalvt" path="res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/attribute_training.gd" id="1_xwudh"]
+
+[resource]
+script = ExtResource("1_xwudh")
+text = "Reading"
+scaling = {
+"Dexterity": 0.44,
+"Durability": 0.55,
+"Intelligence": 0.66,
+"Strength": 0.77
+}
+metadata/_custom_type_script = "uid://dqi4f2avtalvt"

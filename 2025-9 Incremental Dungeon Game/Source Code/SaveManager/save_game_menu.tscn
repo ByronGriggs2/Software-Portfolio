@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxmrjljnfauit"]
+
+[ext_resource type="PackedScene" uid="uid://48l2vnrueam4" path="res://Graphic Elements/popups/my_popup.tscn" id="1_1nli3"]
+[ext_resource type="Script" uid="uid://bj58x3itea7ki" path="res://SaveManager/save_game_menu.gd" id="2_e60v6"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_tt5n6"]
+
+[node name="SaveGameMenu" instance=ExtResource("1_1nli3")]
+script = ExtResource("2_e60v6")
+
+[node name="Title" parent="Window/VBoxContainer" index="0"]
+text = "Save Game"
+
+[node name="Text" parent="Window/VBoxContainer" index="1"]
+text = ""
+
+[node name="Slot0Button" parent="Window/VBoxContainer" index="2" instance=ExtResource("3_tt5n6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Slot 0"
+
+[node name="Slot1Button" parent="Window/VBoxContainer" index="3" instance=ExtResource("3_tt5n6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Slot 1"
+
+[node name="Slot2Button" parent="Window/VBoxContainer" index="4" instance=ExtResource("3_tt5n6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Slot 2"
+
+[node name="Slot3Button" parent="Window/VBoxContainer" index="5" instance=ExtResource("3_tt5n6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Slot 3"
+
+[node name="ReturnButton" parent="Window" index="1" instance=ExtResource("3_tt5n6")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -127.5
+offset_top = -62.0
+offset_right = 127.5
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Return to game"
+
+[connection signal="pressed" from="Window/VBoxContainer/Slot0Button" to="." method="_on_slot_0_button_pressed"]
+[connection signal="pressed" from="Window/VBoxContainer/Slot1Button" to="." method="_on_slot_1_button_pressed"]
+[connection signal="pressed" from="Window/VBoxContainer/Slot2Button" to="." method="_on_slot_2_button_pressed"]
+[connection signal="pressed" from="Window/VBoxContainer/Slot3Button" to="." method="_on_slot_3_button_pressed"]
+[connection signal="pressed" from="Window/ReturnButton" to="." method="_on_return_button_pressed"]

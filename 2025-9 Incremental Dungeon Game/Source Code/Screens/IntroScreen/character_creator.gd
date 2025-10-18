@@ -36,7 +36,7 @@ var classDescriptions : Array[String] = [
 	"As a rogue, you take opponents apart with skill rather than raw power. Your years of experience have made you an artist with the blade, bow, and lockpick."
 ]
 
-const popup = preload("res://Graphic Elements/Popups/binary_decision.tscn")
+const popup = preload("res://Graphic Elements/popups/binary_decision.tscn")
 func _on_my_button_pressed() -> void:
 	var tempPop = popup.instantiate()
 	add_child(tempPop)
@@ -46,10 +46,11 @@ func _on_my_button_pressed() -> void:
 func _on_binary_chosen(chosen : int) :
 	if (chosen == 0) :
 		var character = $StatDescription.currentStats
-		#placeholder
-		var characterName = "Placeholder Name"
 		# Ownership of the chosen class struct is given to Player
 		# The other classes are deleted from RAM
+		var characterName = $VBoxContainer/LineEdit.text
+		if (characterName == "") :
+			characterName = " "
 		emit_signal("characterDone", character, characterName)
 	elif (chosen == 1) :
 		return

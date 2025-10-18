@@ -48,10 +48,15 @@ anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ReturnButton" parent="Screen/OptionsPanel/VBoxContainer" instance=ExtResource("1_dgum1")]
+[node name="ManualSaveButton" parent="Screen/OptionsPanel/VBoxContainer" instance=ExtResource("1_dgum1")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Return to game"
+text = "Manual Save"
+
+[node name="LoadButton" parent="Screen/OptionsPanel/VBoxContainer" instance=ExtResource("1_dgum1")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Load Game"
 
 [node name="QuitButton0" parent="Screen/OptionsPanel/VBoxContainer" instance=ExtResource("1_dgum1")]
 layout_mode = 2
@@ -62,6 +67,24 @@ text = " Save and quit to menu "
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = " Save and quit to desktop"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Screen/OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ReturnButton" parent="Screen/OptionsPanel/VBoxContainer2" instance=ExtResource("1_dgum1")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Return to game"
 
 [node name="Dimming Effect" type="Control" parent="."]
 layout_mode = 3
@@ -83,6 +106,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.255659, 0.255659, 0.255659, 1)
 
-[connection signal="pressed" from="Screen/OptionsPanel/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Screen/OptionsPanel/VBoxContainer/ManualSaveButton" to="." method="_on_manual_save_button_pressed"]
+[connection signal="pressed" from="Screen/OptionsPanel/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="Screen/OptionsPanel/VBoxContainer/QuitButton0" to="." method="_on_quit_button_0_pressed"]
 [connection signal="pressed" from="Screen/OptionsPanel/VBoxContainer/QuitButton1" to="." method="_on_quit_button_1_pressed"]
+[connection signal="pressed" from="Screen/OptionsPanel/VBoxContainer2/ReturnButton" to="." method="_on_return_button_pressed"]

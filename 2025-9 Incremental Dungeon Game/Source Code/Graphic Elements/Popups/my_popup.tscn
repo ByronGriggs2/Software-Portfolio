@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://48l2vnrueam4"]
 
-[ext_resource type="Script" uid="uid://btqr1s30cxqha" path="res://Graphic Elements/Popups/my_popup.gd" id="1_e510b"]
+[ext_resource type="Script" uid="uid://btqr1s30cxqha" path="res://Graphic Elements/popups/my_popup.gd" id="1_e510b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e510b"]
 bg_color = Color(1, 1, 1, 1)
@@ -32,8 +32,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_e510b")
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.05
-anchor_right = 0.95
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
 grow_horizontal = 2
 
 [node name="Title" type="RichTextLabel" parent="Window/VBoxContainer"]
@@ -64,6 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Background" type="ColorRect" parent="Dimming Effect"]
 z_index = -1

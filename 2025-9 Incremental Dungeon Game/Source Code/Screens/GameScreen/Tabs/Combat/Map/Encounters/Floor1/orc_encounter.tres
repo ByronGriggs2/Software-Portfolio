@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://g0fs2xbuyws6"]
+
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="1_jgnwl"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="2_atq4s"]
+[ext_resource type="Resource" uid="uid://xjelkubsln8" path="res://Screens/GameScreen/Tabs/Combat/Actors/Floor1/orc.tres" id="2_nnrdw"]
+[ext_resource type="Script" uid="uid://niduj63p80ej" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/encounter.gd" id="3_nnrdw"]
+
+[resource]
+script = ExtResource("3_nnrdw")
+enemies = Array[ExtResource("1_jgnwl")]([ExtResource("2_nnrdw")])
+rewards = Array[ExtResource("2_atq4s")]([])
+introTitle = ""
+introText = ""
+victoryTitle = "After the Fight"
+victoryText = "Congratulations, you've beaten the tutorial floor! This is the end of content for now."
+metadata/_custom_type_script = "uid://niduj63p80ej"

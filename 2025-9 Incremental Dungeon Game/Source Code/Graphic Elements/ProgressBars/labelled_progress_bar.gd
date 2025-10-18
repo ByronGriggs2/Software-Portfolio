@@ -1,19 +1,13 @@
 extends Control
 
-signal setSelfAsActive
-
-var active : bool = false
-
 var currentLevel : int = 0
 const baseGrowth = 10
+var growthMultiplier = 1
 const maxGrowth = 10000
 var currentGrowth = baseGrowth
 var actualProgress = 0
 
 func _process(delta) :
-	if (!active) : #may later want to update the internals even when not active for a tooltip
-		$LevelLabel.text = "Lv " + str(currentLevel)
-		return
 	updateCurrentGrowth()
 	#I'm using a very explicit [get data]->[calculate]->[set data] pattern here because I'm a noob
 	#and I'm scared of how Godot doesn't have security levels. Might do this the whole game,
@@ -33,46 +27,29 @@ func _process(delta) :
 		$ProgressBar.value = actualProgress
 	
 func updateCurrentGrowth() -> void :
-	var tempGrowth = baseGrowth
+	var tempGrowth = baseGrowth * growthMultiplier
 	if (tempGrowth >= maxGrowth) :
 		currentGrowth = maxGrowth
 	else :
 		currentGrowth = tempGrowth
-
-func unlock() :
-	visible = true
-	$EnableButton.visible = true
-	$EnableButton.disabled = false
-
-func _on_enable_button_pressed() -> void:
-	if (active) :
-		deactivate()
-		return
-	emit_signal("setSelfAsActive", self)
-	active = true
-	
-func deactivate() -> void :
-	active = false
-	$EnableButton.button_pressed = false
-
-func getLevel() -> int :
-	return currentLevel
-	
-func setLevel(val : int) -> void :
-	currentLevel = val
+func setGrowthMultiplier(val) :
+	growthMultiplier = val
 
 func setLabel(val : String) :
 	$NameLabel.text = val
 
 func getLabelWidth() :
-	return $NameLabel.size.x
+	return $NameLabel.get_minimum_size().x
 	
 func setLabelWidth(val) :
 	$NameLabel.custom_minimum_size.x = val
 	
-func getValue() :
+func getLevel() -> int :
+	return currentLevel
+func setLevel(val : int) -> void :
+	currentLevel = val
+func getProgress() :
 	return actualProgress
-	
-func setValue(val) :
+func setProgress(val) :
 	actualProgress = val
 	$ProgressBar.value = val

@@ -5,13 +5,20 @@ signal loadGame
 signal swapToMainMenuOptions
 
 func _ready() :
-	if (!FileAccess.file_exists("res://save.json")) :
+	if (!SaveManager.saveExists()) :
 		$ButtonContainer.get_node("LoadButton").set_disabled(true)
+	SaveManager.connect("newGameReady", _new_game_ready)
 
 func _on_new_button_pressed() -> void:
+	SaveManager.newGameSaveSelection()
+	
+func _new_game_ready() :
 	emit_signal("newGame")
 
-func _on_load_button_pressed() -> void: #may want a saved game dialogue first
+func _on_load_button_pressed() -> void:
+	SaveManager.loadGameSaveSelection()
+	SaveManager.connect("loadGameReady", _load_game_ready)
+func _load_game_ready() :
 	emit_signal("loadGame")
 
 func _on_quit_button_pressed() -> void:

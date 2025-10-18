@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_mmfo0")
 type = 0
-power = 1
+power = 0.33
 text = "Nibble"
 mode = 0
 warmup = 1.0

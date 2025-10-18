@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://0nh6b3o4n81h"]
+
+[ext_resource type="Script" uid="uid://dnhijbix3nsty" path="res://Screens/GameScreen/Tabs/Combat/Map/combat_map.gd" id="1_7n1xm"]
+[ext_resource type="Texture2D" uid="uid://cvasq7ytmixjv" path="res://Images/arrow_keys.png" id="2_sh03u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5c1p"]
+bg_color = Color(1, 0.7, 0.7, 1)
+
+[node name="MapViewport" type="Control" groups=["Saveable"]]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -4.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_7n1xm")
+
+[node name="CombatMap" type="Panel" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(3840, 2160)
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5c1p")
+
+[node name="ConnectionContainer" type="Control" parent="CombatMap"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RoomContainer" type="Control" parent="CombatMap"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_sh03u")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

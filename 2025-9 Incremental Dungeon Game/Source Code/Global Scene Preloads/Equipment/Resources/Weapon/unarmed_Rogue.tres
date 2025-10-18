@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cnwxx6ad5ljr2"]
+
+[ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Global Scene Preloads/Equipment/Resources/weapon.gd" id="1_alwfa"]
+[ext_resource type="Resource" uid="uid://6iclcrwb0k5c" path="res://Screens/GameScreen/Tabs/Combat/Actions/knifehand.tres" id="1_bvcjb"]
+
+[resource]
+script = ExtResource("1_alwfa")
+primaryAttribute = 0
+attackBonus = 0.0
+basicAttack = ExtResource("1_bvcjb")
+isUnarmed = true
+title = "Fists"
+description = "You know a thing or two about pressure points."
+attributeBonus = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.0,
+"Strength": 0.0
+}
+statBonus = {
+"Attack Rating": 0.0,
+"Magic Defense": 0.0,
+"Max HP": 0.0,
+"Physical Defense": 0.0
+}
+metadata/_custom_type_script = "uid://6qgd3qugycc1"

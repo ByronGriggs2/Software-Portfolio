@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://72phavhx5xni"]
+
+[ext_resource type="PackedScene" uid="uid://b225e88u4powi" path="res://Screens/GameScreen/Tabs/EquipmentTab/equipment_details.tscn" id="1_f4xby"]
+[ext_resource type="Script" uid="uid://bax7hnqmltul7" path="res://Screens/GameScreen/Tabs/EquipmentTab/equipment_details_binary_choice.gd" id="2_4o4ip"]
+
+[node name="EquipmentDetailsBinaryChoice" instance=ExtResource("1_f4xby")]
+script = ExtResource("2_4o4ip")
+
+[node name="VBoxContainer" parent="Text" index="0"]
+visible = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Text/VBoxContainer" index="3"]
+layout_mode = 2
+alignment = 1
+
+[node name="CenterContainer0" type="CenterContainer" parent="Text/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Option0" type="Button" parent="Text/VBoxContainer/HBoxContainer/CenterContainer0" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Sample Text 0"
+
+[node name="CenterContainer1" type="CenterContainer" parent="Text/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Option1" type="Button" parent="Text/VBoxContainer/HBoxContainer/CenterContainer1" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Sample Text 1"
+
+[connection signal="pressed" from="Text/VBoxContainer/HBoxContainer/CenterContainer0/Option0" to="." method="_on_option_0_pressed"]
+[connection signal="pressed" from="Text/VBoxContainer/HBoxContainer/CenterContainer1/Option1" to="." method="_on_option_1_pressed"]

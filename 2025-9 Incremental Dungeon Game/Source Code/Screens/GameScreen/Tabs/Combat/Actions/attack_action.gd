@@ -6,5 +6,5 @@ enum damageType {
 	MAG
 }
 @export var type : damageType
-@export var power : int
+@export var power : float
 #add elements, status?

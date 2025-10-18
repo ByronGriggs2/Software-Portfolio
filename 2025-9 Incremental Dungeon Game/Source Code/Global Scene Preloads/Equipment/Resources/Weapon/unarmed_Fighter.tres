@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://dto2f7os3d2yf"]
+
+[ext_resource type="Resource" uid="uid://xjtpn5vaupme" path="res://Screens/GameScreen/Tabs/Combat/Actions/punch.tres" id="1_kb8wb"]
+[ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Global Scene Preloads/Equipment/Resources/weapon.gd" id="1_uxyjd"]
+
+[resource]
+script = ExtResource("1_uxyjd")
+primaryAttribute = 3
+attackBonus = 0.0
+basicAttack = ExtResource("1_kb8wb")
+isUnarmed = true
+title = "Fists"
+description = "Try not to break your hand..."
+attributeBonus = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.0,
+"Strength": 0.0
+}
+statBonus = {
+"Attack Rating": 0.0,
+"Magic Defense": 0.0,
+"Max HP": 0.0,
+"Physical Defense": 0.0
+}
+metadata/_custom_type_script = "uid://6qgd3qugycc1"

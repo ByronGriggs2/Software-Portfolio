@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cd3jk852it1qw"]
+
+[ext_resource type="Resource" uid="uid://dnsyqbeeghebx" path="res://Screens/GameScreen/Tabs/Combat/Actions/punch_2.tres" id="1_gw2vo"]
+[ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Global Scene Preloads/Equipment/Resources/weapon.gd" id="1_y3s1v"]
+
+[resource]
+script = ExtResource("1_y3s1v")
+primaryAttribute = 3
+attackBonus = 2.0
+basicAttack = ExtResource("1_gw2vo")
+title = "Slightly magic stick"
+description = "You don't know how to harness the magical power of this object, but that's never stopped you before."
+statBonus = {
+"Attack Rating": 0.0,
+"Magic Defense": 0.0,
+"Max HP": 0.0,
+"Physical Defense": 0.0
+}
+attributeBonus = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.0,
+"Strength": 0.0
+}
+isUnarmed = false
+metadata/_custom_type_script = "uid://6qgd3qugycc1"

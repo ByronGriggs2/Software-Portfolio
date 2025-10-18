@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3pq5sqq43i2i"]
+
+[ext_resource type="PackedScene" uid="uid://c3qx8g3ihbre0" path="res://Global Scene Preloads/Equipment/Scenes/equipment.tscn" id="1_1u8x0"]
+[ext_resource type="Script" uid="uid://caas4hypaetob" path="res://Global Scene Preloads/Equipment/Scenes/accessory.gd" id="2_r0ng1"]
+
+[node name="Accessory" instance=ExtResource("1_1u8x0")]
+script = ExtResource("2_r0ng1")
+
+[editable path="SuperButton"]

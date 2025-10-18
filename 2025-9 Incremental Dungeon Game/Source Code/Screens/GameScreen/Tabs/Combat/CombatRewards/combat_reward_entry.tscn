@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://4o8xwri3b532"]
+
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="1_36fcv"]
+[ext_resource type="Script" uid="uid://t3bno41w4gl1" path="res://Screens/GameScreen/Tabs/Combat/CombatRewards/combat_reward_entry.gd" id="2_f6jid"]
+
+[node name="combat_reward_entry" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+theme = ExtResource("1_36fcv")
+script = ExtResource("2_f6jid")
+
+[node name="SampleTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+text = "Sample Text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

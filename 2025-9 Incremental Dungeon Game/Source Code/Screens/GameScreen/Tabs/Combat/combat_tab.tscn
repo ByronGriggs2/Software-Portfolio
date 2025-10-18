@@ -1,21 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://6dlrgv7rgovn"]
+[gd_scene load_steps=8 format=3 uid="uid://6dlrgv7rgovn"]
 
 [ext_resource type="PackedScene" uid="uid://b0dk8gsoe4wgw" path="res://Screens/GameScreen/Tabs/tab.tscn" id="1_sfv5i"]
-[ext_resource type="PackedScene" uid="uid://cv7pv3yq6gra3" path="res://Screens/GameScreen/Tabs/Combat/combat_map.tscn" id="2_cq0ne"]
 [ext_resource type="Script" uid="uid://h4t80xg2j3yj" path="res://Screens/GameScreen/Tabs/Combat/combat_tab.gd" id="2_d5esk"]
 [ext_resource type="PackedScene" uid="uid://ctkqbkp62y3av" path="res://Screens/GameScreen/Tabs/Combat/combat_panel.tscn" id="2_fs65j"]
+[ext_resource type="PackedScene" uid="uid://bwo13lkbktm1c" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/Floor1/first_floor_map.tscn" id="4_doveg"]
+[ext_resource type="PackedScene" uid="uid://bg06kottiuyhf" path="res://Graphic Elements/developer_console.tscn" id="5_aly7l"]
+[ext_resource type="PackedScene" uid="uid://dbdgbqhrxfw02" path="res://Graphic Elements/BigTextPanel/big_text_panel_continue.tscn" id="6_5ysry"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ysry"]
+bg_color = Color(0.377235, 0.650814, 0.356751, 1)
+border_color = Color(0, 0, 0, 1)
 
 [node name="CombatTab" instance=ExtResource("1_sfv5i")]
 script = ExtResource("2_d5esk")
 
-[node name="CombatMap" parent="." index="0" instance=ExtResource("2_cq0ne")]
-layout_mode = 1
-
-[node name="CombatPanel" parent="." index="1" instance=ExtResource("2_fs65j")]
+[node name="CombatPanel" parent="." index="0" instance=ExtResource("2_fs65j")]
 visible = false
 layout_mode = 1
 
-[connection signal="levelChosen2" from="CombatMap" to="." method="_on_level_chosen"]
+[node name="MapContainer" type="Control" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstFloorMap" parent="MapContainer" index="0" instance=ExtResource("4_doveg")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+
+[node name="DeveloperConsole" parent="." index="2" instance=ExtResource("5_aly7l")]
+
+[node name="NarrativePanel" parent="." index="3" instance=ExtResource("6_5ysry")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ysry")
+text = "Sample text"
+title = "After the Fight"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="defeat" from="CombatPanel" to="." method="_on_combat_panel_defeat"]
 [connection signal="retreat" from="CombatPanel" to="." method="_on_combat_panel_retreat"]
 [connection signal="victory" from="CombatPanel" to="." method="_on_combat_panel_victory"]
+[connection signal="levelChosen2" from="MapContainer/FirstFloorMap" to="." method="_on_level_chosen"]
+[connection signal="consoleClosed" from="DeveloperConsole" to="." method="_on_developer_console_console_closed"]
+[connection signal="consoleOpened" from="DeveloperConsole" to="." method="_on_developer_console_console_opened"]
+[connection signal="setPlayerCore" from="DeveloperConsole" to="." method="_on_developer_console_set_player_core"]

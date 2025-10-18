@@ -6,15 +6,9 @@
 bg_color = Color(0, 0, 0.360784, 1)
 
 [node name="LabelledProgressBar" type="HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(0, 25)
-anchors_preset = -1
 theme_override_constants/separation = 10
 script = ExtResource("1_4yho2")
-
-[node name="EnableButton" type="CheckButton" parent="."]
-layout_mode = 2
-disabled = true
 
 [node name="NameLabel" type="RichTextLabel" parent="."]
 layout_mode = 2
@@ -28,6 +22,7 @@ vertical_alignment = 1
 [node name="ProgressBar" type="ProgressBar" parent="."]
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_styles/fill = SubResource("StyleBoxFlat_rg8h0")
 show_percentage = false
 
@@ -38,5 +33,3 @@ text = "lv X"
 fit_content = true
 autowrap_mode = 0
 vertical_alignment = 1
-
-[connection signal="pressed" from="EnableButton" to="." method="_on_enable_button_pressed"]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=4 format=3 uid="uid://reendmqtqqra"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Screens/GameScreen/Tabs/Combat/Actions/action.gd" id="1_oer7m"]
+[ext_resource type="Resource" uid="uid://dsrsr046bs13s" path="res://Screens/GameScreen/Tabs/Combat/Actions/claw.tres" id="2_2ygrq"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="2_tc7kw"]
+
+[resource]
+script = ExtResource("2_tc7kw")
+text = "Zombie"
+MAXHP = 23.0
+AR = 2.0
+PHYSDEF = 1.0
+MAGATK = 1.0
+MAGDEF = 1.0
+actions = Array[ExtResource("1_oer7m")]([ExtResource("2_2ygrq")])
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

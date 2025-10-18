@@ -1,4 +1,4 @@
-extends "res://Graphic Elements/Popups/my_popup.gd"
+extends "res://Graphic Elements/popups/my_popup.gd"
 
 signal binaryChosen
 

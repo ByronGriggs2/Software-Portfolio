@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=3 uid="uid://b225e88u4powi"]
+
+[ext_resource type="Script" uid="uid://f2pa7u4qbe7c" path="res://Screens/GameScreen/Tabs/EquipmentTab/equipment_details.gd" id="1_2ww4k"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="2_v76lx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srd4a"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v76lx"]
+bg_color = Color(0.298039, 0.298039, 0.298039, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3ka1"]
+bg_color = Color(0.298039, 0.298039, 0.298039, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myivp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="EquipmentDetails" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_srd4a")
+script = ExtResource("1_2ww4k")
+
+[node name="Picture" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.33
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -7.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v76lx")
+
+[node name="HBoxContainer" type="CenterContainer" parent="Picture"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite" parent="Picture/HBoxContainer" instance=ExtResource("2_v76lx")]
+layout_mode = 2
+
+[node name="Text" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.33
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 8.0
+offset_right = -15.0
+offset_bottom = -15.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k3ka1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Text"]
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+
+[node name="Title" type="RichTextLabel" parent="Text/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "Item Name"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Text/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_myivp")
+
+[node name="Description" type="RichTextLabel" parent="Text/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = -3.0
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 25
+text = "meoww meoww :3 mrrp mrrp :3 mrrrp meoww mrrp meow nyaaa meow mrrrp meoww nya meow meow meow meow meow nya :3 miau mrrp nyaaa miau meoww :3 meoww nya mrrrp meow meow meoww :3 meoww meoww miau :3 :3 mrrp nya nya mrrrp :3 meoww nya :3 meow nya nyaaa meow :3 :3 mrrrp miau meow :3 :3 mrrp :3 :3 meoww mrrp meow meoww nya meow nyaa nyaa nya meoww nya :3 miau :3 :3 mrrp mrrrp meow nyaa :3 miau mrrp meoww meow meow nya nyaa nyameoww meoww :3 mrrp mrrp :3 mrrrp meoww mrrp meow nyaaa meow mrrrp meoww nya meow meow meow meow meow nya :3 miau mrrp nyaaa miau meoww :3 meoww nya mrrrp meow meow meoww :3 meoww meoww miau :3 :3 mrrp nya nya mrrrp :3 meoww nya :3 meow nya nyaaa meow :3 :3 mrrrp miau meow :3 :3 mrrp :3 :3 meoww mrrp meow meoww nya meow nyaa nyaa nya meoww nya :3 miau :3 :3 mrrp mrrrp meow nyaa :3 miau mrrp meoww meow meow nya nyaa nya"
+
+[node name="Buffer" type="Control" parent="Text/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2

@@ -1,52 +1,55 @@
 extends Panel
 
-var unlockState : int = -1
+var currentTraining : AttributeTraining = null
 
-func _ready() :
-	updateUnlockButton()
-	
-func updateUnlockButton() :
-	if (!has_node("UnlockButton")) :
-		return
-	$UnlockButton.text = "Unlock " + Definitions.attributeDictionary[unlockState+1]
-
-func unlockAttribute(type : Definitions.attributeEnum) :
-	$AttributeBarContainer.get_child(type).unlock()
-	
-func getAttributeLevel(type : Definitions.attributeEnum) -> int : 
-	return $AttributeBarContainer.get_child(type).getLevel()
-
-func setAttributeLevel(type : Definitions.attributeEnum, val : int ) -> void :
-	$AttributeBarContainer.get_child(type).setLevel(val)
-	
-func getProgress(type : Definitions.attributeEnum) -> float :
-	return $AttributeBarContainer.get_child(type).getValue()
-
-func setProgress(type : Definitions.attributeEnum, val : float) -> void :
-	$AttributeBarContainer.get_child(type).setValue(val)
-
-func _on_unlock_button_pressed() -> void:
-	if (unlockState == Definitions.attributeEnum.size()-1) : 
-		return
-	unlockState = unlockState + 1 as Definitions.attributeEnum
-	unlockAttribute(unlockState)
-	if (unlockState == Definitions.attributeEnum.size()-1) :
-		$UnlockButton.queue_free()
-	else :
-		updateUnlockButton()
+func _on_training_panel_training_changed(newVal) -> void:
+	currentTraining = newVal
+	$AttributeLevels.setMultipliers(currentTraining)
 		
+func getAttributeFinal(type : Definitions.attributeEnum) -> float :
+	#placeholder
+	return $AttributeLevels.getLevel(type)
+
+func addPlayerReference(playerReference) :
+	$AttributeMultipliers.addPlayerReference(playerReference)
+
 func getSaveDictionary() -> Dictionary :
 	var tempDict = {}
 	for key in Definitions.attributeDictionary.keys() :
 		var attributeLevelKey : String = str(key) + "attributeLevel"
 		var levelProgressKey : String = str(key) + "attributeLevelProgress"
-		tempDict[attributeLevelKey] = getAttributeLevel(key)
-		tempDict[levelProgressKey] = getProgress(key)
+		tempDict[attributeLevelKey] = $AttributeLevels.getLevel(key)
+		tempDict[levelProgressKey] = $AttributeLevels.getProgress(key)
+	if (currentTraining == null) :
+		tempDict["currentTraining_scriptName"] = "null"
+	else :
+		tempDict["currentTraining_scriptName"] = currentTraining.get_path()
 	return tempDict
+	
+var myReady : bool = false
+func _ready() :
+	myReady = true
 		
-func setFromSaveDictionary(loadDict) -> void :
+func beforeLoad(newSave : bool) :
+	if (newSave) :
+		currentTraining = null
+		$TrainingPanel.setCurrentTraining(null)
+		$AttributeLevels.setMultipliers(currentTraining)
+	
+func onLoad(loadDict) -> void :
+	if (loadDict["currentTraining_scriptName"] == "null") :
+		currentTraining = null
+		$TrainingPanel.setCurrentTraining(null)
+		$AttributeLevels.setMultipliers(currentTraining)
+	else :
+		currentTraining = load(loadDict["currentTraining_scriptName"])
+		$TrainingPanel.setCurrentTraining(currentTraining)
+		$AttributeLevels.setMultipliers(currentTraining)
 	for key in Definitions.attributeDictionary.keys() :
 		var attributeLevelKey : String = str(key) + "attributeLevel"
 		var levelProgressKey : String = str(key) + "attributeLevelProgress"
-		setAttributeLevel(key, loadDict[attributeLevelKey])
-		setProgress(key, loadDict[levelProgressKey])
+		$AttributeLevels.setLevel(key, loadDict[attributeLevelKey])
+		$AttributeLevels.setProgress(key, loadDict[levelProgressKey])
+	
+func afterLoad() :
+	pass
