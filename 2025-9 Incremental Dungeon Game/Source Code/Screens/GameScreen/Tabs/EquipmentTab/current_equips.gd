@@ -30,7 +30,6 @@ func getText(type : Definitions.equipmentTypeEnum) :
 	
 func setItemSceneRef(itemSceneRef, type : Definitions.equipmentTypeEnum) :
 	currentEquipment[type] = itemSceneRef
-	var element = $HBoxContainer.get_child(type)
 		
 func createEquipmentSlots() :
 	for key in Definitions.equipmentTypeDictionary.keys() :

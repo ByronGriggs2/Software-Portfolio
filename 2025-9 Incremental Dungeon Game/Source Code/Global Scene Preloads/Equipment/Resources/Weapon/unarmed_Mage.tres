@@ -9,18 +9,6 @@ primaryAttribute = 2
 attackBonus = 0.0
 basicAttack = ExtResource("1_7tyh4")
 isUnarmed = true
-title = "Focusing Amulet"
+title = "Focusing amulet"
 description = "An old relic with scant remaining power."
-attributeBonus = {
-"Dexterity": 0.0,
-"Durability": 0.0,
-"Intelligence": 0.0,
-"Strength": 0.0
-}
-statBonus = {
-"Attack Rating": 0.0,
-"Magic Defense": 0.0,
-"Max HP": 0.0,
-"Physical Defense": 0.0
-}
 metadata/_custom_type_script = "uid://6qgd3qugycc1"

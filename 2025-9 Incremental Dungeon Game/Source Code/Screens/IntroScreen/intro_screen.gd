@@ -1,18 +1,6 @@
 extends Control
 
 signal characterDone
-
-func _ready() :
-	for child in get_children() :
-		child.visible = false
-	$IntroText.visible = true
-	$IntroText.connect("continueSignal", _on_intro_text_end)
-	
-func _on_intro_text_end() :
-	$IntroText.visible = false
-	$ReasonCarousel.visible = true
-	$ReasonCarousel.initialise(options, details)
-	$ReasonCarousel.connect("continueSignal", _on_reason_carousel_end)
 	
 func _on_reason_carousel_end(chosenOption) :
 	$ReasonCarousel.visible = false
@@ -22,7 +10,7 @@ func _on_reason_carousel_end(chosenOption) :
 		if (options[tempInt] == chosenOption) :
 			index = tempInt
 	$CharacterCreator.initialise(options, details, index)
-	$CharacterCreator.connect("characterDone", _on_character_creator_end)
+	currentState = state.Character
 	
 func _on_character_creator_end(character, characterName) :
 	emit_signal("characterDone", character, characterName)
@@ -43,3 +31,37 @@ var details : Array[String] = [
 	"The dungeon is filled with magical artifacts and precious gems, even one of which worth a years' salary. I won't stop until I have a lot more than one.",
 	"A demon killed my father! I will not rest until I've found the one responsible and brought him to justice!"
 ]
+func _on_continue_signal(emitter) -> void:
+	emitter.visible = false
+	var children = $NarrativeContainer.get_children()
+	for index in range(0,children.size()) :
+		if (children[index] == emitter) :
+			if (index == children.size()-1) :
+				$ReasonCarousel.initialise(options, details)
+				$ReasonCarousel.visible = true
+				currentState = state.Reason
+			else :
+				children[index+1].visible = true
+				currentState = (index+1) as state
+
+enum state {P1,P2,P3,P4,P5,Reason,Character}
+var currentState = state.P1
+signal cancel
+func _on_back_button_pressed() -> void:
+	if (currentState == state.P1) :
+		emit_signal("cancel")
+	elif (currentState != state.Reason && currentState != state.Character) :
+		narrativeGoBack()
+	elif (currentState == state.Reason) :
+		currentState = state.P5
+		$NarrativeContainer.get_child(state.P5).visible = true
+		$ReasonCarousel.visible = false
+	elif (currentState == state.Character) :
+		currentState = state.Reason
+		$ReasonCarousel.visible = true
+		$CharacterCreator.visible = false
+		
+func narrativeGoBack() :
+	currentState = (currentState as int - 1) as state
+	$NarrativeContainer.get_child(currentState).visible = true
+	$NarrativeContainer.get_child(currentState + 1).visible = false

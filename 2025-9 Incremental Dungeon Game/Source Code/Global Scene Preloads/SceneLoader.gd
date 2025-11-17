@@ -19,20 +19,32 @@ const equipmentResourceDictionary = {
 
 const equipmentSceneDictionary = {
 #Weapon
-	"magic_stick_int" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon//magic_stick_int.tscn"),
-	"magic_stick_str" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon//magic_stick_str.tscn"),
-	"shiv" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon//shiv.tscn"),
-	"unarmed_Fighter" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon//unarmed_Fighter.tscn"),
-	"unarmed_Mage" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon//unarmed_Mage.tscn"),
-	"unarmed_Rogue" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon//unarmed_Rogue.tscn"),
+	"magic_stick_int" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon/magic_stick_int.tscn"),
+	"magic_stick_str" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon/magic_stick_str.tscn"),
+	"shiv" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon/shiv.tscn"),
+	"unarmed_Fighter" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon/unarmed_Fighter.tscn"),
+	"unarmed_Mage" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon/unarmed_Mage.tscn"),
+	"unarmed_Rogue" : preload("res://Global Scene Preloads/Equipment/Scenes/Weapon/unarmed_Rogue.tscn"),
 #Armor
-	"casual" : preload("res://Global Scene Preloads/Equipment/Scenes/Armor//casual.tscn"),
-	"scraps" : preload("res://Global Scene Preloads/Equipment/Scenes/Armor//scraps.tscn"),
+	"casual" : preload("res://Global Scene Preloads/Equipment/Scenes/Armor/casual.tscn"),
+	"scraps" : preload("res://Global Scene Preloads/Equipment/Scenes/Armor/scraps.tscn"),
 #Accessory
-	"ring_mild_fortitude" : preload("res://Global Scene Preloads/Equipment/Scenes/Accessory//ring_mild_fortitude.tscn"),
-	"silver_bracers" : preload("res://Global Scene Preloads/Equipment/Scenes/Accessory//silver_bracers.tscn")}
+	"ring_mild_fortitude" : preload("res://Global Scene Preloads/Equipment/Scenes/Accessory/ring_mild_fortitude.tscn"),
+	"silver_bracers" : preload("res://Global Scene Preloads/Equipment/Scenes/Accessory/silver_bracers.tscn")}
 
 func createEquipmentScene(itemName : String) :
 	var newScene = equipmentSceneDictionary[itemName].instantiate()
 	newScene.core = equipmentResourceDictionary[itemName]
 	return newScene
+
+#Training section
+const trainingResourceDictionary = {
+	"boxing" : preload("res://Global Scene Preloads/Training/boxing.tres"),
+	"pickpocketing" : preload("res://Global Scene Preloads/Training/pickpocketing.tres"),
+	"puzzles" : preload("res://Global Scene Preloads/Training/puzzles.tres"),
+	"weight_lifting" : preload("res://Global Scene Preloads/Training/weight_lifting.tres")}
+
+func createTrainingResource(trainingName : String) :
+	return trainingResourceDictionary[trainingName]
+func trainingResourceKeys() :
+	return trainingResourceDictionary.keys()

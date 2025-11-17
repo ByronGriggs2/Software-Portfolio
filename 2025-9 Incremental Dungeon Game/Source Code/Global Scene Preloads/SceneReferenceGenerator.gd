@@ -5,15 +5,36 @@ const mainPath = "res://Global Scene Preloads"
 const equipmentPath = mainPath + "/Equipment"
 const equipmentResourcePath = equipmentPath + "/Resources"
 const equipmentScenePath = equipmentPath + "/Scenes"
+const trainingPath = mainPath + "/Training"
 
 func _run() :
 	var scriptContent : String = "#This auto-generated singleton preloads small nodes such as equipment and can instantiate them as needed\n"
 	scriptContent += "extends Node\n\n"
 	scriptContent = writeEquipment(scriptContent)
+	scriptContent = writeTraining(scriptContent)
 	const outPath = "res://Global Scene Preloads/SceneLoader.gd"
 	var file = FileAccess.open(outPath, FileAccess.WRITE)
 	file.store_string(scriptContent)
-	file.close
+	file.close()
+	
+func writeTraining(scriptContent) :
+	scriptContent += "#Training section\n"
+	scriptContent += "const trainingResourceDictionary = {\n"
+	var dir = DirAccess.open(trainingPath)
+	dir.list_dir_begin()
+	var filename = dir.get_next()
+	var trainingName = filename.get_basename().get_file()
+	scriptContent += "\t\"%s\" : preload(\"%s\")" % [trainingName, trainingPath + "/" + filename]
+	filename = dir.get_next()
+	while(filename != "") : 
+		trainingName = filename.get_basename().get_file()
+		scriptContent += ",\n\t\"%s\" : preload(\"%s\")" % [trainingName, trainingPath + "/" + filename]
+		filename = dir.get_next()
+	scriptContent += "}\n\n"
+	scriptContent += "func createTrainingResource(trainingName : String) :\n"
+	scriptContent += "\treturn trainingResourceDictionary[trainingName].new()\n"
+	scriptContent += "func trainingResourceKeys() :\n\treturn trainingResourceDictionary.keys()\n\n\n"
+	return scriptContent
 	
 func writeEquipment(scriptContent) :
 	scriptContent += "#Equipment section\n"
@@ -51,7 +72,7 @@ func writeEquipment(scriptContent) :
 		var filename = dir.get_next()
 		while (filename != "") :
 			var itemName = filename.get_basename().get_file()
-			scenePaths[itemName] = sceneDir + "/" + filename
+			scenePaths[itemName] = sceneDir + filename
 			filename = dir.get_next()
 		var itemNames = scenePaths.keys()
 		if (!itemNames.is_empty()) :

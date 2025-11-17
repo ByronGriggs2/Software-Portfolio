@@ -1,0 +1,31 @@
+extends PanelContainer
+var myType : Encyclopedia.tutorialName
+
+func initialise(type : Encyclopedia.tutorialName, myPosition : Vector2, args : Array) :
+	var startAsDisabled = args[0]
+	myType = type
+	$VBoxContainer/Title.text = Encyclopedia.tutorialTitles[type]
+	$VBoxContainer/Panel/EncyclopediaTextLabel.setText(Encyclopedia.tutorialDesc[type])
+	var tempPosition
+	if (myPosition == Vector2(0,0)) :
+		await get_tree().process_frame
+		var screenSize = Engine.get_singleton("DisplayServer").screen_get_size()
+		tempPosition = Vector2((screenSize.x-size.x)/2.0,(screenSize.y-size.y)/2.0)
+	else :
+		tempPosition = myPosition
+		var screenSize = Engine.get_singleton("DisplayServer").screen_get_size()
+		tempPosition.x = clamp(tempPosition.x, 0, screenSize.x-size.x)
+		tempPosition.y = clamp(tempPosition.y, 0, screenSize.y-size.y)
+	global_position = tempPosition
+	if (Encyclopedia.oneOffTutorials.find(type) != -1) :
+		$VBoxContainer/FuckOffContainer.visible = false
+		$VBoxContainer.queue_sort()
+		queue_sort()
+		$VBoxContainer/FuckOffContainer/CheckBox.set_pressed(true)
+	elif (startAsDisabled) :
+		$VBoxContainer/FuckOffContainer/CheckBox.set_pressed(true)
+
+signal continueSignal
+func _on_my_button_pressed() -> void:
+	emit_signal("continueSignal", myType, $VBoxContainer/FuckOffContainer/CheckBox.is_pressed())
+	queue_free()

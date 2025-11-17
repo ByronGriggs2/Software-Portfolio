@@ -12,14 +12,7 @@ func setStats(index : int) :
 		currentStats = mageStats
 	elif (index == 2) :
 		currentStats = rogueStats
-	
-	$StatAmounts/SKI.text = str(currentStats.getBaseAttribute(Definitions.attributeEnum.DEX))
-	$StatAmounts/DUR.text = str(currentStats.getBaseAttribute(Definitions.attributeEnum.DUR))
-	$StatAmounts/INT.text = str(currentStats.getBaseAttribute(Definitions.attributeEnum.INT))
-	$StatAmounts/STR.text = str(currentStats.getBaseAttribute(Definitions.attributeEnum.STR))
-
-	$StatScaling/DUR.text = "x"+str(currentStats.getAttributeScaling(Definitions.attributeEnum.DEX))
-	$StatScaling/STR.text = "x"+str(currentStats.getAttributeScaling(Definitions.attributeEnum.DUR))
-	$StatScaling/SKI.text = "x"+str(currentStats.getAttributeScaling(Definitions.attributeEnum.INT))
-	$StatScaling/INT.text = "x"+str(currentStats.getAttributeScaling(Definitions.attributeEnum.STR))
+	for key in Definitions.attributeDictionary.keys() :
+		$VBoxContainer/ColumnContainer/StatAmounts.get_child(1+key).text = str(currentStats.getBaseAttribute(key)*currentStats.getAttributeScaling(key))
+		$VBoxContainer/ColumnContainer/StatScaling.get_child(1+key).text = str(currentStats.getAttributeScaling(key))
 	

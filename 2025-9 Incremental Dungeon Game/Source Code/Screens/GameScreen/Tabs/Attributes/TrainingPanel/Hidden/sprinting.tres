@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AttributeTraining" load_steps=2 format=3 uid="uid://cqllgbhaxnqna"]
 
-[ext_resource type="Script" uid="uid://dqi4f2avtalvt" path="res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/attribute_training.gd" id="1_1bqhl"]
+[ext_resource type="Script" uid="uid://dqi4f2avtalvt" path="res://Global Scene Preloads/attribute_training.gd" id="1_1bqhl"]
 
 [resource]
 script = ExtResource("1_1bqhl")

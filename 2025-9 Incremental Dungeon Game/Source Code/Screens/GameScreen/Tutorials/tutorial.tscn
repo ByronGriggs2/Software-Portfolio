@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtphjl6vw4pr3"]
+
+[ext_resource type="Script" uid="uid://ddujakvgubloc" path="res://Screens/GameScreen/Tutorials/tutorial.gd" id="1_rfvep"]
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="2_rfvep"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_qlknt"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="3_swd47"]
+[ext_resource type="PackedScene" uid="uid://b8u7rb34016g7" path="res://Graphic Elements/Tooltips/encyclopedia_text_label.tscn" id="4_swd47"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlknt"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.38, 0.38, 0.38, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[node name="Tutorial" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 0)
+offset_right = 148.0
+offset_bottom = 144.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qlknt")
+script = ExtResource("1_rfvep")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_rfvep")
+theme_override_colors/default_color = Color(0.898039, 0.898039, 0.898039, 1)
+text = "Sample Title"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_swd47")
+
+[node name="EncyclopediaTextLabel" parent="VBoxContainer/Panel" instance=ExtResource("4_swd47")]
+layout_mode = 2
+text = "Tutorial popups can be disabled in the in-game options menu. There you will also find a list of all encountered tutorials, even if they were suppressed. Remember that tutorials may show up even in the late game!"
+
+[node name="FuckOffContainer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/FuckOffContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/FuckOffContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.898039, 0.898039, 0.898039, 1)
+text = "Hide this tutorial in the future"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MyButton" parent="VBoxContainer" instance=ExtResource("3_qlknt")]
+layout_mode = 2
+theme = ExtResource("3_swd47")
+text = "Continue"
+
+[connection signal="pressed" from="VBoxContainer/MyButton" to="." method="_on_my_button_pressed"]

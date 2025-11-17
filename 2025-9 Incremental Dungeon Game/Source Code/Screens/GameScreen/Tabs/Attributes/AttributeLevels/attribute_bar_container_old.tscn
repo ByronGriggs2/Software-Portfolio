@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdxq514rp3om4"]
+
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="1_vn1yf"]
+[ext_resource type="Script" uid="uid://bd87jcbmrnjq8" path="res://Screens/GameScreen/Tabs/Attributes/AttributeLevels/attribute_bar_container_old.gd" id="2_2ecmb"]
+
+[node name="AttributeBarContainer" type="PanelContainer"]
+offset_right = 1920.0
+offset_bottom = 30.0
+theme = ExtResource("1_vn1yf")
+script = ExtResource("2_2ecmb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2

@@ -10,19 +10,20 @@ config_version=5
 
 [application]
 
-config/name="Incremental Dungeon Game"
-config/version="0.3"
+config/name="Incremental Dungeon"
+config/version="0.5"
 run/main_scene="uid://s0vapgk0mw0b"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Images/icon.svg"
 
 [autoload]
 
-Definitions="*res://Definitions/Definitions.gd"
-SaveManager="*res://SaveManager/save_manager.gd"
-Helpers="*res://Definitions/Helpers.gd"
-EditorHelper="*res://Definitions/EditorHelper.gd"
+Definitions="*res://Globals/Definitions/Definitions.gd"
+SaveManager="*res://Globals/save_manager.gd"
+Helpers="*res://Globals/Helpers.gd"
 SceneLoader="*res://Global Scene Preloads/SceneLoader.gd"
+Encyclopedia="*res://Globals/encyclopedia.gd"
+IGOptions="*res://Globals/IGOptions.gd"
 
 [display]
 
@@ -33,6 +34,7 @@ window/size/mode=3
 [global_group]
 
 Saveable=""
+CaresAboutOptions="Will be updated when the in-game options menu is closed"
 
 [input]
 

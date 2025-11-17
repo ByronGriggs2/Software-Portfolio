@@ -6,11 +6,11 @@ func deselect() :
 func select() :
 	pass
 	
-func setBorderColor(color : Color) :
-	pass
-
-func setBorderWidth(width : int) :
-	pass
+#func setBorderColor(color : Color) :
+	#pass
+#
+#func setBorderWidth(width : int) :
+	#pass
 
 func _on_mouse_entered() -> void:
 	pass

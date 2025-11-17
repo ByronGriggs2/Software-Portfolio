@@ -1,33 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsxi11w4ip7vb"]
+[gd_scene load_steps=11 format=3 uid="uid://dsxi11w4ip7vb"]
 
 [ext_resource type="Script" uid="uid://dhibsfbnb83v4" path="res://Screens/GameScreen/Player/player.gd" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://cv3es4nxtpjqv" path="res://Screens/GameScreen/Player/derived_stat_display.gd" id="2_onrkg"]
-[ext_resource type="Script" uid="uid://v4fsrg8xdp8s" path="res://Screens/GameScreen/Player/attribute_display.gd" id="2_pd85m"]
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="1_ohg0b"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="3_8wqe6"]
+[ext_resource type="Theme" uid="uid://toctfm8xh225" path="res://Graphic Elements/Themes/squareSuperButton.tres" id="3_ohg0b"]
+[ext_resource type="Script" uid="uid://61a0gl6anx1q" path="res://Screens/GameScreen/Player/attibute_panel.gd" id="4_hdg78"]
+[ext_resource type="Script" uid="uid://cge0ywn8dpavh" path="res://Screens/GameScreen/Player/combat_stat_panel.gd" id="5_8wqe6"]
+[ext_resource type="PackedScene" uid="uid://d27qun4sjp4nj" path="res://Graphic Elements/Tooltips/mouseover_number_display.tscn" id="7_ly6h7"]
 
-[node name="Player" type="Panel" groups=["Saveable"]]
-anchors_preset = -1
-anchor_left = 0.025
-anchor_top = 0.5
-anchor_right = 0.25
-anchor_bottom = 0.975
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g263w"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohg0b"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdg78"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="PanelContainer" groups=["Saveable"]]
+offset_right = 251.0
+offset_bottom = 145.0
+theme = ExtResource("1_ohg0b")
+theme_override_styles/panel = SubResource("StyleBoxFlat_g263w")
 script = ExtResource("1_4flbx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 15.0
-offset_right = -15.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
+layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="NameLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 30
 text = "Undefined Name"
 fit_content = true
@@ -36,47 +65,89 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ClassLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="AttributePanel" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme = ExtResource("3_8wqe6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohg0b")
+script = ExtResource("4_hdg78")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/AttributePanel"]
+layout_mode = 2
+
+[node name="ClassLabel" type="RichTextLabel" parent="VBoxContainer/AttributePanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_8wqe6")
+theme_override_font_sizes/normal_font_size = 22
 text = "Class: Sample Text"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Spacer" type="Control" parent="VBoxContainer/AttributePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="AttributeTitle" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
+[node name="AttributeLabel" type="RichTextLabel" parent="VBoxContainer/AttributePanel/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 30
-text = "Attributes"
+theme = ExtResource("3_8wqe6")
+theme_override_font_sizes/normal_font_size = 22
+text = "Attributes: "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="AttributeDisplay" type="VBoxContainer" parent="VBoxContainer/AttributePanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ohg0b")
+
+[node name="SampleEntry" type="HBoxContainer" parent="VBoxContainer/AttributePanel"]
+visible = false
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/AttributePanel/SampleEntry"]
+layout_mode = 2
+text = " Sample Stat :"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Number" parent="VBoxContainer/AttributePanel/SampleEntry" instance=ExtResource("7_ly6h7")]
+layout_mode = 2
+
+[node name="CombatStatPanel" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_8wqe6")
+
+[node name="StatTitle" type="RichTextLabel" parent="VBoxContainer/CombatStatPanel"]
+layout_mode = 2
+text = "Combat Stats"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AttributeDisplay" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CombatStatPanel"]
 layout_mode = 2
-script = ExtResource("2_pd85m")
+theme = ExtResource("3_8wqe6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hdg78")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+[node name="DerivedStatDisplay" type="VBoxContainer" parent="VBoxContainer/CombatStatPanel/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("3_ohg0b")
+
+[node name="SampleEntry" type="HBoxContainer" parent="VBoxContainer/CombatStatPanel"]
+visible = false
 layout_mode = 2
 
-[node name="StatTitle" type="RichTextLabel" parent="VBoxContainer/VBoxContainer2"]
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/CombatStatPanel/SampleEntry"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 30
-text = "Derived Stats"
+text = " Sample Stat :"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="DerivedStatDisplay" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2"]
+[node name="Number" parent="VBoxContainer/CombatStatPanel/SampleEntry" instance=ExtResource("7_ly6h7")]
 layout_mode = 2
-script = ExtResource("2_onrkg")

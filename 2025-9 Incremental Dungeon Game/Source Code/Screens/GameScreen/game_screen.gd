@@ -1,48 +1,66 @@
 extends Panel
 
-const optionsMenu = preload("res://Screens/GameScreen/in_game_options.tscn")
+const optionsMenuLoader = preload("res://Graphic Elements/popups/actual_in_game_options.tscn")
+const saveMenuLoader = preload("res://Graphic Elements/popups/in_game_options.tscn")
 const binaryPopup = preload("res://Graphic Elements/popups/binary_decision.tscn")
+	
+##########################################
+## Other
+var firstProcess : bool = true
+func _process(_delta) :
+	$MyTabContainer/InnerContainer/Training.setPlayerMods($Player.getAttributeMods())
+	updatePlayer()
 
-var tutorialsEnabled : bool = true
-var tutorialPopupEnabled : bool = true
-				
-func _on_tutorial_dialog_choice(choice : int) :
-	if (choice == 0) :
-		tutorialsEnabled = true
-	elif (choice == 1) :
-		tutorialsEnabled = false
-
+func updatePlayer() :
+	## GameScreen needs to know all of the data and where to get it that Player needs each frame, but not how it's created or how it's used.
+	## This is the complete list of "direct" and "specific" modifiers detailed in Player.gd.
+	## Player.gd does not actually need to know the complete list of direct modifiers but I will add it there as comments for clarity
+	## Direct
+	#Equipment
+	var equipmentDirect : ModifierPacket = $MyTabContainer/InnerContainer/Equipment.getDirectModifiers()
+	$Player.updateDirectModifier("Equipment", equipmentDirect)
+	## Specific
+	#Training
+	var newTrainingLevels : Array[int] = $MyTabContainer/InnerContainer/Training.getAttributeLevels()
+	$Player.updateTrainingLevels(newTrainingLevels)
+	#Weapon
+	var newWeapon : Weapon = $MyTabContainer/InnerContainer/Equipment.getCurrentWeapon()
+	$Player.updateWeapon(newWeapon)
+	var newArmor : Armor = $MyTabContainer/InnerContainer/Equipment.getCurrentArmor()
+	$Player.updateArmor(newArmor)
+	
+	$Player.myUpdate()
+#############################################
+## New game initialisation
+func initialisePlayerClass(val) :
+	$Player.setClass(val)
+func initialisePlayerName(val) :
+	$Player.setName(val)
+	
+######################################
+## Signals
 func _on_tab_pressed(emitter : Button) :
 	for child in $TabContainer.get_children() :
 		if (child.name == emitter.name) :
 			child.visible = true
 		else :
 			child.visible = false
+			
+
+func _on_options_button_pressed(_emitter) -> void:
+	optionsMenuRef = optionsMenuLoader.instantiate()
+	add_child(optionsMenuRef)
 	
-func _process(_delta) :
-	var attributeLevels : Array
-	for key in Definitions.attributeDictionary :
-		attributeLevels.append($MyTabContainer/InnerContainer/Attributes.getAttributeFinal(key))
-	$Player.startFrame()
-	$Player.updateAttributes(attributeLevels)
-	$Player.updateEquipment($MyTabContainer/InnerContainer/Equipment.getAttributeBonus(), $MyTabContainer/InnerContainer/Equipment.getStatBonus())
-	$Player.updateWeapon($MyTabContainer/InnerContainer/Equipment.getCurrentWeapon())
-	$Player.updateArmor($MyTabContainer/InnerContainer/Equipment.getCurrentArmor())
-	$Player.updateDerivedStats()
-
-func setPlayerClass(val) :
-	$Player.setClass(val)
-func setPlayerName(val) :
-	$Player.setName(val)
-
 signal exitToMenu
-func _on_options_button_pressed() -> void:
-	var options = optionsMenu.instantiate()
-	add_child(options)
-	options.connect("exitToMenu", _exit_to_menu)
-	options.connect("loadGameNow", _on_load_game_now)
+func _on_save_button_pressed(_emitter) -> void:
+	saveMenuRef = saveMenuLoader.instantiate()
+	add_child(saveMenuRef)
+	saveMenuRef.connect("exitToMenu", _exit_to_menu)
+	saveMenuRef.connect("loadGameNow", _on_load_game_now)
+	
 func _exit_to_menu() :
 	emit_signal("exitToMenu")
+	
 signal loadGameNow
 func _on_load_game_now() :
 	emit_signal("loadGameNow")
@@ -59,30 +77,83 @@ func _on_combat_add_to_inventory_requested(itemSceneRef) -> void:
 		$MyTabContainer/InnerContainer/Equipment.addItemToInventory(SceneLoader.createEquipmentScene(itemSceneRef.getItemName()))
 		$MyTabContainer/InnerContainer/Combat.removeCombatRewardEntry(itemSceneRef)
 		
-func getSaveDictionary() -> Dictionary :
-	var tempDict = {}
-	tempDict["tutorialsEnabled"] = tutorialsEnabled
-	return tempDict
+func _on_tutorial_requested(tutorialName : Encyclopedia.tutorialName, tutorialPos : Vector2) :
+	if (tutorialName == Encyclopedia.tutorialName.tutorialFloor3 && !tabsUnlocked[1]) :
+		$MyTabContainer.revealChild($MyTabContainer/InnerContainer/Training)
+		tabsUnlocked[1] = true
+	elif (tutorialName == Encyclopedia.tutorialName.equipment && !tabsUnlocked[2]) :
+		$MyTabContainer.revealChild($MyTabContainer/InnerContainer/Equipment)
+		tabsUnlocked[2] = true
+	$TutorialManager.queueTutorial(tutorialName, tutorialPos)
 	
-func game_screen_fresh_save_init(myClass : CharacterClass, myName : String) :
-	$Player.freshSaveInit(myClass, myName)
+func _on_player_core_requested(emitter) -> void:
+	emitter.providePlayerCore($Player.getCore())
+func _on_player_class_requested(emitter) -> void:
+	emitter.providePlayerClass($Player.getClass())
+#func _on_player_attribute_mods_requested(emitter) -> void:
+	#emitter.providePlayerAttributeMods($Player.getAttributeMods())
+	#
+var saveMenuRef : Node = null
+var optionsMenuRef : Node = null
+var escWasPressed : bool = false
+func _unhandled_input(event: InputEvent) -> void:
+	if (event.is_action("ui_cancel")) :
+		accept_event()
+		if (event.is_pressed()) :
+			escWasPressed = true
+		else :
+			if (escWasPressed) :
+				if (saveMenuRef != null) :
+					saveMenuRef.queue_free()
+					saveMenuRef = null
+				elif (optionsMenuRef != null) :
+					optionsMenuRef.queue_free()
+					optionsMenuRef = null
+				else :
+					_on_save_button_pressed(self)
+			escWasPressed = false
+			
+########################################
+## Saving
+	
+var tabsUnlocked : Array
+func getSaveDictionary() -> Dictionary :
+	var tempDict = {}		
+	tempDict["tabsUnlocked"] = tabsUnlocked
+	return tempDict
 		
 var myReady : bool = false
 func _ready() :
 	myReady = true
 	
 func beforeLoad(newSave) :
-	$MyTabContainer/InnerContainer/Combat.addPlayerReference($Player)
-	$MyTabContainer/InnerContainer/Attributes.addPlayerReference($Player)
+	## Wait for annoying dependency
+	if (!$MyTabContainer.myReady) :
+		await $MyTabContainer.actuallyReady
+	for tab in $MyTabContainer/InnerContainer.get_children() :
+		if (tab.has_signal("tutorialRequested")) :
+			tab.connect("tutorialRequested", _on_tutorial_requested)
+		if (tab.has_signal("playerClassRequested")) :
+			tab.connect("playerClassRequested", _on_player_class_requested)
+		if (tab.has_signal("playerCoreRequested")) :
+			tab.connect("playerCoreRequested", _on_player_core_requested)
+		#if (tab.has_signal("playerAttributeModsRequested")) :
+			#tab.connect("playerAttributeModsRequested", _on_player_attribute_mods_requested)
 	if (newSave) :
-		var tutorialDialog = binaryPopup.instantiate()
-		add_child(tutorialDialog)
-		tutorialDialog.setTitle("Enable Tutorials?")
-		tutorialDialog.setText("Would you like to enable tutorial popups? (Recommended)")
-		tutorialDialog.connect("binaryChosen", _on_tutorial_dialog_choice)
-	
-func onLoad(loadDict) -> void :
-	tutorialsEnabled = loadDict["tutorialsEnabled"]
-	
-func afterLoad() :
-	pass
+		$TutorialManager.queueTutorial(Encyclopedia.tutorialName.tutorial, Vector2(0,0))
+		$TutorialManager.queueTutorial(Encyclopedia.tutorialName.tutorialFloor1, Vector2(0,0))
+		for child in $MyTabContainer/InnerContainer.get_children() :
+			if (child == $MyTabContainer/InnerContainer/Combat) :
+				tabsUnlocked.append(true)
+			else :
+				tabsUnlocked.append(false)
+				$MyTabContainer.hideChild(child)
+		for index in range(0,tabsUnlocked.size()) :
+			if (!tabsUnlocked[index]) :
+				$MyTabContainer.hideChild($MyTabContainer/InnerContainer.get_child(index))
+				
+func onLoad(loadDict : Dictionary) -> void :
+	tabsUnlocked = loadDict["tabsUnlocked"]
+	for index in range(0,tabsUnlocked.size()) :
+		if (!tabsUnlocked[index]) :
+			$MyTabContainer.hideChild($MyTabContainer/InnerContainer.get_child(index))

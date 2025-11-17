@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterClass" load_steps=2 format=3 uid="uid://cxr3lhkuao7js"]
+
+[ext_resource type="Script" uid="uid://rkr30nwxygl8" path="res://Globals/Definitions/CharacterClass.gd" id="1_ignmm"]
+
+[resource]
+script = ExtResource("1_ignmm")
+classEnum = 0
+baseAttributes = {
+"Dexterity": 10.0,
+"Durability": 10.0,
+"Intelligence": 10.0,
+"Strength": 10.0
+}
+attributeScaling = {
+"Dexterity": 0.5,
+"Durability": 1.0,
+"Intelligence": 0.5,
+"Strength": 1.0
+}
+metadata/_custom_type_script = "uid://rkr30nwxygl8"

@@ -11,5 +11,5 @@ AR = 10.0
 PHYSDEF = 10.0
 MAGATK = 10.0
 MAGDEF = 10.0
-actions = Array[ExtResource("1_eguqp")]([])
+actions = Array[ExtResource("1_eguqp")]([null])
 metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

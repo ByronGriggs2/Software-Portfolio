@@ -9,10 +9,9 @@ alignment = 1
 script = ExtResource("1_jvc0b")
 
 [node name="First" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(170, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Sample text"
 fit_content = true
 scroll_active = false
@@ -21,7 +20,6 @@ autowrap_mode = 0
 [node name="Second" type="RichTextLabel" parent="."]
 layout_mode = 2
 size_flags_horizontal = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Sample Text"
 fit_content = true
 scroll_active = false

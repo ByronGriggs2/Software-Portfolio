@@ -5,20 +5,22 @@ signal finished
 const entryLoader = preload("res://Screens/GameScreen/Tabs/Combat/CombatRewards/combat_reward_entry.tscn")
 
 func _ready() :
-	$Details.setOption0("Take")
-	$Details.setOption1("Discard")
+	$Content/Details.setOption0("Take")
+	$Content/Details.setOption1("Discard")
 
 func initialise(rewards : Array[Equipment]) :
-	for reward in rewards :
+	for index in range(0,rewards.size()) :
 		var entry = entryLoader.instantiate()
-		$ItemPanel/VBoxContainer.add_child(entry)
-		entry.initialise(reward.resource_path.get_file().get_basename())
+		$Content/InventoryPanel/VBoxContainer.add_child(entry)
+		entry.initialise(rewards[index].resource_path.get_file().get_basename())
 		entry.connect("wasSelected", _on_entry_selected)
+	var firstEntry = $Content/InventoryPanel/VBoxContainer.get_child(0)
+	firstEntry.getItemSceneRef().select()
+	$Content/Details.setItemSceneRefBase(firstEntry.getItemSceneRef())
 		
 func _on_entry_selected(itemSceneRef) :
-	$Details.visible = true
-	$Details.setItemSceneRefBase(itemSceneRef)
-	for child in $ItemPanel/VBoxContainer.get_children() :
+	$Content/Details.setItemSceneRefBase(itemSceneRef)
+	for child in $Content/InventoryPanel/VBoxContainer.get_children() :
 		if (child.getItemSceneRef() != itemSceneRef) :
 			child.getItemSceneRef().deselect()
 
@@ -30,13 +32,13 @@ func _on_details_option_pressed(itemSceneRef, val : int) -> void:
 		removeItemFromList(itemSceneRef)
 	
 #func findItem(item : Equipment) :
-	#for child in $ItemPanel/VBoxContainer.get_children() :
+	#for child in $Content/InventoryPanel/VBoxContainer.get_children() :
 		#if (child.getRewardRef() == item) :
 			#return child
 	#return null
 
 func removeItemFromList(itemSceneRef) :
-	var itemList = $ItemPanel/VBoxContainer.get_children()
+	var itemList = $Content/InventoryPanel/VBoxContainer.get_children()
 	var killableIndex
 	var killableScene
 	for index in range(0,itemList.size()) :
@@ -44,17 +46,19 @@ func removeItemFromList(itemSceneRef) :
 			killableIndex = index
 			killableScene = itemList[index]
 			break
-	$ItemPanel/VBoxContainer.remove_child(killableScene)
+	#Explicitly remove child because sometimes it seems to take more than 1 frame
+	$Content/InventoryPanel/VBoxContainer.remove_child(killableScene)
 	killableScene.queue_free()
-	var newItemList = $ItemPanel/VBoxContainer.get_children()
+	await get_tree().process_frame
+	var newItemList = $Content/InventoryPanel/VBoxContainer.get_children()
 	if (newItemList.is_empty()) :
 		emit_signal("finished")
 		queue_free()
 		return
 	var newIndex
 	if (killableIndex == newItemList.size()) :
-		newIndex = killableIndex-1
+		newIndex = newItemList.size()-1
 	else :
-		newIndex = killableIndex+1
-	$Details.setItem(newItemList[newIndex].getItemSceneRef())
+		newIndex = killableIndex
+	$Content/Details.setItemSceneRefBase(newItemList[newIndex].getItemSceneRef())
 	newItemList[newIndex].getItemSceneRef().select()

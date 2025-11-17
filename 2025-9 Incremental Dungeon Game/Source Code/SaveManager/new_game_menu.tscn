@@ -4,8 +4,9 @@
 
 [node name="NewGameMenu" instance=ExtResource("1_fgv2s")]
 
-[node name="Title" parent="Window/VBoxContainer" index="0"]
-text = "Select save slot"
+[node name="Title" parent="Panel/CenterContainer/Window/VBoxContainer" index="0"]
+text = "New Game"
 
-[node name="ReturnButton" parent="Window" index="1"]
-text = "Return to menu"
+[node name="Text" parent="Panel/CenterContainer/Window/VBoxContainer" index="1"]
+text = "Select Slot"
+horizontal_alignment = 1

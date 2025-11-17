@@ -1,52 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://doco0f71p4yi8"]
+[gd_scene load_steps=9 format=3 uid="uid://doco0f71p4yi8"]
 
 [ext_resource type="Script" uid="uid://deoa2x3uge7cf" path="res://Graphic Elements/Carousel/carousel.gd" id="1_5yuox"]
 [ext_resource type="PackedScene" uid="uid://dstnsfwjs1sa" path="res://Graphic Elements/Buttons/triangleButton2.tscn" id="2_0pt0y"]
+[ext_resource type="Texture2D" uid="uid://dajemb06vo1po" path="res://Images/CC0 Assets/Arrows/gray_left.png" id="3_w2kr4"]
+[ext_resource type="Texture2D" uid="uid://d2fmcloqe127p" path="res://Images/CC0 Assets/Arrows/gray_left_pressed.png" id="4_ordye"]
+[ext_resource type="Texture2D" uid="uid://dvywupmm2f04s" path="res://Images/CC0 Assets/Arrows/gray_left_hovered.png" id="5_cuogj"]
+[ext_resource type="Texture2D" uid="uid://4jkijxwasww7" path="res://Images/CC0 Assets/Arrows/gray_left_disabled.png" id="6_trq0l"]
+[ext_resource type="BitMap" uid="uid://dps5b4r0dxqk6" path="res://Images/CC0 Assets/Arrows/bitmap_left.png" id="7_6qs25"]
+[ext_resource type="PackedScene" uid="uid://b8u7rb34016g7" path="res://Graphic Elements/Tooltips/encyclopedia_text_label.tscn" id="8_ordye"]
 
-[node name="Carousel" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Carousel" type="VBoxContainer"]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 705.0
+offset_bottom = 115.0
+theme_override_constants/separation = 25
+alignment = 1
 script = ExtResource("1_5yuox")
 
-[node name="Left" parent="." instance=ExtResource("2_0pt0y")]
-layout_mode = 1
-anchor_left = 0.3
-anchor_top = 0.5
-anchor_right = 0.3
-anchor_bottom = 0.5
-rotation = -1.5708
-scale = Vector2(0.18, 0.18)
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.32
-anchor_top = 0.5
-anchor_right = 0.68
-anchor_bottom = 0.5
-offset_top = -19.5
-offset_bottom = 19.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 28
-text = "Sample Text"
-fit_content = true
-scroll_active = false
+[node name="Left" parent="HBoxContainer" instance=ExtResource("2_0pt0y")]
+texture_filter = 3
+custom_minimum_size = Vector2(80, 68)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("3_w2kr4")
+texture_pressed = ExtResource("4_ordye")
+texture_hover = ExtResource("5_cuogj")
+texture_disabled = ExtResource("6_trq0l")
+texture_click_mask = ExtResource("7_6qs25")
+stretch_mode = 4
+
+[node name="EncyclopediaTextLabel" parent="HBoxContainer" instance=ExtResource("8_ordye")]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+autowrap_mode = 0
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Right" parent="." instance=ExtResource("2_0pt0y")]
-layout_mode = 1
-anchor_left = 0.7
-anchor_top = 0.5
-anchor_right = 0.7
-anchor_bottom = 0.5
-rotation = 1.5708
-scale = Vector2(0.18, 0.18)
+[node name="Right" parent="HBoxContainer" instance=ExtResource("2_0pt0y")]
+texture_filter = 3
+custom_minimum_size = Vector2(80, 68)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("3_w2kr4")
+texture_pressed = ExtResource("4_ordye")
+texture_hover = ExtResource("5_cuogj")
+texture_disabled = ExtResource("6_trq0l")
+texture_click_mask = ExtResource("7_6qs25")
+stretch_mode = 4
+flip_h = true
 
-[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="HBoxContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="HBoxContainer/Right" to="." method="_on_right_pressed"]

@@ -43,7 +43,7 @@ bg_color = Color(0.839216, 0.160784, 0.0627451, 1)
 bg_color = Color(0.229211, 0.614065, 0.871764, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvxi0"]
-bg_color = Color(0, 0.322341, 0.652705, 1)
+bg_color = Color(0.254902, 0.839216, 0.937255, 1)
 
 [node name="CombatActor" type="Panel"]
 clip_contents = true
@@ -97,6 +97,7 @@ anchor_bottom = 0.25
 size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
 text = "Action Name"
 fit_content = true
 scroll_active = false
@@ -133,6 +134,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_3a1s6")
 value = 100.0
 
 [node name="MPBar" type="ProgressBar" parent="ResourceCard/VBoxContainer"]
+visible = false
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3

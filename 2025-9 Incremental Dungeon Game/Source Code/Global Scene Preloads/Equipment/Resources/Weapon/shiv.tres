@@ -8,19 +8,7 @@ script = ExtResource("1_vn2ge")
 primaryAttribute = 0
 attackBonus = 2.0
 basicAttack = ExtResource("1_ytv1i")
-title = "Rusty Shiv"
-description = "It's a lot better than nothing."
-statBonus = {
-"Attack Rating": 0.0,
-"Magic Defense": 0.0,
-"Max HP": 0.0,
-"Physical Defense": 0.0
-}
-attributeBonus = {
-"Dexterity": 0.0,
-"Durability": 0.0,
-"Intelligence": 0.0,
-"Strength": 0.0
-}
 isUnarmed = false
+title = "Rusty shiv"
+description = "It's a lot better than nothing."
 metadata/_custom_type_script = "uid://6qgd3qugycc1"

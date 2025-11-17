@@ -1,23 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://3m37weahm3yv"]
+[gd_scene load_steps=2 format=3 uid="uid://bgrb0hlgsin85"]
 
-[ext_resource type="Script" uid="uid://des2cs4ao7ygt" path="res://Screens/GameScreen/Tabs/Attributes/AttributeMultipliers/attribute_multiplier_entry.gd" id="1_65sbs"]
+[ext_resource type="Script" uid="uid://des2cs4ao7ygt" path="res://Screens/GameScreen/Tabs/Attributes/AttributeMultipliers/attribute_multiplier_entry.gd" id="1_1wkxe"]
 
-[node name="AttributeMultiplierEntry" type="Control"]
-layout_mode = 3
+[node name="AttributeMultiplierEntry" type="HBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_65sbs")
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_1wkxe")
 
 [node name="Source" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.2
-text = "Source"
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "     "
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,28 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlw0bmvd28j5l"]
+[gd_scene load_steps=10 format=3 uid="uid://dlw0bmvd28j5l"]
 
 [ext_resource type="Script" uid="uid://cqdbbfa8daivo" path="res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/training_entry.gd" id="1_ha7ar"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="2_pba1x"]
 
-[node name="TrainingEntry" type="Panel"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ha7ar"]
+content_margin_left = 5.0
+content_margin_right = 0.0
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4048"]
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qetuf"]
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbmjf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pba1x"]
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgck4"]
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[sub_resource type="Theme" id="Theme_j4048"]
+Button/styles/disabled = SubResource("StyleBoxFlat_j4048")
+Button/styles/focus = SubResource("StyleBoxFlat_qetuf")
+Button/styles/hover = SubResource("StyleBoxFlat_xbmjf")
+Button/styles/normal = SubResource("StyleBoxFlat_pba1x")
+Button/styles/pressed = SubResource("StyleBoxFlat_kgck4")
+
+[node name="TrainingEntry" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 30)
-offset_bottom = 24.0
+offset_right = 216.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ha7ar")
 script = ExtResource("1_ha7ar")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_right = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
+layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="CheckButton" type="CheckButton" parent="HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_j4048")
 
 [node name="Name" type="RichTextLabel" parent="HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_pba1x")
+theme_override_font_sizes/normal_font_size = 18
 text = "Sample text"
 fit_content = true
 scroll_active = false
@@ -33,36 +68,21 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Dexterity" type="RichTextLabel" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
-text = "DEX: "
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-vertical_alignment = 1
+size_flags_horizontal = 3
 
-[node name="Durability" type="RichTextLabel" parent="HBoxContainer"]
+[node name="Sample" type="RichTextLabel" parent="HBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
-text = "DUR: "
+size_flags_horizontal = 3
+theme = ExtResource("2_pba1x")
+theme_override_font_sizes/normal_font_size = 18
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-vertical_alignment = 1
-
-[node name="Intelligence" type="RichTextLabel" parent="HBoxContainer"]
-layout_mode = 2
-text = "INT: "
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-vertical_alignment = 1
-
-[node name="Strength" type="RichTextLabel" parent="HBoxContainer"]
-layout_mode = 2
-text = "STR: "
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="toggled" from="HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="resized" from="HBoxContainer/Name" to="." method="_on_name_resized"]

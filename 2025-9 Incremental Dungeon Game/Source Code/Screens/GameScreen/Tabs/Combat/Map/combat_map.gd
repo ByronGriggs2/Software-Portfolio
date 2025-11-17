@@ -1,44 +1,52 @@
 extends Control
 
 signal levelChosen2
+signal tutorialRequested
 
 func onCombatLoss(room) :
 	room.onCombatComplete()
 
+##This prevents a warning
+func doNotCall() :
+	emit_signal("tutorialRequested")
 ################################
 #map
 func _on_level_chosen(emitter) :
 	emit_signal("levelChosen2", emitter, emitter.getEncounterRef())
 	
-func completeLevel(emitter) :
-	emitter.onCombatComplete()
+func completeLevel(completedRoom) :
+	completedRoom.onCombatComplete()
 	#For all rooms, find rooms linked to this one
-	for child in $CombatMap/ConnectionContainer.get_children() :
-		var otherSide = null
-		if (child.Room1 == emitter) : otherSide = child.Room2
-		if (child.Room2 == emitter) : otherSide = child.Room1
+	for connection in $CombatMap/ConnectionContainer.get_children() :
+		var adjacentRoom = null
+		if (connection.Room1 == completedRoom) : 
+			adjacentRoom = connection.Room2
+		if (connection.Room2 == completedRoom) : 
+			adjacentRoom = connection.Room1
 		#For rooms linked to this one
-		if (otherSide != null) :
+		if (adjacentRoom != null) :
 			#Fully reveal
-			otherSide.myEnable()
-			child.fullReveal()
+			adjacentRoom.fullReveal()
+			connection.fullReveal()
 			#Find rooms that are 2 links away
-			for innerChild in $CombatMap/ConnectionContainer.get_children() :
-				var looseConnection = null
-				if (innerChild.Room1 == otherSide) : looseConnection = innerChild.Room2
-				elif (innerChild.Room2 == otherSide) : looseConnection = innerChild.Room1
+			for potentialLooseConnection in $CombatMap/ConnectionContainer.get_children() :
+				var overAdjacentRoom = null
+				if (potentialLooseConnection.Room1 == adjacentRoom) : 
+					overAdjacentRoom = potentialLooseConnection.Room2
+				elif (potentialLooseConnection.Room2 == adjacentRoom) : 
+					overAdjacentRoom = potentialLooseConnection.Room1
 				#Half reveal
-				if (looseConnection != null) :
-					looseConnection.visible = true
-					innerChild.halfReveal()
-		
+				if (overAdjacentRoom != null) :
+					overAdjacentRoom.halfReveal()
+					potentialLooseConnection.halfReveal()
+	
 #scroll
 @export var scrollStepSize : int = 80
 var homePosition : Vector2
-var minX : int
-var maxX : int
-var minY : int
-var maxY : int
+var minX : float
+var maxX : float
+var minY : float
+var maxY : float
 
 func initScroll() :
 	var tempPos = Vector2(-$CombatMap.size.x/2.0, -$CombatMap.size.y)
@@ -56,6 +64,8 @@ func initScroll() :
 #		grab_focus()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action("ui_cancel") :
+		return
 	if (!is_visible_in_tree()) :
 		return
 	if event is InputEventKey and event.pressed:
@@ -96,7 +106,6 @@ func _ready() :
 	myReady = true
 	
 func beforeLoad(_newSave) :
-	$CombatMap/RoomContainer.get_child(0).myEnable()
 	for child in $CombatMap/RoomContainer.get_children() :
 		child.connect("levelChosen", _on_level_chosen)
 	initScroll()
@@ -105,31 +114,14 @@ func onLoad(loadDict) -> void :
 	var connections = $CombatMap/ConnectionContainer.get_children()
 	for index in range (connections.size()) :
 		var key : String = "connection" + str(index) 
-		if (loadDict[key] == 0) :
-			connections[index].visible = false
-		elif (loadDict[key] == 1) :
-			connections[index].fullReveal()
-		elif (loadDict[key] == 2) :
-			connections[index].halfReveal()
-		else :
-			pass
+		connections[index].setVisibility(loadDict[key])
 	var rooms = $CombatMap/RoomContainer.get_children()
 	for index in range (rooms.size()) :
 		var key : String = "room" + str(index)
-		if (loadDict[key+"visibility"] == 0) :
-			rooms[index].visible = false
-			rooms[index].myDisable()
-		elif (loadDict[key+"visibility"] == 1) :
-			rooms[index].visible = true
-			rooms[index].myDisable()
-		elif (loadDict[key+"visibility"] == 2) :
-			rooms[index].visible = true
-			rooms[index].myEnable()
-		else :
-			pass
+		rooms[index].setVisibility(loadDict[key + "visibility"])
 		var overridePath = loadDict[key+"override"]
 		if (overridePath != "null") :
 			rooms[index].overrideEncounter(load(overridePath), loadDict[key+"override_once"])
-			
-func afterLoad() :
-	pass
+
+func _on_home_button_was_selected(_emitter) -> void:
+	goHome()

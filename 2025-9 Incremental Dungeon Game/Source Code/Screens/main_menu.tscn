@@ -1,60 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhwunjc66mam0"]
+[gd_scene load_steps=6 format=3 uid="uid://bhwunjc66mam0"]
 
 [ext_resource type="Script" uid="uid://drtqtqin6nsok" path="res://Screens/main_menu.gd" id="1_wk3tx"]
-[ext_resource type="Texture2D" uid="uid://csupcwk2aund" path="res://Images/MainMenuBackground.png" id="2_te60y"]
 [ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_kqc0l"]
+[ext_resource type="FontFile" uid="uid://dps60a85iv5xv" path="res://Images/CC0 Assets/Kenney Pixel.ttf" id="3_te60y"]
+[ext_resource type="Texture2D" uid="uid://d1ahc4suger7l" path="res://Images/CC0 Assets/Game Icon/IncrementalDungeonIcon.png" id="4_kqc0l"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_517w0"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="MainMenu" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_517w0")
 script = ExtResource("1_wk3tx")
-
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_te60y")
 
 [node name="ButtonContainer" type="Node" parent="."]
 
 [node name="NewButton" parent="ButtonContainer" instance=ExtResource("3_kqc0l")]
 anchors_preset = -1
 anchor_left = 0.08
-anchor_top = 0.6
+anchor_top = 0.75
 anchor_right = 0.08
-anchor_bottom = 0.6
+anchor_bottom = 0.75
 text = "New Game"
 
 [node name="LoadButton" parent="ButtonContainer" instance=ExtResource("3_kqc0l")]
 anchors_preset = -1
 anchor_left = 0.304
-anchor_top = 0.6
+anchor_top = 0.75
 anchor_right = 0.304
-anchor_bottom = 0.6
+anchor_bottom = 0.75
 text = "Load Game"
 
 [node name="OptionsButton" parent="ButtonContainer" instance=ExtResource("3_kqc0l")]
 anchors_preset = -1
 anchor_left = 0.528
-anchor_top = 0.6
+anchor_top = 0.75
 anchor_right = 0.528
-anchor_bottom = 0.6
+anchor_bottom = 0.75
 text = "Options"
 
 [node name="QuitButton" parent="ButtonContainer" instance=ExtResource("3_kqc0l")]
 anchors_preset = -1
 anchor_left = 0.751
-anchor_top = 0.6
+anchor_top = 0.75
 anchor_right = 0.751
-anchor_bottom = 0.6
+anchor_bottom = 0.75
 text = "Quit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_te60y")
+theme_override_font_sizes/normal_font_size = 160
+text = "INCREMENTAL DUNGEON"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameIcon" type="TextureRect" parent="."]
+texture_filter = 3
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.45
+anchor_right = 0.5
+anchor_bottom = 0.45
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_kqc0l")
+expand_mode = 1
 
 [connection signal="pressed" from="ButtonContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/LoadButton" to="." method="_on_load_button_pressed"]

@@ -17,36 +17,40 @@ func enter() :
 	firstEntry = false
 
 func _ready() :
-	if (visibilityOnStartup == myVisibilityEnum.invisible) :
-		visible = false
-		disabled = true
-	elif (visibilityOnStartup == myVisibilityEnum.halfVisible) :
-		visible = true
-		disabled = true
-	elif (visibilityOnStartup == myVisibilityEnum.fullVisible) :
-		visible = true
-		disabled = false
+	visible = false
+	setVisibility(visibilityOnStartup as int)
 
 func _on_pressed() -> void:
 	emit_signal("levelChosen", self)
 
-func myEnable() :
+func fullReveal() :
+	visible = true
 	disabled = false
 	text = hiddenName
 	
-func myDisable() :
-	disabled = true
-	text = ""
+func halfReveal() :
+	if (getVisibility() != myVisibilityEnum.fullVisible as int) :
+		visible = true
+		disabled = true
+		text = ""
 
 func getVisibility() :
 	if (!visible) :
-		return 0
+		return myVisibilityEnum.invisible as int
 	elif (disabled) :
-		return 1
+		return myVisibilityEnum.halfVisible as int
 	elif (!disabled) :
-		return 2
+		return myVisibilityEnum.fullVisible as int
 	else :
 		return 3
+	
+func setVisibility(val) :
+	if (val as myVisibilityEnum == myVisibilityEnum.invisible) :
+		visible = false
+	elif (val as myVisibilityEnum == myVisibilityEnum.halfVisible) :
+		halfReveal()
+	elif (val as myVisibilityEnum == myVisibilityEnum.fullVisible) :
+		fullReveal()
 
 func getEncounterRef() :
 	if (encounterOverride != null) :

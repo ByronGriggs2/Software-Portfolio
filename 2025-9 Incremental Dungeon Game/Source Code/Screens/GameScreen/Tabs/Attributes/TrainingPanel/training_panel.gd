@@ -1,28 +1,69 @@
-@tool
 extends Panel
 
 const trainingEntry = preload("res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/training_entry.tscn")
-@export var resources : Dictionary
+#@export var resources : Dictionary
 
 func _ready() :
-	if (Engine.is_editor_hint()) :
-		#updateChildren()
-		pass
+	## Fill out header
+	for key in Definitions.attributeDictionary.keys() :
+		var newHeader = $Con/HBoxContainer/Sample.duplicate()
+		$Con/HBoxContainer.add_child(newHeader)
+		newHeader.visible = true
+		newHeader.name = Definitions.attributeDictionary[key]
+		newHeader.text = " " + Definitions.attributeDictionaryShort[key] + " "
+		newHeader.connect("myPressed", _on_header_button_pressed)
+	for key in SceneLoader.trainingResourceKeys() :
+		var newEntry = trainingEntry.instantiate()
+		$Con.add_child(newEntry)
+		newEntry.setResource(SceneLoader.createTrainingResource(key))
+		newEntry.name = newEntry.getResource().text
+		newEntry.connect("requestedEnable", _on_requested_enable)
+		newEntry.connect("requestedDisable", _on_requested_disable)
+		
+func _on_alphabetical_sort_pressed() -> void:
+	sortTraining(null)
+
+func _on_header_button_pressed(emitter) :
+	var type : Definitions.attributeEnum
+	for key in Definitions.attributeDictionary.keys() :
+		if (emitter.name == Definitions.attributeDictionary[key]) :
+			type = key
+			break
+	sortTraining(type)
+	
+enum sortType {descending,alphabetical}
+var currentSort : sortType = sortType.alphabetical
+var currentSortAttribute
+func sortTraining(type) :
+	if (type == null) :
+		currentSort = sortType.alphabetical
+		currentSortAttribute = null
+	elif (currentSortAttribute == type) :
+		currentSort = sortType.alphabetical
+		currentSortAttribute = null
 	else :
-		for child in $Con.get_children() :
-			child.setResource(resources[child.name])
-			child.connect("requestedEnable", _on_requested_enable)
-			child.connect("requestedDisable", _on_requested_disable)
-		var maxSize = 0
-		for child in $Con.get_children() :
-			if (child.getNameWidth() > maxSize) :
-				maxSize = child.getNameWidth()
-		for child in $Con.get_children() :
-			if (child is Panel) :
-				child.setNameWidth(maxSize)
-			
+		currentSortAttribute = type
+		currentSort = sortType.descending
+		
+	var children = $Con.get_children()
+	var entries : Array[Node] = []
+	for index in range(0, children.size()) :
+		if(index > 2) :
+			entries.append(children[index])
+	if (currentSort == sortType.alphabetical) :
+		entries.sort_custom(func(a,b):return a.name<b.name)
+	else :
+		entries.sort_custom(func(a,b):
+			var aScaling = a.getResource().scaling[Definitions.attributeDictionary[currentSortAttribute]]
+			var bScaling = b.getResource().scaling[Definitions.attributeDictionary[currentSortAttribute]]
+			return (aScaling>bScaling || (aScaling==bScaling&&a.name<b.name)))
+	for index in range(0, entries.size()) :
+		$Con.move_child(entries[index], index+3)
+	
 func setCurrentTraining(val : AttributeTraining) :
 	for child in $Con.get_children() :
+		if (!(child is PanelContainer)) :
+			continue
 		if (child.getResource() == val) :
 			child.setButton()
 		else :
@@ -31,6 +72,8 @@ func setCurrentTraining(val : AttributeTraining) :
 signal trainingChanged
 func _on_requested_enable(emitter) :
 	for child in $Con.get_children() :
+		if (!(child is PanelContainer)) :
+			continue
 		if (child != emitter) :
 			child.clearButton()
 	emit_signal("trainingChanged", emitter.getResource())
@@ -38,19 +81,18 @@ func _on_requested_enable(emitter) :
 func _on_requested_disable(_emitter) :
 	emit_signal("trainingChanged", null)
 	
-func updateChildren() :
-	for child in $Con.get_children() :
-		child.queue_free()
-		$Con.remove_child(child)
-	resources = {}
-	var directory : String = "res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/Training"
-	var dir = DirAccess.open(directory)
-	dir.list_dir_begin()
-	var filename = dir.get_next()
-	while (filename != "") :
-		var newEntry = trainingEntry.instantiate()
-		$Con.add_child(newEntry)
-		newEntry.name = filename
-		newEntry.owner = $Con.get_owner()
-		resources[newEntry.name] = directory + "/" + filename
-		filename = dir.get_next()
+#func updateChildren() :
+	#for child in $Con.get_children() :
+		#child.queue_free()
+	#resources = {}
+	#var directory : String = "res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/Training"
+	#var dir = DirAccess.open(directory)
+	#dir.list_dir_begin()
+	#var filename = dir.get_next()
+	#while (filename != "") :
+		#var newEntry = trainingEntry.instantiate()
+		#$Con.add_child(newEntry)
+		#newEntry.name = filename
+		#newEntry.owner = $Con.get_owner()
+		#resources[newEntry.name] = directory + "/" + filename
+		#filename = dir.get_next()

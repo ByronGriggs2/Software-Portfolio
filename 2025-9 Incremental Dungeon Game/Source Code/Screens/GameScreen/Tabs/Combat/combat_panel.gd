@@ -1,13 +1,17 @@
-extends Control
+extends Panel
 
 signal victory
 signal defeat
 signal retreat
 
+const GODPUNCHloader = preload("res://Screens/Gamescreen/Tabs/Combat/Actions/GODPUNCH.tres")
+
 func resetCombat(friendlyCores : Array[ActorPreset], enemyCores : Array[ActorPreset]) :
 	cleanup()
 	var actorLoader = preload("Actors/combat_actor.tscn")
 	for friend in friendlyCores :
+		if (friend == friendlyCores[0] && Definitions.GODMODE) :
+			friend.actions = [GODPUNCHloader]
 		var newActor = actorLoader.instantiate()
 		newActor.core = friend.duplicate(true)
 		$FriendlyParty.add_child(newActor)
@@ -165,6 +169,13 @@ func searchPartyAlive(party, pos:int) :
 	return null
 
 func executeAction(emitter, action, target) :
+	if (action is AttackAction && Definitions.GODMODE) :
+		if (target == $FriendlyParty.get_child(0)) :
+			return
+		if (emitter == $FriendlyParty.get_child(0)) :
+			target.core.HP = 0
+			return
+	
 	if (target is int && target == -1) :
 		return
 	var attack = emitter.core.AR

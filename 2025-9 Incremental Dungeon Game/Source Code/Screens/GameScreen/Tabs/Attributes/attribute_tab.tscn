@@ -1,71 +1,78 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmeoqahxkto01"]
+[gd_scene load_steps=11 format=3 uid="uid://dmeoqahxkto01"]
 
 [ext_resource type="PackedScene" uid="uid://b0dk8gsoe4wgw" path="res://Screens/GameScreen/Tabs/tab.tscn" id="1_7mb42"]
 [ext_resource type="Script" uid="uid://fgxbprq6p5s7" path="res://Screens/GameScreen/Tabs/Attributes/attribute_tab.gd" id="1_5051c"]
 [ext_resource type="PackedScene" uid="uid://m5cfqap585hd" path="res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/training_panel.tscn" id="3_ufysl"]
-[ext_resource type="Theme" uid="uid://b2ljt3am18e3i" path="res://Graphic Elements/Themes/myTheme.tres" id="5_ufysl"]
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="4_6euej"]
 [ext_resource type="Script" uid="uid://d2vxrnfocc0f8" path="res://Screens/GameScreen/Tabs/Attributes/AttributeMultipliers/attribute_multipliers.gd" id="6_6euej"]
+[ext_resource type="Theme" uid="uid://toctfm8xh225" path="res://Graphic Elements/Themes/squareSuperButton.tres" id="6_au2yv"]
 [ext_resource type="Script" uid="uid://bd3fcw6n8b35c" path="res://Screens/GameScreen/Tabs/Attributes/AttributeLevels/attribute_levels.gd" id="6_ufysl"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="6_y43rk"]
+[ext_resource type="PackedScene" uid="uid://b8u7rb34016g7" path="res://Graphic Elements/Tooltips/encyclopedia_text_label.tscn" id="9_y43rk"]
+[ext_resource type="Script" uid="uid://c2yu2xu52egdi" path="res://Screens/GameScreen/Tabs/Attributes/AttributeBonuses/attribute_bonuses.gd" id="10_l42vj"]
 
 [node name="AttributeTab" groups=["Saveable"] instance=ExtResource("1_7mb42")]
 script = ExtResource("1_5051c")
 
 [node name="TrainingPanel" parent="." index="0" instance=ExtResource("3_ufysl")]
 layout_mode = 1
+anchor_right = 0.43
 
 [node name="AttributeLevels" type="Panel" parent="." index="1"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.43
 anchor_right = 1.0
 anchor_bottom = 0.333
 offset_left = 8.0
 offset_top = 15.0
 offset_right = -15.0
 offset_bottom = -7.0
+theme = ExtResource("4_6euej")
 script = ExtResource("6_ufysl")
 
-[node name="Title" type="Control" parent="AttributeLevels" index="0"]
+[node name="Title" type="RichTextLabel" parent="AttributeLevels" index="0"]
 layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 0.3
-offset_left = 15.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
 offset_top = 15.0
-offset_right = -15.0
-offset_bottom = -7.0
-
-[node name="Title" type="RichTextLabel" parent="AttributeLevels/Title" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("5_ufysl")
+theme_override_font_sizes/normal_font_size = 25
 text = "Level Progress"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Con" type="VBoxContainer" parent="AttributeLevels" index="1"]
+[node name="Panel" type="Panel" parent="AttributeLevels" index="1"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.3
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = -13.0
-offset_right = -25.0
+offset_left = 15.0
+offset_top = 65.0
+offset_right = -15.0
 offset_bottom = -15.0
-grow_vertical = 0
+theme = ExtResource("6_y43rk")
+
+[node name="Con" type="VBoxContainer" parent="AttributeLevels/Panel" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_right = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_au2yv")
 theme_override_constants/separation = 15
 alignment = 1
 
 [node name="AttributeMultipliers" type="Panel" parent="." index="2"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.43
 anchor_top = 0.333
 anchor_right = 1.0
 anchor_bottom = 0.667
@@ -73,6 +80,7 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = -15.0
 offset_bottom = -7.0
+theme = ExtResource("4_6euej")
 script = ExtResource("6_6euej")
 
 [node name="Title" type="RichTextLabel" parent="AttributeMultipliers" index="0"]
@@ -82,27 +90,62 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_top = 15.0
 grow_horizontal = 2
-theme = ExtResource("5_ufysl")
-text = "Multipliers"
+theme_override_font_sizes/normal_font_size = 25
+text = "Attribute Multipliers"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Con" type="VBoxContainer" parent="AttributeMultipliers" index="1"]
+[node name="Panel" type="Panel" parent="AttributeMultipliers" index="1"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 90.0
-offset_bottom = -25.0
+offset_left = 15.0
+offset_top = 65.0
+offset_right = -15.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_y43rk")
+
+[node name="Premultipliers" type="VBoxContainer" parent="AttributeMultipliers/Panel" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = -7.0
+grow_vertical = 2
+
+[node name="Subtitle" parent="AttributeMultipliers/Panel/Premultipliers" index="0" instance=ExtResource("9_y43rk")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+text = "Premultipliers"
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Postmultipliers" type="VBoxContainer" parent="AttributeMultipliers/Panel" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.985
+anchor_bottom = 1.0
+offset_left = 8.0
+grow_vertical = 2
+
+[node name="Subtitle" parent="AttributeMultipliers/Panel/Postmultipliers" index="0" instance=ExtResource("9_y43rk")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+text = "Postmultipliers"
+autowrap_mode = 0
+horizontal_alignment = 1
 
 [node name="AttributeBonuses" type="Panel" parent="." index="3"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.43
 anchor_top = 0.667
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -110,6 +153,8 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = -15.0
 offset_bottom = -15.0
+theme = ExtResource("4_6euej")
+script = ExtResource("10_l42vj")
 
 [node name="Title" type="RichTextLabel" parent="AttributeBonuses" index="0"]
 layout_mode = 1
@@ -118,11 +163,57 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_top = 15.0
 grow_horizontal = 2
-theme = ExtResource("5_ufysl")
-text = "Flat Bonuses"
+theme_override_font_sizes/normal_font_size = 25
+text = "Attribute Bonuses"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Panel" type="Panel" parent="AttributeBonuses" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 65.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_y43rk")
+
+[node name="Prebonuses" type="VBoxContainer" parent="AttributeBonuses/Panel" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = -7.0
+grow_vertical = 2
+
+[node name="Subtitle" parent="AttributeBonuses/Panel/Prebonuses" index="0" instance=ExtResource("9_y43rk")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+text = "Prebonuses"
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Postbonuses" type="VBoxContainer" parent="AttributeBonuses/Panel" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.985
+anchor_bottom = 1.0
+offset_left = 8.0
+grow_vertical = 2
+
+[node name="Subtitle" parent="AttributeBonuses/Panel/Postbonuses" index="0" instance=ExtResource("9_y43rk")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+text = "Postbonuses"
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="trainingChanged" from="TrainingPanel" to="." method="_on_training_panel_training_changed"]

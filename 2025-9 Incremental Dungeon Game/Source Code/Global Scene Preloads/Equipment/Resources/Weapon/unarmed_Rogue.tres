@@ -1,7 +1,63 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cnwxx6ad5ljr2"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=5 format=3 uid="uid://cnwxx6ad5ljr2"]
 
 [ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Global Scene Preloads/Equipment/Resources/weapon.gd" id="1_alwfa"]
 [ext_resource type="Resource" uid="uid://6iclcrwb0k5c" path="res://Screens/GameScreen/Tabs/Combat/Actions/knifehand.tres" id="1_bvcjb"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="2_ojkvq"]
+
+[sub_resource type="Resource" id="Resource_np14d"]
+script = ExtResource("2_ojkvq")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
 
 [resource]
 script = ExtResource("1_alwfa")
@@ -11,16 +67,5 @@ basicAttack = ExtResource("1_bvcjb")
 isUnarmed = true
 title = "Fists"
 description = "You know a thing or two about pressure points."
-attributeBonus = {
-"Dexterity": 0.0,
-"Durability": 0.0,
-"Intelligence": 0.0,
-"Strength": 0.0
-}
-statBonus = {
-"Attack Rating": 0.0,
-"Magic Defense": 0.0,
-"Max HP": 0.0,
-"Physical Defense": 0.0
-}
+myPacket = SubResource("Resource_np14d")
 metadata/_custom_type_script = "uid://6qgd3qugycc1"

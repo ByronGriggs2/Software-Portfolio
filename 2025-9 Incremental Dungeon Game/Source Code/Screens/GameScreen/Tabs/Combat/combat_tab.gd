@@ -2,16 +2,29 @@ extends Panel
 
 var currentFloor = null
 var currentRoom = null
-var playerReference = null
 var friendlyParty : Array[ActorPreset]
 
-func _ready() :
-	friendlyParty.resize(1)
-	currentFloor = $MapContainer.get_child(0)
-	currentFloor.visible = true
+#########################
+var playerCore_comm : ActorPreset = null
+var waitingForPlayerCore : bool = false
+signal playerCoreRequested
+signal playerCoreReceived
+
+func getPlayerCore() -> ActorPreset:
+	waitingForPlayerCore = true
+	emit_signal("playerCoreRequested", self)
+	if (waitingForPlayerCore) :
+		await playerCoreReceived
+	return playerCore_comm
+	
+func providePlayerCore(val : ActorPreset) :
+	playerCore_comm = val
+	waitingForPlayerCore = false
+	emit_signal("playerCoreReceived")
+##########################
 
 func _on_level_chosen(emitter, encounter) -> void:
-	friendlyParty[0] = playerReference.core
+	friendlyParty[0] = await getPlayerCore()
 	currentRoom = emitter
 	if (currentRoom.isFirstEntry()) :
 		currentRoom.enter()
@@ -30,6 +43,10 @@ func _on_level_chosen(emitter, encounter) -> void:
 	$CombatPanel.resetCombat(copy, encounter.enemies)
 	hideMap()
 	$CombatPanel.visible = true
+	
+signal tutorialRequested
+func _on_tutorial_requested(tutorialName, tutorialPos) :
+	emit_signal("tutorialRequested", tutorialName, tutorialPos)
 
 func _on_combat_panel_victory() -> void:
 	if (currentRoom.getEncounterRef().victoryText != "") :
@@ -37,9 +54,8 @@ func _on_combat_panel_victory() -> void:
 		$NarrativePanel.title = currentRoom.getEncounterRef().victoryTitle
 		$NarrativePanel.visible = true
 		await($NarrativePanel.continueSignal)
-		$NarrativePanel.visible = false
-	if (!currentRoom.getEncounterRef().rewards.is_empty()) :
-		await handleCombatRewards(currentRoom.getEncounterRef().rewards)		
+		$NarrativePanel.visible = false	
+	await handleCombatRewards(currentRoom.getEncounterRef().getRewards())		
 	currentFloor.completeLevel(currentRoom)
 	currentRoom = null
 	$CombatPanel.visible = false
@@ -53,9 +69,10 @@ func _on_combat_panel_retreat() -> void:
 	interruptDefeatCoroutine()
 	currentRoom = null
 	showMap()
-
-func addPlayerReference(player) :
-	playerReference = player
+	
+signal playerClassRequested
+func _on_player_class_requested(emitter) :
+	emit_signal("playerClassRequested", emitter)
 	
 func hideMap() :
 	#currentFloor.visible = false
@@ -77,6 +94,7 @@ func startDefeatCoroutine() :
 	if (defeatCoroutineInterrupted) :
 		defeatCoroutineRunning = false
 		return
+	friendlyParty[0] = await getPlayerCore()
 	var copy : Array[ActorPreset]
 	for elem in friendlyParty :
 		copy.append(elem.duplicate())
@@ -87,21 +105,27 @@ func interruptDefeatCoroutine() :
 	defeatCoroutineInterrupted = true
 
 #only works if combat is not currently paused
-func _on_developer_console_console_opened() -> void:
-	if ($CombatPanel.visible) :
-		$CombatPanel.pauseCombat()
-
-func _on_developer_console_console_closed() -> void:
-	$CombatPanel.restartCombat()
-
-func _on_developer_console_set_player_core(args) -> void:
-	var filepath = "res://Screens/GameScreen/Tabs/Combat/Actors/" + args[0]
-	if (!FileAccess.file_exists(filepath)) :
-		return
-	$CombatPanel/FriendlyParty.get_child(0).core = load(filepath)
+#func _on_developer_console_console_opened() -> void:
+	#if ($CombatPanel.visible) :
+		#$CombatPanel.pauseCombat()
+#
+#func _on_developer_console_console_closed() -> void:
+	#$CombatPanel.restartCombat()
+#
+#func _on_developer_console_set_player_core(args) -> void:
+	#var filepath = "res://Screens/GameScreen/Tabs/Combat/Actors/" + args[0]
+	#if (!FileAccess.file_exists(filepath)) :
+		#return
+	#$CombatPanel/FriendlyParty.get_child(0).core = load(filepath)
 
 const combatRewardsLoader = preload("res://Screens/GameScreen/Tabs/Combat/CombatRewards/combat_rewards.tscn")
+var firstReward : bool = true
 func handleCombatRewards(rewards : Array[Equipment]) :
+	if (rewards.is_empty()) :
+		return
+	if (firstReward) :
+		firstReward = false
+		emit_signal("tutorialRequested", Encyclopedia.tutorialName.equipment, Vector2(0,0))
 	var rewardHandler = combatRewardsLoader.instantiate()
 	add_child(rewardHandler)
 	rewardHandler.initialise(rewards)
@@ -113,3 +137,22 @@ func _on_add_to_inventory_request(itemSceneRef) :
 
 func removeCombatRewardEntry(itemSceneRef) :
 	get_node("CombatRewards").removeItemFromList(itemSceneRef)
+	
+func getSaveDictionary() -> Dictionary :
+	var tempDict : Dictionary = {}
+	tempDict["firstReward"] = firstReward
+	return tempDict
+var myReady : bool = false
+func _ready() :
+	myReady = true
+func beforeLoad(_newGame) :
+	friendlyParty.resize(1)
+	currentFloor = $MapContainer.get_child(0)
+	currentFloor.visible = true
+	for map in $MapContainer.get_children() :
+		if (map.has_signal("levelChosen2")) :
+			map.connect("levelChosen2", _on_level_chosen)
+		if (map.has_signal("playerClassRequested")) :
+			map.connect("playerClassRequested", _on_player_class_requested)
+func onLoad(loadDict : Dictionary) :
+	firstReward = loadDict["firstReward"]

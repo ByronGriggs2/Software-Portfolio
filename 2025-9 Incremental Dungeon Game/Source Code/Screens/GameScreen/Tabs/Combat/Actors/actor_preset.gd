@@ -10,6 +10,8 @@ var HP : float = 1
 @export var MAGDEF : float = -1
 var dead : bool = false
 @export var actions : Array[Action]
+@export var drops : Array[Equipment]
+@export var dropChances : Array[float]
 
 func setStat(type : Definitions.baseStatEnum, val : float) :
 	if (type == Definitions.baseStatEnum.MAXHP) : MAXHP = val
@@ -26,6 +28,13 @@ func getStat(type : Definitions.baseStatEnum) -> float :
 	elif (type == Definitions.baseStatEnum.MAGDEF) : return MAGDEF
 	else :
 		return -1
+		
+func getDrops() -> Array[Equipment] :
+	var retVal : Array[Equipment] = []
+	for index in range(0,drops.size()) :
+		if (randf() < dropChances[index]) :
+			retVal.append(drops[index])
+	return retVal
 
 func getHP() :
 	return HP

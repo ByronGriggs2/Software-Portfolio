@@ -1,22 +1,66 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=2 format=3 uid="uid://c0ogn3d61j0vr"]
+[gd_resource type="Resource" script_class="Accessory" load_steps=4 format=3 uid="uid://c0ogn3d61j0vr"]
 
 [ext_resource type="Script" uid="uid://bmbbygpmfs6mv" path="res://Global Scene Preloads/Equipment/Resources/accessory.gd" id="1_4wj8i"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="1_q2bou"]
+
+[sub_resource type="Resource" id="Resource_5segk"]
+script = ExtResource("1_q2bou")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 1.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
 
 [resource]
 script = ExtResource("1_4wj8i")
-title = "Ring of Mild Fortitude"
+title = "Ring of mild fortitude"
 description = "It's not a placebo. Probably."
-statBonus = {
-"Attack Rating": 0.0,
-"Magic Defense": 0.0,
-"Max HP": 1.0,
-"Physical Defense": 0.0
-}
-attributeBonus = {
-"Dexterity": 0.0,
-"Durability": 0.0,
-"Intelligence": 0.0,
-"Strength": 0.0
-}
-isUnarmed = false
+myPacket = SubResource("Resource_5segk")
 metadata/_custom_type_script = "uid://bmbbygpmfs6mv"

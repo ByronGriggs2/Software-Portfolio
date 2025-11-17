@@ -1,14 +1,17 @@
 extends Control
 
+var is32 : bool = false
+
 func _ready() :
-	resize_32()
+	if ($Icon.region_rect.size.x == 32) :
+		is32 = true
+		resize_32()
 	updateSize()
 	
 func resize_32() :
-	if ($Icon.region_rect.size.x == 32) :
-		var oldScale = $Icon.scale
-		var newScale = Vector2(oldScale.x/2.0,oldScale.y/2.0)
-		$Icon.scale = newScale
+	var oldScale = $Icon.scale
+	var newScale = Vector2(oldScale.x/2.0,oldScale.y/2.0)
+	$Icon.scale = newScale
 	
 func updateSize() :
 	var oldX = $Icon.region_rect.position.x
@@ -35,6 +38,13 @@ func getRegionRect() :
 func setRegionRect(val) :
 	$Icon.region_rect = val
 func getScale() :
-	return $Icon.scale
+	if (is32) :
+		return $Icon.scale.x*2
+	else :
+		return $Icon.scale.x
 func setScale(val) :
-	$Icon.scale = val
+	if (is32) :
+		$Icon.scale = Vector2(val/2.0,val/2.0)
+	else :
+		$Icon.scale = Vector2(val,val)
+	custom_minimum_size = Vector2(16*val,16*val)

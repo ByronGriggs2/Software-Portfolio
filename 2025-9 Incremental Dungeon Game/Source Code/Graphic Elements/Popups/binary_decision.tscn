@@ -6,35 +6,33 @@
 [node name="BinaryDecision" instance=ExtResource("1_2ub4d")]
 script = ExtResource("2_57yvp")
 
-[node name="Option1" type="HBoxContainer" parent="Window" index="1"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.95
-anchor_right = 1.0
-anchor_bottom = 0.95
-grow_vertical = 0
-alignment = 1
-
-[node name="Button1" type="Button" parent="Window/Option1" index="0"]
-custom_minimum_size = Vector2(100, 31)
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="2"]
 layout_mode = 2
-text = "No"
+size_flags_vertical = 3
+alignment = 2
 
-[node name="Option0" type="HBoxContainer" parent="Window" index="2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.95
-anchor_right = 0.5
-anchor_bottom = 0.95
-offset_top = -31.0
-grow_vertical = 0
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 8
 alignment = 1
 
-[node name="Button0" type="Button" parent="Window/Option0" index="0"]
+[node name="Option0" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button0" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer/Option0" index="0"]
 custom_minimum_size = Vector2(100, 31)
 layout_mode = 2
 text = "Yes"
 
-[connection signal="pressed" from="Window/Option1/Button1" to="." method="_on_button_1_pressed"]
-[connection signal="pressed" from="Window/Option0/Button0" to="." method="_on_button_0_pressed"]
+[node name="Option1" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button1" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer/Option1" index="0"]
+custom_minimum_size = Vector2(100, 31)
+layout_mode = 2
+text = "No"
+
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer/Option0/Button0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer/Option1/Button1" to="." method="_on_button_1_pressed"]

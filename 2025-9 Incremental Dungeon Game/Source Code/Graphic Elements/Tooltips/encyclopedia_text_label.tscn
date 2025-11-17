@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8u7rb34016g7"]
+
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="1_c571m"]
+[ext_resource type="Script" uid="uid://ckk66ilmqs052" path="res://Graphic Elements/Tooltips/encyclopedia_text_label.gd" id="1_xtk1j"]
+
+[node name="EncyclopediaTextLabel" type="RichTextLabel"]
+clip_contents = false
+custom_minimum_size = Vector2(400, 0)
+offset_right = 1.0
+theme = ExtResource("1_c571m")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Sample text [color=#003e85][b]hyperlink text[/b][/color] sample text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+vertical_alignment = 1
+script = ExtResource("1_xtk1j")
+
+[connection signal="minimum_size_changed" from="." to="." method="_on_minimum_size_changed"]

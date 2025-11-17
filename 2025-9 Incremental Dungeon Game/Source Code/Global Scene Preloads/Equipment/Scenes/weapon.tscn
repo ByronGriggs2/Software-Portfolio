@@ -7,3 +7,4 @@
 script = ExtResource("2_ek85t")
 
 [editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

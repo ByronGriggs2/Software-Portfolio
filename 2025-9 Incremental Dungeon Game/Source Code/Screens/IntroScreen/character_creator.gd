@@ -9,12 +9,12 @@ func _ready() :
 	$Carousels/ClassContainer/Class.options = optionArr
 
 func initialise(options, details, index) :
-	$Carousels/Reason.options = options
+	$Carousels/Reason.setOptions(options)
 	$Carousels/Reason.currentPos = index
 	var classes : Array[String]
 	for key in Definitions.classDictionary :
 		classes.append(Definitions.classDictionary[key])
-	$Carousels/ClassContainer/Class.options = classes
+	$Carousels/ClassContainer/Class.setOptions(classes)
 	$Carousels/ClassContainer/Class.details = classDescriptions
 	if (index == 0 || index == 1) :
 		$Carousels/ClassContainer/Class.currentPos = 0
@@ -25,6 +25,11 @@ func initialise(options, details, index) :
 	$Carousels/Reason.refresh()
 	$Carousels/ClassContainer/Class.refresh()
 	$Carousels/ClassDescriptor.text = $Carousels/ClassContainer/Class.details[$Carousels/ClassContainer/Class.currentPos]
+	var mySize = await $Carousels/Reason.getMinWidth()
+	$Carousels/ClassContainer/Class.setMinWidth(mySize)
+	var classWarning = $Carousels/ClassContainer/ClassWarning
+	var classWarningSize = await Helpers.getTextWidthWaitFrame(classWarning, null, null)
+	classWarning.offset_left = mySize/2 + classWarningSize/2 + 800
 
 func _on_class_move(detail) -> void:
 	$Carousels/ClassDescriptor.text = detail

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://m5cfqap585hd"]
+[gd_scene load_steps=5 format=3 uid="uid://m5cfqap585hd"]
 
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="1_25xfr"]
 [ext_resource type="Script" uid="uid://vb5o5enx0agm" path="res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/training_panel.gd" id="1_a72rl"]
-[ext_resource type="Theme" uid="uid://b2ljt3am18e3i" path="res://Graphic Elements/Themes/myTheme.tres" id="2_25xfr"]
-[ext_resource type="PackedScene" uid="uid://dlw0bmvd28j5l" path="res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/training_entry.tscn" id="3_llyus"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_llyus"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="4_mvcxf"]
 
 [node name="TrainingPanel" type="Panel"]
 anchors_preset = -1
@@ -12,49 +13,52 @@ offset_left = 15.0
 offset_top = 15.0
 offset_right = -7.0
 offset_bottom = -15.0
+theme = ExtResource("1_25xfr")
 script = ExtResource("1_a72rl")
-resources = {
-&"boxing_tres": "res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/Training/boxing.tres",
-&"pickpocketing_tres": "res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/Training/pickpocketing.tres",
-&"puzzles_tres": "res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/Training/puzzles.tres",
-&"weight_lifting_tres": "res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/Training/weight_lifting.tres"
-}
 
-[node name="Title" type="RichTextLabel" parent="."]
+[node name="Con" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_top = 20.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
 grow_horizontal = 2
-theme = ExtResource("2_25xfr")
-text = "Training"
+theme_override_constants/separation = 8
+
+[node name="Title" type="RichTextLabel" parent="Con"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Routines"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Con" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = 10.0
-offset_right = -25.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 8
-
-[node name="boxing_tres" parent="Con" instance=ExtResource("3_llyus")]
+[node name="Spacer" type="Control" parent="Con"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="pickpocketing_tres" parent="Con" instance=ExtResource("3_llyus")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Con"]
 layout_mode = 2
+theme_override_constants/separation = 12
 
-[node name="puzzles_tres" parent="Con" instance=ExtResource("3_llyus")]
+[node name="Alphabetical Sort" parent="Con/HBoxContainer" instance=ExtResource("3_llyus")]
 layout_mode = 2
+theme = ExtResource("4_mvcxf")
+text = " ABC "
 
-[node name="weight_lifting_tres" parent="Con" instance=ExtResource("3_llyus")]
+[node name="Spacer" type="Control" parent="Con/HBoxContainer"]
+custom_minimum_size = Vector2(182, 0)
 layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Sample" parent="Con/HBoxContainer" instance=ExtResource("3_llyus")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_mvcxf")
+
+[connection signal="pressed" from="Con/HBoxContainer/Alphabetical Sort" to="." method="_on_alphabetical_sort_pressed"]

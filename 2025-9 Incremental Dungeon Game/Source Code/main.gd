@@ -1,46 +1,54 @@
 extends Node
 
 var currentScreen : Node = null
+const gameScreenLoader = preload("res://Screens/GameScreen/game_screen.tscn")
+const mainMenuLoader = preload("res://Screens/main_menu.tscn")
+const optionsMenuLoader = preload("res://Screens/main_menu_options.tscn")
+const introScreenLoader = preload("res://Screens/IntroScreen/intro_screen.tscn")
 
 ####Screen Swap Methods
-func swapScreen(scenePath : String) -> void :
+func swapScreen(screenLoader) -> void :
 	if currentScreen :
 		currentScreen.process_mode = Node.PROCESS_MODE_DISABLED
 		await(get_tree().process_frame)
 		currentScreen.queue_free()
 		currentScreen = null
 		await(get_tree().process_frame)
-	var screenLoader = load(scenePath)
 	currentScreen = screenLoader.instantiate()
 	add_child(currentScreen)
 
 func swapToMenu() -> void :
-	await swapScreen("Screens/main_menu.tscn")
+	await swapScreen(mainMenuLoader)
 	currentScreen.connect("newGame", _onNewGame)
 	currentScreen.connect("loadGame", _onLoadGame)
 	currentScreen.connect("swapToMainMenuOptions", _onSwapToMainMenuOptions)
 	
 func swapToGame() -> void :
-	await swapScreen("Screens/GameScreen/game_screen.tscn")
+	await swapScreen(gameScreenLoader)
 	currentScreen.connect("exitToMenu", swapToMenu)
 	currentScreen.connect("loadGameNow", _onLoadGame)
 
 func _onNewGame() :
-	await swapScreen("Screens/IntroScreen/intro_screen.tscn")
+	await swapScreen(introScreenLoader)
 	currentScreen.connect("characterDone", _onIntroEnd)
+	currentScreen.connect("cancel", _on_intro_cancel)
+	
+func _on_intro_cancel() :
+	await swapToMenu()
 	
 func _onIntroEnd(character : CharacterClass, characterName : String) :
 	await swapToGame()
+	while(!currentScreen.myReady) : 
+		await get_tree().process_frame
 	#Gives ownership of class struct to Player
-	currentScreen.game_screen_fresh_save_init(character, characterName)
-	SaveManager.newGame()
+	SaveManager.newGame(currentScreen, character, characterName)
 	
 func _onLoadGame() :
 	await swapToGame()
 	SaveManager.loadGame(Definitions.saveSlots.current)
 	
 func _onSwapToMainMenuOptions() :
-	await swapScreen("Screens/main_menu_options.tscn")
+	await swapScreen(optionsMenuLoader)
 	currentScreen.connect("swapToMainMenu", swapToMenu)
 ##############################
 
@@ -60,6 +68,3 @@ func beforeLoad(_newSave) :
 	pass
 func onLoad(_loadDict) :
 	pass
-func afterLoad() :
-	pass
-	

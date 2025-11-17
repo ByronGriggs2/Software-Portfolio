@@ -1,32 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://chxqy31ciu272"]
+[gd_scene load_steps=3 format=3 uid="uid://chxqy31ciu272"]
 
 [ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://Global Scene Preloads/Equipment/Scenes/accessory.tscn" id="1_g2d8j"]
 [ext_resource type="Texture2D" uid="uid://bc78gw3lemvcx" path="res://Images/CC0 Assets/RPG V1.0.png" id="2_mhdtq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rflq"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-
 [node name="Accessory" instance=ExtResource("1_g2d8j")]
-custom_minimum_size = Vector2(64, 64)
-offset_right = 68.0
-offset_bottom = 68.0
-
-[node name="SuperButton" parent="." index="0"]
-custom_minimum_size = Vector2(68, 68)
-theme_override_styles/panel = SubResource("StyleBoxFlat_7rflq")
 
 [node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
 texture = ExtResource("2_mhdtq")
-region_rect = Rect2(287, 45, 17, 15)
+region_rect = Rect2(285, 45, 33, 23)
 
 [editable path="SuperButton"]
 [editable path="SuperButton/HBoxContainer/Sprite"]

@@ -1,4 +1,3 @@
-@tool
 extends Container
 		
 func _notification(what) :

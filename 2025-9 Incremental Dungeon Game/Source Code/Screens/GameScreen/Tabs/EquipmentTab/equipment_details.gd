@@ -32,16 +32,18 @@ func _process(_delta) :
 		myText.text = myText.text + "\n"
 	elif (currentItemSceneRef.core is Accessory) :
 		myText.text = ""	
-	for key in currentItemSceneRef.core.attributeBonus.keys() :
-		if (currentItemSceneRef.core.attributeBonus[key] != 0) :
-			if (currentItemSceneRef.core.attributeBonus[key] > 0) :
-				myText.text = myText.text + "+"
-			myText.text = myText.text + str(currentItemSceneRef.core.attributeBonus[key]) + " " + key + "\n"
-	for key in currentItemSceneRef.core.statBonus.keys() :
-		if (currentItemSceneRef.core.statBonus[key] != 0) :
-			if (currentItemSceneRef.core.statBonus[key] > 0) :
-				myText.text = myText.text + "+"
-			myText.text = myText.text + str(currentItemSceneRef.core.statBonus[key]) + " " + key + "\n"
+		
+	var modifiers : ModifierPacket = currentItemSceneRef.core.getModifierPacket()
+	for key in Definitions.attributeDictionary.keys() :
+		for subkey in ModifierPacket.StandardModifier.keys() :
+			var modString = modifiers.getModStringOrNull_attr(key, subkey)
+			if (modString != null) :
+				myText += modString + "\n"
+	for key in Definitions.baseStatDictionary.keys() :
+		for subkey in ModifierPacket.StandardModifier.keys() :
+			var modString = modifiers.getModStringOrNull_combatStat(key,subkey)
+			if (modString != null) :
+				myText += modString + "\n"
 	myText.text = myText.text + currentItemSceneRef.getDesc()
 	$Text/VBoxContainer.visible = true
 	$Picture/HBoxContainer.visible = true

@@ -1,13 +1,18 @@
-extends Control
+extends Panel
 
 signal newGame
 signal loadGame
 signal swapToMainMenuOptions
 
 func _ready() :
+	checkLoadGame()
+	$ButtonContainer/OptionsButton.set_disabled(true)
+	SaveManager.connect("newGameReady", _new_game_ready)
+	SaveManager.connect("loadRequested", _load_game_ready)
+	
+func checkLoadGame() :
 	if (!SaveManager.saveExists()) :
 		$ButtonContainer.get_node("LoadButton").set_disabled(true)
-	SaveManager.connect("newGameReady", _new_game_ready)
 
 func _on_new_button_pressed() -> void:
 	SaveManager.newGameSaveSelection()
@@ -16,8 +21,10 @@ func _new_game_ready() :
 	emit_signal("newGame")
 
 func _on_load_button_pressed() -> void:
-	SaveManager.loadGameSaveSelection()
-	SaveManager.connect("loadGameReady", _load_game_ready)
+	SaveManager.loadGameSaveSelection(self)
+	await SaveManager.finished
+	checkLoadGame()
+	
 func _load_game_ready() :
 	emit_signal("loadGame")
 

@@ -6,16 +6,16 @@
 
 [node name="BigTextPanelCarousel" instance=ExtResource("1_mht37")]
 script = ExtResource("2_7tkka")
-title = ""
 
-[node name="Title" parent="VBoxContainer" index="0"]
-text = ""
+[node name="VBoxContainer" parent="." index="0"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+theme_override_constants/separation = 30
 
-[node name="RichTextLabel" parent="VBoxContainer" index="1"]
-text = ""
+[node name="Carousel" parent="VBoxContainer" index="1" instance=ExtResource("3_ewo06")]
+layout_mode = 2
 
-[node name="Carousel" parent="ElementSlot" index="0" instance=ExtResource("3_ewo06")]
-layout_mode = 1
-
-[connection signal="choiceMade" from="ElementSlot/Carousel" to="." method="_on_carousel_choice_made"]
-[connection signal="move" from="ElementSlot/Carousel" to="." method="_on_carousel_continue_move"]
+[connection signal="choiceMade" from="VBoxContainer/Carousel" to="." method="_on_carousel_choice_made"]
+[connection signal="move" from="VBoxContainer/Carousel" to="." method="_on_carousel_continue_move"]

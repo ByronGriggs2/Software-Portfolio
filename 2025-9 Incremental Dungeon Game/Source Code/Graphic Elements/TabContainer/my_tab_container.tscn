@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf38jaj340xkc"]
+[gd_scene load_steps=6 format=3 uid="uid://cf38jaj340xkc"]
 
 [ext_resource type="Script" uid="uid://0o3kermlunsl" path="res://Graphic Elements/TabContainer/my_tab_container.gd" id="1_dkkfy"]
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="1_l52hu"]
 [ext_resource type="Script" uid="uid://du3ondd23tw0" path="res://Graphic Elements/TabContainer/inner_container.gd" id="2_gudkq"]
+[ext_resource type="Script" uid="uid://bmoh2dwsth864" path="res://Graphic Elements/TabContainer/sample_text_label.gd" id="4_hqrij"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gudkq"]
 bg_color = Color(0.458824, 0.458824, 0.458824, 1)
@@ -15,20 +17,13 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkkfy"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
-
-[node name="MyTabContainer" type="Control"]
-layout_mode = 3
+[node name="MyTabContainer" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_l52hu")
 script = ExtResource("1_dkkfy")
 
 [node name="TabButtons" type="PanelContainer" parent="."]
@@ -45,23 +40,27 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_gudkq")
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Background" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 16.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_dkkfy")
-
 [node name="InnerContainer" type="Container" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 16.0
+offset_top = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_gudkq")
+
+[node name="SampleTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+mouse_filter = 2
+text = "Sample Text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_hqrij")
 
 [connection signal="child_order_changed" from="InnerContainer" to="InnerContainer" method="_on_child_order_changed"]
 [connection signal="pre_sort_children" from="InnerContainer" to="." method="_on_inner_container_pre_sort_children"]

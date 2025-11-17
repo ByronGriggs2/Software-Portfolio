@@ -33,5 +33,5 @@ func addLine(newText : String) :
 var commands = {
 	"echo" : func(args): addLine(" ".join(args)),
 	"setPlayerCore" : func(args) : emit_signal("setPlayerCore", args),
-	"getAllItems" : func(args) : emit_signal("getAllItems")
+	"getAllItems" : func(_args) : emit_signal("getAllItems")
 }
