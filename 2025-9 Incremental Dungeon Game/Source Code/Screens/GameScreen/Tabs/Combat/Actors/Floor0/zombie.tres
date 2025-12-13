@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://reendmqtqqra"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Screens/GameScreen/Tabs/Combat/Actions/action.gd" id="1_oer7m"]
+[ext_resource type="Resource" uid="uid://dsrsr046bs13s" path="res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/Tutorial/claw_zombie.tres" id="2_2ygrq"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="2_tc7kw"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="3_v1e76"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Screens/GameScreen/Tabs/Combat/Actors/enemy_grouping.gd" id="4_4hk64"]
+[ext_resource type="Texture2D" uid="uid://t706g3mg833t" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/demons/abomination_small_1.png" id="4_fu53s"]
+
+[sub_resource type="Resource" id="Resource_q10cs"]
+script = ExtResource("4_4hk64")
+isEligible = true
+enemyQuality = 0
+droppedArmorClasses = Array[int]([0])
+droppedWeaponClasses = Array[int]([2])
+droppedTechnologyClasses = Array[int]([0, 1])
+isHumanoid = false
+isGreenskin = false
+isMerfolk = false
+isDemon = false
+isHot = true
+isCold = true
+isAnimal = false
+isDragon = false
+isUndead = true
+isPlant = false
+isElemental = false
+isFey = false
+isMindless = true
+
+[resource]
+script = ExtResource("2_tc7kw")
+portrait = ExtResource("4_fu53s")
+text = "Zombie"
+description = "Undeath has made these humanoids significantly more durable, though they can no longer hold weapons."
+MAXHP = 149.0
+AR = 8.18
+DR = 20.4
+PHYSDEF = 2.41
+MAGDEF = 2.41
+actions = Array[ExtResource("1_oer7m")]([ExtResource("2_2ygrq")])
+drops = Array[ExtResource("3_v1e76")]([])
+dropChances = Array[float]([0.75])
+enemyGroups = SubResource("Resource_q10cs")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

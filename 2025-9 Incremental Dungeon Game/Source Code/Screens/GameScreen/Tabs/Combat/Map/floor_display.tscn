@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://otd0777k80on"]
+
+[ext_resource type="FontFile" uid="uid://dps60a85iv5xv" path="res://Images/CC0 Assets/Kenney Pixel.ttf" id="1_kiyrd"]
+[ext_resource type="Script" uid="uid://10t877mhb37c" path="res://Screens/GameScreen/Tabs/Combat/Map/floor_display.gd" id="1_lmy6j"]
+[ext_resource type="PackedScene" uid="uid://i8pn8xrqvhnh" path="res://Graphic Elements/Buttons/vriska_left_button.tscn" id="2_lmy6j"]
+
+[node name="FloorDisplay" type="HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = 30.0
+offset_right = -30.0
+grow_horizontal = 0
+theme_override_constants/separation = 25
+script = ExtResource("1_lmy6j")
+
+[node name="FloorNumber" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_kiyrd")
+theme_override_font_sizes/normal_font_size = 55
+text = "FLOOR NUMBER"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftButton" parent="." instance=ExtResource("2_lmy6j")]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+
+[node name="Space" type="Control" parent="."]
+layout_mode = 2
+
+[node name="FloorNumber2" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_kiyrd")
+theme_override_font_sizes/normal_font_size = 55
+text = " X "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space2" type="Control" parent="."]
+layout_mode = 2
+
+[node name="RightButton" parent="." instance=ExtResource("2_lmy6j")]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+flip_h = true
+
+[connection signal="pressed" from="LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="_on_right_button_pressed"]

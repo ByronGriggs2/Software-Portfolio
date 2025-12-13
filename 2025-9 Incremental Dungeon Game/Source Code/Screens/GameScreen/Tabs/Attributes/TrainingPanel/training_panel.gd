@@ -2,23 +2,6 @@ extends Panel
 
 const trainingEntry = preload("res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/training_entry.tscn")
 #@export var resources : Dictionary
-
-func _ready() :
-	## Fill out header
-	for key in Definitions.attributeDictionary.keys() :
-		var newHeader = $Con/HBoxContainer/Sample.duplicate()
-		$Con/HBoxContainer.add_child(newHeader)
-		newHeader.visible = true
-		newHeader.name = Definitions.attributeDictionary[key]
-		newHeader.text = " " + Definitions.attributeDictionaryShort[key] + " "
-		newHeader.connect("myPressed", _on_header_button_pressed)
-	for key in SceneLoader.trainingResourceKeys() :
-		var newEntry = trainingEntry.instantiate()
-		$Con.add_child(newEntry)
-		newEntry.setResource(SceneLoader.createTrainingResource(key))
-		newEntry.name = newEntry.getResource().text
-		newEntry.connect("requestedEnable", _on_requested_enable)
-		newEntry.connect("requestedDisable", _on_requested_disable)
 		
 func _on_alphabetical_sort_pressed() -> void:
 	sortTraining(null)
@@ -62,7 +45,7 @@ func sortTraining(type) :
 	
 func setCurrentTraining(val : AttributeTraining) :
 	for child in $Con.get_children() :
-		if (!(child is PanelContainer)) :
+		if (child == $Con/Title || child == $Con/Spacer || child == $Con/PanelContainer) :
 			continue
 		if (child.getResource() == val) :
 			child.setButton()
@@ -72,27 +55,50 @@ func setCurrentTraining(val : AttributeTraining) :
 signal trainingChanged
 func _on_requested_enable(emitter) :
 	for child in $Con.get_children() :
-		if (!(child is PanelContainer)) :
+		if (child == $Con/Title || child == $Con/Spacer || child == $Con/PanelContainer) :
 			continue
 		if (child != emitter) :
 			child.clearButton()
 	emit_signal("trainingChanged", emitter.getResource())
+	
+func unlockRoutine(routine : AttributeTraining) :
+	for child in $Con.get_children() :
+		if (child.has_method("getResource") && child.getResource() == routine) :
+			child.visible = true
+			return
 
 func _on_requested_disable(_emitter) :
 	emit_signal("trainingChanged", null)
 	
-#func updateChildren() :
-	#for child in $Con.get_children() :
-		#child.queue_free()
-	#resources = {}
-	#var directory : String = "res://Screens/GameScreen/Tabs/Attributes/TrainingPanel/Training"
-	#var dir = DirAccess.open(directory)
-	#dir.list_dir_begin()
-	#var filename = dir.get_next()
-	#while (filename != "") :
-		#var newEntry = trainingEntry.instantiate()
-		#$Con.add_child(newEntry)
-		#newEntry.name = filename
-		#newEntry.owner = $Con.get_owner()
-		#resources[newEntry.name] = directory + "/" + filename
-		#filename = dir.get_next()
+var myReady : bool = false
+func _ready() :
+	myReady = true
+func beforeLoad(_newGame) :
+	## Fill out header
+	for key in Definitions.attributeDictionary.keys() :
+		var newHeader = $Con/PanelContainer/HBoxContainer/HBoxContainer/Sample.duplicate()
+		$Con/PanelContainer/HBoxContainer/HBoxContainer.add_child(newHeader)
+		newHeader.visible = true
+		newHeader.name = Definitions.attributeDictionary[key]
+		newHeader.text = Definitions.attributeDictionaryShort[key]
+		newHeader.connect("myPressed", _on_header_button_pressed)
+	for key in RoutineReferences.RoutineDictionary.keys() :
+		var newEntry = trainingEntry.instantiate()
+		$Con.add_child(newEntry)
+		newEntry.setResource(RoutineReferences.getRoutine(key))
+		newEntry.name = newEntry.getResource().text
+		newEntry.visible = !newEntry.getResource().hidden
+		newEntry.connect("requestedEnable", _on_requested_enable)
+		newEntry.connect("requestedDisable", _on_requested_disable)
+func onLoad(loadDict : Dictionary) :
+	for node in $Con.get_children() :
+		if (node != $Con/Title && node != $Con/Spacer && node != $Con/PanelContainer) :
+			node.visible = loadDict["routineUnlocks"][node.name]
+func getSaveDictionary() -> Dictionary :
+	var retVal : Dictionary = {}
+	var routineUnlocks : Dictionary = {}
+	for node in $Con.get_children() :
+		if (node != $Con/Title && node != $Con/Spacer && node != $Con/PanelContainer) :
+			routineUnlocks[node.name] = node.visible
+	retVal["routineUnlocks"] = routineUnlocks
+	return retVal

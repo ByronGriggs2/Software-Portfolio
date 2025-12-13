@@ -4,7 +4,8 @@ signal victory
 signal defeat
 signal retreat
 
-const GODPUNCHloader = preload("res://Screens/Gamescreen/Tabs/Combat/Actions/GODPUNCH.tres")
+const GODPUNCHloader = preload("res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/godpunch.tres")
+var autoMode : bool = false
 
 func resetCombat(friendlyCores : Array[ActorPreset], enemyCores : Array[ActorPreset]) :
 	cleanup()
@@ -72,7 +73,9 @@ func _process(_delta: float) -> void:
 		return
 	elif (status == combatStatus.victory) :
 		pauseCombat()
-		emit_signal("victory")
+		for enemy in $EnemyParty.get_children() :
+			EnemyDatabase.incrementKills(enemy.core.getResourceName())
+		emit_signal("victory",autoMode)
 	elif (status == combatStatus.defeat) :
 		pauseCombat()
 		emit_signal("defeat")
@@ -173,12 +176,13 @@ func executeAction(emitter, action, target) :
 		if (target == $FriendlyParty.get_child(0)) :
 			return
 		if (emitter == $FriendlyParty.get_child(0)) :
-			target.core.HP = 0
+			target.setHP(0)
 			return
 	
 	if (target is int && target == -1) :
 		return
-	var attack = emitter.core.AR
+	var AR = emitter.core.AR
+	var DR = emitter.core.DR
 	var defense
 	if (action.type == AttackAction.damageType.PHYS) :
 		defense = target.core.PHYSDEF
@@ -186,8 +190,27 @@ func executeAction(emitter, action, target) :
 		defense = target.core.MAGDEF
 	else :
 		return
-	var damage = (attack/defense)*action.power
+	var args : Array = [action.power, DR, AR, defense]
+	var damage = Encyclopedia.getFormula("Damage Value", Encyclopedia.formulaAction.getCalculation_full, args)
 	if (damage > target.core.HP) :
-		target.core.HP = 0
+		target.setHP(0)
 	else :
-		target.core.HP -= damage
+		target.setHP(target.core.HP-damage)
+
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	autoMode = toggled_on
+	
+var myReady
+func _ready() :
+	myReady = true
+
+func getSaveDictionary() -> Dictionary :
+	var tempDict : Dictionary = {}
+	tempDict["autoMode"] = autoMode
+	return tempDict
+func beforeLoad(_newGame : bool) :
+	pass
+func onLoad(loadDict : Dictionary) :
+	autoMode = loadDict["autoMode"]
+	if (autoMode) :
+		$PanelContainer/HBoxContainer/CheckBox.set_pressed_no_signal(true)

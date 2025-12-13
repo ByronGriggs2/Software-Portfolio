@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2mf6wwq6bq23"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://Global Scene Preloads/Equipment/Scenes/weapon.tscn" id="1_6rb0p"]
+[ext_resource type="Texture2D" uid="uid://ofcnat4tcnym" path="res://Images/Sprites/quill_dart.png" id="2_vn0su"]
+
+[node name="Weapon" instance=ExtResource("1_6rb0p")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_vn0su")
+region_rect = Rect2(0, 0, 32, 32)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

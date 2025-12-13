@@ -1,11 +1,104 @@
-[gd_resource type="Resource" script_class="Armor" load_steps=2 format=3 uid="uid://b05xyojihbonj"]
+[gd_resource type="Resource" script_class="Armor" load_steps=6 format=3 uid="uid://b05xyojihbonj"]
 
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="1_kqgdb"]
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Global Scene Preloads/Equipment/Resources/equipment_grouping.gd" id="1_mnr8f"]
 [ext_resource type="Script" uid="uid://bnh3m73ifmphh" path="res://Global Scene Preloads/Equipment/Resources/armor.gd" id="1_x0wvw"]
+
+[sub_resource type="Resource" id="Resource_k0sl1"]
+script = ExtResource("1_mnr8f")
+isEligible = false
+quality = 0
+weaponClass = 2
+armorClass = 3
+isEnchanted = false
+isSimple = false
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isMagical = false
+
+[sub_resource type="Resource" id="Resource_kqgdb"]
+script = ExtResource("1_kqgdb")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
 
 [resource]
 script = ExtResource("1_x0wvw")
-PHYSDEF = 2.0
-MAGDEF = 0.0
+PHYSDEF = 10.0
+MAGDEF = 4.0
 title = "Leather scraps"
 description = "Karlach would be proud"
+myPacket = SubResource("Resource_kqgdb")
+equipmentGroups = SubResource("Resource_k0sl1")
 metadata/_custom_type_script = "uid://bnh3m73ifmphh"

@@ -8,6 +8,6 @@ func _on_option_1_pressed() -> void:
 	emit_signal("optionPressed", currentItemSceneRef, 1)
 
 func setOption0(val : String) :
-	$Text/VBoxContainer/HBoxContainer/CenterContainer0/Option0.text = val
+	$Text/VBoxContainer/HBoxContainer2/CenterContainer0/Option0.text = val
 func setOption1(val : String) :
-	$Text/VBoxContainer/HBoxContainer/CenterContainer1/Option1.text = val
+	$Text/VBoxContainer/HBoxContainer2/CenterContainer1/Option1.text = val

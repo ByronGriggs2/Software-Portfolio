@@ -1,4 +1,3 @@
-@tool
 extends Panel
 
 @export_multiline var text : String :

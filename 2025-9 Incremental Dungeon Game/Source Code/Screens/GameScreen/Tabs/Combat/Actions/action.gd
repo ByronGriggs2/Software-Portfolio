@@ -9,4 +9,9 @@ enum targetingMode {
 	ALL
 }
 @export var mode : targetingMode
-@export var warmup : float
+@export var warmup : float = 1
+
+func getWarmup() :
+	return warmup
+func getName() :
+	return text

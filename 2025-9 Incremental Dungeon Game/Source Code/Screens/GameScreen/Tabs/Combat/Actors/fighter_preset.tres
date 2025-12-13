@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="1_2pknv"]
 [ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Screens/GameScreen/Tabs/Combat/Actions/action.gd" id="1_amaci"]
-[ext_resource type="Resource" uid="uid://xjtpn5vaupme" path="res://Screens/GameScreen/Tabs/Combat/Actions/punch.tres" id="1_lx3b2"]
+[ext_resource type="Resource" uid="uid://xjtpn5vaupme" path="res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/Tutorial/punch.tres" id="1_lx3b2"]
 
 [resource]
 script = ExtResource("1_2pknv")

@@ -8,13 +8,44 @@ signal unequipRequested
 	#for key in Definitions.equipmentTypeDictionary.keys() :
 		#currentItemSceneRefs[key] = null
 		
+func setItemSceneRefBase(itemSceneRef) :
+	super(itemSceneRef)
+	if (itemSceneRef == null) :
+		return
+	var options : OptionButton = $Text/VBoxContainer/HBoxContainer/OptionButton
+	var myButton = $Text/VBoxContainer/HBoxContainer2/CenterContainer2/Discard
+	if (itemSceneRef.getType() == Definitions.equipmentTypeEnum.currency) :
+		myButton.text = " Not Discardable "
+		myButton.set_disabled(true)
+		if (options.get_item_count() == 3) :
+			options.remove_item(2)
+		elif (options.get_item_count() == 2) :
+			pass
+		else :
+			return
+	else :
+		myButton.text = " Discard "
+		myButton.set_disabled(false)
+		if (options.get_item_count() == 3) :
+			pass
+		elif (options.get_item_count() == 2) :
+			options.add_item("Always Discard", 2)
+		else :
+			return
+			
+		
 func _process(_delta) : 
 	if (currentItemSceneRef != null) :
-		if (currentItemSceneRef.isEquipped()) :
-			$Text/VBoxContainer/HBoxContainer/CenterContainer/Button.text = " Unequip "
+		var myButton = $Text/VBoxContainer/HBoxContainer2/CenterContainer/Button
+		if (!Definitions.isEquippable(currentItemSceneRef)) :
+			myButton.text = " Not equippable "
+			myButton.set_disabled(true) 
+		elif (currentItemSceneRef.isEquipped()) :
+			myButton.text = " Unequip "
+			myButton.set_disabled(false)
 		else :
-			$Text/VBoxContainer/HBoxContainer/CenterContainer/Button.text = " Equip "
-		super(_delta)
+			myButton.text = " Equip "
+			myButton.set_disabled(false)
 	
 #func switchPage(newPage : Definitions.equipmentTypeEnum) :
 	#currentPage = newPage

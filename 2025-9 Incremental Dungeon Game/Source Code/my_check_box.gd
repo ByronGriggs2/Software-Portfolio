@@ -3,15 +3,15 @@ extends PanelContainer
 @export var myText : String = "" :
 	set(val) :
 		myText = val
-		$HBoxContainer/RichTextLabel.text = " " + val + " "
+		$HBoxContainer/RichTextLabel.text = val + " "
 	get :
 		return myText
 func setText(val) :
 	myText = val
-	$HBoxContainer/RichTextLabel.text = " " + val + " "
+	$HBoxContainer/RichTextLabel.text = val + " "
 	
 func _ready() :
-	$HBoxContainer/RichTextLabel.text = " " + myText + " "
+	$HBoxContainer/RichTextLabel.text = myText + " "
 func isPressed() -> bool :
 	return $HBoxContainer/CheckBox.button_pressed()
 	

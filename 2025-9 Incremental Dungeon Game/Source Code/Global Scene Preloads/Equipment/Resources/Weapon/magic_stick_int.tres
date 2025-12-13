@@ -1,10 +1,25 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=5 format=3 uid="uid://bid6c5bx81r3i"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://bid6c5bx81r3i"]
 
-[ext_resource type="Resource" uid="uid://ckiv0xhn205ah" path="res://Screens/GameScreen/Tabs/Combat/Actions/psy_blast_2.tres" id="1_46q13"]
+[ext_resource type="Resource" uid="uid://ckiv0xhn205ah" path="res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/Tutorial/psy_blast_2.tres" id="1_yawxl"]
 [ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Global Scene Preloads/Equipment/Resources/weapon.gd" id="1_yxe1j"]
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Global Scene Preloads/Equipment/Resources/equipment_grouping.gd" id="2_20cjn"]
 [ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="2_yawxl"]
 
-[sub_resource type="Resource" id="Resource_20cjn"]
+[sub_resource type="Resource" id="Resource_dawtp"]
+script = ExtResource("2_20cjn")
+isEligible = false
+quality = 0
+weaponClass = 2
+armorClass = 3
+isEnchanted = false
+isSimple = false
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isMagical = false
+
+[sub_resource type="Resource" id="Resource_yawxl"]
 script = ExtResource("2_yawxl")
 attributeMods = {
 "Dexterity": {
@@ -25,6 +40,12 @@ attributeMods = {
 "Prebonus": 0.0,
 "Premultiplier": 1.0
 },
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
 "Strength": {
 "Postbonus": 0.0,
 "Postmultiplier": 0.0,
@@ -34,6 +55,12 @@ attributeMods = {
 }
 statMods = {
 "Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
 "Postbonus": 0.0,
 "Postmultiplier": 0.0,
 "Prebonus": 0.0,
@@ -58,14 +85,29 @@ statMods = {
 "Premultiplier": 1.0
 }
 }
+otherMods = {
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
 
 [resource]
 script = ExtResource("1_yxe1j")
-primaryAttribute = 2
-attackBonus = 2.0
-basicAttack = ExtResource("1_46q13")
+scaling = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.7,
+"Skill": 0.0,
+"Strength": 0.0
+}
+attackBonus = 16.5
+basicAttack = ExtResource("1_yawxl")
 isUnarmed = false
 title = "Slightly magical stick"
 description = "50% of the time, it works every time."
-myPacket = SubResource("Resource_20cjn")
+myPacket = SubResource("Resource_yawxl")
+equipmentGroups = SubResource("Resource_dawtp")
 metadata/_custom_type_script = "uid://6qgd3qugycc1"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://es7n7bv6pftm"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Screens/GameScreen/ProceduralGeneration/Environments/my_environment.gd" id="1_npa01"]
+
+[resource]
+script = ExtResource("1_npa01")
+isHot = false
+isCold = false
+isWet = false
+isDesert = false
+isRainforest = true
+isMagical = true
+isMartial = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

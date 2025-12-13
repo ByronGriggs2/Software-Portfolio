@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=10 format=3 uid="uid://cxkw8q00xow6x"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Screens/GameScreen/Tabs/Combat/Actions/action.gd" id="1_3434j"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="2_c42qe"]
+[ext_resource type="Resource" uid="uid://b6i6si46e26r2" path="res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/Enemies/multi_peck.tres" id="2_v1hsh"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="3_nrysw"]
+[ext_resource type="Resource" uid="uid://cr0u128yet5ip" path="res://Global Scene Preloads/Equipment/Resources/Weapon/goose_flail.tres" id="4_khme1"]
+[ext_resource type="Resource" uid="uid://drjk5xy64f7b6" path="res://Global Scene Preloads/Equipment/Resources/Accessory/clown_horn.tres" id="5_p3xa2"]
+[ext_resource type="Texture2D" uid="uid://cj5bws4w4gpvw" path="res://Images/Sprites/goose_hydra.png" id="6_khme1"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Screens/GameScreen/Tabs/Combat/Actors/enemy_grouping.gd" id="6_p3xa2"]
+
+[sub_resource type="Resource" id="Resource_ymv43"]
+script = ExtResource("6_p3xa2")
+isEligible = false
+enemyQuality = 0
+droppedArmorClasses = Array[int]([])
+droppedWeaponClasses = Array[int]([])
+isHumanoid = false
+isGreenskin = false
+isMerfolk = false
+isDemon = false
+isHot = false
+isCold = false
+isAnimal = false
+isDragon = false
+isUndead = null
+isPlant = false
+isElemental = false
+isFey = false
+isMindless = false
+dropsSimple = true
+dropsAdvanced = false
+dropsMagical = null
+
+[resource]
+script = ExtResource("3_nrysw")
+portrait = ExtResource("6_khme1")
+text = "Goose Hydra"
+description = "Far weaker than a standard hydra, but with the same obnoxious near-immortality and 8 beaks to peck with."
+MAXHP = 1611.0
+AR = 18.0
+DR = 30.0
+PHYSDEF = 80.5
+MAGDEF = 80.5
+actions = Array[ExtResource("1_3434j")]([ExtResource("2_v1hsh")])
+drops = Array[ExtResource("2_c42qe")]([ExtResource("4_khme1"), ExtResource("5_p3xa2")])
+dropChances = Array[float]([0.33, 0.0])
+enemyGroups = SubResource("Resource_ymv43")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

@@ -11,7 +11,7 @@ func _run() :
 	var scriptContent : String = "#This auto-generated singleton preloads small nodes such as equipment and can instantiate them as needed\n"
 	scriptContent += "extends Node\n\n"
 	scriptContent = writeEquipment(scriptContent)
-	scriptContent = writeTraining(scriptContent)
+	#scriptContent = writeTraining(scriptContent)
 	const outPath = "res://Global Scene Preloads/SceneLoader.gd"
 	var file = FileAccess.open(outPath, FileAccess.WRITE)
 	file.store_string(scriptContent)
@@ -32,7 +32,7 @@ func writeTraining(scriptContent) :
 		filename = dir.get_next()
 	scriptContent += "}\n\n"
 	scriptContent += "func createTrainingResource(trainingName : String) :\n"
-	scriptContent += "\treturn trainingResourceDictionary[trainingName].new()\n"
+	scriptContent += "\treturn trainingResourceDictionary[trainingName]\n"
 	scriptContent += "func trainingResourceKeys() :\n\treturn trainingResourceDictionary.keys()\n\n\n"
 	return scriptContent
 	

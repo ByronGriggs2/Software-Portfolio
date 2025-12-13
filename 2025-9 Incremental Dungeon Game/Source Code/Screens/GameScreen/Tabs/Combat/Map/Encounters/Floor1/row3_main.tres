@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://ccrw60m5kmyus"]
+
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="1_qx0hw"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="2_5sulw"]
+[ext_resource type="Resource" uid="uid://b5n6avi7qsxey" path="res://Screens/GameScreen/Tabs/Combat/Actors/Floor1/mountain_lion.tres" id="2_ui11o"]
+[ext_resource type="Script" uid="uid://niduj63p80ej" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/encounter.gd" id="3_ui11o"]
+
+[resource]
+script = ExtResource("3_ui11o")
+enemies = Array[ExtResource("1_qx0hw")]([ExtResource("2_ui11o")])
+rewards = Array[ExtResource("2_5sulw")]([])
+introTitle = ""
+introText = ""
+victoryTitle = "After the Fight"
+victoryText = ""
+metadata/_custom_type_script = "uid://niduj63p80ej"

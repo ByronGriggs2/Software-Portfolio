@@ -5,11 +5,14 @@ var superButtons : Dictionary
 
 func _ready() :
 	createEquipmentSlots()
-	for key in Definitions.equipmentTypeDictionary.keys() :
-			currentEquipment[key] = null
+	for key in Definitions.equippableDictionary.keys() :
+		currentEquipment[key] = null
 	
 func _process(_delta) :
-	for key in Definitions.equipmentTypeDictionary.keys() :
+	updateSprites()
+	
+func updateSprites() :
+	for key in Definitions.equippableDictionary.keys() :
 		if (currentEquipment[key] == null) :
 			getSprite(key).setTexture(null)
 			getText(key).text = " "
@@ -18,7 +21,8 @@ func _process(_delta) :
 			var actualSprite = currentEquipment[key].getSprite()
 			mySprite.setTexture(actualSprite.getTexture())
 			mySprite.setRegionRect(actualSprite.getRegionRect()) 
-			mySprite.setScale(actualSprite.getScale())
+			mySprite.setScale(actualSprite.getScale() * 4.0/5.0)
+			mySprite.setIs32(actualSprite.isIs32())
 			getText(key).text = currentEquipment[key].getTitle()
 		
 func getSprite(type : Definitions.equipmentTypeEnum) :
@@ -30,16 +34,17 @@ func getText(type : Definitions.equipmentTypeEnum) :
 	
 func setItemSceneRef(itemSceneRef, type : Definitions.equipmentTypeEnum) :
 	currentEquipment[type] = itemSceneRef
+	updateSprites()
 		
 func createEquipmentSlots() :
-	for key in Definitions.equipmentTypeDictionary.keys() :
+	for key in Definitions.equippableDictionary.keys() :
 		if (key == Definitions.equipmentTypeEnum.weapon) :
 			superButtons[key] = $HBoxContainer/Weapon/Panel/PassiveSuperButton
 		else :
 			var newSlot = $HBoxContainer/Weapon.duplicate()
 			$HBoxContainer.add_child(newSlot)
-			newSlot.name = Definitions.equipmentTypeDictionary[key]
-			newSlot.get_node("Title").text = Definitions.equipmentTypeDictionary[key]
+			newSlot.name = Definitions.equippableDictionary[key]
+			newSlot.get_node("Title").text = Definitions.equippableDictionary[key]
 			superButtons[key] = newSlot.get_node("Panel").get_node("PassiveSuperButton")
 		
 signal selectRequested

@@ -1,14 +1,31 @@
 extends PanelContainer
 var myType : Encyclopedia.tutorialName
 
+func _ready() :
+	for child in get_children() :
+		connectRecursive(child)
+	
+func connectRecursive(current : Node) :
+	if (current.has_signal("resized")) :
+		current.connect("resized", _on_resized)
+	for child in current.get_children() :
+		connectRecursive(child)
+	
+func _on_resized() :
+	queue_sort()
+	size = Vector2(0,0)
+
 func initialise(type : Encyclopedia.tutorialName, myPosition : Vector2, args : Array) :
+	position = Vector2(9999,9999)
 	var startAsDisabled = args[0]
 	myType = type
 	$VBoxContainer/Title.text = Encyclopedia.tutorialTitles[type]
-	$VBoxContainer/Panel/EncyclopediaTextLabel.setText(Encyclopedia.tutorialDesc[type])
+	var presumedCurrentLayer = Helpers.getTopLayer()
+	$VBoxContainer/Panel/EncyclopediaTextLabel.currentLayer = presumedCurrentLayer+1
+	await $VBoxContainer/Panel/EncyclopediaTextLabel.setText(Encyclopedia.tutorialDesc[type])
 	var tempPosition
+	await get_tree().process_frame
 	if (myPosition == Vector2(0,0)) :
-		await get_tree().process_frame
 		var screenSize = Engine.get_singleton("DisplayServer").screen_get_size()
 		tempPosition = Vector2((screenSize.x-size.x)/2.0,(screenSize.y-size.y)/2.0)
 	else :

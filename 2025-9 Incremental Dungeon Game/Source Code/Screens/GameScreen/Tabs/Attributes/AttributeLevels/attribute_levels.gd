@@ -9,19 +9,22 @@ enum AlignmentMode {
 var growthMultipliers : Array[float]
 
 func _ready() :
+	if (Definitions.DEVMODE) :
+		$Panel/HBoxContainer/DevOptions.visible = true
 	for key in Definitions.attributeDictionary.keys() :
 		var newBar = labelledBar.instantiate()
 		newBar.name = Definitions.attributeDictionary[key]
-		$Panel/Con.add_child(newBar)
+		$Panel/HBoxContainer/Con.add_child(newBar)
+		newBar.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		newBar.setLabel(Definitions.attributeDictionary[key])
 		#newBar.alignment = AlignmentMode.ALIGNMENT_CENTER
 	var widestLabel = 0
 	for key in Definitions.attributeDictionary.keys() :
-		var width = $Panel/Con.get_node(Definitions.attributeDictionary[key]).getLabelWidth()
+		var width = $Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[key]).getLabelWidth()
 		if (width > widestLabel) :
 			widestLabel = width
 	for key in Definitions.attributeDictionary.keys() :
-		$Panel/Con.get_node(Definitions.attributeDictionary[key]).setLabelWidth(widestLabel)
+		$Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[key]).setLabelWidth(widestLabel)
 		
 	for key in Definitions.attributeDictionary.keys() :
 		growthMultipliers.append(0)
@@ -29,16 +32,36 @@ func _ready() :
 func setMultipliers(newTraining : AttributeTraining) :
 	if (newTraining == null) :
 		for key in Definitions.attributeDictionary.keys() :
-			$Panel/Con.get_node(Definitions.attributeDictionary[key]).setGrowthMultiplier(0)
+			$Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[key]).setGrowthMultiplier(0)
 	else :
 		for key in Definitions.attributeDictionary.keys() :
-			$Panel/Con.get_node(Definitions.attributeDictionary[key]).setGrowthMultiplier(newTraining.getScaling(key))
+			$Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[key]).setGrowthMultiplier(newTraining.getScaling(key))
 			
 func getLevel(type : Definitions.attributeEnum) :
-	return $Panel/Con.get_node(Definitions.attributeDictionary[type]).getLevel()
+	return $Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[type]).getLevel()
 func setLevel(type : Definitions.attributeEnum, val : int) :
-	$Panel/Con.get_node(Definitions.attributeDictionary[type]).setLevel(val)
+	$Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[type]).setLevel(val)
 func getProgress(type : Definitions.attributeEnum) :
-	return $Panel/Con.get_node(Definitions.attributeDictionary[type]).getProgress()
+	return $Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[type]).getProgress()
 func setProgress(type : Definitions.attributeEnum, val) :
-	$Panel/Con.get_node(Definitions.attributeDictionary[type]).setProgress(val)
+	$Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[type]).setProgress(val)
+
+
+func _on_dex_text_submitted(new_text: String) -> void:
+	setLevel(Definitions.attributeEnum.DEX, int(new_text))
+
+
+func _on_dur_text_submitted(new_text: String) -> void:
+	setLevel(Definitions.attributeEnum.DUR, int(new_text))
+
+
+func _on_int_text_submitted(new_text: String) -> void:
+	setLevel(Definitions.attributeEnum.INT, int(new_text))
+
+
+func _on_ski_text_submitted(new_text: String) -> void:
+	setLevel(Definitions.attributeEnum.SKI, int(new_text))
+
+
+func _on_line_edit_5_text_submitted(new_text: String) -> void:
+	setLevel(Definitions.attributeEnum.STR, int(new_text))

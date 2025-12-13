@@ -1,0 +1,102 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=6 format=3 uid="uid://c0e5grwowtsir"]
+
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Global Scene Preloads/Equipment/Resources/equipment_grouping.gd" id="1_dlfg2"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="1_y2c1d"]
+[ext_resource type="Script" uid="uid://bmbbygpmfs6mv" path="res://Global Scene Preloads/Equipment/Resources/accessory.gd" id="2_dlfg2"]
+
+[sub_resource type="Resource" id="Resource_e7o6n"]
+script = ExtResource("1_dlfg2")
+isEligible = false
+quality = 0
+weaponClass = 2
+armorClass = 3
+isEnchanted = false
+isSimple = false
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isMagical = false
+
+[sub_resource type="Resource" id="Resource_y2c1d"]
+script = ExtResource("1_y2c1d")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+
+[resource]
+script = ExtResource("2_dlfg2")
+title = "Venom vial"
+description = "This deadly poison is sure to make any cut sting."
+myPacket = SubResource("Resource_y2c1d")
+equipmentGroups = SubResource("Resource_e7o6n")
+metadata/_custom_type_script = "uid://bmbbygpmfs6mv"

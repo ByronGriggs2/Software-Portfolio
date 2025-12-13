@@ -8,11 +8,17 @@
 script = ExtResource("2_i5uj3")
 
 [node name="VBoxContainer" parent="Panel/CenterContainer/Window" index="0"]
-theme_override_constants/separation = 15
+theme_override_constants/separation = 30
 
-[node name="Button" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer" index="2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Button" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0"]
 layout_mode = 2
 theme = ExtResource("3_7b14l")
+theme_override_font_sizes/font_size = 30
 text = " Ok "
 
-[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

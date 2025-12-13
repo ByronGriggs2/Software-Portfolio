@@ -1,0 +1,101 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=6 format=3 uid="uid://drjk5xy64f7b6"]
+
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="1_b8yvl"]
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Global Scene Preloads/Equipment/Resources/equipment_grouping.gd" id="1_cyleh"]
+[ext_resource type="Script" uid="uid://bmbbygpmfs6mv" path="res://Global Scene Preloads/Equipment/Resources/accessory.gd" id="2_cyleh"]
+
+[sub_resource type="Resource" id="Resource_nxcpj"]
+script = ExtResource("1_cyleh")
+isEligible = false
+quality = 0
+technology = 0
+weaponClass = 2
+armorClass = 3
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isMagical = false
+
+[sub_resource type="Resource" id="Resource_b8yvl"]
+script = ExtResource("1_b8yvl")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+
+[resource]
+script = ExtResource("2_cyleh")
+title = "Clown horn"
+description = "honk"
+myPacket = SubResource("Resource_b8yvl")
+equipmentGroups = SubResource("Resource_nxcpj")
+metadata/_custom_type_script = "uid://bmbbygpmfs6mv"

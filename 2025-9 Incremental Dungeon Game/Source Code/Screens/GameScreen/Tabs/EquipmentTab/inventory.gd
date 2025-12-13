@@ -1,5 +1,7 @@
 extends Panel
 
+## Currency is no longer handled by this class. It's handled by GameScreen.
+
 var selectedEntry : Node = null
 var equippedEntries : Array[Node] = []
 @export var inventorySize : int = 10
@@ -7,13 +9,47 @@ var equippedEntries : Array[Node] = []
 #################################
 ##Setters
 func addToInventory(itemSceneRef) :
+	if (itemSceneRef.core is Currency) :
+		return
 	getNextEmptySlot().add_child(itemSceneRef)
+	itemSceneRef.setMouseFilter(Control.MOUSE_FILTER_PASS)
 	itemSceneRef.connect("wasSelected", _on_item_selected)
 	itemSceneRef.connect("wasDeselected", _on_item_deselected)
 func discardItem(itemSceneRef) :
+	var itemIndex = findPanelIndex(itemSceneRef)
+	if (itemIndex == null) :
+		return
 	if (itemSceneRef.isEquipped()) :
 		unequipItem(itemSceneRef.getType())
+	if (itemIndex != inventorySize-1 && getInventory().get_child(itemIndex+1).get_child_count() == 1) :
+		itemIndex += 1
+	elif (itemIndex != 0 && getInventory().get_child(itemIndex-1).get_child_count() == 1) :
+		itemIndex -= 1
+	else :
+		itemIndex = -1
+	emit_signal("itemDeselected", itemSceneRef)
+	if (itemIndex != -1) :
+		var newSelection : Node = getInventory().get_child(itemIndex).get_child(0)
+		selectItem(newSelection)
+		emit_signal("itemSelected", newSelection)
 	itemSceneRef.queue_free()
+	
+func setItemCount(item : Equipment, val : int) :
+	if (item is Currency) :
+		return
+	var currentAmount = getItemCount(item)
+	for child in getInventoryList() :
+		if (currentAmount > val && child.get_child_count() == 1&&child.get_child(0).core == item) :
+			discardItem(child.get_child(0))
+			currentAmount -= 1
+		if (currentAmount <= val) :
+			break
+const draggablePanelLoader = preload("res://draggable_panel.tscn")
+func expand(increase : int) :
+	inventorySize += increase
+	for index in range(0,increase) :
+		var newPanel = draggablePanelLoader.instantiate()
+		$ScrollContainer/CenterContainer/GridContainer.add_child(newPanel)
 #################################
 ##Getters
 func getEquippedItem(type : Definitions.equipmentTypeEnum) :
@@ -24,18 +60,31 @@ func getModifierPacket() -> ModifierPacket :
 	var retVal = ModifierPacket.new()
 	for key in Definitions.equipmentTypeDictionary.keys() :
 		if (equippedEntries[key] != null) :
-			equippedEntries[key].addToModifierPacket(retVal)
+			retVal = equippedEntries[key].addToModifierPacket(retVal)
 	return retVal
+func getItemCount(item : Equipment) :
+	if (item is Currency) :
+		return -1
+	var count : int = 0
+	for myItem in getInventoryList() :
+		if (myItem.get_child_count()==1 && myItem.get_child(0).core == item) :
+			count += 1
+	return count
 ################################
 ##Other
 func selectItem(itemSceneRef) :
 	itemSceneRef.select()
+	selectedEntry = itemSceneRef
 	for child in getInventoryList() :
 		if (child.get_child_count() == 1 && child.get_child(0) != itemSceneRef) :
 			child.get_child(0).deselect()
 
 signal itemEquipped
 func equipItem(itemSceneRef) :
+	if (!Definitions.isEquippable(itemSceneRef)) :
+		return
+	if (equippedEntries[itemSceneRef.getType()] != null) :
+		unequipItem(itemSceneRef.getType())
 	equippedEntries[itemSceneRef.getType()] = itemSceneRef
 	itemSceneRef.equip()
 	emit_signal("itemEquipped", itemSceneRef)
@@ -85,15 +134,25 @@ func getInventory() -> Node :
 	return $ScrollContainer/CenterContainer/GridContainer
 ##################################
 ##Internal
-func findPanel(itemSceneRef) :
+func findPanel(item) :
+	var equipment
+	if (item is Equipment) :
+		equipment = item
+	else :
+		equipment = item.core
 	for child in getInventoryList() :
-		if (child.get_child_count() == 1 && child.get_child(0) == itemSceneRef) :
+		if (child.get_child_count() == 1 && child.get_child(0).core == equipment) :
 			return child
 	return null
-func findPanelIndex(itemSceneRef) :
+func findPanelIndex(item) :
+	var equipment
+	if (item is Equipment) :
+		equipment = item
+	else :
+		equipment = item.core
 	var children = getInventoryList()
 	for index in range(0,children.size()) :
-		if (children[index].get_child_count() == 1 && children[index].get_child(0) == itemSceneRef) :
+		if (children[index].get_child_count() == 1 && children[index].get_child(0).core == equipment) :
 			return index
 	return null	
 func getNextEmptySlot() :
@@ -103,6 +162,11 @@ func getNextEmptySlot() :
 	for child in children :
 		if (child.get_child_count() == 0) :
 			return child
+	return null
+func findEquipment(item : Equipment) :
+	for child in getInventoryList() :
+		if (child.get_child_count()==1 && child.get_child(0).core == item) :
+			return child.get_child(0)
 	return null
 ####################################
 ##Signals
@@ -125,7 +189,81 @@ func _on_tab_button_pressed(emitter) :
 func initialiseContainers() :
 	for index in range(0,inventorySize-1) :
 		var newPanel = $ScrollContainer/CenterContainer/GridContainer/Panel.duplicate()
-		$ScrollContainer/CenterContainer/GridContainer.add_child(newPanel)
+		getInventory().add_child(newPanel)
+		newPanel.connect("dragStart", _on_draggable_drag)
+		newPanel.connect("dragStop", _on_draggable_release)
+	getInventory().get_child(0).connect("dragStart", _on_draggable_drag)
+	getInventory().get_child(0).connect("dragStop", _on_draggable_release)
+	
+var draggingPanel : Node = null
+var ghostPanel : Node = null
+var draggingPanelIndex : int = -1
+func _on_draggable_drag(emitter) :
+	draggingPanelIndex = Helpers.findIndexInContainer(getInventory(), emitter)
+	await get_tree().process_frame
+	var oldPos = emitter.global_position
+	getInventory().remove_child(emitter)
+	add_child(emitter)
+	emitter.global_position = oldPos
+	ghostPanel = Control.new()
+	getInventory().add_child(ghostPanel)
+	ghostPanel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ghostPanel.custom_minimum_size = emitter.size
+	getInventory().move_child(ghostPanel, draggingPanelIndex)
+	updateDraggingSiblings()
+	draggingPanel = emitter
+	
+func _on_draggable_release(_emitter) :
+	getInventory().remove_child(ghostPanel)
+	ghostPanel.queue_free()
+	ghostPanel = null
+	remove_child(draggingPanel)
+	getInventory().add_child(draggingPanel)
+	getInventory().move_child(draggingPanel, draggingPanelIndex)
+	draggingPanel = null
+	draggingPanelIndex = -1
+	clearDraggingSiblings()
+
+var draggingSiblings : Array = []
+func updateDraggingSiblings() :
+	draggingSiblings.clear()
+	var left = null
+	if (draggingPanelIndex >= 1 && (draggingPanelIndex)%6 != 0) :
+		left = getInventory().get_child(draggingPanelIndex-1)
+	draggingSiblings.append(left)
+	var right = null
+	if (draggingPanelIndex <= getInventory().get_child_count() - 2 && (draggingPanelIndex+1)%6 != 0) :
+		right = getInventory().get_child(draggingPanelIndex+1)
+	draggingSiblings.append(right)
+	var top = null
+	if (draggingPanelIndex >= getInventory().columns) :
+		top = getInventory().get_child(draggingPanelIndex-getInventory().columns)
+	draggingSiblings.append(top)
+	var bottom = null
+	if (draggingPanelIndex <= getInventory().get_child_count()-getInventory().columns-1) :
+		bottom = getInventory().get_child(draggingPanelIndex+getInventory().columns)
+	draggingSiblings.append(bottom)
+	
+func clearDraggingSiblings() :
+	draggingSiblings = []
+	
+func _process(_delta) :
+	if (draggingPanel != null) :
+		var changed : bool = true
+		if (draggingSiblings[0] && draggingPanel.global_position.x < draggingSiblings[0].global_position.x) :
+			draggingPanelIndex -= 1
+		elif (draggingSiblings[1] && draggingPanel.global_position.x > draggingSiblings[1].global_position.x) :
+			draggingPanelIndex += 1
+		elif (draggingSiblings[2] && draggingPanel.global_position.y < draggingSiblings[2].global_position.y) :
+			draggingPanelIndex -= getInventory().columns
+		elif (draggingSiblings[3] && draggingPanel.global_position.y > draggingSiblings[3].global_position.y) :
+			draggingPanelIndex += getInventory().columns
+		else :
+			changed = false
+		if (changed) :
+			getInventory().move_child(ghostPanel, draggingPanelIndex)
+			updateDraggingSiblings()
+
 ##############################################
 ##Saving
 func getSaveDictionary() -> Dictionary :
@@ -172,6 +310,7 @@ func onLoad(loadDict) -> void :
 		if (loadDict["itemName" + str(currentSlot)] != "null") :
 			var newEntry = SceneLoader.createEquipmentScene(loadDict["itemName" + str(currentSlot)])
 			inventorySlots[currentSlot].add_child(newEntry)
+			newEntry.setMouseFilter(Control.MOUSE_FILTER_PASS)
 			newEntry.loadSaveDictionary(loadDict["itemDict"+str(currentSlot)])
 			newEntry.connect("wasSelected", _on_item_selected)
 	for key in Definitions.equipmentTypeDictionary.keys() :

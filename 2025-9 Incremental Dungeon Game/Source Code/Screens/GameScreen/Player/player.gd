@@ -28,6 +28,7 @@ var characterName : String = "Undefined"
 ## Numbers displayed on Player Panel
 var attributeObjects : Array[NumberClass] = []
 var derivedStatObjects : Array[NumberClass] = []
+var otherStatObjects : Array[NumberClass] = []
 ## Direct Modifiers (not explicitly ackgnowledged in Player.gd)
 #Equipment
 ## Specific Modifiers
@@ -44,6 +45,9 @@ func initialiseNumberObjects() :
 		attributeObjects.append(NumberClass.new())
 	for key in Definitions.baseStatDictionary.keys() :
 		derivedStatObjects.append(NumberClass.new())
+	for key in Definitions.otherStatDictionary.keys() :
+		otherStatObjects.append(NumberClass.new())
+	otherStatObjects[Definitions.otherStatEnum.magicFind].setPrebonus("Base", 1.0)
 ###############################
 ## Specific Modifiers
 func updateTrainingLevels(newLevels : Array[int]) :
@@ -71,6 +75,12 @@ func updateDirectModifier(origin : String, val : ModifierPacket) :
 		derivedStatObjects[key].setPremultiplier(origin, val.statMods[tag]["Premultiplier"])
 		derivedStatObjects[key].setPostbonus(origin, val.statMods[tag]["Postbonus"])
 		derivedStatObjects[key].setPostmultiplier(origin, val.statMods[tag]["Postmultiplier"])
+	for key in Definitions.otherStatDictionary.keys() :
+		var tag = Definitions.otherStatDictionary[key]
+		otherStatObjects[key].setPrebonus(origin, val.otherMods[tag]["Prebonus"])
+		otherStatObjects[key].setPremultiplier(origin, val.otherMods[tag]["Premultiplier"])
+		otherStatObjects[key].setPostbonus(origin, val.otherMods[tag]["Postbonus"])
+		otherStatObjects[key].setPostmultiplier(origin, val.otherMods[tag]["Postmultiplier"])
 ########################################
 func myUpdate() :
 	## Attributes
@@ -87,8 +97,8 @@ func myUpdate() :
 		finalAttributes.append(attributeObjects[key].getFinal())
 	## Combat Stats
 	#equippedWeapon
-	derivedStatObjects[Definitions.baseStatEnum.AR].setPostbonus("Weapon Attack", equippedWeapon.attackBonus)
-	var combatStats_attributes_primaryWeaponAttribute = equippedWeapon.primaryAttribute
+	derivedStatObjects[Definitions.baseStatEnum.DR].setPostbonus("Weapon Attack", equippedWeapon.attackBonus)
+	var LOCAL_weaponArray = equippedWeapon.getScalingArray()
 	#equippedArmor
 	var PHYSDEF_armor
 	var MAGDEF_armor
@@ -106,33 +116,42 @@ func myUpdate() :
 	for key in Definitions.baseStatDictionary.keys() :
 		var args
 		var shortName = Definitions.baseStatDictionaryShort[key]
-		if (key == Definitions.baseStatEnum.AR) :
-			args = finalAttributes[combatStats_attributes_primaryWeaponAttribute]
-			var string = Encyclopedia.getFormula(shortName, Encyclopedia.formulaAction.getString_full, null)
-			var value = Encyclopedia.getFormula(shortName, Encyclopedia.formulaAction.getCalculation_full, args)
-			derivedStatObjects[key].setPrebonus(string, value)
+		if (key == Definitions.baseStatEnum.DR) :
+			args = LOCAL_weaponArray
+			args.append_array(finalAttributes)
+		elif (key == Definitions.baseStatEnum.AR || key == Definitions.baseStatEnum.PHYSDEF || key == Definitions.baseStatEnum.MAGDEF) :
+			args = finalAttributes
 		elif (key == Definitions.baseStatEnum.MAXHP) :
 			args = finalAttributes[Definitions.attributeEnum.DUR]
-			var string = Encyclopedia.getFormula(shortName, Encyclopedia.formulaAction.getString_full, null)
-			var value = Encyclopedia.getFormula(shortName, Encyclopedia.formulaAction.getCalculation_full, args)
-			derivedStatObjects[key].setPrebonus(string, value)
-		else :
-			for subkey in Definitions.attributeDictionary.keys() :
-				var temp : Array = []
-				temp.append(subkey)
-				temp.append(finalAttributes[subkey])
-				args = temp
-				var string = Encyclopedia.getFormula(shortName, Encyclopedia.formulaAction.getString_partial, subkey)
-				var value = Encyclopedia.getFormula(shortName, Encyclopedia.formulaAction.getCalculation_partial, args)
-				derivedStatObjects[key].setPrebonus(string, value)
+			
+		var strings = Encyclopedia.getFormula(shortName, Encyclopedia.formulaAction.getString_array, args)
+		var values = Encyclopedia.getFormula(shortName, Encyclopedia.formulaAction.getCalculation_array, args)
+		for index in range(0,strings.size()) :
+			derivedStatObjects[key].setPrebonus(strings[index], values[index])
 		core.setStat(key, derivedStatObjects[key].getFinal())
+	##Other stats
+	pass
+	##Derived stats
+	updateDerivedStats()
+	
+func setTypicalEnemyDefense(val) :
+	typicalEnemyDefense = val
+var typicalEnemyDefense : float = 10
+func updateDerivedStats() :
+	getDerivedStatList().get_node("AttackSpeed").get_node("Number").text = str(Helpers.myRound(10.0/equippedWeapon.basicAttack.getWarmup(),3))
+	var averageAttackRating = (derivedStatObjects[Definitions.baseStatEnum.AR].getFinal()*derivedStatObjects[Definitions.baseStatEnum.DR].getFinal()) / typicalEnemyDefense
+	getDerivedStatList().get_node("DamagePerHit").get_node("Number").text = str(Helpers.myRound(averageAttackRating * equippedWeapon.basicAttack.getPower(),3))
+	
+func getDerivedStatList() :
+	return $VBoxContainer/DerivedStatPanel/PanelContainer/OtherStatDisplay
+	
 #########################################
 ## Setters
 #Takes ownership of class struct
 func setClass(character : CharacterClass) :
 	characterClass = character
 	for key in Definitions.attributeDictionary.keys() :
-		attributeObjects[key].setPrebonus("Class", character.getBaseAttribute(key))
+		attributeObjects[key].setPrebonus("Class", round(character.getBaseAttribute(key)/character.getAttributeScaling(key)*100.0)/100.0)
 		attributeObjects[key].setPremultiplier("Class", character.getAttributeScaling(key))
 	$VBoxContainer/AttributePanel/VBoxContainer/ClassLabel.text = "Class: " + character.getText()
 	unarmedWeapon = SceneLoader.createEquipmentScene("unarmed_" + Definitions.classDictionary[characterClass.classEnum])
@@ -158,6 +177,8 @@ func getAttributeMods() -> Array[NumberClass] :
 		temp.postbonuses = attr.postbonuses
 		retVal.append(temp)
 	return retVal
+func getOtherStat(key : Definitions.otherStatEnum) :
+	return otherStatObjects[key].getFinal()
 ##################################################
 ## Saving
 const myLoadDependencyName = Definitions.loadDependencyName.player
@@ -171,19 +192,24 @@ func getSaveDictionary() -> Dictionary :
 	tempDict[key] = characterClass.resource_path
 	key = "playerName"
 	tempDict[key] = characterName
+	tempDict["typicalEnemyDefense"] = typicalEnemyDefense
 	return tempDict
 	
 var myReady : bool = false
 func _ready() :
 	initialiseNumberObjects()
+	$CustomMouseover.initialise($VBoxContainer, $VBoxContainer/DerivedStatPanel/StatTitle, $VBoxContainer/DerivedStatPanel/PanelContainer/OtherStatDisplay/AttackSpeed/Number, $VBoxContainer/DerivedStatPanel/PanelContainer/OtherStatDisplay/DamagePerHit/Number)
 	$VBoxContainer/CombatStatPanel.initialise(derivedStatObjects)
 	$VBoxContainer/AttributePanel.initialise(attributeObjects)
+	$VBoxContainer/OtherStatPanel.initialise(otherStatObjects)
 	myReady = true
 	
 func beforeLoad(_newSave : bool) :
 	var temp = load("res://Screens/GameScreen/Tabs/Combat/Actors/human.tres")
 	core = temp.duplicate()
 	
-func onLoad(loadDict) -> void :
+func onLoad(loadDict) -> void :	
 	setClass(load(loadDict["playerClass"]))
 	setName(loadDict["playerName"])
+	if (loadDict.get(typicalEnemyDefense) != null) :
+		typicalEnemyDefense = loadDict["typicalEnemyDefense"]

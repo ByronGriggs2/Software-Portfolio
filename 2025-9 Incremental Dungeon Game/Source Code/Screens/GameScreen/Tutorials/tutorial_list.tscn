@@ -24,16 +24,23 @@ horizontal_scroll_mode = 0
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer/ScrollContainer" index="0"]
 custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="SampleEntry" parent="Panel/CenterContainer/Window/VBoxContainer/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("3_w6h7y")]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 20
 text = " Sample Text "
 
-[node name="ReturnButton" parent="Panel/CenterContainer/Window/VBoxContainer" index="3" instance=ExtResource("3_w6h7y")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="3"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="ReturnButton" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0" instance=ExtResource("3_w6h7y")]
 layout_mode = 2
 theme = ExtResource("4_am02b")
+theme_override_font_sizes/font_size = 25
 text = "Return"
 
-[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://edkwexvcvr1k"]
+
+[ext_resource type="Resource" uid="uid://bg50av5mkghu" path="res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/dart_basic.tres" id="1_3fq44"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="1_eomh8"]
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Global Scene Preloads/Equipment/Resources/equipment_grouping.gd" id="2_3chvk"]
+[ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Global Scene Preloads/Equipment/Resources/weapon.gd" id="2_3fq44"]
+
+[sub_resource type="Resource" id="Resource_ie7k2"]
+script = ExtResource("2_3chvk")
+isEligible = false
+quality = 0
+weaponClass = 2
+armorClass = 3
+isEnchanted = false
+isSimple = false
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isMagical = false
+
+[sub_resource type="Resource" id="Resource_3fq44"]
+script = ExtResource("1_eomh8")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+
+[resource]
+script = ExtResource("2_3fq44")
+scaling = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.0,
+"Skill": 0.0,
+"Strength": 0.0
+}
+attackBonus = 0.0
+basicAttack = ExtResource("1_3fq44")
+isUnarmed = false
+title = "Manticore blowdart"
+description = "Manticore poison is far more deadly than curare."
+myPacket = SubResource("Resource_3fq44")
+equipmentGroups = SubResource("Resource_ie7k2")
+metadata/_custom_type_script = "uid://6qgd3qugycc1"

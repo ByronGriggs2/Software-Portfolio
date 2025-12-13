@@ -1,0 +1,102 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=6 format=3 uid="uid://ctexrblxpps2p"]
+
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Global Scene Preloads/Equipment/Resources/equipment_grouping.gd" id="1_h605x"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="1_o03vc"]
+[ext_resource type="Script" uid="uid://bmbbygpmfs6mv" path="res://Global Scene Preloads/Equipment/Resources/accessory.gd" id="2_h605x"]
+
+[sub_resource type="Resource" id="Resource_vxy38"]
+script = ExtResource("1_h605x")
+isEligible = false
+quality = 0
+weaponClass = 2
+armorClass = 3
+isEnchanted = false
+isSimple = false
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isMagical = false
+
+[sub_resource type="Resource" id="Resource_o03vc"]
+script = ExtResource("1_o03vc")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.2,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+
+[resource]
+script = ExtResource("2_h605x")
+title = "Magpie's Eye"
+description = "This ring sports a catseye gem with a particularly birdly appearance. You found it in the nest of a Giant Magpie, hidden among a trove of gold and gems. It gleams in the presence of treasure."
+myPacket = SubResource("Resource_o03vc")
+equipmentGroups = SubResource("Resource_vxy38")
+metadata/_custom_type_script = "uid://bmbbygpmfs6mv"

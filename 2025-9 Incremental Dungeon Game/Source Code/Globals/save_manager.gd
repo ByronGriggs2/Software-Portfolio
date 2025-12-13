@@ -4,12 +4,20 @@ var currentSlot : Definitions.saveSlots
 ##################################
 ## Internal
 var secondsElapsed : int = 0
+var playtimeTimer : Timer = null
 func createTimer() :
-	var newTimer = Timer.new()
-	add_child(newTimer)
-	newTimer.connect("timeout",_on_timer_tick)
-	newTimer.start()
+	if (playtimeTimer != null) :
+		playtimeTimer.queue_free()
+		playtimeTimer = null
+	playtimeTimer = Timer.new()
+	add_child(playtimeTimer)
+	playtimeTimer.connect("timeout",_on_timer_tick)
+	playtimeTimer.start()
 	
+func pausePlaytime() :
+	if (playtimeTimer != null) :
+		playtimeTimer.stop()
+
 func fixNullRecursive(loadDict : Dictionary) :
 	for key in loadDict.keys() :
 		if (loadDict[key] is Dictionary) :
@@ -164,17 +172,15 @@ func newGame(gameScreenRef : Node, characterClass : CharacterClass, characterNam
 	gameScreenRef.initialisePlayerClass(characterClass)
 	gameScreenRef.initialisePlayerName(characterName)
 	secondsElapsed = 0
-	
-	
 	createTimer()
 	
 const loadGameMenu = preload("res://SaveManager/load_game_menu.tscn")
 signal loadRequested
-func loadGameSaveSelection(emitter : Node) :
+func loadGameSaveSelection(parent : Node) :
 	var menu = loadGameMenu.instantiate()
-	add_child(menu)
-	if (emitter.has_method("nestedPopupInit")) :
-		menu.nestedPopupInit(emitter)
+	parent.add_child(menu)
+	if (parent.has_method("nestedPopupInit")) :
+		menu.nestedPopupInit(parent)
 	menu.connect("loadRequested", _on_load_menu_option_chosen)
 	menu.connect("finished", _on_finished)
 func _on_load_menu_option_chosen(slot : Definitions.saveSlots) :
@@ -185,12 +191,12 @@ func _on_finished() :
 	emit_signal("finished")
 
 const saveGameMenu = preload("res://SaveManager/save_game_menu.tscn")
-func saveGameSaveSelection(emitter : Node) :
+func saveGameSaveSelection(parent : Node) :
 	var menu = saveGameMenu.instantiate()
-	add_child(menu)
+	parent.add_child(menu)
 	menu.connect("optionChosen", _on_save_menu_option_chosen)
-	if (emitter.has_method("nestedPopupInit")) :
-		menu.nestedPopupInit(emitter)
+	if (parent.has_method("nestedPopupInit")) :
+		menu.nestedPopupInit(parent)
 func _on_save_menu_option_chosen(slot : Definitions.saveSlots) :
 	saveGame(slot)
 	

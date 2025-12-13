@@ -69,14 +69,14 @@ func startDelete() :
 		$Panel/CenterContainer/Window/VBoxContainer.get_child(slot+1).setTheme(secondaryTheme)
 	for child in $Panel/CenterContainer/Window/VBoxContainer.get_children() :
 		child.theme = secondaryTheme
-	$Panel/CenterContainer/Window/VBoxContainer/DeleteButton.text = "Cancel delete"
+	$Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2/DeleteButton.text = "Cancel delete"
 	
 func stopDelete() :
 	for slot in range(1,5) :
 		$Panel/CenterContainer/Window/VBoxContainer.get_child(slot+1).setTheme(primaryTheme)
 	for child in $Panel/CenterContainer/Window/VBoxContainer.get_children() :
 		child.theme = primaryTheme
-	$Panel/CenterContainer/Window/VBoxContainer/DeleteButton.text = "Delete a save"
+	$Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2/DeleteButton.text = "Delete a save"
 	
 func refreshSaveInformation() :
 	for slot in range(1,5) :

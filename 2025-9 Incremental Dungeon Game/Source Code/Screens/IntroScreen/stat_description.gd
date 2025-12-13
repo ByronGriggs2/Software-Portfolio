@@ -13,6 +13,6 @@ func setStats(index : int) :
 	elif (index == 2) :
 		currentStats = rogueStats
 	for key in Definitions.attributeDictionary.keys() :
-		$VBoxContainer/ColumnContainer/StatAmounts.get_child(1+key).text = str(currentStats.getBaseAttribute(key)*currentStats.getAttributeScaling(key))
+		$VBoxContainer/ColumnContainer/StatAmounts.get_child(1+key).text = str(currentStats.getBaseAttribute(key))
 		$VBoxContainer/ColumnContainer/StatScaling.get_child(1+key).text = str(currentStats.getAttributeScaling(key))
 	

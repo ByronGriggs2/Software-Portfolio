@@ -7,33 +7,29 @@
 [node name="PagedEquipmentDetails" instance=ExtResource("1_eqrmg")]
 script = ExtResource("2_43h0h")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Text/VBoxContainer" index="4"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Text/VBoxContainer" index="4"]
 layout_mode = 2
 alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="Text/VBoxContainer/HBoxContainer" index="0"]
+[node name="CenterContainer" type="CenterContainer" parent="Text/VBoxContainer/HBoxContainer2" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="Text/VBoxContainer/HBoxContainer/CenterContainer" index="0"]
+[node name="Button" type="Button" parent="Text/VBoxContainer/HBoxContainer2/CenterContainer" index="0"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("3_43h0h")
 text = "Equip Option Text"
 
-[node name="CenterContainer2" type="CenterContainer" parent="Text/VBoxContainer/HBoxContainer" index="1"]
+[node name="CenterContainer2" type="CenterContainer" parent="Text/VBoxContainer/HBoxContainer2" index="1"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Discard" type="Button" parent="Text/VBoxContainer/HBoxContainer/CenterContainer2" index="0"]
+[node name="Discard" type="Button" parent="Text/VBoxContainer/HBoxContainer2/CenterContainer2" index="0"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("3_43h0h")
 text = "Discard"
 
-[node name="Buffer3" type="Control" parent="Text/VBoxContainer" index="5"]
-custom_minimum_size = Vector2(0, 15)
-layout_mode = 2
-
-[connection signal="pressed" from="Text/VBoxContainer/HBoxContainer/CenterContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Text/VBoxContainer/HBoxContainer/CenterContainer2/Discard" to="." method="_on_discard_pressed"]
+[connection signal="pressed" from="Text/VBoxContainer/HBoxContainer2/CenterContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Text/VBoxContainer/HBoxContainer2/CenterContainer2/Discard" to="." method="_on_discard_pressed"]

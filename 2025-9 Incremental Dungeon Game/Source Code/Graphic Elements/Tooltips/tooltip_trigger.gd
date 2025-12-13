@@ -15,6 +15,9 @@ func initialise(key : String) :
 	tooltipTitle = key
 	tooltipText = Encyclopedia.descriptions[key]
 	
+func setTitle(val) :
+	tooltipTitle = val
+	
 func setDesc(val) :
 	tooltipText = val
 	if (spawned) :
@@ -59,21 +62,18 @@ func _process(_delta) :
 	else :
 		myTooltip.updateExtendTimer(1-$ExtendTimer.time_left/$ExtendTimer.wait_time)
 
+var currentLayer = 0
 func _on_spawn_timer_timeout() -> void:
 	myLayer = CanvasLayer.new()
 	add_child(myLayer)
-	myLayer.layer = 2
+	myLayer.layer = currentLayer + 1
 	var tooltipLoader = load("res://Graphic Elements/Tooltips/tooltip.tscn")
 	myTooltip = tooltipLoader.instantiate()
 	myLayer.add_child(myTooltip)
+	myTooltip.setWidth(tooltipWidth)
+	myTooltip.setCurrentLayer(currentLayer + 1)
 	myTooltip.setTitle(tooltipTitle)
 	myTooltip.setDesc(tooltipText)
-	var toolPos = get_global_mouse_position()
-	toolPos = Vector2(toolPos.x+50,toolPos.y-50-myTooltip.size.y)
-	var screenSize : Vector2i = Engine.get_singleton("DisplayServer").screen_get_size()
-	toolPos.x = clamp(toolPos.x, 0, screenSize.x - myTooltip.size.x)
-	toolPos.y = clamp(toolPos.y, 0, screenSize.y - myTooltip.size.y)
-	myTooltip.set_global_position(toolPos)
 	myTooltip.set_z_index(get_z_index() + 1)
 	myTooltip.connect("mouse_entered", _on_tooltip_mouse_entered)
 	myTooltip.connect("mouse_exited", _on_tooltip_mouse_exited)
@@ -111,3 +111,7 @@ func isOnNestedTooltip() -> bool :
 	if (myTooltip != null && myTooltip.isOnNestedTooltip()) :
 		return true
 	return false
+	
+var tooltipWidth = 400
+func setTooltipWidth(val) :
+	tooltipWidth = val

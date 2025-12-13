@@ -1,14 +1,113 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cd3jk852it1qw"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://cd3jk852it1qw"]
 
-[ext_resource type="Resource" uid="uid://dnsyqbeeghebx" path="res://Screens/GameScreen/Tabs/Combat/Actions/punch_2.tres" id="1_gw2vo"]
+[ext_resource type="Resource" uid="uid://dnsyqbeeghebx" path="res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/Tutorial/punch_2.tres" id="1_7nprj"]
 [ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Global Scene Preloads/Equipment/Resources/weapon.gd" id="1_y3s1v"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="2_7nprj"]
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Global Scene Preloads/Equipment/Resources/equipment_grouping.gd" id="2_nj2iq"]
+
+[sub_resource type="Resource" id="Resource_tmvv3"]
+script = ExtResource("2_nj2iq")
+isEligible = false
+quality = 0
+weaponClass = 2
+armorClass = 3
+isEnchanted = false
+isSimple = false
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isMagical = false
+
+[sub_resource type="Resource" id="Resource_7nprj"]
+script = ExtResource("2_7nprj")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
 
 [resource]
 script = ExtResource("1_y3s1v")
-primaryAttribute = 3
-attackBonus = 2.0
-basicAttack = ExtResource("1_gw2vo")
+scaling = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.0,
+"Skill": 0.0,
+"Strength": 0.7
+}
+attackBonus = 14.0
+basicAttack = ExtResource("1_7nprj")
 isUnarmed = false
 title = "Slightly magic stick"
 description = "You don't know how to harness the magical power of this object, but that's never stopped you before."
+myPacket = SubResource("Resource_7nprj")
+equipmentGroups = SubResource("Resource_tmvv3")
 metadata/_custom_type_script = "uid://6qgd3qugycc1"

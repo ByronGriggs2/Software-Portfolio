@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2gtcn2no6h3m"]
+[gd_scene load_steps=7 format=3 uid="uid://d2gtcn2no6h3m"]
 
 [ext_resource type="Script" uid="uid://b2v2jtrmpqsr0" path="res://Screens/GameScreen/Tabs/Combat/CombatRewards/combat_rewards.gd" id="1_x0xb8"]
 [ext_resource type="PackedScene" uid="uid://72phavhx5xni" path="res://Screens/GameScreen/Tabs/EquipmentTab/equipment_details_binary_choice.tscn" id="2_flog0"]
 [ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="3_devvd"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="4_rqq3e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p07yr"]
 bg_color = Color(0.729412, 0.729412, 0.729412, 1)
@@ -67,6 +68,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 offset_left = 8.0
+spriteScale = 12
 
 [node name="InventoryPanel" type="Panel" parent="Content"]
 layout_mode = 1
@@ -86,4 +88,20 @@ offset_top = 15.0
 offset_right = -15.0
 offset_bottom = -15.0
 
+[node name="TakeAllButton" parent="Content/InventoryPanel" instance=ExtResource("4_rqq3e")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 25
+text = " Take All "
+
 [connection signal="optionPressed" from="Content/Details" to="." method="_on_details_option_pressed"]
+[connection signal="pressed" from="Content/InventoryPanel/TakeAllButton" to="." method="_on_take_all_button_pressed"]

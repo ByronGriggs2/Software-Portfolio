@@ -42,6 +42,8 @@ func _ready() :
 	myReady = true
 		
 func beforeLoad(newSave : bool) :
+	$AttributeBonuses.setType("bonus")
+	$AttributeMultipliers.setType("multiplier")
 	if (newSave) :
 		currentTraining = null
 		$TrainingPanel.setCurrentTraining(null)
@@ -66,10 +68,13 @@ func onLoad(loadDict) -> void :
 		$AttributeLevels.setProgress(key, loadDict[levelProgressKey])
 	firstTimeSelected = loadDict["firstTimeSelected"]
 
-signal playerClassRequested
-func _on_attribute_multipliers_player_class_requested(emitter) -> void:
-	emit_signal("playerClassRequested", emitter)
+#signal playerClassRequested
+#func _on_player_class_requested(emitter) -> void:
+	#emit_signal("playerClassRequested", emitter)
 	
 var playerModsCache : Array[NumberClass] = []
 func setPlayerMods(newMods : Array[NumberClass]) :
 	playerModsCache = newMods
+
+func unlockRoutine(routine) :
+	$TrainingPanel.unlockRoutine(routine)

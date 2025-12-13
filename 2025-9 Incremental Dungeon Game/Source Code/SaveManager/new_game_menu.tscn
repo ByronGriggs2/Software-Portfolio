@@ -5,6 +5,7 @@
 [node name="NewGameMenu" instance=ExtResource("1_fgv2s")]
 
 [node name="Title" parent="Panel/CenterContainer/Window/VBoxContainer" index="0"]
+theme_override_font_sizes/normal_font_size = 26
 text = "New Game"
 
 [node name="Text" parent="Panel/CenterContainer/Window/VBoxContainer" index="1"]

@@ -1,27 +1,73 @@
 extends RichTextLabel
 
+@export var wrappingEnabled : bool = true
+
 var updateRunning : bool = false
-var coroutineSemaphore : int
+var coroutineSemaphore : int = 0
 signal coroutinesDone
 signal doneRunning
 
 const tooltipLoader = preload("res://Graphic Elements/Tooltips/tooltip_trigger.tscn")
+var colourString = str1
 const str1 = "[color=#baa1e6]"
+const str1_b = "[color=#000000]"
+const str1_d = "[color=#8A50A1]"
 const str2 = "[/color]"
 var badKey : String = ""
+
+func getText() :
+	return get_parsed_text()
+
+func makeAllTextBlack() :
+	text = text.replace(colourString, str1_b)
+	colourString = str1_b
+	updateHyperlinksExceptBadKey()
+	add_theme_color_override("default_color", Color(0,0,0))
+	
+func useLightMode() :
+	text = text.replace(colourString, str1_d)
+	colourString = str1_d
+	updateHyperlinksExceptBadKey()
+	add_theme_color_override("default_color", Color(0,0,0))
+
 func _ready() :
+	if (!wrappingEnabled) :
+		disableWrapping()
 	#add_theme_font_size_override("bold_font_size", get_theme_font_size("normal_font_size"))
 	if (text != "Sample text [color=#003e85][b]hyperlink text[/b][/color] sample text") :
 		updateHyperlinksExceptBadKey()
 	
+func disableWrapping() :
+	wrappingEnabled = false
+	autowrap_mode = TextServer.AUTOWRAP_OFF
+	
 func setTextExceptKey(val, key) :
+	if (get_black_text() == val.replace("`","")) :
+		var index = text.find(key)
+		if (index == -1) :
+			return
+		var nextBBCode = text.find("[/", index+key.length())
+		if (nextBBCode == -1 || nextBBCode > index+key.length()) :
+			return
 	text = val
 	badKey = key
-	updateHyperlinksExceptBadKey()
+	await updateHyperlinksExceptBadKey()
 	
-func setText(val) :
+func setText(val : String) :
+	if (get_black_text() == val.replace("`","")) :
+		return
+	#print("TEXT:" + text + ": ", text.to_utf8_buffer())
+	#print("VAL:" + val + ": ", val.to_utf8_buffer())
 	text = val
-	updateHyperlinksExceptBadKey()
+	await updateHyperlinksExceptBadKey()
+	
+func get_black_text() :
+	var retVal = text
+	retVal = retVal.replace(str1, "")
+	retVal = retVal.replace(str1_b, "")
+	retVal = retVal.replace(str1_d, "")
+	retVal = retVal.replace(str2, "")
+	return retVal
 	
 func updateHyperlinksExceptBadKey() :
 	if (self.updateRunning) :
@@ -38,7 +84,7 @@ func updateHyperlinksExceptBadKey() :
 		var foundIndex = text.find(key, currentIndex)
 		while (foundIndex != -1) :
 			addHyperlinkAtPos(foundIndex, key)
-			currentIndex = foundIndex + str1.length() + str2.length() + key.length()
+			currentIndex = foundIndex + colourString.length() + str2.length() + key.length()
 			foundIndex = text.find(key, currentIndex)
 	fixLinebreaks()
 	##Search through the text again to add tooltips
@@ -51,6 +97,7 @@ func updateHyperlinksExceptBadKey() :
 			addTooltipAtPos(foundIndex, key)
 			currentIndex = foundIndex + key.length()
 			foundIndex = get_parsed_text().find(key, currentIndex)
+	text = text.replace("`","")
 	if (coroutineSemaphore != 0) :
 		await coroutinesDone
 	updateRunning = false
@@ -74,18 +121,20 @@ func isBadKey(key) -> bool :
 	return false
 			
 func addHyperlinkAtPos(index, key) :
-	if (text.find(str1, index-str1.length()) == index-str1.length()) :
+	if (text.find(colourString, index-colourString.length()) == index-colourString.length()) :
 		return
 	var extendedKey = getExtendedKey(index, key,false)
-	text = text.insert(index, str1)
-	text = text.insert(index + str1.length() + extendedKey.length(), str2)
+	text = text.insert(index, colourString)
+	text = text.insert(index + colourString.length() + extendedKey.length(), str2)
 	
 func getExtendedKey(index : int, key : String, parsed : bool) -> String :
-	var myText
+	var myText : String
 	if (parsed) :
 		myText = get_parsed_text()
 	else :
 		myText = text
+	if (myText.find("`", index+key.length()) == index+key.length()) :
+		return key
 	var distanceToDelimRes = distanceToDelim(myText, index+key.length())
 	var distanceToEnd = (myText.length()) - (index + key.length()-1)
 	var delimExists = distanceToDelimRes != -1
@@ -98,7 +147,7 @@ func getExtendedKey(index : int, key : String, parsed : bool) -> String :
 	return myText.substr(index, key.length() + extensionAmount)
 	
 func distanceToDelim(paramText : String, index : int) -> int :
-	const delim = [" ", "\n", ".", ",", "[", ":"]
+	const delim = [" ", "\n", ".", ",", "[", "]", ":", "\"", "(", ")"]
 	var currentDist = 999
 	for character in delim :
 		var dist = paramText.find(character, index) - index
@@ -108,11 +157,13 @@ func distanceToDelim(paramText : String, index : int) -> int :
 		return -1
 	return currentDist
 			
+var currentLayer = 0
 func addTooltipAtPos(index, key) :
 	coroutineSemaphore += 1
 	var newTooltip = tooltipLoader.instantiate()
 	add_child(newTooltip)
 	newTooltip.initialise(key)
+	newTooltip.currentLayer = currentLayer
 	var lineNumber = get_character_line(index)
 	var temp = get_line_range(lineNumber)
 	var firstCharInLine = temp.x
@@ -124,6 +175,11 @@ func addTooltipAtPos(index, key) :
 	textArray.append(get_parsed_text().substr(firstCharInLine, index - firstCharInLine))## width of line up to key
 	textArray.append(get_parsed_text().substr(firstCharInLine, lastCharInLine-firstCharInLine))## width of line
 	var textArrayWidth = await Helpers.getTextWidthWaitFrameArray(get_theme_font_size("normal_font_size"), textArray)
+	if (newTooltip == null) :
+		coroutineSemaphore -= 1
+		if (coroutineSemaphore == 0) :
+			emit_signal("coroutinesDone")
+		return
 	var lineHeight = get_theme_font("normal_font").get_height(get_theme_font_size("normal_font_size"))
 		
 	var yCoord1 = lineNumber * lineHeight
@@ -151,17 +207,19 @@ func isOnNestedTooltip() -> bool :
 	return false
 
 func fixLinebreaks() :
+	if (!wrappingEnabled) :
+		return
 	##Position of key in parsed text
 	var parseIndex = 0
 	##Position of key in text
-	var foundIndex = text.find(str1)
+	var foundIndex = text.find(colourString)
 	while(foundIndex != -1) :
 		var parsedText = get_parsed_text()
-		var keyLength = text.find(str2, foundIndex+str1.length())-(foundIndex+str1.length())
-		var key = text.substr(foundIndex+str1.length(),keyLength)
+		var keyLength = text.find(str2, foundIndex+colourString.length())-(foundIndex+colourString.length())
+		var key = text.substr(foundIndex+colourString.length(),keyLength)
 
 		parseIndex = parsedText.find(key, parseIndex)
 		if (get_character_line(parseIndex) != get_character_line(parseIndex + keyLength-1)) :
 			text = text.insert(foundIndex, "\n")
-		foundIndex = text.find(str1, foundIndex + str1.length() + keyLength + str2.length()+1)
+		foundIndex = text.find(colourString, foundIndex + colourString.length() + keyLength + str2.length()+1)
 		

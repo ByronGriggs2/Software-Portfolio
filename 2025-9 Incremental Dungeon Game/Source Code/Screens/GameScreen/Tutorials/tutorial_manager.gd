@@ -11,10 +11,9 @@ var individualTutorialDisable : Dictionary
 ## Other
 const tutorialCreatorLoader = preload("res://Screens/GameScreen/Tutorials/tutorial_creator.gd")
 func createTutorial(myName : Encyclopedia.tutorialName, myPosition : Vector2) :
-	if (!tutorialsEnabled) :
-		return
+	IGOptions.addToTutorialListNoSignal(myName)
 	var individual = individualTutorialDisable.get(myName)
-	if (individual != null && individual == true) :
+	if (!tutorialsEnabled || (individual != null && individual == true)) :
 		if (tutorialQueue.front() == myName) :
 			tutorialQueue.pop_front()
 			tutorialQueuePos.pop_front()

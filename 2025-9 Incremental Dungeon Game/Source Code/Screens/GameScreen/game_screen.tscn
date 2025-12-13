@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjkba3r58vrt7"]
+[gd_scene load_steps=17 format=3 uid="uid://cjkba3r58vrt7"]
 
 [ext_resource type="Script" uid="uid://c8wg3arf71lrm" path="res://Screens/GameScreen/game_screen.gd" id="1_ri4dt"]
 [ext_resource type="PackedScene" uid="uid://dmeoqahxkto01" path="res://Screens/GameScreen/Tabs/Attributes/attribute_tab.tscn" id="3_wv6b4"]
@@ -8,16 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://cf38jaj340xkc" path="res://Graphic Elements/TabContainer/my_tab_container.tscn" id="6_0vvmv"]
 [ext_resource type="Script" uid="uid://nwd7qr8quksy" path="res://Screens/GameScreen/autosave.gd" id="6_uk4bo"]
 [ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="7_wv6b4"]
+[ext_resource type="Theme" uid="uid://bo4k256bjm6uu" path="res://Graphic Elements/Themes/mainTab_alt.tres" id="10_hupum"]
 [ext_resource type="PackedScene" uid="uid://c74nurywvrmkl" path="res://Graphic Elements/Buttons/super_button.tscn" id="10_w2hja"]
 [ext_resource type="PackedScene" uid="uid://dktptqvkv2mca" path="res://Screens/GameScreen/Tutorials/tutorial_manager.tscn" id="11_asrge"]
 [ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="11_op3o3"]
 [ext_resource type="Texture2D" uid="uid://60332mc564l6" path="res://Images/CC0 Assets/icon_save.png" id="12_hupum"]
 [ext_resource type="Texture2D" uid="uid://dl2p7nrdp4ie4" path="res://Images/CC0 Assets/icon_gear.png" id="13_4fsfw"]
+[ext_resource type="PackedScene" uid="uid://dd4wj7wyb0t2j" path="res://Screens/GameScreen/currency_handler.tscn" id="15_4fsfw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vvmv"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="GameScreen" type="Panel" groups=["Saveable"]]
+[node name="GameScreen" type="Panel" groups=["CaresAboutOptions", "Saveable"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,8 +35,8 @@ anchors_preset = -1
 anchor_right = 0.25
 anchor_bottom = 1.0
 offset_left = 30.0
-offset_top = 118.0
-offset_right = -15.0
+offset_top = 133.0
+offset_right = -7.0
 offset_bottom = -30.0
 
 [node name="Autosave" type="Timer" parent="."]
@@ -55,8 +57,8 @@ text = " Menu "
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
-offset_left = 15.0
-offset_top = 30.0
+offset_left = 8.0
+offset_top = 133.0
 offset_right = -30.0
 offset_bottom = -30.0
 
@@ -80,46 +82,78 @@ offset_right = 1.0
 [node name="TutorialManager" parent="." instance=ExtResource("11_asrge")]
 layout_mode = 1
 
-[node name="MenuContainer" type="HBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TopRibbon" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
+anchor_right = 1.0
 offset_left = 30.0
 offset_top = 30.0
+offset_right = -30.0
+offset_bottom = 118.0
+theme = ExtResource("10_hupum")
+
+[node name="Ribbon" type="HBoxContainer" parent="TopRibbon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="MenuContainer" type="HBoxContainer" parent="TopRibbon/Ribbon"]
+custom_minimum_size = Vector2(126, 58)
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="SaveButton" parent="MenuContainer" instance=ExtResource("10_w2hja")]
+[node name="SaveButton" parent="TopRibbon/Ribbon/MenuContainer" instance=ExtResource("10_w2hja")]
 layout_mode = 2
 toggle = false
 contentMargin = 5.0
 
-[node name="Sprite" parent="MenuContainer/SaveButton/HBoxContainer" index="0" instance=ExtResource("11_op3o3")]
+[node name="Sprite" parent="TopRibbon/Ribbon/MenuContainer/SaveButton/HBoxContainer" index="0" instance=ExtResource("11_op3o3")]
 layout_mode = 2
 
-[node name="Icon" parent="MenuContainer/SaveButton/HBoxContainer/Sprite" index="0"]
+[node name="Icon" parent="TopRibbon/Ribbon/MenuContainer/SaveButton/HBoxContainer/Sprite" index="0"]
 scale = Vector2(3, 3)
 texture = ExtResource("12_hupum")
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="OptionsButton" parent="MenuContainer" instance=ExtResource("10_w2hja")]
+[node name="OptionsButton" parent="TopRibbon/Ribbon/MenuContainer" instance=ExtResource("10_w2hja")]
 layout_mode = 2
 toggle = false
 contentMargin = 5.0
 
-[node name="Sprite" parent="MenuContainer/OptionsButton/HBoxContainer" index="0" instance=ExtResource("11_op3o3")]
+[node name="Sprite" parent="TopRibbon/Ribbon/MenuContainer/OptionsButton/HBoxContainer" index="0" instance=ExtResource("11_op3o3")]
 layout_mode = 2
 
-[node name="Icon" parent="MenuContainer/OptionsButton/HBoxContainer/Sprite" index="0"]
+[node name="Icon" parent="TopRibbon/Ribbon/MenuContainer/OptionsButton/HBoxContainer/Sprite" index="0"]
 scale = Vector2(3, 3)
 texture = ExtResource("13_4fsfw")
 region_rect = Rect2(0, 0, 16, 16)
 
+[node name="Currency" parent="TopRibbon/Ribbon" instance=ExtResource("15_4fsfw")]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [connection signal="timeout" from="Autosave" to="Autosave" method="_on_timeout"]
 [connection signal="addToInventoryRequested" from="MyTabContainer/InnerContainer/Combat" to="." method="_on_combat_add_to_inventory_requested"]
-[connection signal="wasSelected" from="MenuContainer/SaveButton" to="." method="_on_save_button_pressed"]
-[connection signal="wasSelected" from="MenuContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="newFloorCompleted" from="MyTabContainer/InnerContainer/Combat" to="." method="_on_floor_clear"]
+[connection signal="wasSelected" from="TopRibbon/Ribbon/MenuContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="wasSelected" from="TopRibbon/Ribbon/MenuContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 
 [editable path="MyTabContainer"]
-[editable path="MenuContainer/SaveButton"]
-[editable path="MenuContainer/SaveButton/HBoxContainer/Sprite"]
-[editable path="MenuContainer/OptionsButton"]
-[editable path="MenuContainer/OptionsButton/HBoxContainer/Sprite"]
+[editable path="TopRibbon/Ribbon/MenuContainer/SaveButton"]
+[editable path="TopRibbon/Ribbon/MenuContainer/SaveButton/HBoxContainer/Sprite"]
+[editable path="TopRibbon/Ribbon/MenuContainer/OptionsButton"]
+[editable path="TopRibbon/Ribbon/MenuContainer/OptionsButton/HBoxContainer/Sprite"]

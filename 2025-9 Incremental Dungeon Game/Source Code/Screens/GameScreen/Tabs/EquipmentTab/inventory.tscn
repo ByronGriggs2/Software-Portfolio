@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cssx1okje43uq" path="res://Screens/GameScreen/Tabs/EquipmentTab/inventory.gd" id="1_hvhi2"]
 [ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_qlv3c"]
 [ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="4_l7gpl"]
+[ext_resource type="PackedScene" uid="uid://djhxutsibvaa3" path="res://draggable_panel.tscn" id="5_s505d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7gpl"]
 content_margin_left = 7.0
@@ -16,18 +17,6 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26qms"]
-bg_color = Color(0.243137, 0.243137, 0.243137, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
 
 [node name="Inventory" type="Panel" groups=["Saveable"]]
 anchors_preset = 15
@@ -68,18 +57,20 @@ anchor_bottom = 1.0
 offset_top = 40.0
 offset_bottom = -40.0
 grow_horizontal = 2
+mouse_filter = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer/CenterContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 6
 
-[node name="Panel" type="PanelContainer" parent="ScrollContainer/CenterContainer/GridContainer"]
-custom_minimum_size = Vector2(94, 94)
+[node name="Panel" parent="ScrollContainer/CenterContainer/GridContainer" instance=ExtResource("5_s505d")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_26qms")
+mouse_filter = 1

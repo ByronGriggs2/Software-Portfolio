@@ -19,9 +19,9 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 
 [node name="Tutorial" type="PanelContainer"]
-custom_minimum_size = Vector2(400, 0)
-offset_right = 148.0
-offset_bottom = 144.0
+custom_minimum_size = Vector2(600, 0)
+offset_right = 400.0
+offset_bottom = 181.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qlknt")
 script = ExtResource("1_rfvep")
 
@@ -33,6 +33,7 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme = ExtResource("2_rfvep")
 theme_override_colors/default_color = Color(0.898039, 0.898039, 0.898039, 1)
+theme_override_font_sizes/normal_font_size = 35
 text = "Sample Title"
 fit_content = true
 scroll_active = false
@@ -46,6 +47,7 @@ theme = ExtResource("3_swd47")
 
 [node name="EncyclopediaTextLabel" parent="VBoxContainer/Panel" instance=ExtResource("4_swd47")]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
 text = "Tutorial popups can be disabled in the in-game options menu. There you will also find a list of all encountered tutorials, even if they were suppressed. Remember that tutorials may show up even in the late game!"
 
 [node name="FuckOffContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -63,9 +65,15 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="MyButton" parent="VBoxContainer" instance=ExtResource("3_qlknt")]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="MyButton" parent="VBoxContainer/VBoxContainer2" instance=ExtResource("3_qlknt")]
 layout_mode = 2
 theme = ExtResource("3_swd47")
+theme_override_font_sizes/font_size = 30
 text = "Continue"
 
-[connection signal="pressed" from="VBoxContainer/MyButton" to="." method="_on_my_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/MyButton" to="." method="_on_my_button_pressed"]

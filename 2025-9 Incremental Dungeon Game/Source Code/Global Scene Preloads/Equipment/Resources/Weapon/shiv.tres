@@ -1,14 +1,113 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://jpm737hbvc0p"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://jpm737hbvc0p"]
 
+[ext_resource type="Resource" uid="uid://dlrel1bew1tso" path="res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/Tutorial/knifehand_2.tres" id="1_f2qxa"]
 [ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Global Scene Preloads/Equipment/Resources/weapon.gd" id="1_vn2ge"]
-[ext_resource type="Resource" uid="uid://dlrel1bew1tso" path="res://Screens/GameScreen/Tabs/Combat/Actions/knifehand_2.tres" id="1_ytv1i"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="2_f2qxa"]
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Global Scene Preloads/Equipment/Resources/equipment_grouping.gd" id="2_xdcn0"]
+
+[sub_resource type="Resource" id="Resource_kins3"]
+script = ExtResource("2_xdcn0")
+isEligible = false
+quality = 0
+weaponClass = 2
+armorClass = 3
+isEnchanted = false
+isSimple = false
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isMagical = false
+
+[sub_resource type="Resource" id="Resource_f2qxa"]
+script = ExtResource("2_f2qxa")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
 
 [resource]
 script = ExtResource("1_vn2ge")
-primaryAttribute = 0
-attackBonus = 2.0
-basicAttack = ExtResource("1_ytv1i")
+scaling = {
+"Dexterity": 0.7,
+"Durability": 0.0,
+"Intelligence": 0.0,
+"Skill": 0.0,
+"Strength": 0.0
+}
+attackBonus = 8.5
+basicAttack = ExtResource("1_f2qxa")
 isUnarmed = false
 title = "Rusty shiv"
 description = "It's a lot better than nothing."
+myPacket = SubResource("Resource_f2qxa")
+equipmentGroups = SubResource("Resource_kins3")
 metadata/_custom_type_script = "uid://6qgd3qugycc1"

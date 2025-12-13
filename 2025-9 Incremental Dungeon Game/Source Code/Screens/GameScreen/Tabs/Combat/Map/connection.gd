@@ -7,6 +7,9 @@ enum myVisibilityEnum {invisible, halfVisible, fullVisible}
 @export var visibilityOnStartup : myVisibilityEnum = myVisibilityEnum.invisible
 
 func _ready() :
+	updatePos()
+	
+func updatePos() :
 	if (Room1 == null || Room2 == null) :
 		return
 	if (Engine.is_editor_hint()) :

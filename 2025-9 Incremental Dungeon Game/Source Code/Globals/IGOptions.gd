@@ -1,16 +1,22 @@
 extends Node
 
-enum optionType {checkBox}
-enum options {tutorialsEnabled}
+enum optionType {checkBox,dropdown}
+enum options {tutorialsEnabled,inventoryBehaviour}
 const optionNameDictionary = {
-	options.tutorialsEnabled : "Tutorials enabled"
+	options.tutorialsEnabled : "Tutorials enabled",
+	options.inventoryBehaviour : "Inventory Behaviour"
 }
 const optionTypeDictionary = {
-	options.tutorialsEnabled : optionType.checkBox
+	options.tutorialsEnabled : optionType.checkBox,
+	options.inventoryBehaviour : optionType.dropdown
 }
 const optionDefaultDictionary = {
 	options.tutorialsEnabled : true
 }
+const dropdownDictionary = {
+	options.inventoryBehaviour : ["Wait", "Discard"]
+}
+
 
 var optionDict : Dictionary = {}
 
@@ -27,10 +33,15 @@ func getDefaultOptionDict() -> Dictionary :
 			tempDict[key] = getDefault(key)
 		elif (optionTypeDictionary[key] == optionType.checkBox) :
 			tempDict[key] = false
+		elif (optionTypeDictionary[key] == optionType.dropdown) :
+			tempDict[key] = 0
 		else :
 			pass
 	var emptyDict : Dictionary = {}
-	tempDict["individualTutorialDisable"] = emptyDict
+	tempDict["individualTutorialDisable"] = emptyDict.duplicate()
+	tempDict["individualEquipmentTake"] = emptyDict.duplicate()
+	var emptyStrArray : Array = []
+	tempDict["encounteredItems"] = emptyStrArray
 	return tempDict
 #########################################
 ## Getters
@@ -45,6 +56,8 @@ func saveAndUpdateIGOptions(newDict) :
 		node.updateFromOptions(optionDict)
 func saveIGOptionsNoUpdate(newDict) :
 	optionDict = newDict
+func addToTutorialListNoSignal(val : Encyclopedia.tutorialName) :
+	optionDict["individualTutorialDisable"][val] = false
 #########################################
 ## Saving
 #const myLoadDependencyName = Definitions.loadDependencyName.IGOptions_name

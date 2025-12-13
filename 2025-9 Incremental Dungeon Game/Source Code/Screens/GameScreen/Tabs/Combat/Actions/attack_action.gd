@@ -8,3 +8,9 @@ enum damageType {
 @export var type : damageType
 @export var power : float
 #add elements, status?
+
+func getPower() :
+	return power
+	
+func getDamageType() :
+	return type

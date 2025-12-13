@@ -4,9 +4,7 @@
 [ext_resource type="Script" uid="uid://d4oo85222a41" path="res://my_check_box.gd" id="2_nos1y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fofx2"]
-content_margin_left = 5.0
 content_margin_top = 5.0
-content_margin_right = 5.0
 content_margin_bottom = 5.0
 bg_color = Color(0.858824, 0.858824, 0.858824, 1)
 
@@ -21,16 +19,16 @@ script = ExtResource("2_nos1y")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="CheckBox" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/normal_font_size = 20
 text = " Sample Text "
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="HBoxContainer/CheckBox" to="." method="_on_check_box_pressed"]

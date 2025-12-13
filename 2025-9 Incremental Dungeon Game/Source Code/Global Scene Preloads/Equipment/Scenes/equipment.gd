@@ -3,12 +3,14 @@ extends VBoxContainer
 #########################
 ##shared among all instances of this scene##
 @export var core : Equipment = null
+enum rewardBehaviour{wait,alwaysTake,alwaysDiscard}
+var myBehaviour : rewardBehaviour = rewardBehaviour.wait
 #########################
 ##unique to this scene##
 var equipped : bool = false
 @export var myScale : Vector2
 func _ready() :
-	$SuperButton/HBoxContainer/Sprite.scale = myScale
+	$SuperButton/HBoxContainer/Sprite.setScale(myScale.x)
 #########################
 ##setters##
 func equip() :
@@ -17,6 +19,8 @@ func unequip() :
 	equipped = false
 func setVisibility(val : bool) :
 	visible = val
+func setRewardBehaviour(val : rewardBehaviour) :
+	myBehaviour = val
 ########################
 ##getters##
 func isEquipped() -> bool :
@@ -24,12 +28,13 @@ func isEquipped() -> bool :
 func getSprite() :
 	return $SuperButton/HBoxContainer/Sprite
 func getItemName() :
-	return core.resource_path.get_file().get_basename()
-func addToModifierPacket(packetRef : ModifierPacket) -> void :
+	return core.getItemName()
+func addToModifierPacket(packetRef : ModifierPacket) -> ModifierPacket :
 	if (core == null) :
 		return
-	packetRef = ModifierPacket.add(packetRef, core.getModifierPacket())
-	
+	return ModifierPacket.add(packetRef, core.getModifierPacket())
+func getRewardBehaviour() -> rewardBehaviour :
+	return myBehaviour
 ###################################################################################
 ##This scene is not "saveable" but is explicitly saved by EquipmentTab/Inventory##
 func getSaveDictionary() -> Dictionary :
@@ -77,3 +82,6 @@ func addAttributeBonus(currentBonus : Dictionary) -> void :
 func use48x48() :
 	var sprite = $SuperButton/HBoxContainer/Sprite
 	sprite.setScale(3)
+func setMouseFilter(enumVal) :
+	mouse_filter = enumVal
+	$SuperButton.mouse_filter = enumVal

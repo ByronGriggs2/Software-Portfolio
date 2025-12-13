@@ -10,28 +10,28 @@ script = ExtResource("2_4o4ip")
 [node name="Description" parent="Text/VBoxContainer/Panel" index="0"]
 theme_override_colors/default_color = Color(0.898039, 0.898039, 0.898039, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Text/VBoxContainer" index="4"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Text/VBoxContainer" index="4"]
 layout_mode = 2
 alignment = 1
 
-[node name="CenterContainer0" type="CenterContainer" parent="Text/VBoxContainer/HBoxContainer" index="0"]
+[node name="CenterContainer0" type="CenterContainer" parent="Text/VBoxContainer/HBoxContainer2" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Option0" type="Button" parent="Text/VBoxContainer/HBoxContainer/CenterContainer0" index="0"]
+[node name="Option0" type="Button" parent="Text/VBoxContainer/HBoxContainer2/CenterContainer0" index="0"]
 layout_mode = 2
 theme = ExtResource("3_u5o80")
 theme_override_font_sizes/font_size = 25
 text = "Sample Text 0"
 
-[node name="CenterContainer1" type="CenterContainer" parent="Text/VBoxContainer/HBoxContainer" index="1"]
+[node name="CenterContainer1" type="CenterContainer" parent="Text/VBoxContainer/HBoxContainer2" index="1"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Option1" type="Button" parent="Text/VBoxContainer/HBoxContainer/CenterContainer1" index="0"]
+[node name="Option1" type="Button" parent="Text/VBoxContainer/HBoxContainer2/CenterContainer1" index="0"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Sample Text 1"
 
-[connection signal="pressed" from="Text/VBoxContainer/HBoxContainer/CenterContainer0/Option0" to="." method="_on_option_0_pressed"]
-[connection signal="pressed" from="Text/VBoxContainer/HBoxContainer/CenterContainer1/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="Text/VBoxContainer/HBoxContainer2/CenterContainer0/Option0" to="." method="_on_option_0_pressed"]
+[connection signal="pressed" from="Text/VBoxContainer/HBoxContainer2/CenterContainer1/Option1" to="." method="_on_option_1_pressed"]

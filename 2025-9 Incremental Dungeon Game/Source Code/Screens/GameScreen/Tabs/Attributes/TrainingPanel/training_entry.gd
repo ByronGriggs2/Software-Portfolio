@@ -11,7 +11,7 @@ func _ready() :
 
 func setResource(newEntry : AttributeTraining) -> void :
 	myEntry = newEntry
-	$HBoxContainer/Name.text = myEntry.text
+	$HBoxContainer/HBoxContainer2/Name.text = myEntry.text
 	for key in Definitions.attributeDictionary.keys() :
 		var scaling = myEntry.getScaling(key)
 		if (scaling == 0) :
@@ -31,18 +31,6 @@ func getResource() :
 	return myEntry
 	
 func clearButton() :
-	$HBoxContainer/CheckButton.button_pressed = false
+	$HBoxContainer/HBoxContainer2/PanelContainer/CheckButton.button_pressed = false
 func setButton() : 
-	$HBoxContainer/CheckButton.button_pressed = true
-	
-#func setNameWidth(val) :
-	#$HBoxContainer/Name.custom_minimum_size.x = val
-	#
-#func getNameWidth() :
-	#return $HBoxContainer/Name.get_minimum_size().x
-
-
-func _on_name_resized() -> void:
-	var nameWidth = $HBoxContainer/Name.size.x
-	var width = 250-$HBoxContainer/CheckButton.size.x-nameWidth-3*$HBoxContainer.get_theme_constant("separation")+12-5
-	$HBoxContainer/Spacer.custom_minimum_size = Vector2(width,0)
+	$HBoxContainer/HBoxContainer2/PanelContainer/CheckButton.button_pressed = true

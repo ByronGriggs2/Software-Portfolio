@@ -8,9 +8,6 @@
 [node name="ActualInGameOptions" instance=ExtResource("1_o4ltu")]
 script = ExtResource("2_evtk7")
 
-[node name="Window" parent="Panel/CenterContainer" index="0"]
-custom_minimum_size = Vector2(299, 400)
-
 [node name="Title" parent="Panel/CenterContainer/Window/VBoxContainer" index="0"]
 text = "Options"
 
@@ -20,30 +17,62 @@ text = ""
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="2"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 8
 
-[node name="Tutorials" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0" instance=ExtResource("3_18xpa")]
+[node name="Encyclopedia" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0" instance=ExtResource("3_18xpa")]
 layout_mode = 2
 theme = ExtResource("4_o4ltu")
+theme_override_font_sizes/font_size = 20
+text = " Encyclopedia "
+
+[node name="Beastiary" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="1" instance=ExtResource("3_18xpa")]
+layout_mode = 2
+theme = ExtResource("4_o4ltu")
+theme_override_font_sizes/font_size = 20
+text = " Beastiary "
+
+[node name="Tutorials" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="2" instance=ExtResource("3_18xpa")]
+layout_mode = 2
+theme = ExtResource("4_o4ltu")
+theme_override_font_sizes/font_size = 20
 text = " View Tutorials "
+
+[node name="CombatRewardBehaviour" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="3" instance=ExtResource("3_18xpa")]
+layout_mode = 2
+theme = ExtResource("4_o4ltu")
+theme_override_font_sizes/font_size = 20
+text = " Combat Reward Behaviour "
+
+[node name="keybinds" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="4" instance=ExtResource("3_18xpa")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = " Key Bindings "
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="3"]
 layout_mode = 2
+theme_override_constants/separation = 8
 alignment = 2
 
 [node name="Save" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2" index="0" instance=ExtResource("3_18xpa")]
 layout_mode = 2
 theme = ExtResource("4_o4ltu")
+theme_override_font_sizes/font_size = 25
 text = "Save"
 
 [node name="Return" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2" index="1" instance=ExtResource("3_18xpa")]
 layout_mode = 2
 theme = ExtResource("4_o4ltu")
+theme_override_font_sizes/font_size = 25
 text = "Return to Game"
 
 [node name="Spacer" type="Control" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2" index="2"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/Encyclopedia" to="." method="_on_encyclopedia_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/Beastiary" to="." method="_on_beastiary_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/Tutorials" to="." method="_on_tutorials_pressed"]
+[connection signal="myPressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/CombatRewardBehaviour" to="." method="_on_combat_reward_behaviour_my_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/keybinds" to="." method="_on_keybinds_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2/Return" to="." method="_on_return_pressed"]

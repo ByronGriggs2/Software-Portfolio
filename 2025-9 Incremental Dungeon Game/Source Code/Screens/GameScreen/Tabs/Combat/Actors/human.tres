@@ -1,15 +1,46 @@
-[gd_resource type="Resource" script_class="ActorPreset" load_steps=3 format=3 uid="uid://cfby1vuf5hqb5"]
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=7 format=3 uid="uid://cfby1vuf5hqb5"]
 
 [ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Screens/GameScreen/Tabs/Combat/Actions/action.gd" id="1_eguqp"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="2_b5gsw"]
 [ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="2_eguqp"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Screens/GameScreen/Tabs/Combat/Actors/enemy_grouping.gd" id="3_7ue22"]
+[ext_resource type="Texture2D" uid="uid://bmdwd3fvt87lf" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/human.png" id="3_b5gsw"]
+
+[sub_resource type="Resource" id="Resource_pw1ay"]
+script = ExtResource("3_7ue22")
+isEligible = true
+enemyQuality = 0
+droppedArmorClasses = Array[int]([])
+droppedWeaponClasses = Array[int]([])
+isHumanoid = false
+isGreenskin = false
+isMerfolk = false
+isDemon = false
+isHot = false
+isCold = false
+isAnimal = false
+isDragon = false
+isUndead = false
+isPlant = false
+isElemental = false
+isFey = false
+isMindless = false
+dropsSimple = true
+dropsAdvanced = false
+dropsMagical = false
 
 [resource]
 script = ExtResource("2_eguqp")
+portrait = ExtResource("3_b5gsw")
 text = "Human"
+description = ""
 MAXHP = 10.0
 AR = 10.0
+DR = 10.0
 PHYSDEF = 10.0
-MAGATK = 10.0
 MAGDEF = 10.0
 actions = Array[ExtResource("1_eguqp")]([null])
+drops = Array[ExtResource("2_b5gsw")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_pw1ay")
 metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

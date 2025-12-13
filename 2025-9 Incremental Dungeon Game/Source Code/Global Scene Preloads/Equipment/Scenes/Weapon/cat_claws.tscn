@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqapatppvpr2y"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://Global Scene Preloads/Equipment/Scenes/weapon.tscn" id="1_6t4if"]
+[ext_resource type="Texture2D" uid="uid://c4yw3y4q4ar4w" path="res://Images/Sprites/cat_claws.png" id="2_qoflw"]
+
+[node name="Weapon" instance=ExtResource("1_6t4if")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_qoflw")
+region_rect = Rect2(0, 0, 16, 16)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

@@ -4,7 +4,11 @@ extends Resource
 class_name AttributeTraining
 
 @export var text : String = "sample text"
+@export var hidden : bool = true
 @export var scaling : Dictionary
+
+func getText() :
+	return text
 
 func initDictionary() :
 	if (Definitions == null) :

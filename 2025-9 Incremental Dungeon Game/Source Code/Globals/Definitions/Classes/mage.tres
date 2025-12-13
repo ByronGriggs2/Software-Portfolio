@@ -6,15 +6,17 @@
 script = ExtResource("1_6khir")
 classEnum = 1
 baseAttributes = {
-"Dexterity": 10.0,
-"Durability": 10.0,
-"Intelligence": 10.0,
-"Strength": 10.0
+"Dexterity": 8.0,
+"Durability": 8.0,
+"Intelligence": 14.0,
+"Skill": 9.0,
+"Strength": 6.0
 }
 attributeScaling = {
-"Dexterity": 0.5,
-"Durability": 1.0,
-"Intelligence": 1.0,
-"Strength": 0.5
+"Dexterity": 0.75,
+"Durability": 0.9,
+"Intelligence": 1.2,
+"Skill": 1.0,
+"Strength": 0.75
 }
 metadata/_custom_type_script = "uid://rkr30nwxygl8"

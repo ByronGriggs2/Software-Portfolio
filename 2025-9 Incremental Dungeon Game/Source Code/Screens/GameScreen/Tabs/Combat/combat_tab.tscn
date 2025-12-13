@@ -1,16 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://6dlrgv7rgovn"]
+[gd_scene load_steps=14 format=3 uid="uid://6dlrgv7rgovn"]
 
 [ext_resource type="PackedScene" uid="uid://b0dk8gsoe4wgw" path="res://Screens/GameScreen/Tabs/tab.tscn" id="1_sfv5i"]
 [ext_resource type="Script" uid="uid://h4t80xg2j3yj" path="res://Screens/GameScreen/Tabs/Combat/combat_tab.gd" id="2_d5esk"]
 [ext_resource type="PackedScene" uid="uid://ctkqbkp62y3av" path="res://Screens/GameScreen/Tabs/Combat/combat_panel.tscn" id="2_fs65j"]
-[ext_resource type="PackedScene" uid="uid://bwo13lkbktm1c" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/Floor1/first_floor_map.tscn" id="4_doveg"]
+[ext_resource type="PackedScene" uid="uid://bwo13lkbktm1c" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/Floor0/first_floor_map.tscn" id="4_doveg"]
+[ext_resource type="PackedScene" uid="uid://c0lp3hietoj8q" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/Floor1/floor_1_map.tscn" id="5_6n6nq"]
 [ext_resource type="PackedScene" uid="uid://bg06kottiuyhf" path="res://Graphic Elements/developer_console.tscn" id="5_aly7l"]
 [ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="6_hrq1d"]
 [ext_resource type="Script" uid="uid://b5vxubufs31lb" path="res://Graphic Elements/BigTextPanel/big_text_panel_continue.gd" id="7_2lm74"]
 [ext_resource type="Theme" uid="uid://toctfm8xh225" path="res://Graphic Elements/Themes/squareSuperButton.tres" id="8_hrq1d"]
 [ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="9_n6jna"]
+[ext_resource type="PackedScene" uid="uid://otd0777k80on" path="res://Screens/GameScreen/Tabs/Combat/Map/floor_display.tscn" id="10_2lm74"]
+[ext_resource type="PackedScene" uid="uid://b8u7rb34016g7" path="res://Graphic Elements/Tooltips/encyclopedia_text_label.tscn" id="10_n6jna"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6jna"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+border_width_left = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [node name="CombatTab" groups=["Saveable"] instance=ExtResource("1_sfv5i")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_n6jna")
 script = ExtResource("2_d5esk")
 
 [node name="CombatPanel" parent="." index="0" instance=ExtResource("2_fs65j")]
@@ -25,11 +36,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FirstFloorMap" parent="MapContainer" index="0" instance=ExtResource("4_doveg")]
+[node name="TutorialMap" parent="MapContainer" index="0" instance=ExtResource("4_doveg")]
+clip_contents = false
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 1
+
+[node name="Floor1" parent="MapContainer" index="1" instance=ExtResource("5_6n6nq")]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
 
 [node name="DeveloperConsole" parent="." index="2" instance=ExtResource("5_aly7l")]
 
@@ -80,12 +98,14 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("8_hrq1d")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="NarrativePanel/VBoxContainer/VBoxContainer/PanelContainer" index="0"]
+[node name="RichTextLabel" parent="NarrativePanel/VBoxContainer/VBoxContainer/PanelContainer" index="0" instance=ExtResource("10_n6jna")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
+theme_override_font_sizes/italics_font_size = 25
 theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
 text = "Sample text"
-fit_content = true
-scroll_active = false
+vertical_alignment = 0
 
 [node name="MyButton" parent="NarrativePanel/VBoxContainer" index="1" instance=ExtResource("9_n6jna")]
 custom_minimum_size = Vector2(0, 70)
@@ -94,12 +114,20 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
 text = " Continue "
 
+[node name="FloorDisplay" parent="." index="4" instance=ExtResource("10_2lm74")]
+layout_mode = 1
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="defeat" from="CombatPanel" to="." method="_on_combat_panel_defeat"]
 [connection signal="retreat" from="CombatPanel" to="." method="_on_combat_panel_retreat"]
 [connection signal="victory" from="CombatPanel" to="." method="_on_combat_panel_victory"]
+[connection signal="visibility_changed" from="MapContainer" to="." method="_on_map_container_visibility_changed"]
+[connection signal="visibility_changed" from="MapContainer/TutorialMap" to="MapContainer/TutorialMap" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="MapContainer/Floor1" to="MapContainer/Floor1" method="_on_visibility_changed"]
 [connection signal="consoleClosed" from="DeveloperConsole" to="." method="_on_developer_console_console_closed"]
 [connection signal="consoleOpened" from="DeveloperConsole" to="." method="_on_developer_console_console_opened"]
 [connection signal="setPlayerCore" from="DeveloperConsole" to="." method="_on_developer_console_set_player_core"]
 [connection signal="pressed" from="NarrativePanel/VBoxContainer/MyButton" to="NarrativePanel" method="_on_my_button_pressed"]
+[connection signal="floorDown" from="FloorDisplay" to="." method="_on_floor_display_floor_down"]
+[connection signal="floorUp" from="FloorDisplay" to="." method="_on_floor_display_floor_up"]

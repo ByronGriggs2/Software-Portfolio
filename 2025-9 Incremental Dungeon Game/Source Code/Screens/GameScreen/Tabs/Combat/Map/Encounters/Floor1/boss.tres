@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://crjnofk8mjhk6"]
+
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="1_oy7es"]
+[ext_resource type="Resource" uid="uid://b1il666v84u5t" path="res://Screens/GameScreen/Tabs/Combat/Actors/Floor1/manticore.tres" id="2_5i7m0"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="2_wlyqt"]
+[ext_resource type="Script" uid="uid://niduj63p80ej" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/encounter.gd" id="3_5i7m0"]
+
+[resource]
+script = ExtResource("3_5i7m0")
+enemies = Array[ExtResource("1_oy7es")]([ExtResource("2_5i7m0")])
+rewards = Array[ExtResource("2_wlyqt")]([])
+introTitle = ""
+introText = ""
+victoryTitle = "After the Fight"
+victoryText = ""
+metadata/_custom_type_script = "uid://niduj63p80ej"

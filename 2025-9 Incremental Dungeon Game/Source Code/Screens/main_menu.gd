@@ -6,7 +6,6 @@ signal swapToMainMenuOptions
 
 func _ready() :
 	checkLoadGame()
-	$ButtonContainer/OptionsButton.set_disabled(true)
 	SaveManager.connect("newGameReady", _new_game_ready)
 	SaveManager.connect("loadRequested", _load_game_ready)
 	

@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwo13lkbktm1c"]
+
+[ext_resource type="PackedScene" uid="uid://0nh6b3o4n81h" path="res://Screens/GameScreen/Tabs/Combat/Map/combat_map_template.tscn" id="1_q3yn7"]
+[ext_resource type="Script" uid="uid://bujvtkykx76qo" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/Floor0/first_floor_map.gd" id="2_cds7x"]
+[ext_resource type="PackedScene" uid="uid://cscllstepqabg" path="res://Screens/GameScreen/Tabs/Combat/Map/connection.tscn" id="3_bua8o"]
+[ext_resource type="PackedScene" uid="uid://daiow51un2iat" path="res://Screens/GameScreen/Tabs/Combat/Map/room.tscn" id="4_ulg4h"]
+[ext_resource type="Resource" uid="uid://dtnhhfri386lc" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/Floor0/Room1.tres" id="5_13j26"]
+[ext_resource type="Resource" uid="uid://28t15vws61b8" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/Floor0/Room2.tres" id="6_2o5vl"]
+[ext_resource type="Resource" uid="uid://bded4s0xlqjmh" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/emptyEncounter.tres" id="7_ulg4h"]
+[ext_resource type="Resource" uid="uid://jfl5ogsxyiti" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/Floor0/Room3.tres" id="7_wnph5"]
+[ext_resource type="Resource" uid="uid://bbmpwu048gx1d" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/Floor0/zombie_encounter.tres" id="8_bua8o"]
+[ext_resource type="Resource" uid="uid://g0fs2xbuyws6" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/Floor0/orc_encounter.tres" id="9_ulg4h"]
+
+[node name="FirstFloorMap" instance=ExtResource("1_q3yn7")]
+grow_horizontal = 1
+grow_vertical = 1
+script = ExtResource("2_cds7x")
+
+[node name="Connection" parent="CombatMap/ConnectionContainer" index="0" node_paths=PackedStringArray("Room1", "Room2") instance=ExtResource("3_bua8o")]
+visible = true
+points = PackedVector2Array(1920, 1993.5, 1920, 1793.5)
+default_color = Color(0.31, 0.31, 0.31, 1)
+Room1 = NodePath("../../RoomContainer/Room1")
+Room2 = NodePath("../../RoomContainer/Room2")
+visibilityOnStartup = 1
+
+[node name="Connection2" parent="CombatMap/ConnectionContainer" index="1" node_paths=PackedStringArray("Room1", "Room2") instance=ExtResource("3_bua8o")]
+points = PackedVector2Array(1920, 1793.5, 1920, 1593.5)
+Room1 = NodePath("../../RoomContainer/Room2")
+Room2 = NodePath("../../RoomContainer/Room3")
+
+[node name="Connection3" parent="CombatMap/ConnectionContainer" index="2" node_paths=PackedStringArray("Room1", "Room2") instance=ExtResource("3_bua8o")]
+points = PackedVector2Array(1920, 1593.5, 1620, 1593.5)
+Room1 = NodePath("../../RoomContainer/Room3")
+Room2 = NodePath("../../RoomContainer/ZombieRoom")
+
+[node name="Connection4" parent="CombatMap/ConnectionContainer" index="3" node_paths=PackedStringArray("Room1", "Room2") instance=ExtResource("3_bua8o")]
+points = PackedVector2Array(1920, 1593.5, 1920, 1393.5)
+Room1 = NodePath("../../RoomContainer/Room3")
+Room2 = NodePath("../../RoomContainer/OrcRoom")
+
+[node name="Connection5" parent="CombatMap/ConnectionContainer" index="4" node_paths=PackedStringArray("Room1", "Room2") instance=ExtResource("3_bua8o")]
+points = PackedVector2Array(1920, 1793.5, 2220, 1793.5)
+Room1 = NodePath("../../RoomContainer/Room2")
+Room2 = NodePath("../../RoomContainer/WeaponRoom")
+
+[node name="Room1" parent="CombatMap/RoomContainer" index="0" instance=ExtResource("4_ulg4h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+encounter = ExtResource("5_13j26")
+visibilityOnStartup = 2
+
+[node name="Room2" parent="CombatMap/RoomContainer" index="1" instance=ExtResource("4_ulg4h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = -220.0
+grow_horizontal = 2
+grow_vertical = 0
+encounter = ExtResource("6_2o5vl")
+visibilityOnStartup = 1
+
+[node name="WeaponRoom" parent="CombatMap/RoomContainer" index="2" instance=ExtResource("4_ulg4h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_right = 300.0
+offset_bottom = -220.0
+grow_horizontal = 2
+grow_vertical = 0
+encounter = ExtResource("7_ulg4h")
+nameWhenCompleted = "Starter weapon"
+isEvent = true
+
+[node name="Room3" parent="CombatMap/RoomContainer" index="3" instance=ExtResource("4_ulg4h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = -420.0
+grow_horizontal = 2
+grow_vertical = 0
+encounter = ExtResource("7_wnph5")
+
+[node name="ZombieRoom" parent="CombatMap/RoomContainer" index="4" instance=ExtResource("4_ulg4h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_right = -300.0
+offset_bottom = -420.0
+grow_horizontal = 2
+grow_vertical = 0
+encounter = ExtResource("8_bua8o")
+
+[node name="OrcRoom" parent="CombatMap/RoomContainer" index="5" instance=ExtResource("4_ulg4h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = -620.0
+grow_horizontal = 2
+grow_vertical = 0
+encounter = ExtResource("9_ulg4h")
+
+[node name="HomeButton" parent="." index="2"]
+offset_left = -350.0
+offset_top = -130.0
+
+[editable path="HomeButton"]
+[editable path="HomeButton/HBoxContainer/Sprite"]

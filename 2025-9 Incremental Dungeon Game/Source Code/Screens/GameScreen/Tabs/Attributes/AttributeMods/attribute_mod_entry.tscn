@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://3m37weahm3yv"]
+
+[ext_resource type="Script" uid="uid://cxsgf25f6im46" path="res://Screens/GameScreen/Tabs/Attributes/AttributeMods/attribute_mod_entry.gd" id="1_w8ssh"]
+
+[node name="AttributeModEntry" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_w8ssh")
+
+[node name="Sample" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Source"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1

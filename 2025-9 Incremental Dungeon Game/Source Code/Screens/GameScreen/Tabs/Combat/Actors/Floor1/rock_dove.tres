@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=9 format=3 uid="uid://dfwusloc0a71h"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Screens/GameScreen/Tabs/Combat/Actions/action.gd" id="1_pxfbu"]
+[ext_resource type="Resource" uid="uid://bg08ljefax65u" path="res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/Enemies/peck.tres" id="2_6c2ep"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="2_bsnid"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="3_6c2ep"]
+[ext_resource type="Resource" uid="uid://dn2s40nltc3eb" path="res://Global Scene Preloads/Equipment/Resources/Currency/pebble.tres" id="4_6c2ep"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Screens/GameScreen/Tabs/Combat/Actors/enemy_grouping.gd" id="5_bdu81"]
+[ext_resource type="Texture2D" uid="uid://c7aav7sfc76t7" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/gui/spells/air/flight.png" id="5_qcqa3"]
+
+[sub_resource type="Resource" id="Resource_emf6r"]
+script = ExtResource("5_bdu81")
+isEligible = true
+enemyQuality = 0
+droppedArmorClasses = Array[int]([3])
+droppedWeaponClasses = Array[int]([2])
+isHumanoid = false
+isGreenskin = false
+isMerfolk = false
+isDemon = false
+isHot = false
+isCold = false
+isAnimal = true
+isDragon = false
+isUndead = null
+isPlant = null
+isElemental = false
+isFey = false
+isMindless = false
+dropsSimple = true
+dropsAdvanced = false
+dropsMagical = null
+
+[resource]
+script = ExtResource("3_6c2ep")
+portrait = ExtResource("5_qcqa3")
+text = "Rock Dove"
+description = "Rock Doves are known for their dragon-like practice of hoarding pebbles, which they staunchly protect from crow raiding parties."
+MAXHP = 212.0
+AR = 27.8
+DR = 46.3
+PHYSDEF = 30.3
+MAGDEF = 30.3
+actions = Array[ExtResource("1_pxfbu")]([ExtResource("2_6c2ep")])
+drops = Array[ExtResource("2_bsnid")]([ExtResource("4_6c2ep")])
+dropChances = Array[float]([0.333])
+enemyGroups = SubResource("Resource_emf6r")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

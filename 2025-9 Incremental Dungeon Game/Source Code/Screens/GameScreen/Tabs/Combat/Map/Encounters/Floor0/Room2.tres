@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://28t15vws61b8"]
+
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="1_g67ye"]
+[ext_resource type="Script" uid="uid://niduj63p80ej" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/encounter.gd" id="2_qoqqa"]
+[ext_resource type="Resource" uid="uid://5ivfmv3wx6sf" path="res://Screens/GameScreen/Tabs/Combat/Actors/Floor0/hobgoblin.tres" id="2_weu12"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="3_c4rvt"]
+
+[resource]
+script = ExtResource("2_qoqqa")
+enemies = Array[ExtResource("1_g67ye")]([ExtResource("2_weu12")])
+rewards = Array[ExtResource("3_c4rvt")]([])
+introTitle = ""
+introText = ""
+victoryText = ""
+metadata/_custom_type_script = "uid://niduj63p80ej"

@@ -16,7 +16,7 @@ func _on_character_creator_end(character, characterName) :
 	emit_signal("characterDone", character, characterName)
 
 var options : Array[String] = [
-	"I want to slay the demon king",
+	"I want to protect my village",
 	"I want to prove I'm the strongest",
 	"I want to study the dungeon",
 	"I am on a diplomatic mission",
@@ -24,7 +24,7 @@ var options : Array[String] = [
 	"I want revenge"
 ]
 var details : Array[String] = [
-	"The demon king is a scourge of humanity! For the prosperity of mankind he must fall.",
+	"We may be at peace now, but we're in no shape for future conflict. I will master the art of combat and return home armed with the equipment and knowledge I need to protect my community.",
 	"The dungeon has a myriad of terrible monsters to test my mettle against. I will only return once I have proven myself!",
 	"The dungeon is flooded with ancient magic and secrets which hold inconceivable power. I will be the one to decipher its mysteries",
 	"The demon race is like any humanoid race we cooperate with. Elves, dwarves, demons, it makes no difference. I will discard the prejudices of my people and work towards a brighter future for both civilisations.",

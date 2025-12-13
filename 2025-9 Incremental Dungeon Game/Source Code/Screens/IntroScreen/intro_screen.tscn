@@ -168,7 +168,7 @@ text = "Continue"
 visible = false
 layout_mode = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_bd4h1")
-text = "After nearly 3 centuries of war, yours is the first generation to grow up in a time of peace. The expectations of war-torn elders weigh heavily upon you, and soon it will be your responsibility to provide, learn, expand, conquer, and of course, to ensure safety from the ravenous Demon armies..."
+text = "After nearly 3 centuries of war, yours is the first generation to grow up in a time of peace. The expectations of war-torn elders weigh heavily upon you, and soon it will be your responsibility to provide, learn, adapt, and of course, to ensure safety from the ravenous Demon armies..."
 
 [node name="Page4" parent="NarrativeContainer" instance=ExtResource("7_lmv0o")]
 visible = false

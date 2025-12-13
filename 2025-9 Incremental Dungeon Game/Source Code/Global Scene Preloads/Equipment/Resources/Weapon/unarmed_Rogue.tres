@@ -1,10 +1,25 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=5 format=3 uid="uid://cnwxx6ad5ljr2"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://cnwxx6ad5ljr2"]
 
 [ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Global Scene Preloads/Equipment/Resources/weapon.gd" id="1_alwfa"]
-[ext_resource type="Resource" uid="uid://6iclcrwb0k5c" path="res://Screens/GameScreen/Tabs/Combat/Actions/knifehand.tres" id="1_bvcjb"]
+[ext_resource type="Resource" uid="uid://6iclcrwb0k5c" path="res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/Tutorial/knifehand.tres" id="1_ojkvq"]
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Global Scene Preloads/Equipment/Resources/equipment_grouping.gd" id="2_np14d"]
 [ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="2_ojkvq"]
 
-[sub_resource type="Resource" id="Resource_np14d"]
+[sub_resource type="Resource" id="Resource_8yoce"]
+script = ExtResource("2_np14d")
+isEligible = false
+quality = 0
+weaponClass = 2
+armorClass = 3
+isEnchanted = false
+isSimple = false
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isMagical = false
+
+[sub_resource type="Resource" id="Resource_ojkvq"]
 script = ExtResource("2_ojkvq")
 attributeMods = {
 "Dexterity": {
@@ -25,6 +40,12 @@ attributeMods = {
 "Prebonus": 0.0,
 "Premultiplier": 1.0
 },
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
 "Strength": {
 "Postbonus": 0.0,
 "Postmultiplier": 0.0,
@@ -34,6 +55,12 @@ attributeMods = {
 }
 statMods = {
 "Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
 "Postbonus": 0.0,
 "Postmultiplier": 0.0,
 "Prebonus": 0.0,
@@ -58,14 +85,29 @@ statMods = {
 "Premultiplier": 1.0
 }
 }
+otherMods = {
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
 
 [resource]
 script = ExtResource("1_alwfa")
-primaryAttribute = 0
+scaling = {
+"Dexterity": 0.7,
+"Durability": 0.0,
+"Intelligence": 0.0,
+"Skill": 0.0,
+"Strength": 0.0
+}
 attackBonus = 0.0
-basicAttack = ExtResource("1_bvcjb")
+basicAttack = ExtResource("1_ojkvq")
 isUnarmed = true
 title = "Fists"
 description = "You know a thing or two about pressure points."
-myPacket = SubResource("Resource_np14d")
+myPacket = SubResource("Resource_ojkvq")
+equipmentGroups = SubResource("Resource_8yoce")
 metadata/_custom_type_script = "uid://6qgd3qugycc1"

@@ -1,15 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://daiow51un2iat"]
+[gd_scene load_steps=5 format=3 uid="uid://daiow51un2iat"]
 
 [ext_resource type="Script" uid="uid://brvwpjtbhf6x4" path="res://Screens/GameScreen/Tabs/Combat/Map/room.gd" id="1_8mt7c"]
-[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="1_guyw7"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="1_guyw7"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="3_vvaik"]
+[ext_resource type="Texture2D" uid="uid://bskuycfjhmas4" path="res://Images/Sprites/shop.png" id="4_dn8wb"]
 
-[node name="Room" type="Button"]
-visible = false
+[node name="Room" type="Button" groups=["Saveable"]]
 custom_minimum_size = Vector2(215.7, 133)
-offset_right = 323.6
-offset_bottom = 200.0
+offset_right = 215.7
+offset_bottom = 133.0
 theme = ExtResource("1_guyw7")
+disabled = true
+text = "Unexplored"
 autowrap_mode = 3
 script = ExtResource("1_8mt7c")
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ShopSymbol" parent="." instance=ExtResource("3_vvaik")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 42.0
+
+[node name="Icon" parent="ShopSymbol" index="0"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_dn8wb")
+region_rect = Rect2(0, 0, 16, 16)
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+
+[editable path="ShopSymbol"]

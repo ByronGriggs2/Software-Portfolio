@@ -3,6 +3,7 @@ extends PanelContainer
 @export var toggle : bool = true
 @export var sticky : bool = false
 @export var contentMargin : float = 0
+@export var hidePanel : bool = false
 
 signal wasSelected
 var selected : bool = false
@@ -28,7 +29,10 @@ func isSelected() :
 func setSticky(val : bool) :
 	sticky = val
 
+const invisibleTheme = preload("res://Graphic Elements/Themes/invisibleSuperButton.tres")
 func _ready() :
+	if (hidePanel) :
+		theme = invisibleTheme
 	setPanelTheme("normal")
 	$HBoxContainer.queue_sort()
 
@@ -49,7 +53,11 @@ func select() :
 	#myBox.border_color = color
 	
 func setPanelTheme(val : String) :
-	var override = theme.get_stylebox(val,"Button").duplicate()
+	var override
+	if (hidePanel) :
+		override = theme.get_stylebox("normal","Button").duplicate()
+	else :
+		override = theme.get_stylebox(val,"Button").duplicate()
 	override.content_margin_left = contentMargin
 	override.content_margin_right = contentMargin
 	override.content_margin_top = contentMargin

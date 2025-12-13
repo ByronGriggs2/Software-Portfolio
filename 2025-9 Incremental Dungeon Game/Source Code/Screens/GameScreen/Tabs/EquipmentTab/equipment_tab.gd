@@ -7,7 +7,7 @@ extends Panel
 
 ######################################
 ##Internal
-func isInventoryFull(type : Definitions.equipmentTypeEnum) -> bool :
+func isInventoryFull() -> bool :
 	return $Inventory.isInventoryFull()
 #####################################
 ##Getters
@@ -25,6 +25,8 @@ func getCurrentArmor() -> Armor :
 		return itemSceneRef.core.duplicate()
 func getDirectModifiers() -> ModifierPacket :
 	return $Inventory.getModifierPacket()
+func getItemCount(item : Equipment) :
+	return $Inventory.getItemCount(item)
 #####################################
 ##Setters
 func addItemToInventory(itemSceneRef) :
@@ -33,6 +35,10 @@ func equipExternalItem(itemSceneRef) :
 	$Inventory.unequipItem(itemSceneRef.getType())
 	$PagedEquipmentDetails.setItemSceneRef(itemSceneRef)
 	$CurrentEquips.setItemSceneRef(itemSceneRef)
+func setItemCount(item : Equipment, val : int) :
+	$Inventory.setItemCount(item, val)
+func expandInventory(increase : int) :
+	$Inventory.expand(increase)
 #####################################
 ##Signals
 func _on_item_selected(itemSceneRef) -> void:
@@ -49,8 +55,6 @@ func _on_current_equips_select_requested(itemSceneRef, type : Definitions.equipm
 	if (itemSceneRef != null) :
 		$Inventory.selectItem(itemSceneRef)
 func _on_discard_requested_from_details(itemSceneRef) -> void:
-	if (itemSceneRef.isEquipped()) :
-		$Inventory.unequipItem(itemSceneRef.getType())
 	$Inventory.discardItem(itemSceneRef)
 func _on_inventory_unequipped_item(itemSceneRef) -> void :
 	$CurrentEquips.setItemSceneRef(null, itemSceneRef.getType())
@@ -58,6 +62,7 @@ func _on_inventory_unequipped_item(itemSceneRef) -> void :
 func _on_inventory_equipped_item(itemSceneRef) -> void:
 	$CurrentEquips.setItemSceneRef(itemSceneRef, itemSceneRef.getType())
 	#$PagedEquipmentDetails.setItemSceneRef(itemSceneRef, itemSceneRef.getType())
-func _on_item_deselected(itemSceneRef) -> void:
+func _on_item_deselected(_itemSceneRef) -> void:
 	$PagedEquipmentDetails.setItemSceneRefBase(null)
+
 #####################################

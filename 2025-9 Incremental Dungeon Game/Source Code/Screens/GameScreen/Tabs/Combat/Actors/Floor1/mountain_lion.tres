@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=10 format=3 uid="uid://b5n6avi7qsxey"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Screens/GameScreen/Tabs/Combat/Actions/action.gd" id="1_rne41"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Global Scene Preloads/Equipment/Resources/equipment.gd" id="2_bmxbk"]
+[ext_resource type="Resource" uid="uid://tdgw1ivebucf" path="res://Screens/GameScreen/Tabs/Combat/Actions/Attacks/Enemies/bite.tres" id="2_k8jk5"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Screens/GameScreen/Tabs/Combat/Actors/actor_preset.gd" id="3_bsxf8"]
+[ext_resource type="Resource" uid="uid://ia64k6yhgi3v" path="res://Global Scene Preloads/Equipment/Resources/Armor/lion_armor.tres" id="4_awird"]
+[ext_resource type="Resource" uid="uid://cn7jabpvsp8cr" path="res://Global Scene Preloads/Equipment/Resources/Weapon/cat_claws.tres" id="5_ivuqq"]
+[ext_resource type="Texture2D" uid="uid://cyl80jp5lcoln" path="res://Images/Sprites/grizzly_bear.png" id="6_awird"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Screens/GameScreen/Tabs/Combat/Actors/enemy_grouping.gd" id="6_ivuqq"]
+
+[sub_resource type="Resource" id="Resource_212xy"]
+script = ExtResource("6_ivuqq")
+isEligible = false
+enemyQuality = 0
+droppedArmorClasses = Array[int]([])
+droppedWeaponClasses = Array[int]([])
+isHumanoid = false
+isGreenskin = false
+isMerfolk = false
+isDemon = false
+isHot = false
+isCold = false
+isAnimal = false
+isDragon = false
+isUndead = null
+isPlant = null
+isElemental = false
+isFey = false
+isMindless = false
+dropsSimple = true
+dropsAdvanced = false
+dropsMagical = null
+
+[resource]
+script = ExtResource("3_bsxf8")
+portrait = ExtResource("6_awird")
+text = "Nimean Grizzly"
+description = "This formidable predator sports magic claws, teeth, and hide."
+MAXHP = 778.5
+AR = 99.1
+DR = 124.0
+PHYSDEF = 64.9
+MAGDEF = 64.9
+actions = Array[ExtResource("1_rne41")]([ExtResource("2_k8jk5")])
+drops = Array[ExtResource("2_bmxbk")]([ExtResource("4_awird"), ExtResource("5_ivuqq")])
+dropChances = Array[float]([0.167, 0.167])
+enemyGroups = SubResource("Resource_212xy")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

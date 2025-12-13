@@ -228,3 +228,24 @@ func calculateFinal(base : float, postBonuses : Array[float], postMultipliers : 
 	for bonus in postBonuses :
 		bonusSum += bonus
 	return (base*multiplierSum)+bonusSum
+	
+func findIndexInContainer(container : Node, child) :
+	if (child == null) :
+		return null
+	var children = container.get_children()
+	for index in range(0,children.size()) :
+		if (children[index] == child) :
+			return index
+	return null
+	
+func myRound(val : float, sigFigs : int) :
+	if (val == 0) :
+		return int(0)
+	var magnitude = floor(log(val)/log(10))
+	var base = val/pow(10,magnitude)
+	var roundedBase = round(base*pow(10.0,sigFigs-1))/pow(10.0,sigFigs-1)
+	var finalValue = roundedBase*pow(10,magnitude)
+	if (finalValue > pow(10,sigFigs-1)) :
+		return int(finalValue)
+	else :
+		return finalValue

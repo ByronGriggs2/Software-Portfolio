@@ -8,8 +8,8 @@
 [node name="InGameOptions" instance=ExtResource("1_cjhhc")]
 script = ExtResource("2_vfm63")
 
-[node name="Window" parent="Panel/CenterContainer" index="0"]
-custom_minimum_size = Vector2(0, 400)
+[node name="VBoxContainer" parent="Panel/CenterContainer/Window" index="0"]
+theme_override_constants/separation = 8
 
 [node name="Title" parent="Panel/CenterContainer/Window/VBoxContainer" index="0"]
 text = "Save Menu"
@@ -20,17 +20,20 @@ text = ""
 [node name="ManualSaveButton" parent="Panel/CenterContainer/Window/VBoxContainer" index="2" instance=ExtResource("3_mod6m")]
 layout_mode = 2
 theme = ExtResource("4_vfm63")
+theme_override_font_sizes/font_size = 25
 text = "Manual Save"
 
 [node name="LoadButton" parent="Panel/CenterContainer/Window/VBoxContainer" index="3" instance=ExtResource("3_mod6m")]
 layout_mode = 2
 theme = ExtResource("4_vfm63")
+theme_override_font_sizes/font_size = 25
 text = "Load Game"
 
 [node name="QuitButton0" parent="Panel/CenterContainer/Window/VBoxContainer" index="4" instance=ExtResource("3_mod6m")]
 layout_mode = 2
 theme = ExtResource("4_vfm63")
-text = " Save and quit"
+theme_override_font_sizes/font_size = 25
+text = " Save and Quit"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="5"]
 layout_mode = 2
@@ -41,6 +44,7 @@ alignment = 2
 custom_minimum_size = Vector2(269, 0)
 layout_mode = 2
 theme = ExtResource("4_vfm63")
+theme_override_font_sizes/font_size = 25
 text = "Return to game"
 
 [node name="Control" type="Control" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2" index="1"]
