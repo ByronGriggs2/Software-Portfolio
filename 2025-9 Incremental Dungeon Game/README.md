@@ -18,4 +18,8 @@ graphic designer, but regardless it further reduced the extent of the scope I co
 Overall the game took me about 550 hours to create, and I'm quite happy with the result. I wish it had more mechanics to empower your player, but I think the depth of the equipment
 system makes up for the lack of mechanics. If I were to do it again I would rely more on singletons and inheritance to avoid duplicating so much code, as at the start of the 
 project I wasn't really prepared for how loosely coupled a node-based system needs to be. Still, most of my development time was spent struggling with the front end and testing/balancing,
-so that optimisation wouldn't really save much time. 
+so that optimisation wouldn't really save much time. </br> </br>
+
+Notes: </br>	The "Audio" folder has been removed, as I did not make it, and it has its own license. The Godot editor will therefore not launch the game unless the AudioHandler global
+singleton is removed in the project settings.</br>
+	This game was made in Godot 4.4.
