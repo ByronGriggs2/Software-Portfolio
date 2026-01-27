@@ -13,5 +13,7 @@ distinction in 2025 at the University of Hull, UK. </br>
 
 After completing my MSc, I began job hunting. Many of the job listings I saw were looking for developers experienced in engines such as Unreal and Unity, so I decided to learn 
 these engines to stand out more as an applicant. I had an idea for a game I wanted to create, decided Godot would be the best engine for that game, and got to work. 4 months 
-later, I released my first Steam game, [Incremental Dungeon](https://store.steampowered.com/app/4213380/Incremental_Dungeon/). I am now actively looking for a full time software development position,
+later, I released my first Steam game, [Incremental Dungeon](https://store.steampowered.com/app/4213380/Incremental_Dungeon/).</br>
+
+I am now actively looking for a full time software development position,
 and my next game is expected to be a Vampire Survivors clone built with Unreal.
