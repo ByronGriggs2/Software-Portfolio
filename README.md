@@ -9,7 +9,7 @@ degree.
 
 # Biography
 I completed my undergraduate degree in Computer Engineering in 2023 at the University of Nevada, Las Vegas. I completed my MSc. in Computer Games Programming with a
-distinction in 2025 at the University of Hull, UK. </br> </br>
+distinction in 2025 at the University of Hull, UK. </br>
 
 After completing my MSc, I began job hunting. Many of the job listings I saw were looking for developers experienced in engines such as Unreal and Unity, so I decided to learn 
 these engines to stand out more as an applicant. I had an idea for a game I wanted to create, decided Godot would be the best engine for that game, and got to work. 4 months 
