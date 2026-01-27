@@ -1,7 +1,7 @@
 # Incremental Dungeon Game
 After finishing my graduate dissertation, I started working on a game using the Godot engine and GDScript. This game is 100% finished and playable on itch.io or Steam\* </br>
 https://nauphy.itch.io/incremental-dungeon-game </br>
-https://partner.steamgames.com/dashboard </br>
+https://store.steampowered.com/app/4213380/Incremental_Dungeon/ </br>
 \*Game will release on both itch.io and Steam when the store page for the DLC is approved. </br>
 
 This was my first time making a game of publishable quality. As is typical the first time you do anything, it could have gone better, and I learned a lot. 
@@ -20,6 +20,6 @@ system makes up for the lack of mechanics. If I were to do it again I would rely
 project I wasn't really prepared for how loosely coupled a node-based system needs to be. Still, most of my development time was spent struggling with the front end and testing/balancing,
 so that optimisation wouldn't really save much time. </br>
 
-Notes: </br>	The "Audio" folder has been removed, as I did not make it, and it has its own license. The Godot editor will therefore not launch the game unless the AudioHandler global
+Notes: </br>	\*The "Audio" folder has been removed, as I did not make it, and it has its own license. The Godot editor will therefore not launch the game unless the AudioHandler global
 singleton is removed in the project settings.</br>
-	This game was made in Godot 4.4.
+	\*This game was made in Godot 4.4.
