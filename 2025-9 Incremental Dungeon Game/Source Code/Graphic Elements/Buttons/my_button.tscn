@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5uhhdm6s5ims"]
+
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="1_fuqb1"]
+[ext_resource type="Script" uid="uid://csrco8itxf3dt" path="res://Graphic Elements/Buttons/my_button.gd" id="1_rmedd"]
+
+[node name="MyButton" type="Button"]
+offset_right = 323.6
+offset_bottom = 100.0
+theme = ExtResource("1_fuqb1")
+text = "Sample Text"
+script = ExtResource("1_rmedd")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

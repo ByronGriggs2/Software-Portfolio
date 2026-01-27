@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://whowxwfvtddf"]
+
+[ext_resource type="PackedScene" uid="uid://dp1tskbf26tle" path="res://Graphic Elements/popups/binary_decision.tscn" id="1_jujnp"]
+
+[node name="ConfirmationPopup" instance=ExtResource("1_jujnp")]
+layer = 4

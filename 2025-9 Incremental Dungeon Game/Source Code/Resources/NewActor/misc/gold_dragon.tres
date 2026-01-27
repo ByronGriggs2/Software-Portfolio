@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bswdaq12pd7su"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_bmo6l"]
+[ext_resource type="Resource" uid="uid://dq0yhjp3ocv3s" path="res://Resources/NewAction/EnemyExclusiveAttacks/breath_midas.tres" id="2_0a8da"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_cqq3w"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_0a8da"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_c31xn"]
+[ext_resource type="Texture2D" uid="uid://bb0qsx3ir5r4k" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/dragons/golden_dragon.png" id="4_cqq3w"]
+
+[sub_resource type="Resource" id="Resource_kaslt"]
+script = ExtResource("3_0a8da")
+isEligible = true
+glassCannonIndex = 0.8
+HPToDefRatio = 0.8
+defRatio = 1.1
+atkRatio = 1.5
+equipmentLevel = 4
+enemyQuality = 2
+enemyArmor = -1
+enemyRange = 0
+faction = 9
+
+[resource]
+script = ExtResource("4_c31xn")
+portrait = ExtResource("4_cqq3w")
+text = "Gold Dragon"
+description = "Wait, if she's attacking you, does that mean you're the bad guy? Nahhhhh."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_bmo6l")]([ExtResource("2_0a8da")])
+drops = Array[ExtResource("2_cqq3w")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_kaslt")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

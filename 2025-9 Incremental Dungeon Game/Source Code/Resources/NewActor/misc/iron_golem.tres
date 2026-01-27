@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://o2xge3t3bwkn"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_66f2y"]
+[ext_resource type="Resource" uid="uid://bwl3nd2oxe32x" path="res://Resources/NewAction/Attacks/blunderbuss.tres" id="2_4ohuf"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_akose"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_4ohuf"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_2pp10"]
+[ext_resource type="Texture2D" uid="uid://chfh75loelt5i" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/nonliving/iron_golem.png" id="4_akose"]
+
+[sub_resource type="Resource" id="Resource_bgxrb"]
+script = ExtResource("3_4ohuf")
+isEligible = true
+glassCannonIndex = 0.5
+HPToDefRatio = 0.2
+defRatio = 1.5
+atkRatio = 5.0
+equipmentLevel = 3
+enemyQuality = 2
+enemyArmor = 3
+enemyRange = 0
+faction = 9
+
+[resource]
+script = ExtResource("4_2pp10")
+portrait = ExtResource("4_akose")
+text = "Iron Golem"
+description = "The tremendous iron golems were created by surface dwellers during the Great War in an effort to create machines of war that were both fire immune and capable of defending themselves from Hell Knights. When damaged sufficiently, iron golems were known to \"glitch out\" and stop following orders. "
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_66f2y")]([ExtResource("2_4ohuf")])
+drops = Array[ExtResource("2_akose")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_bgxrb")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

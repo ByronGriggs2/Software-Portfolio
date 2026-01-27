@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttributeTraining" load_steps=2 format=3 uid="uid://clljcq04kww68"]
+
+[ext_resource type="Script" uid="uid://dqi4f2avtalvt" path="res://Resources/Routine/attribute_training.gd" id="1_fw18h"]
+
+[resource]
+script = ExtResource("1_fw18h")
+text = "Fence with your offhand"
+hidden = true
+scaling = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.0,
+"Skill": 0.6,
+"Strength": 0.6
+}
+metadata/_custom_type_script = "uid://dqi4f2avtalvt"

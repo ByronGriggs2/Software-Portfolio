@@ -1,0 +1,108 @@
+[gd_scene load_steps=13 format=3 uid="uid://b48idw0blhisf"]
+
+[ext_resource type="PackedScene" uid="uid://bha3i0vfrpvx5" path="res://Graphic Elements/popups/my_popup_button.tscn" id="1_i7ldt"]
+[ext_resource type="Script" uid="uid://dec0fjfd5cj20" path="res://Screens/GameScreen/Tabs/Combat/Map/Map_Runtime/enemy_entry_big_runtime.gd" id="2_pivag"]
+[ext_resource type="PackedScene" uid="uid://cjahgospf76p4" path="res://Graphic Elements/faction_symbol.tscn" id="3_b4lw3"]
+[ext_resource type="Texture2D" uid="uid://q266pc2dilh1" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/undead/zombies/zombie_rat.png" id="3_odsy6"]
+[ext_resource type="PackedScene" uid="uid://uqxmlj50yyor" path="res://Screens/GameScreen/Tabs/Combat/contained_sprite.tscn" id="4_5kl65"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="5_qwjwo"]
+[ext_resource type="Texture2D" uid="uid://bjkt524kinw48" path="res://Images/Sprites/skull2.png" id="5_umicy"]
+[ext_resource type="Texture2D" uid="uid://3750ul5u2ol8" path="res://Images/Sprites/star.png" id="6_di6ta"]
+[ext_resource type="PackedScene" uid="uid://b4ftsw81xc7mm" path="res://Graphic Elements/TagContainerEnemy.tscn" id="7_0k2y3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wd2ib"]
+content_margin_left = 15.0
+content_margin_right = 25.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwjwo"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_epeks"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="EnemyEntryBig" instance=ExtResource("1_i7ldt")]
+script = ExtResource("2_pivag")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/CenterContainer/Window" index="0"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/CenterContainer/Window/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_wd2ib")
+
+[node name="VBoxContainer" parent="Panel/CenterContainer/Window" index="1"]
+theme_override_constants/separation = 15
+
+[node name="FactionSymbol" parent="Panel/CenterContainer/Window/VBoxContainer" index="0" instance=ExtResource("3_b4lw3")]
+layout_mode = 2
+
+[node name="Art" type="PanelContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="1"]
+layout_mode = 2
+theme = ExtResource("5_qwjwo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qwjwo")
+
+[node name="Art" type="TextureRect" parent="Panel/CenterContainer/Window/VBoxContainer/Art" index="0"]
+texture_filter = 3
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_odsy6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="2"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Skull" parent="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer" index="0" instance=ExtResource("4_5kl65")]
+layout_mode = 2
+initSprite = ExtResource("5_umicy")
+initStr = "You have defeated this enemy"
+
+[node name="Star" parent="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer" index="1" instance=ExtResource("4_5kl65")]
+layout_mode = 2
+initSprite = ExtResource("6_di6ta")
+initStr = "You have collected all of this enemy's drops"
+
+[node name="Title" parent="Panel/CenterContainer/Window/VBoxContainer" index="3"]
+text = " Enemy Name "
+
+[node name="TagContainerEnemy" parent="Panel/CenterContainer/Window/VBoxContainer" index="4" instance=ExtResource("7_0k2y3")]
+layout_mode = 2
+
+[node name="Text" parent="Panel/CenterContainer/Window/VBoxContainer" index="5"]
+custom_minimum_size = Vector2(460, 0)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_epeks")
+text = "Enemy Description"
+
+[node name="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0"]
+size_flags_horizontal = 4
+text = "      Neat      "

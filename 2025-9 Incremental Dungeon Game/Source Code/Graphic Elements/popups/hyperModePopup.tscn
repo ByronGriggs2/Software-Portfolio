@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://lcvisockprqp"]
+
+[ext_resource type="PackedScene" uid="uid://48l2vnrueam4" path="res://Graphic Elements/popups/my_popup.tscn" id="1_f2tsw"]
+[ext_resource type="Script" uid="uid://bfhhcpreysou7" path="res://Graphic Elements/popups/hyper_mode_popup.gd" id="2_vb7xj"]
+
+[node name="MyPopup" instance=ExtResource("1_f2tsw")]
+script = ExtResource("2_vb7xj")
+
+[node name="VBoxContainer" parent="Panel/CenterContainer/Window" index="0"]
+theme_override_constants/separation = 20
+
+[node name="Title" parent="Panel/CenterContainer/Window/VBoxContainer" index="0"]
+text = " One More Thing..."
+
+[node name="Text" parent="Panel/CenterContainer/Window/VBoxContainer" index="1"]
+text = "Since you've completed the game, you can enable hyperscaling for this run! 
+
+From floor 2 onwards, hyperscaling greatly increases the rate at which you and your opponents get stronger, resulting in each new row feeling like much more of a wall, while not substantially increasing the amount of grinding you have to do. 
+
+This cannot be changed later!
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CenterContainer/Window/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+text = " Scaling Mode"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="3"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+button_pressed = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = " Default "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="4"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer2" index="0"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer2" index="1"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = " HYPER "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="5"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Button" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = " Start Journey "
+
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer/CheckBox" to="." method="_on_check_box_1_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer2/CheckBox" to="." method="_on_check_box_2_toggled"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

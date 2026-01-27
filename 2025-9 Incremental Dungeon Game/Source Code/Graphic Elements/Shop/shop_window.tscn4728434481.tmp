@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw10gr4g2ksl1"]
+
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="1_5nuvd"]
+[ext_resource type="Script" uid="uid://bjfaksx4uryrk" path="res://Graphic Elements/Shop/shop_window.gd" id="2_dv2xx"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="2_juvjr"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="3_62aoc"]
+
+[node name="ShopWindow" type="PanelContainer"]
+offset_right = 188.0
+offset_bottom = 88.0
+theme = ExtResource("1_5nuvd")
+script = ExtResource("2_dv2xx")
+
+[node name="CurrencyDisplay" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("2_juvjr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CurrencyDisplay"]
+layout_mode = 2
+
+[node name="Count" type="RichTextLabel" parent="CurrencyDisplay/HBoxContainer"]
+layout_mode = 2
+text = " Your currency amount "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Icon" parent="CurrencyDisplay/HBoxContainer" instance=ExtResource("3_62aoc")]
+layout_mode = 2
+
+[node name="Icon" parent="CurrencyDisplay/HBoxContainer/Icon" index="0"]
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Shop" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_5nuvd")
+
+[editable path="CurrencyDisplay/HBoxContainer/Icon"]

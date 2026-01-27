@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://6pmn7ql84khy"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_p7c63"]
+[ext_resource type="Texture2D" uid="uid://dy4dpb6tbkd47" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/wand/gem_ivory_new.png" id="2_p7c63"]
+
+[node name="Weapon" instance=ExtResource("1_p7c63")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_p7c63")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

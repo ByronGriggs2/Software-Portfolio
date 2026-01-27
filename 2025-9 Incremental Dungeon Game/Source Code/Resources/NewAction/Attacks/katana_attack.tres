@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://dvhcop7yttlt4"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Resources/OldAction/attack_action.gd" id="1_j5a3m"]
+
+[resource]
+script = ExtResource("1_j5a3m")
+type = 0
+power = 1.95
+text = "Ten-uchi"
+mode = 0
+warmup = 4.6
+metadata/_custom_type_script = "uid://6o4dw2binuis"

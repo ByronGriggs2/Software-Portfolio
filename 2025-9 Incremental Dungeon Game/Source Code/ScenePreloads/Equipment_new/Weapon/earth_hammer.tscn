@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8dffq07yk4ke"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_o7y3g"]
+[ext_resource type="Texture2D" uid="uid://cjijds81pxfp1" path="res://Images/Sprites/mace_large_3.png" id="2_yxmxn"]
+
+[node name="Weapon" instance=ExtResource("1_o7y3g")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_yxmxn")
+flip_h = true
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

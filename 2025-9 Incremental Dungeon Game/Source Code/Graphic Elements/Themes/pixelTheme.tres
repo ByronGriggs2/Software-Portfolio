@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://gq8ni3dxisxy"]
+
+[ext_resource type="FontFile" uid="uid://dps60a85iv5xv" path="res://Images/CC0 Assets/Kenney Pixel.ttf" id="1_ihf5x"]
+
+[resource]
+RichTextLabel/font_sizes/normal_font_size = 55
+RichTextLabel/fonts/normal_font = ExtResource("1_ihf5x")

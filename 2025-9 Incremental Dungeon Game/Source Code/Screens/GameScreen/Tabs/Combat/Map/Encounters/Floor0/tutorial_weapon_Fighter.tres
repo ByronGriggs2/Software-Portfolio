@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://dy3sif8r085h6"]
+
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="1_kxx0q"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_8w2pc"]
+[ext_resource type="Resource" uid="uid://cd3jk852it1qw" path="res://Resources/OldEquipment/Weapons/magic_stick_str.tres" id="3_y74xb"]
+[ext_resource type="Script" uid="uid://niduj63p80ej" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/encounter.gd" id="4_lenxt"]
+
+[resource]
+script = ExtResource("4_lenxt")
+enemies = Array[ExtResource("1_kxx0q")]([])
+rewards = Array[ExtResource("2_8w2pc")]([ExtResource("3_y74xb")])
+introTitle = ""
+introText = ""
+victoryTitle = "In the closet"
+victoryText = "You find a hefty stick that you reckon can be used as a club. The stick hums worryingly, but you figure it'll still hurt your enemies more than you."
+metadata/_custom_type_script = "uid://niduj63p80ej"

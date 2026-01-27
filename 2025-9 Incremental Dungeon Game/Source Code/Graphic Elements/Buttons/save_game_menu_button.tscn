@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq273ivsdk1t1"]
+
+[ext_resource type="PackedScene" uid="uid://c74nurywvrmkl" path="res://Graphic Elements/Buttons/super_button.tscn" id="1_nc2mn"]
+[ext_resource type="Script" uid="uid://davkqm0gagkx1" path="res://Graphic Elements/Buttons/save_game_menu_button.gd" id="2_w6mqf"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="3_ck0wm"]
+[ext_resource type="Texture2D" uid="uid://cjy3qauwwuqwl" path="res://Images/SpriteSheets/Icons_RPG.png" id="4_aujow"]
+
+[node name="SaveGameMenuButton" instance=ExtResource("1_nc2mn")]
+script = ExtResource("2_w6mqf")
+toggle = false
+
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = -15
+alignment = 1
+
+[node name="SlotLabel" type="RichTextLabel" parent="HBoxContainer" index="0"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Slot 0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Extra" type="VBoxContainer" parent="HBoxContainer" index="1"]
+visible = false
+custom_minimum_size = Vector2(160, 100)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="HBoxContainer/Extra" index="0"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "Player Name"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Playtime" type="RichTextLabel" parent="HBoxContainer/Extra" index="1"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "Playtime : 00:00:00"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer" index="2"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Sprite" parent="HBoxContainer" index="3" instance=ExtResource("3_ck0wm")]
+visible = false
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Icon" parent="HBoxContainer/Sprite" index="0"]
+scale = Vector2(3, 3)
+texture = ExtResource("4_aujow")
+region_rect = Rect2(16, 176, 16, 16)
+
+[node name="Empty" type="RichTextLabel" parent="HBoxContainer" index="4"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "[Empty]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="HBoxContainer/Empty" to="." method="_on_empty_mouse_entered"]
+
+[editable path="HBoxContainer/Sprite"]

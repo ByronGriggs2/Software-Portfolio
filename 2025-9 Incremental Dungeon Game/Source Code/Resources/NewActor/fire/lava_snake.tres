@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://ctoqvw0dlryl6"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_nj0by"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_63uj7"]
+[ext_resource type="Resource" uid="uid://cvwvty6lvj0nl" path="res://Resources/NewAction/EnemyExclusiveAttacks/lava.tres" id="2_jpem1"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_jpem1"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_4kbou"]
+[ext_resource type="Texture2D" uid="uid://cgmh4o35ewa12" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/aquatic/lava_snake_new.png" id="4_63uj7"]
+
+[sub_resource type="Resource" id="Resource_pr72y"]
+script = ExtResource("3_jpem1")
+isEligible = true
+glassCannonIndex = 1.2
+HPToDefRatio = 1.0
+defRatio = 0.83
+atkRatio = 1.1
+equipmentLevel = 0
+enemyQuality = 2
+enemyArmor = 0
+enemyRange = 0
+faction = 0
+
+[resource]
+script = ExtResource("4_4kbou")
+portrait = ExtResource("4_63uj7")
+text = "Lava Snake"
+description = "Unlike lava worms, lava snakes have eyes that they can use to shoot lava at you. Thus, they deserve boss status."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_nj0by")]([ExtResource("2_jpem1")])
+drops = Array[ExtResource("2_63uj7")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_pr72y")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

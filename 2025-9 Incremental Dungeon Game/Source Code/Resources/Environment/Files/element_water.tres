@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://dcd78mpbn4dqe"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_2ue35"]
+
+[resource]
+script = ExtResource("1_2ue35")
+title = "Submerged Cave System"
+introText = "It looks like the only way forward is through this drowned cave. I hope you packed some water breathing spells, or are at least good at holding your breath!"
+permittedFactions = Array[int]([1])
+firePermitted = false
+icePermitted = false
+earthPermitted = false
+waterPermitted = true
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

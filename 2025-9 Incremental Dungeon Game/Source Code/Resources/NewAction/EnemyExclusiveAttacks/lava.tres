@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://cvwvty6lvj0nl"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Resources/OldAction/attack_action.gd" id="1_u22mg"]
+
+[resource]
+script = ExtResource("1_u22mg")
+type = 1
+power = 3.3
+text = "Lava Spray"
+mode = 0
+warmup = 7.0
+metadata/_custom_type_script = "uid://6o4dw2binuis"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://bwket8itberro"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_b13gx"]
+
+[resource]
+script = ExtResource("1_b13gx")
+title = "Fortress of Death"
+introText = "Featuring gargoyles, bats, and pumpkin patches, this castle is surely swarming with undead. The stench of decay and unnatural chill are already making you feel a bit ill."
+permittedFactions = Array[int]([4])
+firePermitted = false
+icePermitted = true
+earthPermitted = false
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

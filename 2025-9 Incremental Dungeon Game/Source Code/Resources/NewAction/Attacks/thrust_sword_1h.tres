@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://bdj8cvya1egh6"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Resources/OldAction/attack_action.gd" id="1_cu2ow"]
+
+[resource]
+script = ExtResource("1_cu2ow")
+type = 0
+power = 1.66
+text = "Pierce"
+mode = 0
+warmup = 4.0
+metadata/_custom_type_script = "uid://6o4dw2binuis"

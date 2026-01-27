@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://47wl1nqvuhxl"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_alswt"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_gpsyd"]
+[ext_resource type="Resource" uid="uid://bwhqavlwlw1bi" path="res://Resources/NewAction/EnemyExclusiveAttacks/fire_blast.tres" id="2_pcctq"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_pcctq"]
+[ext_resource type="Texture2D" uid="uid://bi63lgpkjc70v" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/animals/lava_fish.png" id="4_gpsyd"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_vhhwc"]
+
+[sub_resource type="Resource" id="Resource_j547l"]
+script = ExtResource("3_pcctq")
+isEligible = true
+glassCannonIndex = 2.0
+HPToDefRatio = 0.8
+defRatio = 0.83
+atkRatio = 0.1
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 0
+enemyRange = 0
+faction = 0
+
+[resource]
+script = ExtResource("4_vhhwc")
+portrait = ExtResource("4_gpsyd")
+text = "Lavafish"
+description = "It's the lava part that's threatening, not the fish part, just to be clear."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_alswt")]([ExtResource("2_pcctq")])
+drops = Array[ExtResource("2_gpsyd")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_j547l")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

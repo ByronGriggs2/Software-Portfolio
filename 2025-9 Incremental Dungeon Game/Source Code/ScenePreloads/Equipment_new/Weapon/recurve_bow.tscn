@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://byaubk0l8id2v"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_ntqff"]
+[ext_resource type="Texture2D" uid="uid://xrvbi6ul67uv" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/weapon/ranged/bow_1.png" id="2_25b87"]
+
+[node name="Weapon" instance=ExtResource("1_ntqff")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_25b87")
+flip_h = false
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

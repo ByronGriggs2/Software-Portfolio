@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bpjplvqpxfgg2"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_cru4p"]
+[ext_resource type="Resource" uid="uid://cptdb4q0pnnj6" path="res://Resources/NewAction/EnemyExclusiveAttacks/poison_spore.tres" id="2_cykyt"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_t0opr"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_cykyt"]
+[ext_resource type="Texture2D" uid="uid://dwsfod0hfwkgp" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/fungi_plants/deathcap.png" id="4_t0opr"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_tdodo"]
+
+[sub_resource type="Resource" id="Resource_rmcwb"]
+script = ExtResource("3_cykyt")
+isEligible = true
+glassCannonIndex = 8.0
+HPToDefRatio = 8.0
+defRatio = 0.91
+atkRatio = 0.2
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 1
+enemyRange = 0
+faction = 2
+
+[resource]
+script = ExtResource("4_tdodo")
+portrait = ExtResource("4_t0opr")
+text = "Deathcap"
+description = "Though their ambulatory nature suggests deathcaps are magical beings, they are in fact entirely biological, and the product of vigorous natural selection. Deathcaps spend most of their lives rooted into decomposing matter, but when it comes time to reproduce (or when their food runs out), they will animate in search of an optimal location to release their spores.
+
+Ambulatory deathcaps are no longer capable of eating, but they still hunt prey for the sake of their unsprouted children. Care must be taken when fighting a deathcap, for they have little sense of self preservation and have been known to explode when in close proximity to prey to guarantee a bounty for their offspring."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_cru4p")]([ExtResource("2_cykyt")])
+drops = Array[ExtResource("2_t0opr")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_rmcwb")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

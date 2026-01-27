@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://kwqlgcc8sser"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_wc4nb"]
+[ext_resource type="Resource" uid="uid://bwhqavlwlw1bi" path="res://Resources/NewAction/EnemyExclusiveAttacks/fire_blast.tres" id="2_hnf4o"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_mm84k"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_hnf4o"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_50jjh"]
+[ext_resource type="Texture2D" uid="uid://dkfsso0v4hmqm" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/nonliving/fire_elemental_new.png" id="4_mm84k"]
+
+[sub_resource type="Resource" id="Resource_i0b6d"]
+script = ExtResource("3_hnf4o")
+isEligible = true
+glassCannonIndex = 2.0
+HPToDefRatio = 0.5
+defRatio = 0.75
+atkRatio = 0.5
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 0
+enemyRange = 0
+faction = 0
+
+[resource]
+script = ExtResource("4_50jjh")
+portrait = ExtResource("4_mm84k")
+text = "Lesser Fire Elemental"
+description = "When a fire elemental dies in a tremendous explosion, fragments of its remains often reanimate and begin life anew, seeking the same destruction as the original."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_wc4nb")]([ExtResource("2_hnf4o")])
+drops = Array[ExtResource("2_mm84k")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_i0b6d")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

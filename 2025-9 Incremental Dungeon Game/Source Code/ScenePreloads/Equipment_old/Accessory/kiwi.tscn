@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://csmei8cbqo2g8"]
+
+[ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://ScenePreloads/Equipment_old/accessory.tscn" id="1_62ddl"]
+[ext_resource type="Texture2D" uid="uid://ksghlj452pq8" path="res://Images/Sprites/kiwi.png" id="2_4s61a"]
+
+[node name="Accessory" instance=ExtResource("1_62ddl")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_4s61a")
+region_rect = Rect2(0, 0, 32, 32)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

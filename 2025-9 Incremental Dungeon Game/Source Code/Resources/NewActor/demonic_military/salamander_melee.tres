@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bd4sqnev1vptq"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_l77v0"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_gd1rd"]
+[ext_resource type="Resource" uid="uid://dscy71k15f7yi" path="res://Resources/NewAction/Attacks/mace_1h.tres" id="2_rny4n"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_rny4n"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_1dphw"]
+[ext_resource type="Texture2D" uid="uid://bgvhwgvtlym5b" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/salamander_firebrand.png" id="4_gd1rd"]
+
+[sub_resource type="Resource" id="Resource_ngvnh"]
+script = ExtResource("3_rny4n")
+isEligible = true
+glassCannonIndex = 0.75
+HPToDefRatio = 0.8
+defRatio = 1.2
+atkRatio = 1.5
+equipmentLevel = 2
+enemyQuality = 0
+enemyArmor = 3
+enemyRange = 1
+faction = 5
+
+[resource]
+script = ExtResource("4_1dphw")
+portrait = ExtResource("4_gd1rd")
+text = "Salamander Skirmisher"
+description = "Resembling a naga from afar, salamanders have tough natural armor and an innate aptitude with fire magic. Even unarmed, they are formidable opponents.
+
+Salamanders are not true demons, but their bloodline was sold into servitude so many millenia ago that the distinction would be by now forgotten, if not for their biological incompatibility with other demons."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_l77v0")]([ExtResource("2_rny4n")])
+drops = Array[ExtResource("2_gd1rd")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_ngvnh")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

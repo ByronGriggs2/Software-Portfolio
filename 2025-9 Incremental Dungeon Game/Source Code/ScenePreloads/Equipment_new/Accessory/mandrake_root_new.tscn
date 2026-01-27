@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://nbpk5nd3wiwi"]
+
+[ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://ScenePreloads/Equipment_old/accessory.tscn" id="1_50nvg"]
+[ext_resource type="Texture2D" uid="uid://dyoovrna4pb6w" path="res://Images/SpriteSheets/arcanum.png" id="2_f5vbm"]
+
+[node name="Accessory" instance=ExtResource("1_50nvg")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_f5vbm")
+region_rect = Rect2(96, 32, 32, 32)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

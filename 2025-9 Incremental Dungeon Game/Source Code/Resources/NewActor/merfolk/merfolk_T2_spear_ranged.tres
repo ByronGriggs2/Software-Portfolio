@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://du10x58rvtfrp"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_v72xu"]
+[ext_resource type="Resource" uid="uid://cyxy1gibfa3fk" path="res://Resources/NewAction/EnemyExclusiveAttacks/javelin.tres" id="2_5dssc"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="3_iurac"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="4_rx8i1"]
+[ext_resource type="Texture2D" uid="uid://wdsall5f76ci" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/merfolk_impaler_water_new.png" id="5_utthc"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="6_y7vmx"]
+
+[sub_resource type="Resource" id="Resource_w5buq"]
+script = ExtResource("4_rx8i1")
+isEligible = true
+glassCannonIndex = 1.3
+HPToDefRatio = 0.9
+defRatio = 1.2
+atkRatio = 2.0
+equipmentLevel = 3
+enemyQuality = 1
+enemyArmor = 3
+enemyRange = 2
+faction = 7
+
+[resource]
+script = ExtResource("6_y7vmx")
+portrait = ExtResource("5_utthc")
+text = "Merfolk Marksman"
+description = "Graduates of the Merfolk Academy of Martial Arts, Marksmen are masters of melee and ranged combat, though their role in a formation is typically to fling javelins and tridents, often magically enchanted, to devastating effect. "
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_v72xu")]([ExtResource("2_5dssc")])
+drops = Array[ExtResource("3_iurac")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_w5buq")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

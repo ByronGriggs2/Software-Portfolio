@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://cyqtbnwej5hol"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_x1jj8"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_4l6o1"]
+[ext_resource type="Resource" uid="uid://w3pmcq15a002" path="res://Resources/NewAction/Attacks/disintigrate.tres" id="2_s0gad"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_s0gad"]
+[ext_resource type="Texture2D" uid="uid://cndf0l8iwokxm" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/undead/ancient_lich_new.png" id="4_4l6o1"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_jhhkc"]
+
+[sub_resource type="Resource" id="Resource_csy5y"]
+script = ExtResource("3_s0gad")
+isEligible = true
+glassCannonIndex = 2.0
+HPToDefRatio = 2.0
+defRatio = 1.2
+atkRatio = 1.0
+equipmentLevel = 3
+enemyQuality = 2
+enemyArmor = 3
+enemyRange = 2
+faction = 4
+
+[resource]
+script = ExtResource("4_jhhkc")
+portrait = ExtResource("4_4l6o1")
+text = "Lich"
+description = "Master necromancers seek to achieve immortality by turning their bodies undead while maintaining their mind and soul, becoming a lich. Liches refuse to share the circumstances of their ascension with lesser necromancers, believing that a true master should work out their own path to immortality. As a result, each generation only yields one or two liches, each extraordinarily powerful and often taking different paths to reach their goal."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_x1jj8")]([ExtResource("2_s0gad")])
+drops = Array[ExtResource("2_4l6o1")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_csy5y")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

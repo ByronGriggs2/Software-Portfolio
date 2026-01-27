@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cocw3t3fhan13"]
+
+[ext_resource type="Script" uid="uid://djowvo4nvoxdj" path="res://Screens/GameScreen/Tabs/Combat/Map/big_floor_display.gd" id="1_hd2fc"]
+[ext_resource type="PackedScene" uid="uid://otd0777k80on" path="res://Screens/GameScreen/Tabs/Combat/Map/floor_display.tscn" id="1_p3d0l"]
+[ext_resource type="Theme" uid="uid://gq8ni3dxisxy" path="res://Graphic Elements/Themes/pixelTheme.tres" id="2_tihb3"]
+[ext_resource type="PackedScene" uid="uid://cjahgospf76p4" path="res://Graphic Elements/faction_symbol.tscn" id="3_hd2fc"]
+[ext_resource type="PackedScene" uid="uid://bvpfnn4luxf6o" path="res://Graphic Elements/elements.tscn" id="5_dx7oe"]
+
+[node name="BigFloorDisplay" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hd2fc")
+
+[node name="FloorDisplay" parent="." instance=ExtResource("1_p3d0l")]
+layout_mode = 2
+alignment = 2
+
+[node name="BiomeLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme = ExtResource("2_tihb3")
+text = "BIOME NAME"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="FactionSymbol" parent="." instance=ExtResource("3_hd2fc")]
+layout_mode = 2
+alignment = 2
+
+[node name="Elements" parent="." instance=ExtResource("5_dx7oe")]
+layout_mode = 2
+alignment = 2
+
+[connection signal="floorDown" from="FloorDisplay" to="." method="_on_floor_display_floor_down"]
+[connection signal="floorUp" from="FloorDisplay" to="." method="_on_floor_display_floor_up"]

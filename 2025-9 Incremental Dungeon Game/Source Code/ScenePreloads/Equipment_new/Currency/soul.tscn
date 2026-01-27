@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1xdy0fnschm2"]
+
+[ext_resource type="PackedScene" uid="uid://b8bibmx5hk37e" path="res://ScenePreloads/Equipment_old/currency.tscn" id="1_prv67"]
+[ext_resource type="Texture2D" uid="uid://b03ocxulxad2p" path="res://Images/Sprites/conjure_flame_old.png" id="2_0lhus"]
+
+[node name="Currency" instance=ExtResource("1_prv67")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_0lhus")
+region_rect = Rect2(0, 0, 32, 32)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

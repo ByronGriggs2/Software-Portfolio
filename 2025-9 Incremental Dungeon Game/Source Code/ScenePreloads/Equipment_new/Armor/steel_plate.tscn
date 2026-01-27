@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://t6rmpxreboei"]
+
+[ext_resource type="PackedScene" uid="uid://brcwmo5crwsq1" path="res://ScenePreloads/Equipment_old/armor.tscn" id="1_1ihou"]
+[ext_resource type="Texture2D" uid="uid://cmaklvbxm20vq" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/armor/torso/plate_mail_1.png" id="2_cw5ai"]
+
+[node name="Armor" instance=ExtResource("1_1ihou")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_cw5ai")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

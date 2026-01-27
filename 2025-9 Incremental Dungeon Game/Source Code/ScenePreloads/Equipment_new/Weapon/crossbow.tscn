@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://h8oidonwdsax"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_pcey6"]
+[ext_resource type="Texture2D" uid="uid://cg310er34dox0" path="res://Images/SpriteSheets/weapons.png" id="2_8tlxq"]
+
+[node name="Weapon" instance=ExtResource("1_pcey6")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_8tlxq")
+region_rect = Rect2(142, 237, 32, 27)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

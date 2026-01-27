@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://d06r2rgeigqn4"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_dicfy"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_4pivf"]
+[ext_resource type="Resource" uid="uid://demu07kgucvi0" path="res://Resources/NewAction/EnemyExclusiveAttacks/bite_fire.tres" id="2_wamas"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_wamas"]
+[ext_resource type="Texture2D" uid="uid://ct1mw4mowuj03" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/animals/fire_bat.png" id="4_4pivf"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_ld2i0"]
+
+[sub_resource type="Resource" id="Resource_6gj38"]
+script = ExtResource("3_wamas")
+isEligible = true
+glassCannonIndex = 1.5
+HPToDefRatio = 0.3
+defRatio = 0.83
+atkRatio = 0.7
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 0
+enemyRange = 0
+faction = 0
+
+[resource]
+script = ExtResource("4_ld2i0")
+portrait = ExtResource("4_4pivf")
+text = "Fire Bat"
+description = "Fire bats are normally fairly docile, preferring a diet of flaming insects, but are rather irritable and attack when provoked. They're the eternal bane of Demonic hellstone miners, who must protect themselves with heavy armor to defend against fire bats agitated by their pickaxe strikes."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_dicfy")]([ExtResource("2_wamas")])
+drops = Array[ExtResource("2_4pivf")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_6gj38")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

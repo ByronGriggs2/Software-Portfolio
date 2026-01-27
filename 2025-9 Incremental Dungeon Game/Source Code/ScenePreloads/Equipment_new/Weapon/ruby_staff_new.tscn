@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceeratx44yh6w"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_8ci3o"]
+[ext_resource type="Texture2D" uid="uid://buak50v4xxskx" path="res://Images/Sprites/ruby_staff.png" id="2_alvv3"]
+
+[node name="Weapon" instance=ExtResource("1_8ci3o")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_alvv3")
+flip_h = false
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

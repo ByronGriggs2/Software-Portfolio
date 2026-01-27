@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://c28w8hmjbb321"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_omud3"]
+[ext_resource type="Resource" uid="uid://dspuwos7kwouy" path="res://Resources/NewAction/EnemyExclusiveAttacks/bite_venomous.tres" id="2_6ixv0"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_coxg6"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_6ixv0"]
+[ext_resource type="Texture2D" uid="uid://bbsieefg311no" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/animals/black_mamba_new.png" id="4_coxg6"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_pe62w"]
+
+[sub_resource type="Resource" id="Resource_svqt1"]
+script = ExtResource("3_6ixv0")
+isEligible = true
+glassCannonIndex = 2.0
+HPToDefRatio = 0.6
+defRatio = 0.91
+atkRatio = 1.5
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 1
+enemyRange = 0
+faction = 1
+
+[resource]
+script = ExtResource("4_pe62w")
+portrait = ExtResource("4_coxg6")
+text = "Water Snake"
+description = "Water snakes tend to mind their own business and eat small fish, but they're very irritated by adventurers swimming around holding their breath."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_omud3")]([ExtResource("2_6ixv0")])
+drops = Array[ExtResource("2_coxg6")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_svqt1")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

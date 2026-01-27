@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgk7nni0y2rhi"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_0d7ti"]
+[ext_resource type="Texture2D" uid="uid://b4m1g7pgge48b" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/weapon/dagger_old.png" id="2_4uh8g"]
+
+[node name="Weapon" instance=ExtResource("1_0d7ti")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_4uh8g")
+flip_h = true
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

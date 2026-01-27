@@ -1,0 +1,168 @@
+[gd_scene load_steps=17 format=3 uid="uid://b4ftsw81xc7mm"]
+
+[ext_resource type="Script" uid="uid://ipkh847k1y58" path="res://Graphic Elements/tag_container_enemy.gd" id="1_j35p2"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="2_1prmm"]
+[ext_resource type="Texture2D" uid="uid://omiwssqxqpgk" path="res://Images/Sprites/Sprites/RPG_Skill_Teeth_Fangs_Bite_Beast_Vampire_Blood_Leech_Damage.png" id="3_7nk85"]
+[ext_resource type="Texture2D" uid="uid://dbvaf3pr5mf6o" path="res://Images/Sprites/Sprites/RPG_Item_Weapon_Dagger_Knife.png" id="4_qt54e"]
+[ext_resource type="Texture2D" uid="uid://bvyeg08fjne8h" path="res://Images/Sprites/Sprites/RPG_Item_Weapon_Shortsword_Melee.png" id="5_pvw74"]
+[ext_resource type="Texture2D" uid="uid://buflpbx4cqpm3" path="res://Images/Sprites/Sprites/RPG_Item_Weapon_Battleaxe_Chopping.png" id="6_wrinv"]
+[ext_resource type="Texture2D" uid="uid://4yc1naqs1kl6" path="res://Images/Sprites/Sprites/Tools_Crafting_Chest_Locked_Loot_4.png" id="7_jpds3"]
+[ext_resource type="Texture2D" uid="uid://grn53sfcgqhv" path="res://Images/Sprites/Sprites/RPG_Crossed_Swords_Shield_Combat_Battle_War.png" id="8_8laoj"]
+[ext_resource type="Texture2D" uid="uid://wemkfxohtl5u" path="res://Images/Sprites/Sprites/RPG_Combat_Types_Sword_Arrow_Staff_Melee_Ranged_Magic.png" id="9_8laoj"]
+[ext_resource type="Texture2D" uid="uid://b6sf7w3kbe5y6" path="res://Images/Sprites/Sprites/Hats_Wizard_Mage_Magician_Sorcerer.png" id="10_7sfn1"]
+[ext_resource type="Texture2D" uid="uid://drsejj70hxv6s" path="res://Images/Sprites/Sprites/Hats_Hood_Cloak_Cape_Rogue.png" id="11_hgivt"]
+[ext_resource type="Texture2D" uid="uid://badoi48oi5vti" path="res://Images/Sprites/Sprites/Hats_Viking_Helmet_Armor.png" id="12_hgivt"]
+[ext_resource type="Texture2D" uid="uid://by1aesd7vfu2c" path="res://Images/Sprites/Sprites/Hats_Knight_Helmet_Armor.png" id="13_hgivt"]
+[ext_resource type="Texture2D" uid="uid://duv81jyxsp3xs" path="res://Images/Sprites/Sprites/RPG_Creature_Archetypes_Bird_Avian_Flying.png" id="14_50gkn"]
+[ext_resource type="Texture2D" uid="uid://c51geijs3ao6p" path="res://Images/Sprites/Sprites/RPG_Creature_Archetypes_Dragon.png" id="15_50gkn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50gkn"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.35, 0.105, 0.105, 1)
+
+[node name="TagContainerEnemy" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 12
+alignment = 1
+script = ExtResource("1_j35p2")
+
+[node name="Technology" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Unequipped" parent="Technology" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Unequipped" index="0"]
+texture = ExtResource("3_7nk85")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Poorly Equipped" parent="Technology" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Poorly Equipped" index="0"]
+texture = ExtResource("4_qt54e")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Well Equipped" parent="Technology" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Well Equipped" index="0"]
+texture = ExtResource("5_pvw74")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Elite" parent="Technology" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Elite" index="0"]
+texture = ExtResource("6_wrinv")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Dragon\'s Hoard" parent="Technology" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Dragon\'s Hoard" index="0"]
+texture = ExtResource("7_jpds3")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Defense" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Magical" parent="Defense" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Defense/Magical" index="0"]
+texture = ExtResource("10_7sfn1")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Resistant" parent="Defense" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Defense/Resistant" index="0"]
+texture = ExtResource("11_hgivt")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Hardened" parent="Defense" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Defense/Hardened" index="0"]
+texture = ExtResource("12_hgivt")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Ironclad" parent="Defense" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Defense/Ironclad" index="0"]
+texture = ExtResource("13_hgivt")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Offense" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Vanguard" parent="Offense" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Offense/Vanguard" index="0"]
+texture = ExtResource("8_8laoj")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Backline" parent="Offense" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Offense/Backline" index="0"]
+texture = ExtResource("9_8laoj")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Signature" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Veteran" parent="Signature" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Signature/Veteran" index="0"]
+texture = ExtResource("14_50gkn")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Boss" parent="Signature" instance=ExtResource("2_1prmm")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Signature/Boss" index="0"]
+texture = ExtResource("15_50gkn")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(58, 58)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_50gkn")
+
+[editable path="Technology/Unequipped"]
+[editable path="Technology/Poorly Equipped"]
+[editable path="Technology/Well Equipped"]
+[editable path="Technology/Elite"]
+[editable path="Technology/Dragon\'s Hoard"]
+[editable path="Defense/Magical"]
+[editable path="Defense/Resistant"]
+[editable path="Defense/Hardened"]
+[editable path="Defense/Ironclad"]
+[editable path="Offense/Vanguard"]
+[editable path="Offense/Backline"]
+[editable path="Signature/Veteran"]
+[editable path="Signature/Boss"]

@@ -1,0 +1,202 @@
+[gd_scene load_steps=19 format=3 uid="uid://dkreaj2bmdwc5"]
+
+[ext_resource type="Script" uid="uid://cqjph0n4ajl2e" path="res://Screens/IntroScreen/intro_screen.gd" id="1_bs5bn"]
+[ext_resource type="Texture2D" uid="uid://cdt2ktl4xp04x" path="res://Images/CC0 Assets/cavern_wall.png" id="6_yrspc"]
+[ext_resource type="Texture2D" uid="uid://bg1s4gja5fxiw" path="res://Images/CC0 Assets/door.png" id="7_3opar"]
+[ext_resource type="PackedScene" uid="uid://cm5k63tte65qo" path="res://Graphic Elements/BigTextPanel/narrative_panel.tscn" id="7_lmv0o"]
+[ext_resource type="Script" uid="uid://gi1ty61tpwnc" path="res://Graphic Elements/BigTextPanel/narrative_panel.gd" id="7_lxllv"]
+[ext_resource type="Texture2D" uid="uid://b0im8lpy6305a" path="res://Images/CC0 Assets/darkMountains.png" id="8_5cbsl"]
+[ext_resource type="PackedScene" uid="uid://ckj85egqvfy1i" path="res://Screens/character_creation_new.tscn" id="8_lxllv"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="8_yrspc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lmkjx"]
+load_path = "res://.godot/imported/graveyard.png-64cfb6227dfaaac1276c1afe4a55311b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5cbsl"]
+resource_local_to_scene = true
+texture = SubResource("CompressedTexture2D_lmkjx")
+
+[sub_resource type="Gradient" id="Gradient_3opar"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0.75841, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lmkjx"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_3opar")
+fill_from = Vector2(0.521368, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gp7of"]
+resource_local_to_scene = true
+content_margin_left = 50.0
+content_margin_top = 35.0
+content_margin_right = 50.0
+content_margin_bottom = 100.0
+texture = SubResource("GradientTexture2D_lmkjx")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gp7of"]
+load_path = "res://.godot/imported/darkMountains.png-802f67aeed034682f9d925bc41d5bfe8.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibyho"]
+resource_local_to_scene = true
+texture = SubResource("CompressedTexture2D_gp7of")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bd4h1"]
+texture = ExtResource("8_5cbsl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cu5v1"]
+texture = ExtResource("6_yrspc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wi5k1"]
+texture = ExtResource("7_3opar")
+
+[node name="IntroScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bs5bn")
+
+[node name="NarrativeContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Page1" type="Panel" parent="NarrativeContainer"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5cbsl")
+script = ExtResource("7_lxllv")
+text = "The year is 298, and the world is in a state of transition. Following the end of the apocalyptic Great War 20 years ago, the few remaining surface dwelling races were left to pick up the pieces of a ravaged world. Fragmented communities began to expand, staking claims on the lands owned by their ancestors in the pre-war era. "
+
+[node name="PanelContainer" type="PanelContainer" parent="NarrativeContainer/Page1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_gp7of")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NarrativeContainer/Page1/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NarrativeContainer/Page1/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 39
+text = "The year is 298, and the world is in a state of transition. Following the end of the apocalyptic Great War 20 years ago, the few remaining surface dwelling races were left to pick up the pieces of a ravaged world. Fragmented communities began to expand, staking claim on the lands owned by their ancestors in the pre-war era. "
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="MyButton" parent="NarrativeContainer/Page1" instance=ExtResource("8_yrspc")]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continue"
+
+[node name="Page2" type="Panel" parent="NarrativeContainer"]
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ibyho")
+script = ExtResource("7_lxllv")
+text = "Progress was slow and far from easy, as poisoned rivers and burnt forests scarred the once lush countryside. Nevertheless, populations began to rise and connections were made through old trade routes, the unknown fate of the Underworld and the Demon King looming all the while. "
+
+[node name="PanelContainer" type="PanelContainer" parent="NarrativeContainer/Page2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_gp7of")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NarrativeContainer/Page2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NarrativeContainer/Page2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 39
+text = "Progress was slow and far from easy, as poisoned rivers and burnt forests scarred the once lush countryside. Nevertheless, populations began to rise and connections were made through old trade routes, the unknown fate of the Underworld and the Demon King looming all the while. "
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="MyButton" parent="NarrativeContainer/Page2" instance=ExtResource("8_yrspc")]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continue"
+
+[node name="Page3" parent="NarrativeContainer" instance=ExtResource("7_lmv0o")]
+visible = false
+layout_mode = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_bd4h1")
+text = "Born shortly after the war's end, you grew up hearing fanciful tales of a world beneath our own, filled with riches, fascinating creatures, and of course, the vile Demon Nation, gathering strength and plotting revenge. Eager to prove yourself, today you've volunteered for a routine scouting mission, following up on rumors of an entrance to the Underworld hidden deep within a local mine."
+
+[node name="Page4" parent="NarrativeContainer" instance=ExtResource("7_lmv0o")]
+visible = false
+layout_mode = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cu5v1")
+text = "As you stumble once more in the dim light, you again find yourself wishing you had brought more torches, when something makes you stop:"
+
+[node name="Page5" parent="NarrativeContainer" instance=ExtResource("7_lmv0o")]
+visible = false
+layout_mode = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_wi5k1")
+text = "You see light ahead, a lantern next to an ancient door, built into the cave wall. As you draw closer, you see the insignia of the Demon Nation's royal family prominently displayed in the stonework. Your orders are of course to search the area and report back, but no one said you couldn't take a look inside..."
+
+[node name="CharacterCreator" parent="." instance=ExtResource("8_lxllv")]
+visible = false
+layout_mode = 1
+
+[node name="BackButton" parent="." instance=ExtResource("8_yrspc")]
+custom_minimum_size = Vector2(150, 55)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_right = 0.0
+offset_bottom = -50.0
+grow_vertical = 0
+text = "    Back    "
+
+[connection signal="continueSignal" from="NarrativeContainer/Page1" to="." method="_on_continue_signal"]
+[connection signal="pressed" from="NarrativeContainer/Page1/MyButton" to="NarrativeContainer/Page1" method="_on_my_button_pressed"]
+[connection signal="continueSignal" from="NarrativeContainer/Page2" to="." method="_on_continue_signal"]
+[connection signal="pressed" from="NarrativeContainer/Page2/MyButton" to="NarrativeContainer/Page2" method="_on_my_button_pressed"]
+[connection signal="continueSignal" from="NarrativeContainer/Page3" to="." method="_on_continue_signal"]
+[connection signal="continueSignal" from="NarrativeContainer/Page4" to="." method="_on_continue_signal"]
+[connection signal="continueSignal" from="NarrativeContainer/Page5" to="." method="_on_continue_signal"]
+[connection signal="characterDone" from="CharacterCreator" to="." method="_on_character_creator_end"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

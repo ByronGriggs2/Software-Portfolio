@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b51scgq2uh56r"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_1o5jh"]
+[ext_resource type="Texture2D" uid="uid://b1ggvtbmq72je" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/weapon/flail_1_new.png" id="2_mjenj"]
+
+[node name="Weapon" instance=ExtResource("1_1o5jh")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_mjenj")
+flip_h = true
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

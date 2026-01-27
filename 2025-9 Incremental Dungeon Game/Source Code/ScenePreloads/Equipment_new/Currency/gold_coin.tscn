@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ssp4rc0sksnw"]
+
+[ext_resource type="PackedScene" uid="uid://b8bibmx5hk37e" path="res://ScenePreloads/Equipment_old/currency.tscn" id="1_s0i0i"]
+[ext_resource type="Texture2D" uid="uid://cntf2e1sr0vnr" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/gold/gold_pile_16.png" id="2_2r5uc"]
+
+[node name="Currency" instance=ExtResource("1_s0i0i")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_2r5uc")
+region_rect = Rect2(0, 0, 32, 32)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

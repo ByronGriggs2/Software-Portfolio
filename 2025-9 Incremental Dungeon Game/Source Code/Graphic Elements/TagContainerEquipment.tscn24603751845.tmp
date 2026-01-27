@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=3 uid="uid://3nxjkulbs6d8"]
+
+[ext_resource type="Script" uid="uid://bl8dc7xj3ppdk" path="res://Graphic Elements/tag_container_equipment.gd" id="1_bh874"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="2_tf4cg"]
+[ext_resource type="Texture2D" uid="uid://p6gc2wxqol5o" path="res://Images/Sprites/MeleeWeapons.png" id="3_1rva8"]
+[ext_resource type="Texture2D" uid="uid://bjecslpr0nqg" path="res://Images/CC0 Assets/iron-weapons.png" id="4_72kh5"]
+
+[node name="TagContainerEquipment" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bh874")
+
+[node name="Technology" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Perennial" parent="Technology" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Perennial" index="0"]
+texture = ExtResource("3_1rva8")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Natural" parent="Technology" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Natural" index="0"]
+texture = ExtResource("4_72kh5")
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="Crude" parent="Technology" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Crude" index="0"]
+texture = ExtResource("4_72kh5")
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="Advanced" parent="Technology" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Advanced" index="0"]
+texture = ExtResource("4_72kh5")
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Superior" parent="Technology" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Superior" index="0"]
+texture = ExtResource("4_72kh5")
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Offense" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Melee" parent="Offense" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Offense/Melee" index="0"]
+texture = ExtResource("3_1rva8")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Ranged" parent="Offense" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Offense/Ranged" index="0"]
+texture = ExtResource("4_72kh5")
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="Defense" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Anti-Magic" parent="Defense" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Defense/Anti-Magic" index="0"]
+texture = ExtResource("3_1rva8")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Balanced" parent="Defense" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Defense/Balanced" index="0"]
+texture = ExtResource("4_72kh5")
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="Anti-Physical" parent="Defense" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Defense/Anti-Physical" index="0"]
+texture = ExtResource("4_72kh5")
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Signature" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Signature" parent="Signature" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Signature/Signature" index="0"]
+texture = ExtResource("3_1rva8")
+region_rect = Rect2(0, 0, 16, 16)
+
+[editable path="Technology/Perennial"]
+[editable path="Technology/Natural"]
+[editable path="Technology/Crude"]
+[editable path="Technology/Advanced"]
+[editable path="Technology/Superior"]
+[editable path="Offense/Melee"]
+[editable path="Offense/Ranged"]
+[editable path="Defense/Anti-Magic"]
+[editable path="Defense/Balanced"]
+[editable path="Defense/Anti-Physical"]
+[editable path="Signature/Signature"]

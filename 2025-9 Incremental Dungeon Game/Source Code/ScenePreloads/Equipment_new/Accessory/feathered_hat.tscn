@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://br3gdgs5qit71"]
+
+[ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://ScenePreloads/Equipment_old/accessory.tscn" id="1_0uesq"]
+[ext_resource type="Texture2D" uid="uid://b85g4is11rj0s" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/armor/headgear/elven_leather_helm.png" id="2_lr5m2"]
+
+[node name="Accessory" instance=ExtResource("1_0uesq")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_lr5m2")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

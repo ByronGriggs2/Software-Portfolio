@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://c2myvfcuurwas"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_qh0e7"]
+
+[resource]
+script = ExtResource("1_qh0e7")
+title = "Hell Fortress"
+introText = "Strongholds of the Demonic Military, these fortresses maintain control over choke points in the vast cave system of the Underworld, taxing trade routes and ensuring the Demons' dominance in the region remains unchallenged."
+permittedFactions = Array[int]([5])
+firePermitted = true
+icePermitted = false
+earthPermitted = false
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

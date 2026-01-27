@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://07g7uoqjj27p"]
+
+[ext_resource type="Script" uid="uid://bkh6okf1c2trl" path="res://Screens/IntroScreen/portrait.gd" id="1_toyoc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nt8s"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[node name="Portrait" type="Panel"]
+texture_filter = 3
+custom_minimum_size = Vector2(620, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8nt8s")
+script = ExtResource("1_toyoc")
+myScale = 0.0
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="legs" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="body" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="beard" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="hair" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="head" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="gloves" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="boots" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="hand_left" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="hand_right" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="Cat" type="Sprite2D" parent="."]
+position = Vector2(370, 250)
+scale = Vector2(7.5, 7.5)
+centered = false

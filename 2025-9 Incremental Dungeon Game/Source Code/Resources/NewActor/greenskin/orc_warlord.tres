@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://5p5a4jrkhr8j"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_1n6wb"]
+[ext_resource type="Resource" uid="uid://bsjxpeb3xjthl" path="res://Resources/NewAction/Attacks/axe_2h.tres" id="2_1lilm"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_ouqjw"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_1lilm"]
+[ext_resource type="Texture2D" uid="uid://dsnvsy3pp54dm" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/orc_warlord.png" id="4_ouqjw"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_x8eo0"]
+
+[sub_resource type="Resource" id="Resource_phm2q"]
+script = ExtResource("3_1lilm")
+isEligible = true
+glassCannonIndex = 1.2
+HPToDefRatio = 0.8
+defRatio = 1.3
+atkRatio = 3.0
+equipmentLevel = 2
+enemyQuality = 2
+enemyArmor = 3
+enemyRange = 1
+faction = 8
+
+[resource]
+script = ExtResource("4_x8eo0")
+portrait = ExtResource("4_ouqjw")
+text = "Orc Warlord"
+description = "The position of warlord is determined by nonlethal duels between the most massive orcs of a tribe, and frequently changes hands due to temporary injury and illness, or more rarely, advanced age or death in combat. The warlord is therefore with few exceptions the strongest orc in the warband, made all the more formidable with access to the highest quality enchanted weapons and armor the tribe has scavenged."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_1n6wb")]([ExtResource("2_1lilm")])
+drops = Array[ExtResource("2_ouqjw")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_phm2q")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

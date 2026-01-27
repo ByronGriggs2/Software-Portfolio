@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://c0td2r0skgqic"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_22w52"]
+[ext_resource type="Resource" uid="uid://cn3dpl4elomwe" path="res://Resources/NewAction/Attacks/slashing_sword_1h.tres" id="2_avndt"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_j1576"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_avndt"]
+[ext_resource type="Texture2D" uid="uid://tje0uumtxbm8" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/demons/imp.png" id="4_j1576"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_m2gtm"]
+
+[sub_resource type="Resource" id="Resource_iolby"]
+script = ExtResource("3_avndt")
+isEligible = true
+glassCannonIndex = 1.2
+HPToDefRatio = 1.2
+defRatio = 1.1
+atkRatio = 1.2
+equipmentLevel = 2
+enemyQuality = 0
+enemyArmor = 3
+enemyRange = 0
+faction = 5
+
+[resource]
+script = ExtResource("4_m2gtm")
+portrait = ExtResource("4_j1576")
+text = "Imp"
+description = "Being the weakest fully sapient demon subrace, imps are the lowest in the Demonic hierarchy. Rarely trusted with hellforged tools, they make do with quality tempered steel."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_22w52")]([ExtResource("2_avndt")])
+drops = Array[ExtResource("2_j1576")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_iolby")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

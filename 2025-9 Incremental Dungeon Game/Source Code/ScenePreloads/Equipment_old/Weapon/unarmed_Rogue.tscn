@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://1p0jjokg7o5p"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_h3dx8"]
+[ext_resource type="Texture2D" uid="uid://bw13thosrhnkb" path="res://Images/CC0 Assets/Unarmed.png" id="2_v070b"]
+[ext_resource type="Resource" uid="uid://udnq10je1b2u" path="res://Resources/OldEquipment/Weapons/unarmed_Mage.tres" id="2_wyf5w"]
+
+[node name="Weapon" instance=ExtResource("1_h3dx8")]
+core = ExtResource("2_wyf5w")
+
+[node name="SuperButton" parent="." index="0"]
+sticky = false
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_v070b")
+region_rect = Rect2(0, 0, 16, 16)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

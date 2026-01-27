@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlpvw5fs3vubs"]
+
+[ext_resource type="PackedScene" uid="uid://daiow51un2iat" path="res://Screens/GameScreen/Tabs/Combat/Map/room.tscn" id="1_ddonc"]
+[ext_resource type="Script" uid="uid://b6oihtdgp4hu0" path="res://Screens/GameScreen/Tabs/Combat/Map/shop_room_base.gd" id="2_epmit"]
+
+[node name="ShopRoomBase" instance=ExtResource("1_ddonc")]
+visible = false
+text = ""
+script = ExtResource("2_epmit")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+
+[editable path="ShopSymbol"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cot21pcofosh4"]
+
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="1_wcufp"]
+[ext_resource type="Script" uid="uid://xejjsa16jnwb" path="res://Screens/GameScreen/Tabs/Combat/Map/Map_Runtime/enemy_entry_runtime.gd" id="2_bncx2"]
+
+[node name="EnemyEntry" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_wcufp")
+theme_override_constants/separation = 8
+alignment = 1
+script = ExtResource("2_bncx2")
+
+[node name="Name" type="RichTextLabel" parent="."]
+layout_mode = 2
+mouse_filter = 2
+text = " Enemy Name "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjqjcoaw6h6ph"]
+
+[ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://ScenePreloads/Equipment_old/accessory.tscn" id="1_2auun"]
+[ext_resource type="Texture2D" uid="uid://bn0vy4qdx07yv" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/gui/spells/earth/lehudibs_crystal_spear_old.png" id="2_vfxc7"]
+
+[node name="Accessory" instance=ExtResource("1_2auun")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_vfxc7")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://k47p2l3nf07w"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_de10d"]
+[ext_resource type="Resource" uid="uid://dscy71k15f7yi" path="res://Resources/NewAction/Attacks/mace_1h.tres" id="2_p0hw6"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_wt3i5"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_p0hw6"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_7vfch"]
+[ext_resource type="Texture2D" uid="uid://bwgtn2mm8g4tl" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/iron_troll.png" id="4_wt3i5"]
+
+[sub_resource type="Resource" id="Resource_1wnp8"]
+script = ExtResource("3_p0hw6")
+isEligible = true
+glassCannonIndex = 0.1
+HPToDefRatio = 0.5
+defRatio = 1.5
+atkRatio = 3.0
+equipmentLevel = 2
+enemyQuality = 1
+enemyArmor = 2
+enemyRange = 1
+faction = 9
+
+[resource]
+script = ExtResource("4_7vfch")
+portrait = ExtResource("4_wt3i5")
+text = "Iron Troll"
+description = "How are you supposed to kill a troll that heals from fire???"
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_de10d")]([ExtResource("2_p0hw6")])
+drops = Array[ExtResource("2_wt3i5")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_1wnp8")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

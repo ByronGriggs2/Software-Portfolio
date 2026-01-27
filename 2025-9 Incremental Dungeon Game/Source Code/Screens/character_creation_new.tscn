@@ -1,0 +1,646 @@
+[gd_scene load_steps=15 format=3 uid="uid://ckj85egqvfy1i"]
+
+[ext_resource type="Script" uid="uid://dtyjf0vx73nxt" path="res://Screens/character_creation_new.gd" id="1_ec33j"]
+[ext_resource type="Script" uid="uid://bkh6okf1c2trl" path="res://Screens/IntroScreen/portrait.gd" id="1_jdd23"]
+[ext_resource type="PackedScene" uid="uid://cewpfcujhrm8h" path="res://Screens/IntroScreen/character_creator.tscn" id="2_63urx"]
+[ext_resource type="PackedScene" uid="uid://demic8kpubfcc" path="res://Graphic Elements/Carousel/carousel_basic.tscn" id="13_5hiny"]
+[ext_resource type="Texture2D" uid="uid://dx4fvgghc0432" path="res://Images/CC0 Assets/icon_map.png" id="14_q47kp"]
+[ext_resource type="Script" uid="uid://c0e8ghbyrf5w0" path="res://Screens/my_texture_button.gd" id="15_eevmu"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="16_63urx"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="17_8nt8s"]
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="19_eevmu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63urx"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[sub_resource type="Theme" id="Theme_63urx"]
+RichTextLabel/font_sizes/normal_font_size = 25
+
+[sub_resource type="Theme" id="Theme_8nt8s"]
+RichTextLabel/font_sizes/normal_font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nt8s"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_ec33j"]
+RichTextLabel/font_sizes/normal_font_size = 25
+
+[node name="CharacterCreation" type="Panel"]
+texture_filter = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_63urx")
+script = ExtResource("1_ec33j")
+
+[node name="MainTitle" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 30.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 80
+text = "Character Creation"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Warning" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -299.0
+offset_bottom = -299.0
+grow_horizontal = 2
+text = "You can respec later"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClassContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 50.0
+offset_right = -360.0
+offset_bottom = -50.0
+theme_override_constants/separation = 30
+
+[node name="Title" type="RichTextLabel" parent="ClassContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "Class"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterCreator" parent="ClassContainer" instance=ExtResource("2_63urx")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AppearanceContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = 50.0
+offset_right = -30.0
+offset_bottom = -50.0
+theme_override_constants/separation = 30
+
+[node name="Title" type="RichTextLabel" parent="AppearanceContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "Appearance"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Carousels" type="VBoxContainer" parent="AppearanceContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("17_8nt8s")
+theme_override_constants/separation = 35
+
+[node name="PresetContainer" type="VBoxContainer" parent="AppearanceContainer/Carousels"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/PresetContainer"]
+layout_mode = 2
+theme = ExtResource("19_eevmu")
+theme_override_font_sizes/normal_font_size = 30
+text = " Presets "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AppearanceContainer/Carousels/PresetContainer"]
+layout_mode = 2
+theme = ExtResource("19_eevmu")
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Mage" parent="AppearanceContainer/Carousels/PresetContainer/HBoxContainer" instance=ExtResource("16_63urx")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Mage"
+
+[node name="Fighter" parent="AppearanceContainer/Carousels/PresetContainer/HBoxContainer" instance=ExtResource("16_63urx")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = " Fighter "
+
+[node name="Rogue" parent="AppearanceContainer/Carousels/PresetContainer/HBoxContainer" instance=ExtResource("16_63urx")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = " Rogue "
+
+[node name="Control" type="Control" parent="AppearanceContainer/Carousels/PresetContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Undo" parent="AppearanceContainer/Carousels/PresetContainer/HBoxContainer" instance=ExtResource("16_63urx")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = " Undo "
+
+[node name="Reset All" parent="AppearanceContainer/Carousels/PresetContainer/HBoxContainer" instance=ExtResource("16_63urx")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = " Reset All "
+
+[node name="Body" type="VBoxContainer" parent="AppearanceContainer/Carousels"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Body"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = " Body "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="AppearanceContainer/Carousels/Body"]
+layout_mode = 2
+theme = SubResource("Theme_63urx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AppearanceContainer/Carousels/Body/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="base" type="HBoxContainer" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/base"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Base "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/base"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("14_q47kp")
+script = ExtResource("15_eevmu")
+
+[node name="MyButton" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/base" instance=ExtResource("16_63urx")]
+layout_mode = 2
+theme = ExtResource("17_8nt8s")
+text = "-10"
+
+[node name="MyButton2" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/base" instance=ExtResource("16_63urx")]
+layout_mode = 2
+theme = ExtResource("17_8nt8s")
+text = "+10"
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/base" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="hair" type="HBoxContainer" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/hair"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Hair "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/hair" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="beard" type="HBoxContainer" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/beard"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Beard "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/beard" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="felids" type="HBoxContainer" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/felids"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Cat "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/felids" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="Clothes" type="VBoxContainer" parent="AppearanceContainer/Carousels"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_8nt8s")
+theme_override_constants/separation = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Clothes"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = " Clothing "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="AppearanceContainer/Carousels/Clothes"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AppearanceContainer/Carousels/Clothes/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="head" type="HBoxContainer" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/head"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Helmet "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/head" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="body" type="HBoxContainer" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/body"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Body "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/body" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="legs" type="HBoxContainer" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/legs"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Pants "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/legs" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="gloves" type="HBoxContainer" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/gloves"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Gloves "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/gloves" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="boots" type="HBoxContainer" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/boots"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Shoes "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/boots" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="hand_left" type="HBoxContainer" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/hand_left"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Left Hand "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/hand_left" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="hand_right" type="HBoxContainer" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/hand_right"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " Right Hand "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Carousel" parent="AppearanceContainer/Carousels/Clothes/PanelContainer/VBoxContainer/hand_right" instance=ExtResource("13_5hiny")]
+layout_mode = 2
+size_flags_horizontal = 10
+textureScale = 3.0
+
+[node name="Portrait" type="Panel" parent="."]
+custom_minimum_size = Vector2(660, 532)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8nt8s")
+script = ExtResource("1_jdd23")
+
+[node name="Base" type="Sprite2D" parent="Portrait"]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="legs" type="Sprite2D" parent="Portrait"]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="body" type="Sprite2D" parent="Portrait"]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="beard" type="Sprite2D" parent="Portrait"]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="hair" type="Sprite2D" parent="Portrait"]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="head" type="Sprite2D" parent="Portrait"]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="gloves" type="Sprite2D" parent="Portrait"]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="boots" type="Sprite2D" parent="Portrait"]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="hand_left" type="Sprite2D" parent="Portrait"]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="hand_right" type="Sprite2D" parent="Portrait"]
+position = Vector2(10, 10)
+scale = Vector2(15, 15)
+centered = false
+
+[node name="Cat" type="Sprite2D" parent="Portrait"]
+position = Vector2(370, 250)
+scale = Vector2(7.5, 7.5)
+centered = false
+
+[node name="Checkboxes" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Checkboxes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Humans" type="HBoxContainer" parent="Checkboxes/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Checkboxes/VBoxContainer/Humans"]
+layout_mode = 2
+theme = SubResource("Theme_ec33j")
+text = " Humans "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Checkboxes/VBoxContainer/Humans"]
+layout_mode = 2
+size_flags_horizontal = 10
+button_pressed = true
+
+[node name="Humanoids" type="HBoxContainer" parent="Checkboxes/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Checkboxes/VBoxContainer/Humanoids"]
+layout_mode = 2
+text = " Humanoids "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Checkboxes/VBoxContainer/Humanoids"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Non-humanoids" type="HBoxContainer" parent="Checkboxes/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Checkboxes/VBoxContainer/Non-humanoids"]
+layout_mode = 2
+text = " Non-humanoids "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Checkboxes/VBoxContainer/Non-humanoids"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="ContinueButton" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("19_eevmu")
+text = " Continue "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("17_8nt8s")
+theme_override_constants/separation = 20
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Enter Player Name"
+alignment = 1
+expand_to_text_length = true
+
+[node name="MyButton" parent="VBoxContainer" instance=ExtResource("16_63urx")]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Confirm"
+
+[node name="JokeCatButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 221.0
+offset_top = 276.0
+offset_right = 330.0
+text = " Remove Cat "
+
+[connection signal="classMoved" from="ClassContainer/CharacterCreator" to="." method="_on_character_creator_class_moved"]
+[connection signal="myPressed" from="AppearanceContainer/Carousels/PresetContainer/HBoxContainer/Mage" to="." method="_on_preset_button_pressed"]
+[connection signal="myPressed" from="AppearanceContainer/Carousels/PresetContainer/HBoxContainer/Fighter" to="." method="_on_preset_button_pressed"]
+[connection signal="myPressed" from="AppearanceContainer/Carousels/PresetContainer/HBoxContainer/Rogue" to="." method="_on_preset_button_pressed"]
+[connection signal="myPressed" from="AppearanceContainer/Carousels/PresetContainer/HBoxContainer/Undo" to="." method="_on_preset_button_pressed"]
+[connection signal="myPressed" from="AppearanceContainer/Carousels/PresetContainer/HBoxContainer/Reset All" to="." method="_on_preset_button_pressed"]
+[connection signal="pressed" from="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/base/TextureButton" to="AppearanceContainer/Carousels/Body/PanelContainer/VBoxContainer/base/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_my_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MyButton" to="." method="_on_my_button_pressed"]
+[connection signal="pressed" from="JokeCatButton" to="." method="_on_joke_cat_button_pressed"]

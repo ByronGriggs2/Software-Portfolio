@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwo1dhfovps45"]
+
+[ext_resource type="PackedScene" uid="uid://b8bibmx5hk37e" path="res://ScenePreloads/Equipment_old/currency.tscn" id="1_smfvq"]
+[ext_resource type="Texture2D" uid="uid://dxrxgql0l67x7" path="res://Images/Sprites/silver_ore.png" id="2_5w0vx"]
+
+[node name="Currency" instance=ExtResource("1_smfvq")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_5w0vx")
+region_rect = Rect2(0, 0, 32, 32)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

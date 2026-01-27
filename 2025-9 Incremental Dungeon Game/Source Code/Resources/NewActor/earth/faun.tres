@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://dgsl7vgynkor7"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_8oqk8"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_bifhk"]
+[ext_resource type="Resource" uid="uid://cbn2ejo6fpg82" path="res://Resources/NewAction/Attacks/bow.tres" id="2_bj432"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_bj432"]
+[ext_resource type="Texture2D" uid="uid://bkdc0eq5n2pft" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/faun.png" id="4_bifhk"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_fi72i"]
+
+[sub_resource type="Resource" id="Resource_3fon3"]
+script = ExtResource("3_bj432")
+isEligible = true
+glassCannonIndex = 1.5
+HPToDefRatio = 1.6
+defRatio = 0.83
+atkRatio = 0.8
+equipmentLevel = 1
+enemyQuality = 0
+enemyArmor = 0
+enemyRange = 2
+faction = 2
+
+[resource]
+script = ExtResource("4_fi72i")
+portrait = ExtResource("4_bifhk")
+text = "Faun"
+description = "Another member of the \"goat-man\" genus, fauns tend to be much more cooperative and friendly than satyrs. Unfortunately, their impression of your actions in the Underworld so far is far from positive, and they don't seem willing to hear you out."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_8oqk8")]([ExtResource("2_bj432")])
+drops = Array[ExtResource("2_bifhk")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_3fon3")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

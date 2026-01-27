@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://yy1dcn7e8frp"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_xshkf"]
+[ext_resource type="Texture2D" uid="uid://bmtnyec5tc7r5" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/weapon/claymore_3.png" id="2_htf7v"]
+
+[node name="Weapon" instance=ExtResource("1_xshkf")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_htf7v")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

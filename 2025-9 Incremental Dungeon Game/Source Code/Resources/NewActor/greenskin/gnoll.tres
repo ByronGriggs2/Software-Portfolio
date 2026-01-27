@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://en4xw7yqt207"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_rtjty"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_ipfl6"]
+[ext_resource type="Resource" uid="uid://dscy71k15f7yi" path="res://Resources/NewAction/Attacks/mace_1h.tres" id="2_v6qhe"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_v6qhe"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_dh0su"]
+[ext_resource type="Texture2D" uid="uid://csmjiojfaatdf" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/gnoll_new.png" id="4_ipfl6"]
+
+[sub_resource type="Resource" id="Resource_rrhrp"]
+script = ExtResource("3_v6qhe")
+isEligible = true
+glassCannonIndex = 1.2
+HPToDefRatio = 2.0
+defRatio = 1.2
+atkRatio = 0.7
+equipmentLevel = 1
+enemyQuality = 0
+enemyArmor = 3
+enemyRange = 0
+faction = 8
+
+[resource]
+script = ExtResource("4_dh0su")
+portrait = ExtResource("4_ipfl6")
+text = "Gnoll"
+description = "The hyena-like gnolls of the Greenskin Tribes are famed for their speed, sporting lithe bodies and powerful sprinting muscles. Standing a full head taller than an orc, and sprinting 5 times as fast, gnolls form a makeshift cavalry corps within their tribe, routinely performing organised shock attacks as second nature."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_rtjty")]([ExtResource("2_v6qhe")])
+drops = Array[ExtResource("2_ipfl6")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_rrhrp")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

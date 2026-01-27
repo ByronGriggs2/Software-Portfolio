@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttributeTraining" load_steps=2 format=3 uid="uid://cxa14lvh5xa5i"]
+
+[ext_resource type="Script" uid="uid://dqi4f2avtalvt" path="res://Resources/Routine/attribute_training.gd" id="1_thjoc"]
+
+[resource]
+script = ExtResource("1_thjoc")
+text = "Lift weights"
+hidden = false
+scaling = {
+"Dexterity": 0.0,
+"Durability": 0.1,
+"Intelligence": 0.0,
+"Skill": 0.0,
+"Strength": 0.9
+}
+metadata/_custom_type_script = "uid://dqi4f2avtalvt"

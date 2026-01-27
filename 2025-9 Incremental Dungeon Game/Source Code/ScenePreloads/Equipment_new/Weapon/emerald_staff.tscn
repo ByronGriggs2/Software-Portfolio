@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhhdg5fk4w8x0"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_xcv4r"]
+[ext_resource type="Texture2D" uid="uid://dxt35lhbkg7q" path="res://Images/Sprites/emerald_staff.png" id="2_p452c"]
+
+[node name="Weapon" instance=ExtResource("1_xcv4r")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_p452c")
+flip_h = false
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

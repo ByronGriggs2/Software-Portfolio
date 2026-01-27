@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://cxd4au7dhkce1"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_2m2y2"]
+[ext_resource type="Resource" uid="uid://m4qa2i0ttkt6" path="res://Resources/NewAction/Attacks/water_jet.tres" id="2_3omph"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="3_mo7ha"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="4_8e6pq"]
+[ext_resource type="Texture2D" uid="uid://bxpka5nml8kr5" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/merfolk_water.png" id="5_mx4s0"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="6_xiciv"]
+
+[sub_resource type="Resource" id="Resource_0blfp"]
+script = ExtResource("4_8e6pq")
+isEligible = true
+glassCannonIndex = 1.5
+HPToDefRatio = 1.2
+defRatio = 1.1
+atkRatio = 0.8
+equipmentLevel = 2
+enemyQuality = 0
+enemyArmor = 2
+enemyRange = 2
+faction = 7
+
+[resource]
+script = ExtResource("6_xiciv")
+portrait = ExtResource("5_mx4s0")
+text = "Merfolk Initiate"
+description = "The Merfolk have two prestigeous schools of war, the Academy of Magic and the Academy of Martial Arts. Participation in the Merfolk military is optional, but the prestige and compensation make it a highly competitive field.
+
+This young initiate of the magic school harbors immense psionic potential, though they still have a lot of study ahead of them."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_2m2y2")]([ExtResource("2_3omph")])
+drops = Array[ExtResource("3_mo7ha")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_0blfp")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

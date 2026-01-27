@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://c2rmlhtlmnivg"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_7vgqi"]
+
+[resource]
+script = ExtResource("1_7vgqi")
+title = "Desert"
+introText = "You arrive at the edge of a scorched forest. Looking out, you can see a desert of ash and dust. You'd best be on your guard, it looks like the Greenskins have been expanding their territory, and the indigenous nature spirits will be none too pleased at the intrusion."
+permittedFactions = Array[int]([8, 2])
+firePermitted = false
+icePermitted = false
+earthPermitted = true
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://mi1sahlqoddp"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_codtv"]
+
+[resource]
+script = ExtResource("1_codtv")
+title = "Merfolk Palace"
+introText = "The Merfolk have no desire to conquer the Surface or Underworld, but they do maintain embassies and trade outposts in other nations. This palace is the largest Merfolk settlement in the Underworld, serving as the official border between the Demon and Merfolk nations. "
+permittedFactions = Array[int]([7])
+firePermitted = false
+icePermitted = false
+earthPermitted = false
+waterPermitted = true
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

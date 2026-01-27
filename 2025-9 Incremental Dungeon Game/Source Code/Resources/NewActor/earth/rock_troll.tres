@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://dd5to3sshwp8f"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_w61on"]
+[ext_resource type="Resource" uid="uid://dscy71k15f7yi" path="res://Resources/NewAction/Attacks/mace_1h.tres" id="2_v4uit"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="3_bo0sv"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="4_b7h7y"]
+[ext_resource type="Texture2D" uid="uid://bhaxilty41ip4" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/rock_troll.png" id="5_5pitk"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="6_wueaf"]
+
+[sub_resource type="Resource" id="Resource_lpfvp"]
+script = ExtResource("4_b7h7y")
+isEligible = true
+glassCannonIndex = 0.75
+HPToDefRatio = 2.5
+defRatio = 0.91
+atkRatio = 1.4
+equipmentLevel = 1
+enemyQuality = 1
+enemyArmor = 1
+enemyRange = 1
+faction = 2
+
+[resource]
+script = ExtResource("6_wueaf")
+portrait = ExtResource("5_5pitk")
+text = "Rock Troll"
+description = "Although they bear superficial resemblance to giants, trolls are solitary and non-sapient, and not generally considered true humanoids. Despite their formidable claws, trolls prefer to use scavenged weapons such as tree branches and the occasional greatsword to make use of their impressive muscles."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_w61on")]([ExtResource("2_v4uit")])
+drops = Array[ExtResource("3_bo0sv")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_lpfvp")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://1r6ubt302iw1"]
+
+[ext_resource type="PackedScene" uid="uid://cjv5u2x5n5ptf" path="res://Screens/GameScreen/Tabs/Combat/Actors/combat_actor.tscn" id="1_8hpww"]
+[ext_resource type="Script" uid="uid://cc6plch22lfsl" path="res://Screens/GameScreen/Tabs/Combat/Actors/player_actor.gd" id="2_qp47u"]
+[ext_resource type="Texture2D" uid="uid://y72bugcx37u7" path="res://Images/apophis.png" id="3_g6kjb"]
+[ext_resource type="PackedScene" uid="uid://jgqr75syy0u6" path="res://Screens/IntroScreen/portrait_noCat.tscn" id="3_m7ff6"]
+
+[node name="CombatActor" instance=ExtResource("1_8hpww")]
+script = ExtResource("2_qp47u")
+
+[node name="Graphic" parent="." index="2"]
+visible = false
+texture = ExtResource("3_g6kjb")
+
+[node name="Portrait" parent="." index="3" instance=ExtResource("3_m7ff6")]
+custom_minimum_size = Vector2(206.016, 206.016)
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 22.0
+offset_top = 60.5
+offset_right = 228.0
+offset_bottom = 283.75
+grow_horizontal = 1
+grow_vertical = 1

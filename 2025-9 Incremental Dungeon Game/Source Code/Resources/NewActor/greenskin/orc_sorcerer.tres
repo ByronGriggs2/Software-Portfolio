@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bxcx3tc00ciw7"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_lg5jv"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_c5xwu"]
+[ext_resource type="Resource" uid="uid://cl1q3w58ptblp" path="res://Resources/NewAction/EnemyExclusiveAttacks/arcane_bolt.tres" id="2_pjkoq"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_pjkoq"]
+[ext_resource type="Texture2D" uid="uid://rjyaspj0jwyv" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/orc_sorcerer_new.png" id="4_c5xwu"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_usc2q"]
+
+[sub_resource type="Resource" id="Resource_b5rqj"]
+script = ExtResource("3_pjkoq")
+isEligible = true
+glassCannonIndex = 1.0
+HPToDefRatio = 1.2
+defRatio = 1.2
+atkRatio = 1.0
+equipmentLevel = 2
+enemyQuality = 1
+enemyArmor = 3
+enemyRange = 2
+faction = 8
+
+[resource]
+script = ExtResource("4_usc2q")
+portrait = ExtResource("4_c5xwu")
+text = "Orc Sorcerer"
+description = "Among the scavenged artifacts that make up orcish armaments are the staves and wands of militia sorcerers and street magicians. Though Orcs posess little to no magical talent, they still make deadly use of \"point-and-shoot\" magical weapons. "
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_lg5jv")]([ExtResource("2_pjkoq")])
+drops = Array[ExtResource("2_c5xwu")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_b5rqj")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://dlhayh7lgb1ne"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_y1eje"]
+
+[resource]
+script = ExtResource("1_y1eje")
+title = "Freezeflame Idyll"
+introText = "As you scramble over another rocky outcropping, your jaw drops at the magnificent sight that comes into view. The cavern appears split, exactly 50/50, between the elements of fire and ice. On your left is a chaotic landscape of bubbling magma and pulverised ash. On your right is a pristine arctic desert, covered in ice and snow. The border between the two shows no signs of conflict or reactivity- it must be enchanted "
+permittedFactions = Array[int]([0, 3])
+firePermitted = true
+icePermitted = true
+earthPermitted = false
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp1tskbf26tle"]
+
+[ext_resource type="PackedScene" uid="uid://48l2vnrueam4" path="res://Graphic Elements/popups/my_popup.tscn" id="1_2ub4d"]
+[ext_resource type="Script" uid="uid://d0vytrbf0tyni" path="res://Graphic Elements/popups/binary_decision.gd" id="2_57yvp"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="3_7o56w"]
+
+[node name="BinaryDecision" instance=ExtResource("1_2ub4d")]
+script = ExtResource("2_57yvp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Option0" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button0" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer/Option0" index="0"]
+custom_minimum_size = Vector2(100, 31)
+layout_mode = 2
+theme = ExtResource("3_7o56w")
+theme_override_font_sizes/font_size = 30
+text = "Yes"
+
+[node name="Option1" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button1" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer/Option1" index="0"]
+custom_minimum_size = Vector2(100, 31)
+layout_mode = 2
+theme = ExtResource("3_7o56w")
+theme_override_font_sizes/font_size = 30
+text = "No"
+
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer/Option0/Button0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/HBoxContainer/Option1/Button1" to="." method="_on_button_1_pressed"]

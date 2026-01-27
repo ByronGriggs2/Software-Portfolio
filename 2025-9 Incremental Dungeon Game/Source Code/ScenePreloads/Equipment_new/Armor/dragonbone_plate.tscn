@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlih42evillvv"]
+
+[ext_resource type="PackedScene" uid="uid://brcwmo5crwsq1" path="res://ScenePreloads/Equipment_old/armor.tscn" id="1_rrc0y"]
+[ext_resource type="Texture2D" uid="uid://byxjliqwplhrn" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/armor/torso/pearl_dragon_armor.png" id="2_rnwxv"]
+
+[node name="Armor" instance=ExtResource("1_rrc0y")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_rnwxv")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

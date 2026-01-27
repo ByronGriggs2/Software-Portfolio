@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://dpk8qj42v18x6"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_og0n3"]
+
+[resource]
+script = ExtResource("1_og0n3")
+title = "Unlikely Alliance"
+introText = "Nations of the Surface and Underworld were shocked when the Merfolk announced their alliance with the Greenskin Tribes. Perhaps to the Merfolk, the other races are all equally barbaric..."
+permittedFactions = Array[int]([7, 8])
+firePermitted = false
+icePermitted = false
+earthPermitted = false
+waterPermitted = true
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

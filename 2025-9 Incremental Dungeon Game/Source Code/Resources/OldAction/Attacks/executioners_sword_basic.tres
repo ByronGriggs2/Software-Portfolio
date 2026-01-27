@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://c2xfnx0b4v1t0"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Resources/OldAction/attack_action.gd" id="1_kxbr7"]
+
+[resource]
+script = ExtResource("1_kxbr7")
+type = 0
+power = 0.0
+text = "Executioner's Cleave"
+mode = 0
+warmup = 1.0
+metadata/_custom_type_script = "uid://6o4dw2binuis"

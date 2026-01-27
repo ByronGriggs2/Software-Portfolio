@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://dn3rfq2gxm431"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_te3rc"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_7xou3"]
+[ext_resource type="Resource" uid="uid://80olthy88drk" path="res://Resources/NewAction/EnemyExclusiveAttacks/stomp_generic.tres" id="2_ei2y2"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_ei2y2"]
+[ext_resource type="Texture2D" uid="uid://dyqky6r6gjc7u" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/hill_giant_new.png" id="4_7xou3"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_v1ox8"]
+
+[sub_resource type="Resource" id="Resource_oygfd"]
+script = ExtResource("3_ei2y2")
+isEligible = true
+glassCannonIndex = 0.6
+HPToDefRatio = 3.0
+defRatio = 0.83
+atkRatio = 0.25
+equipmentLevel = 1
+enemyQuality = 1
+enemyArmor = 1
+enemyRange = 1
+faction = 2
+
+[resource]
+script = ExtResource("4_v1ox8")
+portrait = ExtResource("4_7xou3")
+text = "Hill Giant"
+description = "The size of hill giants (and giants in general) is typically exaggerated in folklore, but they are still terrifyingly massive, standing a full 4x the height of a typical humanoid. Despite their similarity to humans (and great apes in general), the fossil record indicates that giants are somehow not subject to natural selection, and have existed far longer than great apes."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_te3rc")]([ExtResource("2_ei2y2")])
+drops = Array[ExtResource("2_7xou3")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_oygfd")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

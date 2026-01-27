@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://b4oco8mm6ylav"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_vca8q"]
+
+[resource]
+script = ExtResource("1_vca8q")
+title = "Volcana"
+introText = "It looks like the surface isn't the only place where volcanoes pierce the crust! In the distance you see a freshly active volcano, its growing pool of magma (lava?) setting trees ablaze from the nearby forest. You gaze at the pretty lights for a little while before you're startled by an explosion in the distance, most likely a fire elemental felled in combat against the forces of nature. You've walked into an active warzone."
+permittedFactions = Array[int]([0, 2])
+firePermitted = true
+icePermitted = false
+earthPermitted = true
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

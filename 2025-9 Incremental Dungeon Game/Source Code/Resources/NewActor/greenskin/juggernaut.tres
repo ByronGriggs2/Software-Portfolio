@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://ckiw41n8os4yv"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_tuygd"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_ch2sh"]
+[ext_resource type="Resource" uid="uid://bsjxpeb3xjthl" path="res://Resources/NewAction/Attacks/axe_2h.tres" id="2_dilll"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_dilll"]
+[ext_resource type="Texture2D" uid="uid://hpvsvtl4lyw7" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/juggernaut.png" id="4_ch2sh"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_xp8vy"]
+
+[sub_resource type="Resource" id="Resource_bnkrh"]
+script = ExtResource("3_dilll")
+isEligible = true
+glassCannonIndex = 1.35
+HPToDefRatio = 4.0
+defRatio = 1.2
+atkRatio = 1.5
+equipmentLevel = 1
+enemyQuality = 1
+enemyArmor = 3
+enemyRange = 1
+faction = 8
+
+[resource]
+script = ExtResource("4_xp8vy")
+portrait = ExtResource("4_ch2sh")
+text = "Orc Beserker"
+description = "Orcs live by scavenging and scorched earth, and when there isn't enough armor to go around, their largest and strongest take on the roll of berserkers. Orc beserkers hit hard and fast before their victims have a chance to fight back, shrug off arrow wounds, and have been known to continue fighting despite multiple mortal wounds."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_tuygd")]([ExtResource("2_dilll")])
+drops = Array[ExtResource("2_ch2sh")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_bnkrh")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

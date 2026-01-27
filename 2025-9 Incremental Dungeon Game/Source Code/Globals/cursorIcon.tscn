@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://fks43aaof3cb"]
+
+[ext_resource type="Texture2D" uid="uid://daiqolbpybl33" path="res://Images/mouse_2.png" id="1_y64ol"]
+
+[node name="Cursor" type="CanvasLayer"]
+layer = 128
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 3
+offset_right = 13.0
+offset_bottom = 18.0
+mouse_filter = 2
+texture = ExtResource("1_y64ol")
+stretch_mode = 2

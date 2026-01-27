@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://1k63ttl8od7b"]
+
+[ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://ScenePreloads/Equipment_old/accessory.tscn" id="1_ecwr8"]
+[ext_resource type="Texture2D" uid="uid://ds3mijc04u8fk" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/food/bread_ration_new.png" id="2_br2mo"]
+
+[node name="Accessory" instance=ExtResource("1_ecwr8")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_br2mo")
+region_rect = Rect2(0, 0, 32, 32)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

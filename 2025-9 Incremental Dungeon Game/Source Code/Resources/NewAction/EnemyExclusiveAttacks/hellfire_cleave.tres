@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://c7cw8btqtolgo"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Resources/OldAction/attack_action.gd" id="1_d1mky"]
+
+[resource]
+script = ExtResource("1_d1mky")
+type = 1
+power = 2.45
+text = "Hellfire Cleave"
+mode = 0
+warmup = 5.5
+metadata/_custom_type_script = "uid://6o4dw2binuis"

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://si8y35270ipt"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_ivmjx"]
+[ext_resource type="Resource" uid="uid://basqt5cht0i5v" path="res://Resources/NewAction/EnemyExclusiveAttacks/stomp_ice.tres" id="2_gykkv"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_ojupd"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_gykkv"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_3ohq4"]
+[ext_resource type="Texture2D" uid="uid://dhhgpfxd2fp4u" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/frost_giant_new.png" id="4_ojupd"]
+
+[sub_resource type="Resource" id="Resource_gk1g0"]
+script = ExtResource("3_gykkv")
+isEligible = true
+glassCannonIndex = 0.6
+HPToDefRatio = 3.0
+defRatio = 0.83
+atkRatio = 0.8
+equipmentLevel = 1
+enemyQuality = 1
+enemyArmor = 1
+enemyRange = 1
+faction = 3
+
+[resource]
+script = ExtResource("4_3ohq4")
+portrait = ExtResource("4_ojupd")
+text = "Frost Giant"
+description = "Ice giants are a good example of elementally aligned giants that do not share the motivations of true elementals. Ice elementals generally see living organisms as inherently opposed to their grand design, and as giants aren't great at hiding, fights between the two are common. The most accepted theory for the existence of giants is that they were intelligently designed by some forgotten god, who- either accidentally or deliberately- made them somehow immune to evolution despite being otherwise biological."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_ivmjx")]([ExtResource("2_gykkv")])
+drops = Array[ExtResource("2_ojupd")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_gk1g0")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

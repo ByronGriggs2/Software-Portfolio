@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cws411742roc3"]
+
+[ext_resource type="Script" uid="uid://djdkbgyu1l5kq" path="res://soul_collector_pic.gd" id="1_me52c"]
+[ext_resource type="Texture2D" uid="uid://eiu3u04puv0p" path="res://Images/soul_collector.png" id="1_wkcxl"]
+[ext_resource type="PackedScene" uid="uid://c74nurywvrmkl" path="res://Graphic Elements/Buttons/super_button.tscn" id="2_me52c"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="3_ojxsv"]
+[ext_resource type="Texture2D" uid="uid://b5gsit17uwqlc" path="res://Images/SpriteSheets/Icons_Software.png" id="4_rshb3"]
+
+[node name="SoulCollectorPic" type="Panel"]
+clip_contents = true
+custom_minimum_size = Vector2(96, 96)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_me52c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_wkcxl")
+expand_mode = 3
+
+[node name="SuperButton" parent="." instance=ExtResource("2_me52c")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle = false
+hidePanel = true
+
+[node name="Sprite" parent="SuperButton/HBoxContainer" index="0" instance=ExtResource("3_ojxsv")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+scale = Vector2(4, 4)
+texture = ExtResource("4_rshb3")
+region_rect = Rect2(192, 48, 16, 16)
+
+[connection signal="wasSelected" from="SuperButton" to="." method="_on_super_button_was_selected"]
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

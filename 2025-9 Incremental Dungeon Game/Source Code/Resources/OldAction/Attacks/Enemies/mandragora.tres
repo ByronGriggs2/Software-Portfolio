@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://dltdgew73rlag"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Resources/OldAction/attack_action.gd" id="1_rw22a"]
+
+[resource]
+script = ExtResource("1_rw22a")
+type = 1
+power = 999.0
+text = "Psychic scream"
+mode = 0
+warmup = 4.0
+metadata/_custom_type_script = "uid://6o4dw2binuis"

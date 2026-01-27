@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bk0wfe4puk0l3"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_y66yn"]
+[ext_resource type="Resource" uid="uid://dnnve2dxsgdcg" path="res://Resources/NewAction/EnemyExclusiveAttacks/ice_blast.tres" id="2_77xd4"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_mjyu7"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_77xd4"]
+[ext_resource type="Texture2D" uid="uid://dsnpeegnib81b" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/amorphous/azure_jelly_new.png" id="4_mjyu7"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_sv6pr"]
+
+[sub_resource type="Resource" id="Resource_tkak0"]
+script = ExtResource("3_77xd4")
+isEligible = true
+glassCannonIndex = 1.4
+HPToDefRatio = 3.0
+defRatio = 0.91
+atkRatio = 1.1
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 1
+enemyRange = 0
+faction = 3
+
+[resource]
+script = ExtResource("4_sv6pr")
+portrait = ExtResource("4_mjyu7")
+text = "Ice Slime"
+description = "Ice slimes have bodies composed primarily of ammonia, making them poisonous to most life while allowing them to digest prey that is completely frozen. They hunt by engulfing prey and letting their body temperature freeze it solid."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_y66yn")]([ExtResource("2_77xd4")])
+drops = Array[ExtResource("2_mjyu7")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_tkak0")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

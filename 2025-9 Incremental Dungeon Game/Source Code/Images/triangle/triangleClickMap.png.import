@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://btsnppjb3pttd"
+path="res://.godot/imported/triangleClickMap.png-78de9820a8dbc61fbad1997ccd25b4f1.res"
+
+[deps]
+
+source_file="res://Images/triangle/triangleClickMap.png"
+dest_files=["res://.godot/imported/triangleClickMap.png-78de9820a8dbc61fbad1997ccd25b4f1.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

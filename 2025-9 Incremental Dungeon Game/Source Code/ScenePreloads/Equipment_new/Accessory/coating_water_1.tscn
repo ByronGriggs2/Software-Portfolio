@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d14m5c867q7ch"]
+
+[ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://ScenePreloads/Equipment_old/accessory.tscn" id="1_k6wtm"]
+[ext_resource type="Texture2D" uid="uid://mu1r63ikthve" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/gui/spells/ice/throw_frost_old.png" id="2_6hhqv"]
+
+[node name="Accessory" instance=ExtResource("1_k6wtm")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_6hhqv")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

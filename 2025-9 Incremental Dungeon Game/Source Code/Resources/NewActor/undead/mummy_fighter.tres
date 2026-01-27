@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bm83c7kwplhgp"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_q8k1a"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_0ufas"]
+[ext_resource type="Resource" uid="uid://cn3dpl4elomwe" path="res://Resources/NewAction/Attacks/slashing_sword_1h.tres" id="2_72os8"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_72os8"]
+[ext_resource type="Texture2D" uid="uid://bqgdp2lutiny8" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/undead/guardian_mummy.png" id="4_0ufas"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_niipq"]
+
+[sub_resource type="Resource" id="Resource_8nyo7"]
+script = ExtResource("3_72os8")
+isEligible = true
+glassCannonIndex = 0.65
+HPToDefRatio = 4.0
+defRatio = 1.25
+atkRatio = 1.4
+equipmentLevel = 2
+enemyQuality = 0
+enemyArmor = 3
+enemyRange = 1
+faction = 4
+
+[resource]
+script = ExtResource("4_niipq")
+portrait = ExtResource("4_0ufas")
+text = "Ancient Guardian"
+description = "And after all the nights and blood we shed
+Still we bleed and we're undying
+Alive or undead"
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_q8k1a")]([ExtResource("2_72os8")])
+drops = Array[ExtResource("2_0ufas")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_8nyo7")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

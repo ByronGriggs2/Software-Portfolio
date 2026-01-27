@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttributeTraining" load_steps=2 format=3 uid="uid://cgtr8mk2efnun"]
+
+[ext_resource type="Script" uid="uid://dqi4f2avtalvt" path="res://Resources/Routine/attribute_training.gd" id="1_4fy23"]
+
+[resource]
+script = ExtResource("1_4fy23")
+text = "Study geomancy"
+hidden = true
+scaling = {
+"Dexterity": 0.0,
+"Durability": 0.6,
+"Intelligence": 0.6,
+"Skill": 0.0,
+"Strength": 0.0
+}
+metadata/_custom_type_script = "uid://dqi4f2avtalvt"

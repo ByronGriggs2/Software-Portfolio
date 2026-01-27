@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhfuobsx04cd6"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_ttt7c"]
+[ext_resource type="Texture2D" uid="uid://br7w3anh65i6v" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/weapon/broad_axe_4.png" id="2_wm7ed"]
+
+[node name="Weapon" instance=ExtResource("1_ttt7c")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_wm7ed")
+flip_h = true
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

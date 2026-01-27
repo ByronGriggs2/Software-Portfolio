@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://1y42dg84gyn"]
+
+[ext_resource type="PackedScene" uid="uid://brcwmo5crwsq1" path="res://ScenePreloads/Equipment_old/armor.tscn" id="1_tau7p"]
+[ext_resource type="Texture2D" uid="uid://7u71pwiqo61x" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/armor/torso/orcish_chain_mail.png" id="2_4ii41"]
+
+[node name="Armor" instance=ExtResource("1_tau7p")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_4ii41")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

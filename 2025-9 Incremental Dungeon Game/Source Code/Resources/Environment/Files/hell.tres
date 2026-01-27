@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://dwkgotmqyf7x8"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_ceyo7"]
+
+[resource]
+script = ExtResource("1_ceyo7")
+title = "Hellpit"
+introText = "The deepest and hottest regions in the underworld, the aptly named Hellpits are inhospitable to most forms of life. Nevertheless, extremophiles thrive down here, and the clinks of Demonic pickaxes can be heard 24/7, as rare and exotic metals are extracted to feed the great Hellforges."
+permittedFactions = Array[int]([0, 6])
+firePermitted = true
+icePermitted = false
+earthPermitted = false
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

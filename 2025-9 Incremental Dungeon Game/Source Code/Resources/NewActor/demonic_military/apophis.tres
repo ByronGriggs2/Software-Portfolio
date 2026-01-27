@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=10 format=3 uid="uid://yj54ks2ykuqa"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_v22lb"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_8xrph"]
+[ext_resource type="Resource" uid="uid://u5gt0556yaoo" path="res://Resources/NewAction/EnemyExclusiveAttacks/bite_big.tres" id="2_ouraa"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_1b2sd"]
+[ext_resource type="Resource" uid="uid://dmxr2svkmhct3" path="res://Resources/NewAction/EnemyExclusiveAttacks/fire_blast_3.tres" id="3_wg24j"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_le7tc"]
+[ext_resource type="Resource" uid="uid://c7cw8btqtolgo" path="res://Resources/NewAction/EnemyExclusiveAttacks/hellfire_cleave.tres" id="4_sgq46"]
+[ext_resource type="Texture2D" uid="uid://y72bugcx37u7" path="res://Images/apophis.png" id="7_1wfy7"]
+
+[sub_resource type="Resource" id="Resource_ouraa"]
+script = ExtResource("3_1b2sd")
+isEligible = false
+glassCannonIndex = 0.5
+HPToDefRatio = 0.8
+defRatio = 1.0
+atkRatio = 1.5
+equipmentLevel = 4
+enemyQuality = 2
+enemyArmor = 2
+enemyRange = 0
+faction = 5
+
+[resource]
+script = ExtResource("4_le7tc")
+portrait = ExtResource("7_1wfy7")
+text = "Apophis, King of Demons"
+description = "Commonly cited as the most powerful mortal in existence. Well, I suppose now you hold that title."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_v22lb")]([ExtResource("2_ouraa"), ExtResource("3_wg24j"), ExtResource("4_sgq46")])
+drops = Array[ExtResource("2_8xrph")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_ouraa")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

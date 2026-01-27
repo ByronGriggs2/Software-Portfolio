@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://o04by4ortp5n"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_f08o7"]
+[ext_resource type="Resource" uid="uid://b3jeafxyqta0" path="res://Resources/NewAction/EnemyExclusiveAttacks/fire_blast_2.tres" id="2_f7lgt"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_nqeqj"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_f7lgt"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_5ocv3"]
+[ext_resource type="Texture2D" uid="uid://doqojeqfrua1w" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/vault/hell_wizard_100.png" id="4_nqeqj"]
+
+[sub_resource type="Resource" id="Resource_nygdp"]
+script = ExtResource("3_f7lgt")
+isEligible = true
+glassCannonIndex = 2.0
+HPToDefRatio = 1.0
+defRatio = 1.1
+atkRatio = 0.5
+equipmentLevel = 2
+enemyQuality = 1
+enemyArmor = 0
+enemyRange = 2
+faction = 5
+
+[resource]
+script = ExtResource("4_5ocv3")
+portrait = ExtResource("4_nqeqj")
+text = "Hell Sorcerer"
+description = "This Human sorcerer made a pact with the local Demon lord, granting them immense power at the cost of eternal servitude. They think it's worth it now, but give them a few hundred more years to mull it over."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_f08o7")]([ExtResource("2_f7lgt")])
+drops = Array[ExtResource("2_nqeqj")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_nygdp")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

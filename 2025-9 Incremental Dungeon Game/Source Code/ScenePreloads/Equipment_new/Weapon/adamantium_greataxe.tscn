@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://s3pf4s6wmct"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_36k20"]
+[ext_resource type="Texture2D" uid="uid://chehawgmle8d1" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/weapon/artefact/urand_axe_of_woe.png" id="2_lo25h"]
+
+[node name="Weapon" instance=ExtResource("1_36k20")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_lo25h")
+flip_h = true
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://dqbbkgbspva4n"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Resources/OldAction/attack_action.gd" id="1_u3sot"]
+
+[resource]
+script = ExtResource("1_u3sot")
+type = 0
+power = 2.93
+text = "Reap"
+mode = 0
+warmup = 6.5
+metadata/_custom_type_script = "uid://6o4dw2binuis"

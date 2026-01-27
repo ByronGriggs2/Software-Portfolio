@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://dcldbnvqu0d5k"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_2kx6p"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_4lail"]
+[ext_resource type="Resource" uid="uid://b2serwufoqsqm" path="res://Resources/NewAction/EnemyExclusiveAttacks/bite_acid_2.tres" id="2_phw33"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_phw33"]
+[ext_resource type="Texture2D" uid="uid://cjlxtmr8a0hsn" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/animals/caustic_shrike.png" id="4_4lail"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_ovf4d"]
+
+[sub_resource type="Resource" id="Resource_wwren"]
+script = ExtResource("3_phw33")
+isEligible = true
+glassCannonIndex = 0.4
+HPToDefRatio = 0.25
+defRatio = 1.4
+atkRatio = 2.0
+equipmentLevel = 0
+enemyQuality = 1
+enemyArmor = 3
+enemyRange = 0
+faction = 9
+
+[resource]
+script = ExtResource("4_ovf4d")
+portrait = ExtResource("4_4lail")
+text = "Caustic Shrike"
+description = "The bane of poorly protected caravans, caustic shrikes fly high in the sky for days at a time, watching for an easy mark. When they descend on their prey, they use acid to eat right through the cargo wagon's armor and take what they will. Attacks from weaker weapons simply glance off the bird's metallic feathers, and stronger attackers face deadly sprays of acid."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_2kx6p")]([ExtResource("2_phw33")])
+drops = Array[ExtResource("2_4lail")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_wwren")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://hpqhrn4waerf"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_8tj4y"]
+[ext_resource type="Texture2D" uid="uid://bipl6j2dladpr" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/weapon/scythe_1_new.png" id="2_1t8rx"]
+
+[node name="Weapon" instance=ExtResource("1_8tj4y")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_1t8rx")
+flip_h = true
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

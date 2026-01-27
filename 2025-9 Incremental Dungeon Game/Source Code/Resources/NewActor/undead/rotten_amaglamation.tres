@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bkeco8pnxvp82"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_7qyp7"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_7f1ow"]
+[ext_resource type="Resource" uid="uid://80olthy88drk" path="res://Resources/NewAction/EnemyExclusiveAttacks/stomp_generic.tres" id="2_hfyd6"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_hfyd6"]
+[ext_resource type="Texture2D" uid="uid://ni8obr7ll7io" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/undead/rotting_hulk_new.png" id="4_7f1ow"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_35gnq"]
+
+[sub_resource type="Resource" id="Resource_trb0e"]
+script = ExtResource("3_hfyd6")
+isEligible = true
+glassCannonIndex = 0.5
+HPToDefRatio = 6.0
+defRatio = 1.2
+atkRatio = 0.4
+equipmentLevel = 0
+enemyQuality = 1
+enemyArmor = 3
+enemyRange = 0
+faction = 4
+
+[resource]
+script = ExtResource("4_35gnq")
+portrait = ExtResource("4_7f1ow")
+text = "Rotten Amalgamation"
+description = "The Rotten Amalgamation was an adaptation to solve the problem of elite paladins, clerics, and monster hunters, who could singlehandedly dispatch scores of zombies without a scratch. Molded from the remains of 10 or so corpses with advanced magic, the Rotten Amalgamation proves more than a match for such a threat, posessing multiple backup brains and only being mildly annoyed by Turn Undead."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_7qyp7")]([ExtResource("2_hfyd6")])
+drops = Array[ExtResource("2_7f1ow")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_trb0e")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

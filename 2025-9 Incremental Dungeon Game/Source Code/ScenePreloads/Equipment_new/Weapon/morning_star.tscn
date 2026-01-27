@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3cxdx2y8snwo"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_yrhq6"]
+[ext_resource type="Texture2D" uid="uid://cnf8rfnlu3mrv" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/weapon/morningstar_4.png" id="2_h6cm2"]
+
+[node name="Weapon" instance=ExtResource("1_yrhq6")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_h6cm2")
+flip_h = true
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

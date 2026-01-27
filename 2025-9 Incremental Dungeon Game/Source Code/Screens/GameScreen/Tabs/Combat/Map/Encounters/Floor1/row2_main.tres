@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://cl64av53fkt61"]
+
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="1_l7bbs"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_o568e"]
+[ext_resource type="Resource" uid="uid://b46t6ldwnld1r" path="res://Resources/OldActor/Floor1/mountain_goat.tres" id="2_ox2o6"]
+[ext_resource type="Script" uid="uid://niduj63p80ej" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/encounter.gd" id="3_ox2o6"]
+
+[resource]
+script = ExtResource("3_ox2o6")
+enemies = Array[ExtResource("1_l7bbs")]([ExtResource("2_ox2o6")])
+rewards = Array[ExtResource("2_o568e")]([])
+introTitle = ""
+introText = ""
+victoryTitle = "After the Fight"
+victoryText = ""
+metadata/_custom_type_script = "uid://niduj63p80ej"

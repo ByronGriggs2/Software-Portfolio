@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://2homfuvqj8y0"]
+
+[ext_resource type="PackedScene" uid="uid://brcwmo5crwsq1" path="res://ScenePreloads/Equipment_old/armor.tscn" id="1_2qgpp"]
+[ext_resource type="Texture2D" uid="uid://d2fr1ukyrc2uj" path="res://Images/CC0 Assets/armours.png" id="2_n4ulk"]
+
+[node name="Armor" instance=ExtResource("1_2qgpp")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_n4ulk")
+region_rect = Rect2(53, 7, 11, 11)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

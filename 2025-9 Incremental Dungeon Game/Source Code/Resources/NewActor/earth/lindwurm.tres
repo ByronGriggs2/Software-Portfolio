@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://1o0v87q5vo8c"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_r8mlr"]
+[ext_resource type="Resource" uid="uid://b2serwufoqsqm" path="res://Resources/NewAction/EnemyExclusiveAttacks/bite_acid_2.tres" id="2_8jrlc"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="3_v1dqr"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="4_iu4bf"]
+[ext_resource type="Texture2D" uid="uid://j40gp5lq124y" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/lindwurm.png" id="5_aa2me"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="6_fd4ld"]
+
+[sub_resource type="Resource" id="Resource_njr52"]
+script = ExtResource("4_iu4bf")
+isEligible = true
+glassCannonIndex = 1.5
+HPToDefRatio = 0.8
+defRatio = 0.91
+atkRatio = 1.2
+equipmentLevel = 0
+enemyQuality = 2
+enemyArmor = 1
+enemyRange = 0
+faction = 2
+
+[resource]
+script = ExtResource("6_fd4ld")
+portrait = ExtResource("5_aa2me")
+text = "Lindwurm"
+description = "Sometimes called \"snake-dragons\", lindwurms are more closely related to snakes and naga, though much larger than either. Lindwurms are omnivores, and will eat pretty much anything to sate their monstrous appetite, easily digesting flesh, vegetation, bone, and wood. On the rare occasion lindwurms are slain, they are typically found with partially digested stones in their gut. Scholars believe that since their stomach acid is easily strong enough to dissolve any organic material, lindwurms do not swallow stones to aid in digestion, but rather to take the edge off their hunger."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_r8mlr")]([ExtResource("2_8jrlc")])
+drops = Array[ExtResource("3_v1dqr")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_njr52")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

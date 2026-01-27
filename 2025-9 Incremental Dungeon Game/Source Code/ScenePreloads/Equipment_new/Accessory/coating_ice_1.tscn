@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://pb3tri0kn3q0"]
+
+[ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://ScenePreloads/Equipment_old/accessory.tscn" id="1_ekss4"]
+[ext_resource type="Texture2D" uid="uid://c3jx7vdnvwe2w" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/gui/spells/components/ice_spear.png" id="2_npnw2"]
+
+[node name="Accessory" instance=ExtResource("1_ekss4")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_npnw2")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://pegl050or8si"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Resources/OldAction/attack_action.gd" id="1_f5o0n"]
+
+[resource]
+script = ExtResource("1_f5o0n")
+type = 1
+power = 5.25
+text = "Fire Stomp"
+mode = 0
+warmup = 10.0
+metadata/_custom_type_script = "uid://6o4dw2binuis"

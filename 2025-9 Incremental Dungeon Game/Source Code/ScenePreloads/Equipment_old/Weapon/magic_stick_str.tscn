@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmc2danbtnlyd"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_7d8hn"]
+[ext_resource type="Resource" uid="uid://cd3jk852it1qw" path="res://Resources/OldEquipment/Weapons/magic_stick_str.tres" id="2_mlkbj"]
+[ext_resource type="Texture2D" uid="uid://bjecslpr0nqg" path="res://Images/CC0 Assets/iron-weapons.png" id="2_n4kih"]
+
+[node name="Weapon" instance=ExtResource("1_7d8hn")]
+core = ExtResource("2_mlkbj")
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_n4kih")
+region_rect = Rect2(288, 0, 16, 16)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhgncd5iv1pc2"]
+
+[ext_resource type="PackedScene" uid="uid://cw10gr4g2ksl1" path="res://Graphic Elements/Shop/shop_window.tscn" id="1_x874p"]
+[ext_resource type="Script" uid="uid://bbb17egxjiwxl" path="res://Graphic Elements/Shop/soul_shop.gd" id="2_swrd0"]
+[ext_resource type="PackedScene" uid="uid://cws411742roc3" path="res://soul_collector_pic.tscn" id="3_siyqr"]
+
+[node name="ShopWindow" instance=ExtResource("1_x874p")]
+script = ExtResource("2_swrd0")
+
+[node name="SoulCollectorPic" parent="." index="4" instance=ExtResource("3_siyqr")]
+visible = false
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+
+[editable path="VBoxContainer/CurrencyDisplay/HBoxContainer/Icon"]
+[editable path="detailsRight"]
+[editable path="detailsLeft"]

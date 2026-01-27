@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://bexv7dhnpjlvb"]
+
+[ext_resource type="PackedScene" uid="uid://dxr5h4g657ux" path="res://Graphic Elements/Shop/column_scene.tscn" id="1_dy3mo"]
+[ext_resource type="Theme" uid="uid://bo4k256bjm6uu" path="res://Graphic Elements/Themes/mainTab_alt.tres" id="2_busiv"]
+[ext_resource type="Script" uid="uid://c7fqfnnim1uyl" path="res://Graphic Elements/Shop/reforge_column_old.gd" id="3_amens"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="3_rxll8"]
+[ext_resource type="PackedScene" uid="uid://c74nurywvrmkl" path="res://Graphic Elements/Buttons/super_button.tscn" id="5_87eqj"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="6_guk1g"]
+[ext_resource type="Texture2D" uid="uid://xo6ehfyth1ub" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/gold/gold_pile_9.png" id="7_86gb8"]
+[ext_resource type="PackedScene" uid="uid://c77w5pwarx82n" path="res://Graphic Elements/Tooltips/tooltip_trigger.tscn" id="8_guk1g"]
+
+[node name="ColumnScene" instance=ExtResource("1_dy3mo")]
+theme = ExtResource("2_busiv")
+script = ExtResource("3_amens")
+
+[node name="CategoryName" parent="VBoxContainer" index="0"]
+text = " Reforge <X> "
+
+[node name="Spacer" parent="VBoxContainer" index="1"]
+custom_minimum_size = Vector2(0, 40)
+
+[node name="Receptor" type="Panel" parent="VBoxContainer" index="2"]
+custom_minimum_size = Vector2(94, 94)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_rxll8")
+
+[node name="Spacer2" type="Control" parent="VBoxContainer" index="3"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="SuperButton" parent="VBoxContainer" index="4" instance=ExtResource("5_87eqj")]
+layout_mode = 2
+size_flags_horizontal = 4
+toggle = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SuperButton/HBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer/SuperButton/HBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+bbcode_enabled = true
+text = " [color=#baa1e6]Reforge[/color] "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/SuperButton/HBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="Price" type="RichTextLabel" parent="VBoxContainer/SuperButton/HBoxContainer/HBoxContainer2" index="0"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=#baa1e6]23423[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite" parent="VBoxContainer/SuperButton/HBoxContainer/HBoxContainer2" index="1" instance=ExtResource("6_guk1g")]
+layout_mode = 2
+
+[node name="Icon" parent="VBoxContainer/SuperButton/HBoxContainer/HBoxContainer2/Sprite" index="0"]
+scale = Vector2(2, 2)
+texture = ExtResource("7_86gb8")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="TooltipTrigger" parent="VBoxContainer/SuperButton" index="1" instance=ExtResource("8_guk1g")]
+layout_mode = 2
+tooltipTitle = "Reforging"
+tooltipText = "Upgrade the stats of your currently equipped item to be as if dropped by your strongest defeated enemy! Price increases for each use on an item, and base price updates on shop refresh."
+
+[connection signal="wasSelected" from="VBoxContainer/SuperButton" to="." method="_on_super_button_was_selected"]
+
+[editable path="VBoxContainer/SuperButton"]
+[editable path="VBoxContainer/SuperButton/HBoxContainer/HBoxContainer2/Sprite"]

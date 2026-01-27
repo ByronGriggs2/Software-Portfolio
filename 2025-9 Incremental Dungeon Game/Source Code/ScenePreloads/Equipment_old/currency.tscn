@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8bibmx5hk37e"]
+
+[ext_resource type="PackedScene" uid="uid://c3qx8g3ihbre0" path="res://ScenePreloads/Equipment_old/equipment.tscn" id="1_wihhl"]
+[ext_resource type="Script" uid="uid://cxi6n5ycnsler" path="res://ScenePreloads/Equipment_old/currency.gd" id="2_r7ofj"]
+
+[node name="Currency" instance=ExtResource("1_wihhl")]
+script = ExtResource("2_r7ofj")
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+region_rect = Rect2(0, 0, 16, 16)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

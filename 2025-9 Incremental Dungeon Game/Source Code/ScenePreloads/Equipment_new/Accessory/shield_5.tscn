@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwk6g4evi6mo1"]
+
+[ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://ScenePreloads/Equipment_old/accessory.tscn" id="1_tahk5"]
+[ext_resource type="Texture2D" uid="uid://byigg6o5opinp" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/armor/shields/shield_3.png" id="2_eq77k"]
+
+[node name="Accessory" instance=ExtResource("1_tahk5")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_eq77k")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

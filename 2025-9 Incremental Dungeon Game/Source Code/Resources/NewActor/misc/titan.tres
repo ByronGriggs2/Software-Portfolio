@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://cf7gm2s64fbpt"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_qb221"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_5x4pw"]
+[ext_resource type="Resource" uid="uid://b5gco7qhgis7n" path="res://Resources/NewAction/Attacks/lightning.tres" id="2_f7hcp"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_f7hcp"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_1wenv"]
+[ext_resource type="Texture2D" uid="uid://d2ed8xdp6a23h" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/titan_new.png" id="4_5x4pw"]
+
+[sub_resource type="Resource" id="Resource_tp5ki"]
+script = ExtResource("3_f7hcp")
+isEligible = true
+glassCannonIndex = 0.55
+HPToDefRatio = 0.25
+defRatio = 0.83
+atkRatio = 2.0
+equipmentLevel = 3
+enemyQuality = 2
+enemyArmor = 0
+enemyRange = 0
+faction = 9
+
+[resource]
+script = ExtResource("4_1wenv")
+portrait = ExtResource("4_5x4pw")
+text = "Titan"
+description = "This terrifying behemoth resembles a giant in morphology, but the similarities end there. Clad in steel plate and sparking with electricity, their eyes gleam with fierce intelligence from beneath their thick helm. The only reason you stand a change against them is you're too fast for them to land a solid hit with their axe."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_qb221")]([ExtResource("2_f7hcp")])
+drops = Array[ExtResource("2_5x4pw")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_tp5ki")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

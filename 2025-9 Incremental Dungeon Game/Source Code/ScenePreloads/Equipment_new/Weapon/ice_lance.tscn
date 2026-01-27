@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct8mdc2spta8r"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_saenb"]
+[ext_resource type="Texture2D" uid="uid://8oerfbx3nm5s" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/weapon/artefact/urand_crystal_spear_new.png" id="2_pt3eo"]
+
+[node name="Weapon" instance=ExtResource("1_saenb")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_pt3eo")
+flip_h = true
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

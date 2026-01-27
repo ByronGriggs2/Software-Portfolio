@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://dlnnws1pb6ha4"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_1rbks"]
+[ext_resource type="Resource" uid="uid://cvoiemo7ofd4x" path="res://Resources/OldAction/Attacks/Tutorial/nibble.tres" id="2_ep8iu"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_iwmla"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="3_ep8iu"]
+[ext_resource type="Texture2D" uid="uid://q266pc2dilh1" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/undead/zombies/zombie_rat.png" id="4_ep8iu"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="4_kj75e"]
+
+[sub_resource type="Resource" id="Resource_336em"]
+script = ExtResource("4_kj75e")
+isEligible = false
+glassCannonIndex = 1.0
+HPToDefRatio = 1.0
+defRatio = 1.0
+atkRatio = 1.0
+equipmentLevel = -1
+enemyQuality = 0
+enemyArmor = -1
+enemyRange = 0
+faction = 0
+
+[resource]
+script = ExtResource("3_ep8iu")
+portrait = ExtResource("4_ep8iu")
+text = "Dire Rat"
+description = "Still smaller than the ones in NYC."
+MAXHP = 120.4
+AR = 14.5
+DR = 58.1
+PHYSDEF = 8.02
+MAGDEF = 9.21
+actions = Array[ExtResource("1_1rbks")]([ExtResource("2_ep8iu")])
+drops = Array[ExtResource("2_iwmla")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_336em")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

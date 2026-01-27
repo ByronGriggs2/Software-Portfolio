@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw6ci18o2ie2k"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_btr2t"]
+[ext_resource type="Texture2D" uid="uid://cn3ifrjc3ddmk" path="res://Images/Sprites/ram_spear.png" id="2_tmi3n"]
+
+[node name="Weapon" instance=ExtResource("1_btr2t")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_tmi3n")
+flip_h = false
+region_rect = Rect2(0, 0, 16, 16)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

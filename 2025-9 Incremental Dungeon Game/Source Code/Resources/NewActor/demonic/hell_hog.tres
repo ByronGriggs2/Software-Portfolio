@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://wh4lexjviswd"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_suwf8"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_gm2mb"]
+[ext_resource type="Resource" uid="uid://diikmw2ulw3kb" path="res://Resources/NewAction/EnemyExclusiveAttacks/gore.tres" id="2_k1b3h"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_k1b3h"]
+[ext_resource type="Texture2D" uid="uid://bnicfd0wlinvr" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/animals/hell_hog_new.png" id="4_gm2mb"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_kutm6"]
+
+[sub_resource type="Resource" id="Resource_yvbqp"]
+script = ExtResource("3_k1b3h")
+isEligible = true
+glassCannonIndex = 0.35
+HPToDefRatio = 2.5
+defRatio = 0.83
+atkRatio = 0.6
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 0
+enemyRange = 0
+faction = 6
+
+[resource]
+script = ExtResource("4_kutm6")
+portrait = ExtResource("4_gm2mb")
+text = "Hellpig"
+description = "Though hellpigs bear superficial resemblance to hellephants, their social status is significantly lower than their larger brethren, as a consequence of being much less effective at eating people."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_suwf8")]([ExtResource("2_k1b3h")])
+drops = Array[ExtResource("2_gm2mb")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_yvbqp")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

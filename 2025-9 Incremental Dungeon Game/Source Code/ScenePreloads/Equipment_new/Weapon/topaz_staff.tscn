@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bycespo5cudm1"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_kssvd"]
+[ext_resource type="Texture2D" uid="uid://dxhd0e3b8qt5f" path="res://Images/Sprites/topaz_staff.png" id="2_xuahs"]
+
+[node name="Weapon" instance=ExtResource("1_kssvd")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_xuahs")
+flip_h = false
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

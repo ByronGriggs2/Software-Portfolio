@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://oouymcb33cll"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_sgumm"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_0cbm7"]
+[ext_resource type="Resource" uid="uid://bu5a0rsdhamjq" path="res://Resources/NewAction/EnemyExclusiveAttacks/claw_fire.tres" id="2_cemfl"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_cemfl"]
+[ext_resource type="Texture2D" uid="uid://bjgpb58kbyypm" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/demons/beast.png" id="4_0cbm7"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_5f08t"]
+
+[sub_resource type="Resource" id="Resource_gf4lr"]
+script = ExtResource("3_cemfl")
+isEligible = true
+glassCannonIndex = 0.8
+HPToDefRatio = 2.0
+defRatio = 0.91
+atkRatio = 0.6
+equipmentLevel = 1
+enemyQuality = 1
+enemyArmor = 1
+enemyRange = 0
+faction = 6
+
+[resource]
+script = ExtResource("4_5f08t")
+portrait = ExtResource("4_0cbm7")
+text = "Hell Beast"
+description = "They'd be happily at home in lava, if they didn't need to breathe oxygen."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_sgumm")]([ExtResource("2_cemfl")])
+drops = Array[ExtResource("2_0cbm7")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_gf4lr")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

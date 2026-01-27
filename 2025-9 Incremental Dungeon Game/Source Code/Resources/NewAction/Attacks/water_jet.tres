@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://m4qa2i0ttkt6"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Resources/OldAction/attack_action.gd" id="1_phtq0"]
+
+[resource]
+script = ExtResource("1_phtq0")
+type = 1
+power = 1.66
+text = "Water Jet"
+mode = 0
+warmup = 4.0
+metadata/_custom_type_script = "uid://6o4dw2binuis"

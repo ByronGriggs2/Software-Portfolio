@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://yj5ihx4e0ed8"]
+
+[ext_resource type="PackedScene" uid="uid://doco0f71p4yi8" path="res://Graphic Elements/Carousel/carousel.tscn" id="1_bbw7p"]
+[ext_resource type="Script" uid="uid://ck6u6grifltki" path="res://Graphic Elements/Carousel/carousel_continue.gd" id="2_3xh2b"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_76rvy"]
+
+[node name="CarouselContinue" instance=ExtResource("1_bbw7p")]
+script = ExtResource("2_3xh2b")
+
+[node name="Continue" parent="." index="1" instance=ExtResource("3_76rvy")]
+custom_minimum_size = Vector2(324, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Continue"
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

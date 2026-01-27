@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8fm1d6er87jy"]
+
+[ext_resource type="PackedScene" uid="uid://brcwmo5crwsq1" path="res://ScenePreloads/Equipment_old/armor.tscn" id="1_46rk3"]
+[ext_resource type="Texture2D" uid="uid://do1bdgicelwrg" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/nonliving/wellspring.png" id="2_0fg4b"]
+
+[node name="Armor" instance=ExtResource("1_46rk3")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_0fg4b")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

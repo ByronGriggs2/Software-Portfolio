@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://irsy6eedblrs"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_p7vxx"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_0426y"]
+[ext_resource type="Resource" uid="uid://do5ci07i2sjqj" path="res://Resources/NewAction/Attacks/water_jet_3.tres" id="2_swqve"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_swqve"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_7fd5x"]
+[ext_resource type="Texture2D" uid="uid://d2nptwg5iduu1" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/unique/ilsuiw_water_new.png" id="4_0426y"]
+
+[sub_resource type="Resource" id="Resource_s0j7t"]
+script = ExtResource("3_swqve")
+isEligible = true
+glassCannonIndex = 1.1
+HPToDefRatio = 1.3
+defRatio = 1.1
+atkRatio = 1.2
+equipmentLevel = 2
+enemyQuality = 2
+enemyArmor = 2
+enemyRange = 2
+faction = 7
+
+[resource]
+script = ExtResource("4_7fd5x")
+portrait = ExtResource("4_0426y")
+text = "Ilsuiw"
+description = "Princess Ilsuiw is the ruler of the local principality. Defying tradition at a young age, she applied to the Academy of Magic, who were of course forced to accept her. Excelling in her studies, Ilsuiw quickly outpaced her peers and in time became known as the most powerful Hydrosophist alive. "
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_p7vxx")]([ExtResource("2_swqve")])
+drops = Array[ExtResource("2_0426y")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_s0j7t")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

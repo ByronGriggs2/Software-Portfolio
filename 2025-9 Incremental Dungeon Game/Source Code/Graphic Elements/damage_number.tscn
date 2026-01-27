@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b25xp30kdo0v4"]
+
+[ext_resource type="Script" uid="uid://bmuty6hnthnkn" path="res://Graphic Elements/damage_number.gd" id="1_8bplb"]
+
+[node name="DamageNumber" type="RichTextLabel"]
+modulate = Color(0.839216, 0.160784, 0.0627451, 1)
+z_index = 999
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = " 833.24 "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_8bplb")

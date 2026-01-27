@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi7l52yfr7krs"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_tdare"]
+[ext_resource type="Texture2D" uid="uid://bqiylaqpmveeq" path="res://Images/SpriteSheets/MeleeWeapons.png" id="2_cyc15"]
+
+[node name="Weapon" instance=ExtResource("1_tdare")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_cyc15")
+flip_h = false
+region_rect = Rect2(117, 198, 11, 10)
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

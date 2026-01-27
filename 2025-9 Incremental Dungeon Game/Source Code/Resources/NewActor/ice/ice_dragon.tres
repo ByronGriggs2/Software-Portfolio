@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://qymo1wkvb11m"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_prgm2"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_01yy7"]
+[ext_resource type="Resource" uid="uid://d0uu1mukv06xi" path="res://Resources/NewAction/EnemyExclusiveAttacks/breath_frost.tres" id="2_yuqeq"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_yuqeq"]
+[ext_resource type="Texture2D" uid="uid://bsbq86lfrto6n" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/dragons/ice_dragon_new.png" id="4_01yy7"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_3rdf0"]
+
+[sub_resource type="Resource" id="Resource_ibc6l"]
+script = ExtResource("3_yuqeq")
+isEligible = true
+glassCannonIndex = 0.8
+HPToDefRatio = 0.8
+defRatio = 0.83
+atkRatio = 1.8
+equipmentLevel = 4
+enemyQuality = 2
+enemyArmor = -1
+enemyRange = 0
+faction = 3
+
+[resource]
+script = ExtResource("4_3rdf0")
+portrait = ExtResource("4_01yy7")
+text = "Ice Dragon"
+description = "Ice dragons are perhaps the least known of all dragons, as they spend most of their time sleeping and they dislike the temperatures away from their frigid mountain peaks. Despite their seemingly barren environment, ice dragons enjoy a year round banquet, using flight and intelligence to easily locate prey, then resting for weeks or months without food, a lifestyle afforded by their slow metabolisms.
+
+Ice dragons  posess breath of frigid cold, and can readily freeze not only water and organic matter, but CO2 and alcohol as well. Their treasure hoards include opium gardens, fine pelts, and the remains of unfortunate ice elementals."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_prgm2")]([ExtResource("2_yuqeq")])
+drops = Array[ExtResource("2_01yy7")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_ibc6l")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

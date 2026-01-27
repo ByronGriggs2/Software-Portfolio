@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://botvhu7co5n4k"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_vttgv"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_8kr3y"]
+[ext_resource type="Resource" uid="uid://c05qorhfkc650" path="res://Resources/NewAction/EnemyExclusiveAttacks/breath_shadow.tres" id="2_jabd0"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_jabd0"]
+[ext_resource type="Texture2D" uid="uid://u6yge1lpt7hr" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/dragons/shadow_dragon.png" id="4_8kr3y"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_swmyo"]
+
+[sub_resource type="Resource" id="Resource_pr52c"]
+script = ExtResource("3_jabd0")
+isEligible = true
+glassCannonIndex = 1.2
+HPToDefRatio = 0.8
+defRatio = 0.83
+atkRatio = 4.0
+equipmentLevel = 4
+enemyQuality = 2
+enemyArmor = -1
+enemyRange = 0
+faction = 9
+
+[resource]
+script = ExtResource("4_swmyo")
+portrait = ExtResource("4_8kr3y")
+text = "Shadow Dragon"
+description = "A child of Tiamat. Fortunately for you, the Queen of Dragons isn't particularly attached to her offspring."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_vttgv")]([ExtResource("2_jabd0")])
+drops = Array[ExtResource("2_8kr3y")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_pr52c")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

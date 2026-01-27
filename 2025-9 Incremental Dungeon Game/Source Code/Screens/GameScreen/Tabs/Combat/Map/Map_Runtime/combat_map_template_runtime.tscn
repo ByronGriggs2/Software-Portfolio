@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://dkkrlvkvqd4q7"]
+
+[ext_resource type="Theme" uid="uid://d25cv7a58p2hk" path="res://Graphic Elements/Themes/defaultTheme.tres" id="1_8k7xa"]
+[ext_resource type="Script" uid="uid://cgbfuy3od2ane" path="res://Screens/GameScreen/Tabs/Combat/Map/Map_Runtime/combat_map_runtime.gd" id="2_kn18w"]
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="3_r2v00"]
+[ext_resource type="Script" uid="uid://b61i2pgsin3ab" path="res://Screens/GameScreen/Tabs/Combat/Map/combat_map_sub.gd" id="4_d0cb0"]
+[ext_resource type="Texture2D" uid="uid://c37g07pnx8v8d" path="res://Images/Sprites/WASD.png" id="5_1o5bd"]
+[ext_resource type="PackedScene" uid="uid://c74nurywvrmkl" path="res://Graphic Elements/Buttons/super_button.tscn" id="6_jw8vi"]
+[ext_resource type="Theme" uid="uid://dnl8phr5vpkc4" path="res://Graphic Elements/Themes/lightButton.tres" id="7_g2lmy"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="7_kn18w"]
+[ext_resource type="Texture2D" uid="uid://dx4fvgghc0432" path="res://Images/CC0 Assets/icon_map.png" id="8_v3m8a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7x35n"]
+bg_color = Color(0.34, 0.2312, 0.2312, 0)
+border_width_left = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_suu3s"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[node name="MapViewport_Runtime" type="Panel"]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme = ExtResource("1_8k7xa")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7x35n")
+script = ExtResource("2_kn18w")
+
+[node name="CombatMap" type="Panel" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(5760, 3240)
+layout_mode = 0
+offset_right = 5760.0
+offset_bottom = 3240.0
+theme = ExtResource("3_r2v00")
+theme_override_styles/panel = SubResource("StyleBoxFlat_suu3s")
+script = ExtResource("4_d0cb0")
+
+[node name="ConnectionContainer" type="Control" parent="CombatMap"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RoomContainer" type="Control" parent="CombatMap"]
+custom_minimum_size = Vector2(5760, 3240)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="HomeButton" parent="HBoxContainer" instance=ExtResource("6_jw8vi")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("7_g2lmy")
+toggle = false
+
+[node name="Sprite" parent="HBoxContainer/HomeButton/HBoxContainer" index="0" instance=ExtResource("7_kn18w")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Icon" parent="HBoxContainer/HomeButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("8_v3m8a")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 3
+custom_minimum_size = Vector2(205, 145)
+layout_mode = 2
+texture = ExtResource("5_1o5bd")
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="resized" from="CombatMap" to="." method="_on_combat_map_resized"]
+[connection signal="resized" from="CombatMap" to="CombatMap" method="_on_resized"]
+[connection signal="wasSelected" from="HBoxContainer/HomeButton" to="." method="_on_home_button_was_selected"]
+
+[editable path="HBoxContainer/HomeButton"]
+[editable path="HBoxContainer/HomeButton/HBoxContainer/Sprite"]

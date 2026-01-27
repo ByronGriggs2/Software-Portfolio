@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bdg1h6xxpmtkx"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_ec2i4"]
+[ext_resource type="Resource" uid="uid://cfu5avjlndjoe" path="res://Resources/NewAction/Attacks/mace_2h.tres" id="2_vlmga"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_xq8es"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_vlmga"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_cwgif"]
+[ext_resource type="Texture2D" uid="uid://dqfnhkswmne60" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/fungi_plants/treant.png" id="4_xq8es"]
+
+[sub_resource type="Resource" id="Resource_74tmj"]
+script = ExtResource("3_vlmga")
+isEligible = true
+glassCannonIndex = 0.5
+HPToDefRatio = 0.75
+defRatio = 0.83
+atkRatio = 0.7
+equipmentLevel = 0
+enemyQuality = 1
+enemyArmor = 0
+enemyRange = 0
+faction = 2
+
+[resource]
+script = ExtResource("4_cwgif")
+portrait = ExtResource("4_xq8es")
+text = "Treant"
+description = "Though the first treants were created from normal trees by angry druids, treants reproduce just like normal trees, and thus can be created by other treants. 
+
+Treants prefer to spend 100% of their time unmoving, but they are occasionally motivated to move about to secure more sunlight or to deal with intruders reported by their dryad friends."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_ec2i4")]([ExtResource("2_vlmga")])
+drops = Array[ExtResource("2_xq8es")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_74tmj")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

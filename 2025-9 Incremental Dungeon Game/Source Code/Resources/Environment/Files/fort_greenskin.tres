@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://n1bo7oa2lgu3"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_s7i6f"]
+
+[resource]
+script = ExtResource("1_s7i6f")
+title = "Greenskin War Camp"
+introText = "The route you've plotted appears to run straight through a Greenskin War Camp. They don't take kindly to outsiders, and will no doubt take an interest in your equipment."
+permittedFactions = Array[int]([8])
+firePermitted = false
+icePermitted = false
+earthPermitted = false
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

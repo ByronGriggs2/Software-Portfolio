@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://cyg2srjpr2goe"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_on4tr"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_5uqsx"]
+[ext_resource type="Resource" uid="uid://c4s3gwthfehbj" path="res://Resources/NewAction/Attacks/generic_brutal.tres" id="2_n5oet"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_n5oet"]
+[ext_resource type="Texture2D" uid="uid://5qh0aqj8neyf" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/fungi_plants/thorn_hunter.png" id="4_5uqsx"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_fcuyd"]
+
+[sub_resource type="Resource" id="Resource_kt1vr"]
+script = ExtResource("3_n5oet")
+isEligible = true
+glassCannonIndex = 20.0
+HPToDefRatio = 3.0
+defRatio = 0.83
+atkRatio = 0.7
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 0
+enemyRange = 0
+faction = 2
+
+[resource]
+script = ExtResource("4_fcuyd")
+portrait = ExtResource("4_5uqsx")
+text = "Thorned Ambusher"
+description = "The thorned ambusher is a carnivorous plant that has a nasty habit of attacking large prey, including fairies, boars, and humanoids. Lacking proper digestive organs, these ambush predators have no energy to spare, and rely on killing their prey in 1 strike or perishing."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_on4tr")]([ExtResource("2_n5oet")])
+drops = Array[ExtResource("2_5uqsx")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_kt1vr")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://mivbbdr7bif7"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_pq6ng"]
+[ext_resource type="Resource" uid="uid://xv3vu3gwfndt" path="res://Resources/NewAction/EnemyExclusiveAttacks/breath_acid.tres" id="2_tg3de"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_vpnyo"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_tg3de"]
+[ext_resource type="Texture2D" uid="uid://cr7e4vaje3rxv" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/dragons/swamp_dragon_new.png" id="4_vpnyo"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_xto23"]
+
+[sub_resource type="Resource" id="Resource_m7mnl"]
+script = ExtResource("3_tg3de")
+isEligible = true
+glassCannonIndex = 0.8
+HPToDefRatio = 0.8
+defRatio = 0.83
+atkRatio = 3.0
+equipmentLevel = 4
+enemyQuality = 2
+enemyArmor = -1
+enemyRange = 0
+faction = 2
+
+[resource]
+script = ExtResource("4_xto23")
+portrait = ExtResource("4_vpnyo")
+text = "Swamp Dragon"
+description = "Apart from Demons (whose species takes many shapes), dragons are the only known sapient non-humanoid, as well as the only known non-social sapient creature. Arrogant and conceited, dragons consider themselves the greatest of all living beings, and given their strength and history of dominance, it's hard to argue with their assessment.
+
+Swamp dragons possess breath of poisonous acid, capable of destroying ferrous armours with ease. Their treasure hoards include fossils, gems, and the bones of their largest prey."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_pq6ng")]([ExtResource("2_tg3de")])
+drops = Array[ExtResource("2_vpnyo")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_m7mnl")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://dk3syxjmcsvah"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_qt2p1"]
+[ext_resource type="Resource" uid="uid://bnd1vktn6u6tx" path="res://Resources/NewAction/Attacks/water_jet_2.tres" id="2_1egcd"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="3_yklh5"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="4_m0kto"]
+[ext_resource type="Texture2D" uid="uid://cs6mrim8uno70" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/merfolk_aquamancer_water_new.png" id="5_u1qoj"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="6_auw2m"]
+
+[sub_resource type="Resource" id="Resource_oiihb"]
+script = ExtResource("4_m0kto")
+isEligible = true
+glassCannonIndex = 1.35
+HPToDefRatio = 1.25
+defRatio = 1.1
+atkRatio = 1.0
+equipmentLevel = 2
+enemyQuality = 1
+enemyArmor = 1
+enemyRange = 2
+faction = 7
+
+[resource]
+script = ExtResource("6_auw2m")
+portrait = ExtResource("5_u1qoj")
+text = "Merfolk Hydrosophist"
+description = "Graduates of the Merfolk Academy of Magic, Hydrosophists are masters of healing and destruction magic, a necessity for any platoon."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_qt2p1")]([ExtResource("2_1egcd")])
+drops = Array[ExtResource("3_yklh5")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_oiihb")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://crr0ejqfmujty"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_kyfmn"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_4du8m"]
+[ext_resource type="Resource" uid="uid://bnw2nxnyjnpf" path="res://Resources/NewAction/EnemyExclusiveAttacks/breath_iron.tres" id="2_qnt7h"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_qnt7h"]
+[ext_resource type="Texture2D" uid="uid://buooyb17sbweb" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/dragons/iron_dragon.png" id="4_4du8m"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_xtq27"]
+
+[sub_resource type="Resource" id="Resource_wpv52"]
+script = ExtResource("3_qnt7h")
+isEligible = true
+glassCannonIndex = 4.0
+HPToDefRatio = 0.2
+defRatio = 1.5
+atkRatio = 8.0
+equipmentLevel = 4
+enemyQuality = 2
+enemyArmor = -1
+enemyRange = 0
+faction = 9
+
+[resource]
+script = ExtResource("4_xtq27")
+portrait = ExtResource("4_4du8m")
+text = "Iron Dragon"
+description = "Iron is much softer than dragon scales, so she should go down easy, right?"
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_kyfmn")]([ExtResource("2_qnt7h")])
+drops = Array[ExtResource("2_4du8m")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_wpv52")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

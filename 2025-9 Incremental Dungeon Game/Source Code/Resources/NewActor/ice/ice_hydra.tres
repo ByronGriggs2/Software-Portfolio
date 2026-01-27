@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://cdy1o860fayvw"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_gn787"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_dvsuh"]
+[ext_resource type="Resource" uid="uid://78jthd1t3mds" path="res://Resources/NewAction/EnemyExclusiveAttacks/bite_ice_2.tres" id="2_l27wi"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_l27wi"]
+[ext_resource type="Texture2D" uid="uid://dfhvdau70xiw3" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/undead/simulacra/simulacrum_hydra_5.png" id="4_dvsuh"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_l6icn"]
+
+[sub_resource type="Resource" id="Resource_grpr0"]
+script = ExtResource("3_l27wi")
+isEligible = true
+glassCannonIndex = 1.0
+HPToDefRatio = 0.6
+defRatio = 0.83
+atkRatio = 2.0
+equipmentLevel = 0
+enemyQuality = 2
+enemyArmor = 0
+enemyRange = 0
+faction = 3
+
+[resource]
+script = ExtResource("4_l6icn")
+portrait = ExtResource("4_dvsuh")
+text = "Frost Hydra"
+description = "Hydras are tremendously powerful creatures, perhaps the only animals ever to exist that are physically superior to dragons, if only slightly. Dragons take great offense at this, and as such have hunted hydras of all kinds to near extinction. Despite their physical strength, hydras lack a breath weapon and the intelligence of true dragons, and make easy prey for their patient and resourceful hunters."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_gn787")]([ExtResource("2_l27wi")])
+drops = Array[ExtResource("2_dvsuh")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_grpr0")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

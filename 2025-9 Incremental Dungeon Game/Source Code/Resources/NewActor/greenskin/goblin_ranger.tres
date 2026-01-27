@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://dj0bq83vwc708"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_hwgdj"]
+[ext_resource type="Resource" uid="uid://cbff67necubjr" path="res://Resources/NewAction/Attacks/shortbow.tres" id="2_2y3cc"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_83xfn"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_2y3cc"]
+[ext_resource type="Texture2D" uid="uid://dgruyhn8t7tay" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/goblin_new.png" id="4_dy8xn"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="5_qd1lo"]
+
+[sub_resource type="Resource" id="Resource_tspqu"]
+script = ExtResource("3_2y3cc")
+isEligible = true
+glassCannonIndex = 2.2
+HPToDefRatio = 0.4
+defRatio = 1.1
+atkRatio = 1.5
+equipmentLevel = 1
+enemyQuality = 0
+enemyArmor = 2
+enemyRange = 2
+faction = 8
+
+[resource]
+script = ExtResource("5_qd1lo")
+portrait = ExtResource("4_dy8xn")
+text = "Goblin Ranger"
+description = "The diminutive goblins of the Greenskin Tribes are short in stature, but nasty and prolific. Goblins prefer waging war with guirella tactics rather than brute force, and goblin rangers are no exception, showering villages and trading outposts with crude arrows and javelins."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_hwgdj")]([ExtResource("2_2y3cc")])
+drops = Array[ExtResource("2_83xfn")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_tspqu")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

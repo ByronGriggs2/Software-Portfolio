@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://b67o0g2qrspoc"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_cenn6"]
+[ext_resource type="Resource" uid="uid://b5gco7qhgis7n" path="res://Resources/NewAction/Attacks/lightning.tres" id="2_dqfxp"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_o1ggu"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_dqfxp"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_5fpfd"]
+[ext_resource type="Texture2D" uid="uid://oixdxa3phcdc" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/aquatic/electric_eel.png" id="4_o1ggu"]
+
+[sub_resource type="Resource" id="Resource_o2eot"]
+script = ExtResource("3_dqfxp")
+isEligible = true
+glassCannonIndex = 4.0
+HPToDefRatio = 0.7
+defRatio = 0.83
+atkRatio = 2.0
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 0
+enemyRange = 0
+faction = 1
+
+[resource]
+script = ExtResource("4_5fpfd")
+portrait = ExtResource("4_o1ggu")
+text = "Electric Eel"
+description = "Although originally the Electric Eel stunned small fish with small amounts of electricity generated with electrocytes, an arms race with their prey led to the Eel developing natural magical electricity than can kill a horse in a single strike."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_cenn6")]([ExtResource("2_dqfxp")])
+drops = Array[ExtResource("2_o1ggu")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_o2eot")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

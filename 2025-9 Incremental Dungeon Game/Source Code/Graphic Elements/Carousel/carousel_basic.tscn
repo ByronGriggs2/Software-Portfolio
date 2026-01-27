@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://demic8kpubfcc"]
+
+[ext_resource type="Script" uid="uid://cbl804eg6j3al" path="res://Graphic Elements/Carousel/carousel_basic.gd" id="1_plpsj"]
+[ext_resource type="Texture2D" uid="uid://dajemb06vo1po" path="res://Images/CC0 Assets/Arrows/gray_left.png" id="3_7eggb"]
+[ext_resource type="Texture2D" uid="uid://d2fmcloqe127p" path="res://Images/CC0 Assets/Arrows/gray_left_pressed.png" id="4_h27ln"]
+[ext_resource type="Texture2D" uid="uid://dvywupmm2f04s" path="res://Images/CC0 Assets/Arrows/gray_left_hovered.png" id="5_04st4"]
+[ext_resource type="Texture2D" uid="uid://4jkijxwasww7" path="res://Images/CC0 Assets/Arrows/gray_left_disabled.png" id="6_dbu3l"]
+[ext_resource type="BitMap" uid="uid://dps5b4r0dxqk6" path="res://Images/CC0 Assets/Arrows/bitmap_left.png" id="7_hjwet"]
+
+[node name="Carousel" type="VBoxContainer"]
+offset_right = 167.0
+offset_bottom = 24.0
+theme_override_constants/separation = 25
+alignment = 1
+script = ExtResource("1_plpsj")
+textureScale = 2.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Left" type="TextureButton" parent="HBoxContainer"]
+texture_filter = 3
+custom_minimum_size = Vector2(28, 24)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("3_7eggb")
+texture_pressed = ExtResource("4_h27ln")
+texture_hover = ExtResource("5_04st4")
+texture_disabled = ExtResource("6_dbu3l")
+texture_click_mask = ExtResource("7_hjwet")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(67, 0)
+layout_mode = 2
+text = " Sample Text "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="TextureButton" parent="HBoxContainer"]
+texture_filter = 3
+custom_minimum_size = Vector2(28, 24)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("3_7eggb")
+texture_pressed = ExtResource("4_h27ln")
+texture_hover = ExtResource("5_04st4")
+texture_disabled = ExtResource("6_dbu3l")
+texture_click_mask = ExtResource("7_hjwet")
+stretch_mode = 0
+flip_h = true
+
+[connection signal="pressed" from="HBoxContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="HBoxContainer/Right" to="." method="_on_right_pressed"]

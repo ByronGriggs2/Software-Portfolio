@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://cfj78pgtn5wtk"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_moqyd"]
+[ext_resource type="Resource" uid="uid://b138473lvri1f" path="res://Resources/NewAction/Attacks/spear_2h.tres" id="2_0cafr"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_unhvx"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_0cafr"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_u7cgb"]
+[ext_resource type="Texture2D" uid="uid://dqat1s75q3ogf" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/demons/tormentor_new.png" id="4_unhvx"]
+
+[sub_resource type="Resource" id="Resource_vfjf7"]
+script = ExtResource("3_0cafr")
+isEligible = true
+glassCannonIndex = 1.0
+HPToDefRatio = 1.0
+defRatio = 1.3
+atkRatio = 1.0
+equipmentLevel = 1
+enemyQuality = 2
+enemyArmor = 3
+enemyRange = 0
+faction = 6
+
+[resource]
+script = ExtResource("4_u7cgb")
+portrait = ExtResource("4_unhvx")
+text = "The Tormented"
+description = "Whatever crimes this disgraced Demon lord committed to deserve such punishment must be horrors beyond your comprehension.
+
+Unfortunately for you, they seem to think a misery shared is a misery halved..."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_moqyd")]([ExtResource("2_0cafr")])
+drops = Array[ExtResource("2_unhvx")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_vfjf7")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

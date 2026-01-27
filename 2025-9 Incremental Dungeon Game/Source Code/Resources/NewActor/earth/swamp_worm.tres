@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://b2qx13we64j2b"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_71nuu"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_bq0qh"]
+[ext_resource type="Resource" uid="uid://b2serwufoqsqm" path="res://Resources/NewAction/EnemyExclusiveAttacks/bite_acid_2.tres" id="2_gndr4"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_gndr4"]
+[ext_resource type="Texture2D" uid="uid://bqgh7ufn8xqjv" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/aquatic/swamp_worm_new.png" id="4_bq0qh"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_mbe4b"]
+
+[sub_resource type="Resource" id="Resource_eqngl"]
+script = ExtResource("3_gndr4")
+isEligible = true
+glassCannonIndex = 0.2
+HPToDefRatio = 0.2
+defRatio = 0.83
+atkRatio = 1.2
+equipmentLevel = 0
+enemyQuality = 1
+enemyArmor = 0
+enemyRange = 0
+faction = 2
+
+[resource]
+script = ExtResource("4_mbe4b")
+portrait = ExtResource("4_bq0qh")
+text = "Swamp Worm"
+description = "The swamp worm lives a simple life. Born the size of a tadpole, it eats continuously until death, whether from injury or organ failure due to excessive size. To discourage (sometimes wolf-sized) parasites, it attacks anything that moves on sight."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_71nuu")]([ExtResource("2_gndr4")])
+drops = Array[ExtResource("2_bq0qh")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_eqngl")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

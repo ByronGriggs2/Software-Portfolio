@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://coie1i3w61ovc"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_o5hp4"]
+
+[resource]
+script = ExtResource("1_o5hp4")
+title = "Glacial Cavern"
+introText = "The walls of this cavern are made of solid ice, and the air is beyond frigid. If you don't find something to burn, the cold will kill you before you find any monsters!"
+permittedFactions = Array[int]([3])
+firePermitted = false
+icePermitted = true
+earthPermitted = false
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

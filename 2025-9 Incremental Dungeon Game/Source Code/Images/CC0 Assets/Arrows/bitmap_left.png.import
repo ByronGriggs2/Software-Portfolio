@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dps5b4r0dxqk6"
+path="res://.godot/imported/bitmap_left.png-5a1e427bae87216172979c9492cf1df4.res"
+
+[deps]
+
+source_file="res://Images/CC0 Assets/Arrows/bitmap_left.png"
+dest_files=["res://.godot/imported/bitmap_left.png-5a1e427bae87216172979c9492cf1df4.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

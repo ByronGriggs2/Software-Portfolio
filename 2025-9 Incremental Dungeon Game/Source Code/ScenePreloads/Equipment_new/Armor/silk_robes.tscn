@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbc1irefykaii"]
+
+[ext_resource type="PackedScene" uid="uid://brcwmo5crwsq1" path="res://ScenePreloads/Equipment_old/armor.tscn" id="1_sed0d"]
+[ext_resource type="Texture2D" uid="uid://s6p1wdft5jkl" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/armor/artefact/urand_augmentation.png" id="2_gv3pl"]
+
+[node name="Armor" instance=ExtResource("1_sed0d")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_gv3pl")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

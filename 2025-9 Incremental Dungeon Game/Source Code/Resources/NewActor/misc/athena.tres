@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=11 format=3 uid="uid://c1s67eb1cavtj"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_ds4gl"]
+[ext_resource type="Resource" uid="uid://cyikpt4dkmw10" path="res://Resources/NewAction/Attacks/flurry.tres" id="2_88pja"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_vjg6v"]
+[ext_resource type="Resource" uid="uid://c6rpc1n0p1d30" path="res://Resources/NewAction/Attacks/split_man.tres" id="3_fq0la"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_uvg6m"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_cegr3"]
+[ext_resource type="Texture2D" uid="uid://dkmj7wpqwvk4y" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/daeva.png" id="4_vjg6v"]
+[ext_resource type="Resource" uid="uid://c7cw8btqtolgo" path="res://Resources/NewAction/EnemyExclusiveAttacks/hellfire_cleave.tres" id="4_xwq71"]
+[ext_resource type="Resource" uid="uid://w3pmcq15a002" path="res://Resources/NewAction/Attacks/disintigrate.tres" id="5_g7btv"]
+
+[sub_resource type="Resource" id="Resource_4nrih"]
+script = ExtResource("3_uvg6m")
+isEligible = false
+glassCannonIndex = 0.5
+HPToDefRatio = 0.1
+defRatio = 1.0
+atkRatio = 50.0
+equipmentLevel = 4
+enemyQuality = 0
+enemyArmor = -1
+enemyRange = 0
+faction = 9
+
+[resource]
+script = ExtResource("4_cegr3")
+portrait = ExtResource("4_vjg6v")
+text = "Avatar of Athena"
+description = "She will hold nothing back. If you train hard, you might last at least a second against her."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_ds4gl")]([ExtResource("2_88pja"), ExtResource("3_fq0la"), ExtResource("4_xwq71"), ExtResource("5_g7btv")])
+drops = Array[ExtResource("2_vjg6v")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_4nrih")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

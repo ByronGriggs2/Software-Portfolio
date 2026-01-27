@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://q07hqxyijotk"]
+
+[ext_resource type="PackedScene" uid="uid://bha3i0vfrpvx5" path="res://Graphic Elements/popups/my_popup_button.tscn" id="1_okxds"]
+[ext_resource type="Script" uid="uid://b0meil4pyu2j" path="res://Graphic Elements/popups/my_popup_button_encyclopedia.gd" id="2_6bmji"]
+[ext_resource type="PackedScene" uid="uid://b8u7rb34016g7" path="res://Graphic Elements/Tooltips/encyclopedia_text_label.tscn" id="2_klva7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klva7"]
+bg_color = Color(0.858824, 0.858824, 0.858824, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 25.0
+expand_margin_top = 15.0
+expand_margin_right = 25.0
+expand_margin_bottom = 15.0
+
+[node name="MyPopupButtonEncyclopedia" instance=ExtResource("1_okxds")]
+script = ExtResource("2_6bmji")
+
+[node name="Window" parent="Panel/CenterContainer" index="0"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_klva7")
+
+[node name="Title" parent="Panel/CenterContainer/Window/VBoxContainer" index="0"]
+text = " Sample Text "
+
+[node name="Text" parent="Panel/CenterContainer/Window/VBoxContainer" index="1"]
+text = ""
+
+[node name="EncyclopediaTextLabel" parent="Panel/CenterContainer/Window/VBoxContainer" index="2" instance=ExtResource("2_klva7")]
+layout_mode = 2
+
+[node name="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0"]
+text = " Return "

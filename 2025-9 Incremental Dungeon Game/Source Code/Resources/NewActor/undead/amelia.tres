@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bxnwnugp8devo"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_v4fyp"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_n0n2l"]
+[ext_resource type="Resource" uid="uid://dy1a63hiu782l" path="res://Resources/NewAction/Attacks/curse.tres" id="2_sew8t"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_sew8t"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_dkxkc"]
+[ext_resource type="Texture2D" uid="uid://ddouujfmmfxbg" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/undead/vampire_new.png" id="5_dkxkc"]
+
+[sub_resource type="Resource" id="Resource_0s5n8"]
+script = ExtResource("3_sew8t")
+isEligible = true
+glassCannonIndex = 1.5
+HPToDefRatio = 0.75
+defRatio = 1.1
+atkRatio = 1.0
+equipmentLevel = 2
+enemyQuality = 2
+enemyArmor = 2
+enemyRange = 0
+faction = 4
+
+[resource]
+script = ExtResource("4_dkxkc")
+portrait = ExtResource("5_dkxkc")
+text = "Vampire Lady Amelia"
+description = "One of the most respected vampire lords, Amelia isn't prone to conflict. Still, she doesn't take kindly to people that break down her door and slaughter all her minions."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_v4fyp")]([ExtResource("2_sew8t")])
+drops = Array[ExtResource("2_n0n2l")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_0s5n8")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

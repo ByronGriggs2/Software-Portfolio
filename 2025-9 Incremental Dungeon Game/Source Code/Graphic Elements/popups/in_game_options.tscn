@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://d01sl5skwxkde"]
+
+[ext_resource type="PackedScene" uid="uid://48l2vnrueam4" path="res://Graphic Elements/popups/my_popup.tscn" id="1_cjhhc"]
+[ext_resource type="Script" uid="uid://6ua1qeeo3yqt" path="res://Graphic Elements/popups/in_game_options.gd" id="2_vfm63"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_mod6m"]
+[ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="4_vfm63"]
+
+[node name="InGameOptions" instance=ExtResource("1_cjhhc")]
+script = ExtResource("2_vfm63")
+
+[node name="VBoxContainer" parent="Panel/CenterContainer/Window" index="0"]
+theme_override_constants/separation = 8
+
+[node name="Title" parent="Panel/CenterContainer/Window/VBoxContainer" index="0"]
+text = "Save Menu"
+
+[node name="Text" parent="Panel/CenterContainer/Window/VBoxContainer" index="1"]
+text = ""
+
+[node name="ManualSaveButton" parent="Panel/CenterContainer/Window/VBoxContainer" index="2" instance=ExtResource("3_mod6m")]
+layout_mode = 2
+theme = ExtResource("4_vfm63")
+theme_override_font_sizes/font_size = 20
+text = "Manual Save"
+
+[node name="LoadButton" parent="Panel/CenterContainer/Window/VBoxContainer" index="3" instance=ExtResource("3_mod6m")]
+layout_mode = 2
+theme = ExtResource("4_vfm63")
+theme_override_font_sizes/font_size = 20
+text = "Load Game"
+
+[node name="QuitButton0" parent="Panel/CenterContainer/Window/VBoxContainer" index="4" instance=ExtResource("3_mod6m")]
+layout_mode = 2
+theme = ExtResource("4_vfm63")
+theme_override_font_sizes/font_size = 20
+text = " Save and Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="5"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="ReturnButton" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2" index="0" instance=ExtResource("3_mod6m")]
+custom_minimum_size = Vector2(269, 0)
+layout_mode = 2
+theme = ExtResource("4_vfm63")
+theme_override_font_sizes/font_size = 25
+text = "Return to game"
+
+[node name="Control" type="Control" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2" index="1"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/ManualSaveButton" to="." method="_on_manual_save_button_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/QuitButton0" to="." method="_on_quit_button_0_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2/ReturnButton" to="." method="_on_return_button_pressed"]

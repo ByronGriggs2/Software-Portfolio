@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://de8ggwhvtfk1d"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_obe8o"]
+
+[resource]
+script = ExtResource("1_obe8o")
+title = "Demon City"
+introText = "You arrive in the suburbs of a Demon metropolitan area. Is this one of their larger cities? Their capital? You have no clue. The residents don't seem happy with you, though."
+permittedFactions = Array[int]([5, 6])
+firePermitted = true
+icePermitted = false
+earthPermitted = false
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://ceplqw55gy80t"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_o4tx8"]
+
+[resource]
+script = ExtResource("1_o4tx8")
+title = "Chaos Dimension"
+introText = "You climb down the stairwell for what seems like an eternity, eventually arriving in a cavern that appears pitch black in all directions. Even the floor absorbs all light, and seems perfectly smooth. You consider going back up to look for another path, but when you turn around, the stairwell is gone! Alright, I guess it's time to take a look around. Well, a feel around at least."
+permittedFactions = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8])
+firePermitted = true
+icePermitted = true
+earthPermitted = true
+waterPermitted = true
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbpbqy3ny0neu"]
+
+[ext_resource type="PackedScene" uid="uid://b0dk8gsoe4wgw" path="res://Screens/GameScreen/Tabs/tab.tscn" id="1_g0b1l"]
+[ext_resource type="Script" uid="uid://dk8w1wpuna5su" path="res://Screens/GameScreen/Tabs/EquipmentTab/equipment_tab.gd" id="2_0l1mm"]
+[ext_resource type="PackedScene" uid="uid://dojb8cowhicsn" path="res://Screens/GameScreen/Tabs/EquipmentTab/inventory.tscn" id="3_0l1mm"]
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="3_1iavv"]
+[ext_resource type="Script" uid="uid://bl0ltiwiu7efm" path="res://Screens/GameScreen/Tabs/EquipmentTab/current_equips.gd" id="3_ynj1n"]
+[ext_resource type="PackedScene" uid="uid://1ksshfruweif" path="res://Graphic Elements/Buttons/passive_super_button.tscn" id="4_nq0vw"]
+[ext_resource type="Theme" uid="uid://toctfm8xh225" path="res://Graphic Elements/Themes/squareSuperButton.tres" id="5_1iavv"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="5_hoiyj"]
+[ext_resource type="PackedScene" uid="uid://cx3yqql81cxuk" path="res://Screens/GameScreen/Tabs/EquipmentTab/paged_equipment_details.tscn" id="5_ynj1n"]
+[ext_resource type="PackedScene" uid="uid://bg06kottiuyhf" path="res://Graphic Elements/developer_console.tscn" id="9_hoiyj"]
+
+[node name="EquipmentTab" instance=ExtResource("1_g0b1l")]
+script = ExtResource("2_0l1mm")
+
+[node name="CurrentEquips" type="Panel" parent="." index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.2
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -7.0
+offset_bottom = -7.0
+theme = ExtResource("3_1iavv")
+script = ExtResource("3_ynj1n")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CurrentEquips" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Weapon" type="VBoxContainer" parent="CurrentEquips/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="RichTextLabel" parent="CurrentEquips/HBoxContainer/Weapon" index="0"]
+layout_mode = 2
+text = "Weapon"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="CurrentEquips/HBoxContainer/Weapon" index="1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_1iavv")
+
+[node name="PassiveSuperButton" parent="CurrentEquips/HBoxContainer/Weapon/Panel" index="0" instance=ExtResource("4_nq0vw")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_1iavv")
+
+[node name="Sprite" parent="CurrentEquips/HBoxContainer/Weapon/Panel/PassiveSuperButton/HBoxContainer" index="0" instance=ExtResource("5_hoiyj")]
+layout_mode = 2
+
+[node name="Icon" parent="CurrentEquips/HBoxContainer/Weapon/Panel/PassiveSuperButton/HBoxContainer/Sprite" index="0"]
+scale = Vector2(4, 4)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CurrentEquips/HBoxContainer/Weapon" index="2"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 17
+text = " "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PagedEquipmentDetails" parent="." index="1" instance=ExtResource("5_ynj1n")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+offset_left = 8.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+isInRewards = true
+
+[node name="DeveloperConsole" parent="." index="2" instance=ExtResource("9_hoiyj")]
+
+[node name="Inventory" parent="." index="3" instance=ExtResource("3_0l1mm")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 0.5
+offset_left = 15.0
+offset_top = 8.0
+offset_right = -7.0
+offset_bottom = -15.0
+
+[connection signal="selectRequested" from="CurrentEquips" to="." method="_on_current_equips_select_requested"]
+[connection signal="wasSelected" from="CurrentEquips/HBoxContainer/Weapon/Panel/PassiveSuperButton" to="CurrentEquips" method="_on_equipment_selected"]
+[connection signal="currentlyEquippedItemRequested" from="PagedEquipmentDetails" to="." method="_on_paged_equipment_details_currently_equipped_item_requested"]
+[connection signal="discardItemRequested" from="PagedEquipmentDetails" to="." method="_on_discard_requested_from_details"]
+[connection signal="equipRequested" from="PagedEquipmentDetails" to="." method="_on_equip_requested_from_details"]
+[connection signal="unequipRequested" from="PagedEquipmentDetails" to="." method="_on_unequip_requested_from_details"]
+[connection signal="getAllItems" from="DeveloperConsole" to="." method="_on_developer_console_get_all_items"]
+[connection signal="isReforgeHoveredRequested" from="Inventory" to="." method="_on_inventory_is_reforge_hovered_requested"]
+[connection signal="itemDeselected" from="Inventory" to="." method="_on_item_deselected"]
+[connection signal="itemEquipped" from="Inventory" to="." method="_on_inventory_equipped_item"]
+[connection signal="itemSelected" from="Inventory" to="." method="_on_item_selected"]
+[connection signal="itemUnequipped" from="Inventory" to="." method="_on_inventory_unequipped_item"]
+
+[editable path="CurrentEquips/HBoxContainer/Weapon/Panel/PassiveSuperButton"]
+[editable path="CurrentEquips/HBoxContainer/Weapon/Panel/PassiveSuperButton/HBoxContainer/Sprite"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://knpgym85vmnb"]
+
+[ext_resource type="PackedScene" uid="uid://hdbnxuqb8tf0" path="res://Screens/GameScreen/Tabs/Combat/Map/Map_Runtime/room_runtime.tscn" id="1_wj08v"]
+[ext_resource type="Script" uid="uid://ckb464uha4ph8" path="res://Screens/GameScreen/Tabs/Combat/Map/Map_Runtime/empty_room_runtime.gd" id="2_o56id"]
+
+[node name="Room_Runtime" instance=ExtResource("1_wj08v")]
+script = ExtResource("2_o56id")
+
+[editable path="ShopSymbol"]

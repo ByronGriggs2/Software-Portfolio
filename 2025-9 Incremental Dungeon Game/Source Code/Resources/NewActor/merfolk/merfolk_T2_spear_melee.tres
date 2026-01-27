@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://djr5txg3mp81s"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_xb6nm"]
+[ext_resource type="Resource" uid="uid://b138473lvri1f" path="res://Resources/NewAction/Attacks/spear_2h.tres" id="2_7gg2m"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="3_nuc85"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="4_vgi81"]
+[ext_resource type="Texture2D" uid="uid://bxt61sk4w0f6q" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/merfolk_fighter_water.png" id="5_pm5ui"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="6_vkakv"]
+
+[sub_resource type="Resource" id="Resource_lkans"]
+script = ExtResource("4_vgi81")
+isEligible = true
+glassCannonIndex = 0.75
+HPToDefRatio = 0.4
+defRatio = 1.3
+atkRatio = 2.2
+equipmentLevel = 3
+enemyQuality = 1
+enemyArmor = 3
+enemyRange = 1
+faction = 7
+
+[resource]
+script = ExtResource("6_vkakv")
+portrait = ExtResource("5_pm5ui")
+text = "Merfolk Knight"
+description = "Graduates of the Merfolk Academy of Martial Arts, Knights serve as the vanguard of the Merfolk military. Bearing heavy armor (by Merfolk standards) and arms, they lead the charge in perfect form."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_xb6nm")]([ExtResource("2_7gg2m")])
+drops = Array[ExtResource("3_nuc85")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_lkans")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

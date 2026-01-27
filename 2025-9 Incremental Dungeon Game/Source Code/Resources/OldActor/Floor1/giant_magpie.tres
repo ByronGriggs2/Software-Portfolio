@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=10 format=3 uid="uid://bobyptfnfqwb"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_imgpx"]
+[ext_resource type="Resource" uid="uid://bg08ljefax65u" path="res://Resources/OldAction/Attacks/Enemies/peck.tres" id="2_7gi6o"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="3_w1lj5"]
+[ext_resource type="Resource" uid="uid://ctexrblxpps2p" path="res://Resources/OldEquipment/Accessories/magpie_eye.tres" id="4_785ic"]
+[ext_resource type="Resource" uid="uid://bewegue7flrf3" path="res://Resources/OldEquipment/Weapons/ruby_staff.tres" id="5_ma1wr"]
+[ext_resource type="Texture2D" uid="uid://4qayepwl5akb" path="res://Images/Sprites/raben_b.png" id="6_7gi6o"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="6_ro3oo"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="6_w1lj5"]
+
+[sub_resource type="Resource" id="Resource_785ic"]
+script = ExtResource("6_w1lj5")
+isEligible = false
+glassCannonIndex = 1.0
+HPToDefRatio = 1.0
+defRatio = 1.0
+atkRatio = 1.0
+equipmentLevel = -1
+enemyQuality = 0
+enemyArmor = -1
+enemyRange = 0
+faction = 0
+
+[resource]
+script = ExtResource("6_ro3oo")
+portrait = ExtResource("6_7gi6o")
+text = "Giant Magpie"
+description = "Giant Magpies have an obsession with all things shiny. The more they have, they more they want."
+MAXHP = 293.0
+AR = 42.9
+DR = 54.6
+PHYSDEF = 88.0
+MAGDEF = 58.7
+actions = Array[ExtResource("1_imgpx")]([ExtResource("2_7gi6o")])
+drops = Array[ExtResource("3_w1lj5")]([ExtResource("4_785ic"), ExtResource("5_ma1wr")])
+dropChances = Array[float]([0.167, 0.167])
+enemyGroups = SubResource("Resource_785ic")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

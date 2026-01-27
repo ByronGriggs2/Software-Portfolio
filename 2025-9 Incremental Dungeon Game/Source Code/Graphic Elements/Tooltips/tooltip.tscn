@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6k334mqvemny"]
+
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="1_rf4ty"]
+[ext_resource type="Script" uid="uid://g0p0knyabd5j" path="res://Graphic Elements/Tooltips/tooltip.gd" id="2_8ycd5"]
+[ext_resource type="Texture2D" uid="uid://cc157eg2042mu" path="res://Images/WhiteCircle.png" id="3_0l0c1"]
+[ext_resource type="PackedScene" uid="uid://b8u7rb34016g7" path="res://Graphic Elements/Tooltips/encyclopedia_text_label.tscn" id="3_deqqh"]
+
+[node name="Tooltip" type="PanelContainer"]
+offset_right = 454.0
+offset_bottom = 86.0
+theme = ExtResource("1_rf4ty")
+script = ExtResource("2_8ycd5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Title" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Sample Text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EncyclopediaTextLabel" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_deqqh")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+value = 50.0
+fill_mode = 4
+texture_progress = ExtResource("3_0l0c1")
+tint_progress = Color(0.12549, 0.12549, 0.12549, 1)

@@ -1,0 +1,148 @@
+[gd_scene load_steps=15 format=3 uid="uid://3nxjkulbs6d8"]
+
+[ext_resource type="Script" uid="uid://bl8dc7xj3ppdk" path="res://Graphic Elements/tag_container_equipment.gd" id="1_bh874"]
+[ext_resource type="PackedScene" uid="uid://cb0xb20pk0mpa" path="res://Images/SpriteSheets/sprite.tscn" id="2_tf4cg"]
+[ext_resource type="Texture2D" uid="uid://psg4hocdyakd" path="res://Images/Sprites/Sprites/Tools_Crafting_Leatherworking_Hide_Tanning_Materials.png" id="3_tf4cg"]
+[ext_resource type="Texture2D" uid="uid://bv6bjl7n57j5m" path="res://Images/Sprites/Sprites/Tools_Crafting_Woodcutting_Tree_Log_Materials.png" id="4_1rva8"]
+[ext_resource type="Texture2D" uid="uid://d0x7ek8bnyym4" path="res://Images/Sprites/Sprites/Tools_Crafting_Farming_Scythe_Reap.png" id="5_72kh5"]
+[ext_resource type="Texture2D" uid="uid://b2xuvh7b82iq8" path="res://Images/Sprites/Sprites/Tools_Crafting_Smithing_Anvil_Hammer.png" id="6_1t2rd"]
+[ext_resource type="Texture2D" uid="uid://bkienm827btia" path="res://Images/Sprites/Sprites/Tools_Crafting_Smithing_Forge_Tongs.png" id="7_jporp"]
+[ext_resource type="Texture2D" uid="uid://2ijc03q5tutw" path="res://Images/Sprites/Sprites/RPG_Skill_Strike_Attack_Sword_Slash_Cleave.png" id="8_3nkdt"]
+[ext_resource type="Texture2D" uid="uid://bg88bww6xguk" path="res://Images/Sprites/Sprites/RPG_Skill_Multishot_Arrows_Ranged_Attack.png" id="9_8x4vu"]
+[ext_resource type="Texture2D" uid="uid://bs0o6r63s8wn0" path="res://Images/Sprites/Sprites/RPG_Item_Accessory_Armor_Equipment_Slot_Cape_Cloak_Clothing.png" id="10_s2r3e"]
+[ext_resource type="Texture2D" uid="uid://bsfepx608bgfh" path="res://Images/Sprites/Sprites/RPG_Item_Armor_Equipment_Slot_Chest_Breastplate_Body.png" id="11_8ulx1"]
+[ext_resource type="Texture2D" uid="uid://vyi0n4r35la6" path="res://Images/Sprites/Sprites/RPG_Item_Armor_Equipment_Slot_Chestplate_Body_Armour.png" id="12_8ulx1"]
+[ext_resource type="Texture2D" uid="uid://budciyoeyg8v0" path="res://Images/Sprites/Sprites/Tools_Crafting_Graphic_Design_Pen_Vector_Path.png" id="13_8ulx1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ulx1"]
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[node name="TagContainerEquipment" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+alignment = 1
+script = ExtResource("1_bh874")
+
+[node name="Technology" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Perennial" parent="Technology" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Perennial" index="0"]
+texture = ExtResource("3_tf4cg")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Natural" parent="Technology" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Natural" index="0"]
+texture = ExtResource("4_1rva8")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Crude" parent="Technology" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Crude" index="0"]
+texture = ExtResource("5_72kh5")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Advanced" parent="Technology" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Advanced" index="0"]
+texture = ExtResource("6_1t2rd")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Superior" parent="Technology" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Technology/Superior" index="0"]
+texture = ExtResource("7_jporp")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Defense" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Anti-Magic" parent="Defense" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Defense/Anti-Magic" index="0"]
+texture = ExtResource("10_s2r3e")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Balanced" parent="Defense" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Defense/Balanced" index="0"]
+texture = ExtResource("11_8ulx1")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Anti-Physical" parent="Defense" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Defense/Anti-Physical" index="0"]
+texture = ExtResource("12_8ulx1")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Offense" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Melee" parent="Offense" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Offense/Melee" index="0"]
+texture = ExtResource("8_3nkdt")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Ranged" parent="Offense" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Offense/Ranged" index="0"]
+texture = ExtResource("9_8x4vu")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Signature" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Signature" parent="Signature" instance=ExtResource("2_tf4cg")]
+visible = false
+layout_mode = 2
+
+[node name="Icon" parent="Signature/Signature" index="0"]
+texture = ExtResource("13_8ulx1")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(58, 58)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ulx1")
+
+[editable path="Technology/Perennial"]
+[editable path="Technology/Natural"]
+[editable path="Technology/Crude"]
+[editable path="Technology/Advanced"]
+[editable path="Technology/Superior"]
+[editable path="Defense/Anti-Magic"]
+[editable path="Defense/Balanced"]
+[editable path="Defense/Anti-Physical"]
+[editable path="Offense/Melee"]
+[editable path="Offense/Ranged"]
+[editable path="Signature/Signature"]

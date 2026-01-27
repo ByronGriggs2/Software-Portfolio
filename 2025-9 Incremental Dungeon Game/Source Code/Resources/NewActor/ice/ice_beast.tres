@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://u1w6ck1vbulo"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_q7m75"]
+[ext_resource type="Resource" uid="uid://c3ty0ieoxphya" path="res://Resources/NewAction/EnemyExclusiveAttacks/bite_ice.tres" id="2_kalef"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_lvl62"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_kalef"]
+[ext_resource type="Texture2D" uid="uid://be1wsmpqrt8t5" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/animals/ice_beast.png" id="4_lvl62"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_vksiv"]
+
+[sub_resource type="Resource" id="Resource_otf0h"]
+script = ExtResource("3_kalef")
+isEligible = true
+glassCannonIndex = 0.8
+HPToDefRatio = 1.3
+defRatio = 0.91
+atkRatio = 0.85
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 1
+enemyRange = 0
+faction = 3
+
+[resource]
+script = ExtResource("4_vksiv")
+portrait = ExtResource("4_lvl62")
+text = "Ice Beast"
+description = "This curious creature has a thick coat of solid ice. It's thought that this feature developed as camouflage to fool ice elementals, which aren't a fan of biological creatures yet ignore animated ice."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_q7m75")]([ExtResource("2_kalef")])
+drops = Array[ExtResource("2_lvl62")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_otf0h")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://istodownlvaf"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_avg6c"]
+
+[resource]
+script = ExtResource("1_avg6c")
+text = "Raise Undead"
+mode = 0
+warmup = 10.0
+metadata/_custom_type_script = "uid://7vyskwb74kdn"

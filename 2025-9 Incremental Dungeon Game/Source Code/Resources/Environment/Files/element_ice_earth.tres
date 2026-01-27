@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://cr6via73jk3hm"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_u8atk"]
+
+[resource]
+script = ExtResource("1_u8atk")
+title = "Boreal Forest"
+introText = "Pine needles crunch underfoot as you walk through the forest. The tree branches are heavy with snow, and dim light shines from... somewhere.
+
+With any luck you'll find a friendly wolf to adopt."
+permittedFactions = Array[int]([3, 2])
+firePermitted = false
+icePermitted = true
+earthPermitted = true
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

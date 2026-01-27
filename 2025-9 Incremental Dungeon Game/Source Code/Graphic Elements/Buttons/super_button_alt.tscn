@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://euoj82orengh"]
+
+[ext_resource type="Theme" uid="uid://toctfm8xh225" path="res://Graphic Elements/Themes/squareSuperButton.tres" id="1_642ht"]
+[ext_resource type="Script" uid="uid://c6or1k4h8toj6" path="res://Graphic Elements/Buttons/super_button.gd" id="2_lrugu"]
+
+[node name="SuperButton" type="PanelContainer"]
+theme = ExtResource("1_642ht")
+script = ExtResource("2_lrugu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

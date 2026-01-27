@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtkcs61nw0in1"]
+
+[ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://ScenePreloads/Equipment_old/accessory.tscn" id="1_riuo3"]
+[ext_resource type="Texture2D" uid="uid://bwv0057x8k71w" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/gui/spells/ice/bolt_of_cold_old.png" id="2_xwa5p"]
+
+[node name="Accessory" instance=ExtResource("1_riuo3")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_xwa5p")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

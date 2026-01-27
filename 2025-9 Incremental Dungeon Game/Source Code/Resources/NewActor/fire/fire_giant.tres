@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://d20ofixdlb1w3"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_hijg0"]
+[ext_resource type="Resource" uid="uid://pegl050or8si" path="res://Resources/NewAction/EnemyExclusiveAttacks/stomp_fire.tres" id="2_68xrd"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_amluv"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_68xrd"]
+[ext_resource type="Texture2D" uid="uid://4sfkd1tgykd0" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/fire_giant_new.png" id="4_amluv"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_bmfdm"]
+
+[sub_resource type="Resource" id="Resource_3f4vr"]
+script = ExtResource("3_68xrd")
+isEligible = true
+glassCannonIndex = 0.6
+HPToDefRatio = 3.0
+defRatio = 0.83
+atkRatio = 0.25
+equipmentLevel = 1
+enemyQuality = 1
+enemyArmor = 1
+enemyRange = 1
+faction = 0
+
+[resource]
+script = ExtResource("4_bmfdm")
+portrait = ExtResource("4_amluv")
+text = "Fire Giant"
+description = "Though biological, most giants have a strong affinity with one of the four elements. Some scholars propose that giants are merely another form of elemental, and that their comparative autonomy is a necessary byproduct of being biological. Other scholars meet this theory with skepticism, pointing out that undead and flesh golems possess no autonomy despite being biological."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_hijg0")]([ExtResource("2_68xrd")])
+drops = Array[ExtResource("2_amluv")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_3f4vr")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

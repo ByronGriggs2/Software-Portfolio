@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=2 format=3 uid="uid://bbbsiqpaay23l"]
+
+[ext_resource type="Script" uid="uid://6o4dw2binuis" path="res://Resources/OldAction/attack_action.gd" id="1_svece"]
+
+[resource]
+script = ExtResource("1_svece")
+type = 0
+power = 1.92
+text = "A Thousand Stings"
+mode = 0
+warmup = 4.5
+metadata/_custom_type_script = "uid://6o4dw2binuis"

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://c3ms1p4v342py"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_781rk"]
+[ext_resource type="Resource" uid="uid://cl1q3w58ptblp" path="res://Resources/NewAction/EnemyExclusiveAttacks/arcane_bolt.tres" id="2_5h4ch"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_wpjld"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_5h4ch"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_bitad"]
+[ext_resource type="Texture2D" uid="uid://b1k5ff5ps2x4b" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/shadow_imp.png" id="4_wpjld"]
+
+[sub_resource type="Resource" id="Resource_cgm3y"]
+script = ExtResource("3_5h4ch")
+isEligible = true
+glassCannonIndex = 1.8
+HPToDefRatio = 0.75
+defRatio = 1.1
+atkRatio = 1.5
+equipmentLevel = 2
+enemyQuality = 0
+enemyArmor = 2
+enemyRange = 0
+faction = 5
+
+[resource]
+script = ExtResource("4_bitad")
+portrait = ExtResource("4_wpjld")
+text = "Shadow Imp"
+description = "Shadow imps are much more psionically gifted than their red kin, at the cost of physical frailty. "
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_781rk")]([ExtResource("2_5h4ch")])
+drops = Array[ExtResource("2_wpjld")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_cgm3y")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

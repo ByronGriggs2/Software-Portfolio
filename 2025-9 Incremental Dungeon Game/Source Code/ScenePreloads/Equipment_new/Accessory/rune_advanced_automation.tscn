@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bay3piefxncu3"]
+
+[ext_resource type="PackedScene" uid="uid://d3pq5sqq43i2i" path="res://ScenePreloads/Equipment_old/accessory.tscn" id="1_v4of1"]
+[ext_resource type="Texture2D" uid="uid://blvrvnbrxkoig" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/misc/runes/rune_gehenna_old.png" id="2_dn8pt"]
+
+[node name="Accessory" instance=ExtResource("1_v4of1")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_dn8pt")
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

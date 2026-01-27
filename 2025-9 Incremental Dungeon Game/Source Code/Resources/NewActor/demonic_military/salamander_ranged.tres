@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://dwi5iuhafyhdx"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_p06xc"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_spt7h"]
+[ext_resource type="Resource" uid="uid://bwhqavlwlw1bi" path="res://Resources/NewAction/EnemyExclusiveAttacks/fire_blast.tres" id="2_yiomm"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_yiomm"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_02a4n"]
+[ext_resource type="Texture2D" uid="uid://bilttel587kce" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/salamander_mystic.png" id="4_spt7h"]
+
+[sub_resource type="Resource" id="Resource_28e6i"]
+script = ExtResource("3_yiomm")
+isEligible = true
+glassCannonIndex = 1.33
+HPToDefRatio = 0.9
+defRatio = 1.1
+atkRatio = 0.67
+equipmentLevel = 2
+enemyQuality = 0
+enemyArmor = 2
+enemyRange = 2
+faction = 5
+
+[resource]
+script = ExtResource("4_02a4n")
+portrait = ExtResource("4_spt7h")
+text = "Salamander Mystic"
+description = "Biologically identical to skirmishers, these salamanders are of noble lineage, and were trained from a young age in the art of pyrokinetics."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_p06xc")]([ExtResource("2_yiomm")])
+drops = Array[ExtResource("2_spt7h")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_28e6i")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

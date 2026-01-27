@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://dxtmnxgjmphvh"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_1u6xb"]
+
+[resource]
+script = ExtResource("1_1u6xb")
+title = "Unholy Alliance"
+introText = "The Demonic Military are nothing if not pragmatic, and frequently supplement their forces with undead raised in the Underworld's Fortresses of Death. Requiring no alms, no sleep, and following orders without question, they make ideal soldiers."
+permittedFactions = Array[int]([4, 5])
+firePermitted = false
+icePermitted = false
+earthPermitted = false
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

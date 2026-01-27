@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bexpwpdrhofef"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_fr5lf"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_04ehq"]
+[ext_resource type="Resource" uid="uid://dscy71k15f7yi" path="res://Resources/NewAction/Attacks/mace_1h.tres" id="2_r1goy"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_r1goy"]
+[ext_resource type="Texture2D" uid="uid://c5v67304efgib" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/vault/moon_troll.png" id="4_04ehq"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_cgvmf"]
+
+[sub_resource type="Resource" id="Resource_lpfvp"]
+script = ExtResource("3_r1goy")
+isEligible = true
+glassCannonIndex = 0.75
+HPToDefRatio = 2.5
+defRatio = 0.91
+atkRatio = 2.4
+equipmentLevel = 1
+enemyQuality = 1
+enemyArmor = 1
+enemyRange = 1
+faction = 3
+
+[resource]
+script = ExtResource("4_cgvmf")
+portrait = ExtResource("4_04ehq")
+text = "Ice Troll"
+description = "Ice trolls sport thick natural insulation to cope with their frigid environments and have been observed burning scavenged fuel for warmth, the most advanced form of tool use observed in trolls. "
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_fr5lf")]([ExtResource("2_r1goy")])
+drops = Array[ExtResource("2_04ehq")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_lpfvp")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

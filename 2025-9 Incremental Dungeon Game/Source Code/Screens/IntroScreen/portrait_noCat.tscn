@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://jgqr75syy0u6"]
+
+[ext_resource type="PackedScene" uid="uid://07g7uoqjj27p" path="res://Screens/IntroScreen/portrait.tscn" id="1_6mbl6"]
+[ext_resource type="Script" uid="uid://1lde34yjae5o" path="res://Screens/IntroScreen/portrait_no_cat.gd" id="2_ec7pa"]
+[ext_resource type="Texture2D" uid="uid://b24qraruprjvm" path="res://Resources/Textures/PlayerTexture/base/ahuman_female.png" id="3_rwx7e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ec7pa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Portrait" instance=ExtResource("1_6mbl6")]
+custom_minimum_size = Vector2(512, 512)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ec7pa")
+script = ExtResource("2_ec7pa")
+myScale = 6.438
+
+[node name="Base" parent="." index="0"]
+position = Vector2(0, 0)
+scale = Vector2(6.438, 6.438)
+texture = ExtResource("3_rwx7e")
+
+[node name="legs" parent="." index="1"]
+position = Vector2(0, 0)
+scale = Vector2(6.438, 6.438)
+
+[node name="body" parent="." index="2"]
+position = Vector2(0, 0)
+scale = Vector2(6.438, 6.438)
+
+[node name="beard" parent="." index="3"]
+position = Vector2(0, 0)
+scale = Vector2(6.438, 6.438)
+
+[node name="hair" parent="." index="4"]
+position = Vector2(0, 0)
+scale = Vector2(6.438, 6.438)
+
+[node name="head" parent="." index="5"]
+position = Vector2(0, 0)
+scale = Vector2(6.438, 6.438)
+
+[node name="gloves" parent="." index="6"]
+position = Vector2(0, 0)
+scale = Vector2(6.438, 6.438)
+
+[node name="boots" parent="." index="7"]
+position = Vector2(0, 0)
+scale = Vector2(6.438, 6.438)
+
+[node name="hand_left" parent="." index="8"]
+position = Vector2(0, 0)
+scale = Vector2(6.438, 6.438)
+
+[node name="hand_right" parent="." index="9"]
+position = Vector2(0, 0)
+scale = Vector2(6.438, 6.438)
+
+[node name="Cat" parent="." index="10"]
+visible = false
+position = Vector2(0, 0)
+scale = Vector2(3.219, 3.219)
+
+[connection signal="item_rect_changed" from="Base" to="." method="_on_base_item_rect_changed"]

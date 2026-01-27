@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://ddei5e4pho8dh"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_weyw6"]
+
+[resource]
+script = ExtResource("1_weyw6")
+title = "Lush Jungle"
+introText = "This deep in the underground, complicated weather systems can form, giving rise to dense rainforests like this one. Though there's plenty of food here, you should be careful. Many animals in the forest see you as food too!"
+permittedFactions = Array[int]([2])
+firePermitted = false
+icePermitted = false
+earthPermitted = true
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

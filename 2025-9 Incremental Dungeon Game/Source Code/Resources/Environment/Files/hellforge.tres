@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MyEnvironment" load_steps=2 format=3 uid="uid://d3nlu613md056"]
+
+[ext_resource type="Script" uid="uid://bnx1tuoy1ucgk" path="res://Resources/Environment/my_environment.gd" id="1_30d2a"]
+
+[resource]
+script = ExtResource("1_30d2a")
+title = "Hellforge"
+introText = "Deep in the Underworld, great hellforges such as this use magma to smelt and refine ores unheard of on the Surface, creating the finest tools of war the world has ever known."
+permittedFactions = Array[int]([0, 5])
+firePermitted = true
+icePermitted = false
+earthPermitted = true
+waterPermitted = false
+metadata/_custom_type_script = "uid://bnx1tuoy1ucgk"

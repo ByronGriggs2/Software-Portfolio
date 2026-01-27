@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbipnf064a0wh"]
+
+[ext_resource type="Script" uid="uid://dutt2t13lqrlo" path="res://Screens/GameScreen/Player/my_text_label.gd" id="1_jvc0b"]
+
+[node name="MyTextLabel" type="HBoxContainer"]
+offset_right = 191.0
+offset_bottom = 23.0
+alignment = 1
+script = ExtResource("1_jvc0b")
+
+[node name="First" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Sample text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Second" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Sample Text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://dqr2uoyjy8rmn"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_rliuu"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_2om8e"]
+[ext_resource type="Resource" uid="uid://6hdhjoiruup" path="res://Resources/NewAction/EnemyExclusiveAttacks/psychic_scream.tres" id="2_501qf"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_501qf"]
+[ext_resource type="Texture2D" uid="uid://cfbj3b55caf3k" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/siren_water_new.png" id="4_2om8e"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_bivd7"]
+
+[sub_resource type="Resource" id="Resource_agwjq"]
+script = ExtResource("3_501qf")
+isEligible = true
+glassCannonIndex = 2.5
+HPToDefRatio = 2.5
+defRatio = 1.1
+atkRatio = 0.2
+equipmentLevel = 1
+enemyQuality = 0
+enemyArmor = 2
+enemyRange = 0
+faction = 7
+
+[resource]
+script = ExtResource("4_bivd7")
+portrait = ExtResource("4_2om8e")
+text = "Siren"
+description = "Not all magically adept Merfolk are accepted into the Academy of Magic, and they often persue more mundane magical fields such as blacksmithing and music. When called to defend their homelands, these adepts will fight in any way they can. "
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_rliuu")]([ExtResource("2_501qf")])
+drops = Array[ExtResource("2_2om8e")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_agwjq")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

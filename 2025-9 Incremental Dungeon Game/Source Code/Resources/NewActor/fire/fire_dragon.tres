@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://c4kly26jsuomw"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_6uu5h"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_ihayp"]
+[ext_resource type="Resource" uid="uid://ca1q27y5qrlln" path="res://Resources/NewAction/EnemyExclusiveAttacks/breath_fire.tres" id="2_piyhp"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_piyhp"]
+[ext_resource type="Texture2D" uid="uid://dwwaruuymtpb6" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/unique/xtahua_new.png" id="4_ihayp"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_qmpwc"]
+
+[sub_resource type="Resource" id="Resource_1x0t2"]
+script = ExtResource("3_piyhp")
+isEligible = true
+glassCannonIndex = 0.8
+HPToDefRatio = 0.8
+defRatio = 0.83
+atkRatio = 1.8
+equipmentLevel = 4
+enemyQuality = 2
+enemyArmor = -1
+enemyRange = 0
+faction = 0
+
+[resource]
+script = ExtResource("4_qmpwc")
+portrait = ExtResource("4_ihayp")
+text = "Fire Dragon"
+description = "Fire dragons are the most sadistic of all dragons, and frequently decimate armies or burn down villages for the fun of it (and to remind other races who's boss). As a result of their invasive lifestyle, they're much better known than other dragons, and are universally resented by their slightly less malicious cousins.
+
+Fire dragons possess breath of furious flames, and can easily destroy any organic substance. Their treasure hoards include the scorched remains of prey, humanoid livestock and trade goods, and shiny igneous rocks that crows would kill for."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_6uu5h")]([ExtResource("2_piyhp")])
+drops = Array[ExtResource("2_ihayp")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_1x0t2")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://cveh5k8ujy8u0"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_htgma"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_cme3n"]
+[ext_resource type="Resource" uid="uid://63eboi3o5ehi" path="res://Resources/NewAction/Attacks/icicle_spike.tres" id="2_s3gkj"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_s3gkj"]
+[ext_resource type="Texture2D" uid="uid://cnqskd416mxft" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/undead/freezing_wraith.png" id="4_cme3n"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_tunlh"]
+
+[sub_resource type="Resource" id="Resource_akfsx"]
+script = ExtResource("3_s3gkj")
+isEligible = true
+glassCannonIndex = 2.0
+HPToDefRatio = 0.2
+defRatio = 0.75
+atkRatio = 2.0
+equipmentLevel = 0
+enemyQuality = 0
+enemyArmor = 0
+enemyRange = 0
+faction = 3
+
+[resource]
+script = ExtResource("4_tunlh")
+portrait = ExtResource("4_cme3n")
+text = "Frost Wraith"
+description = "Humanoids killed by ice elementals often remain as frost wraiths, such is the power of the elementals' essence of nonchange. Frost wraiths drift around the frozen wastes aimlessly, attacking when ordered to by their ice elemental masters."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_htgma")]([ExtResource("2_s3gkj")])
+drops = Array[ExtResource("2_cme3n")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_akfsx")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

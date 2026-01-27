@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=4 format=3 uid="uid://bded4s0xlqjmh"]
+
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="1_ayr3l"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_kgisn"]
+[ext_resource type="Script" uid="uid://niduj63p80ej" path="res://Screens/GameScreen/Tabs/Combat/Map/Encounters/encounter.gd" id="3_ch60v"]
+
+[resource]
+script = ExtResource("3_ch60v")
+enemies = Array[ExtResource("1_ayr3l")]([])
+rewards = Array[ExtResource("2_kgisn")]([])
+introTitle = ""
+introText = ""
+victoryTitle = "After the Fight"
+victoryText = ""
+metadata/_custom_type_script = "uid://niduj63p80ej"

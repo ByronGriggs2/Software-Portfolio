@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bque18siuna12"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_j4oce"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_06yxn"]
+[ext_resource type="Resource" uid="uid://ilejibxoo1v0" path="res://Resources/NewAction/EnemyExclusiveAttacks/claw.tres" id="2_ydwlu"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_ydwlu"]
+[ext_resource type="Texture2D" uid="uid://begsxh3yu0awm" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/forest_drake.png" id="4_06yxn"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_gswur"]
+
+[sub_resource type="Resource" id="Resource_biswp"]
+script = ExtResource("3_ydwlu")
+isEligible = true
+glassCannonIndex = 0.8
+HPToDefRatio = 0.8
+defRatio = 0.91
+atkRatio = 1.2
+equipmentLevel = 0
+enemyQuality = 1
+enemyArmor = 1
+enemyRange = 0
+faction = 2
+
+[resource]
+script = ExtResource("4_gswur")
+portrait = ExtResource("4_06yxn")
+text = "Forest Drake"
+description = "Drakes are a sister family to dragons, and despite their lower intelligence, smaller size, and lack of a breath weapon, tend to fill the role of apex predator in their environment. While dragons revel in excess, their dominance seldom challenged, drakes live short, hard lives, constantly fighting against starvation like most animals."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_j4oce")]([ExtResource("2_ydwlu")])
+drops = Array[ExtResource("2_06yxn")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_biswp")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

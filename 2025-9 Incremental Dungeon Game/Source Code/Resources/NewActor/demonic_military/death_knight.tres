@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://b6hhw8p2wma7e"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_f5454"]
+[ext_resource type="Resource" uid="uid://cpysye11yln7d" path="res://Resources/NewAction/Attacks/frost_slash.tres" id="2_djonk"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_yfdao"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_djonk"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_qdl82"]
+[ext_resource type="Texture2D" uid="uid://cqcotjg8o5bdi" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/death_knight.png" id="4_yfdao"]
+
+[sub_resource type="Resource" id="Resource_fqv77"]
+script = ExtResource("3_djonk")
+isEligible = true
+glassCannonIndex = 0.75
+HPToDefRatio = 0.35
+defRatio = 1.35
+atkRatio = 2.0
+equipmentLevel = 3
+enemyQuality = 1
+enemyArmor = 3
+enemyRange = 0
+faction = 5
+
+[resource]
+script = ExtResource("4_qdl82")
+portrait = ExtResource("4_yfdao")
+text = "Death Knight"
+description = "Each Hell Knight represents an immense investment in time and resources by the Demonic military. As a result, every effort is made to resurrect viable Hell Knight corpses so they can fight anew. Though the result of this process is no longer able to learn new tactics or train their bodies, they gain some power in the form of death magic and a lack of vital organs."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_f5454")]([ExtResource("2_djonk")])
+drops = Array[ExtResource("2_yfdao")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_fqv77")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

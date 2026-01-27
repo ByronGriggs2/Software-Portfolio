@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://diawldx12srql"]
+
+[ext_resource type="PackedScene" uid="uid://cmdea3hs3w0ff" path="res://ScenePreloads/Equipment_old/weapon.tscn" id="1_0fpca"]
+[ext_resource type="Texture2D" uid="uid://bnsjpjjdl51nt" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/item/weapon/artefact/urand_arc_blade.png" id="2_5f1qk"]
+
+[node name="Weapon" instance=ExtResource("1_0fpca")]
+
+[node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
+texture = ExtResource("2_5f1qk")
+flip_h = true
+
+[editable path="SuperButton"]
+[editable path="SuperButton/HBoxContainer/Sprite"]

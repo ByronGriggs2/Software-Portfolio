@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://bfau2b3rbtrdc"]
+
+[ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_jmeh2"]
+[ext_resource type="Resource" uid="uid://cfu5avjlndjoe" path="res://Resources/NewAction/Attacks/mace_2h.tres" id="2_m8om6"]
+[ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_tvuk6"]
+[ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="3_m8om6"]
+[ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="4_jkuil"]
+[ext_resource type="Texture2D" uid="uid://fd3vuqpjr2hi" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/unique/polyphemus_new.png" id="4_tvuk6"]
+
+[sub_resource type="Resource" id="Resource_21wiy"]
+script = ExtResource("3_m8om6")
+isEligible = true
+glassCannonIndex = 0.5
+HPToDefRatio = 2.0
+defRatio = 1.1
+atkRatio = 1.2
+equipmentLevel = 1
+enemyQuality = 2
+enemyArmor = 2
+enemyRange = 0
+faction = 8
+
+[resource]
+script = ExtResource("4_jkuil")
+portrait = ExtResource("4_tvuk6")
+text = "Polyphemus"
+description = "The cyclops race is fully integrated into the culture of the Greenskin Tribes, but so few of them exist that most warbands don't have one. As cyclopses stand at nearly 3 times the height of orcs, nearly every warband containing a cyclops grants them the title of Warlord. Cyclopses often fight with minimal arms and armor due to scavenged equipment not fitting them."
+MAXHP = -1.0
+AR = -1.0
+DR = -1.0
+PHYSDEF = -1.0
+MAGDEF = -1.0
+actions = Array[ExtResource("1_jmeh2")]([ExtResource("2_m8om6")])
+drops = Array[ExtResource("2_tvuk6")]([])
+dropChances = Array[float]([])
+enemyGroups = SubResource("Resource_21wiy")
+metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"
