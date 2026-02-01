@@ -1,8 +1,7 @@
 # Incremental Dungeon Game
-After finishing my graduate dissertation, I started working on a game using the Godot engine and GDScript. This game is 100% finished and playable on itch.io or Steam\* </br>
+After finishing my graduate dissertation, I started working on a game using the Godot engine and GDScript. This game is 100% finished and playable on itch.io or Steam. </br>
 https://nauphy.itch.io/incremental-dungeon-game </br>
 https://store.steampowered.com/app/4213380/Incremental_Dungeon/ </br>
-\*Game will release on both itch.io and Steam when the store page for the DLC is approved. </br>
 
 This was my first time making a game of publishable quality. As is typical the first time you do anything, it could have gone better, and I learned a lot. 
 My original vision for the game was an incremental game with something to set it apart from the zillion Cookie Clicker clones out there. I liked the 
