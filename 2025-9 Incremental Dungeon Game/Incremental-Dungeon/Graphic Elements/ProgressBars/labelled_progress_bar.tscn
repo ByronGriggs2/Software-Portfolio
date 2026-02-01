@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfcoie8y6ymwa"]
+
+[ext_resource type="Script" uid="uid://db0en2k12raw4" path="res://Graphic Elements/ProgressBars/labelled_progress_bar.gd" id="1_4yho2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yho2"]
+bg_color = Color(0.317647, 0.317647, 0.317647, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rg8h0"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="LabelledProgressBar" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+theme_override_constants/separation = 10
+script = ExtResource("1_4yho2")
+
+[node name="NameLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+text = "Placeholder"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_4yho2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rg8h0")
+show_percentage = false
+
+[node name="LevelLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "lv X"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1

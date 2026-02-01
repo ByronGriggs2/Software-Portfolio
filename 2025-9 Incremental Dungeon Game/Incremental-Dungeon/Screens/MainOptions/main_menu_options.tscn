@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmihk3wsee86g"]
+
+[ext_resource type="Theme" uid="uid://blwnh8rwgc0eh" path="res://Graphic Elements/Themes/mainTab.tres" id="1_1bkrm"]
+[ext_resource type="Script" uid="uid://ckeuiupfho21k" path="res://Screens/MainOptions/main_menu_options.gd" id="2_7wgqa"]
+[ext_resource type="PackedScene" uid="uid://bgjlwljhs8ia8" path="res://master_volume.tscn" id="3_7wgqa"]
+[ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_yapp8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6618"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="MainMenuOptions" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme = ExtResource("1_1bkrm")
+script = ExtResource("2_7wgqa")
+
+[node name="Content" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = -100.0
+offset_bottom = -100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f6618")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Content/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+theme = ExtResource("1_1bkrm")
+theme_override_constants/separation = 18
+
+[node name="WindowMode" type="HBoxContainer" parent="Content/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Content/VBoxContainer/ScrollContainer/VBoxContainer/WindowMode"]
+layout_mode = 2
+text = "Window Mode  "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="WindowMode" type="OptionButton" parent="Content/VBoxContainer/ScrollContainer/VBoxContainer/WindowMode"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = " Fullscreen "
+popup/item_0/id = 0
+popup/item_1/text = " Windowed "
+popup/item_1/id = 1
+
+[node name="Keybinds" type="HBoxContainer" parent="Content/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Keybinds" type="Button" parent="Content/VBoxContainer/ScrollContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = " Key Bindings "
+
+[node name="Reset Global" type="HBoxContainer" parent="Content/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResetGlobalEncyclopedia" type="Button" parent="Content/VBoxContainer/ScrollContainer/VBoxContainer/Reset Global"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = " Reset Global Encyclopedia "
+
+[node name="masterVolume" parent="Content/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_7wgqa")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+alignment = 2
+
+[node name="Save" type="Button" parent="Content/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = " Save "
+
+[node name="ReturnButton" parent="Content/VBoxContainer/VBoxContainer" instance=ExtResource("3_yapp8")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = " Return "
+
+[connection signal="item_selected" from="Content/VBoxContainer/ScrollContainer/VBoxContainer/WindowMode/WindowMode" to="." method="_on_window_mode_item_selected"]
+[connection signal="pressed" from="Content/VBoxContainer/ScrollContainer/VBoxContainer/Keybinds/Keybinds" to="." method="_on_keybinds_pressed"]
+[connection signal="pressed" from="Content/VBoxContainer/ScrollContainer/VBoxContainer/Reset Global/ResetGlobalEncyclopedia" to="." method="_on_reset_global_encyclopedia_pressed"]
+[connection signal="pressed" from="Content/VBoxContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Content/VBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

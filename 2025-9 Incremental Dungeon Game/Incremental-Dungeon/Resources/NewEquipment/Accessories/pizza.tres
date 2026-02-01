@@ -1,0 +1,187 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=6 format=3 uid="uid://b1ouw4dx6c2y7"]
+
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Resources/OldEquipment/equipment_grouping.gd" id="1_rusgj"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="2_65xmw"]
+[ext_resource type="Script" uid="uid://bmbbygpmfs6mv" path="res://Resources/OldEquipment/accessory.gd" id="3_jj5jd"]
+
+[sub_resource type="Resource" id="Resource_nm0v2"]
+script = ExtResource("1_rusgj")
+isEligible = true
+quality = 2
+technology = 3
+weaponClass = -1
+armorClass = -1
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isSignature = false
+
+[sub_resource type="Resource" id="Resource_rusgj"]
+script = ExtResource("2_65xmw")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.2
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Conversion": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Damage Dealt": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Damage Taken": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Conversion": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Damage Dealt": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Damage Taken": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Effect": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Multiplicity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (DEX)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (DUR)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (INT)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (SKI)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (STR)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+
+[resource]
+script = ExtResource("3_jj5jd")
+boostedAttr1 = 1
+boostedAttr2 = -1
+title = "Pizza"
+description = "You've never seen food like this before, but it is surely the greatest invention in culinary history."
+myPacket = SubResource("Resource_rusgj")
+equipmentGroups = SubResource("Resource_nm0v2")
+metadata/_custom_type_script = "uid://bmbbygpmfs6mv"

@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgjlwljhs8ia8"]
+
+[ext_resource type="Script" uid="uid://cectcxesb42m" path="res://master_volume.gd" id="1_top1r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evtk7"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="masterVolume" type="PanelContainer"]
+custom_minimum_size = Vector2(450, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_evtk7")
+script = ExtResource("1_top1r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Master Volume"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Percent" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 20
+text = "50%"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0

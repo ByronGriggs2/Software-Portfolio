@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfujo78l04dxr"]
+
+[ext_resource type="PackedScene" uid="uid://b225e88u4powi" path="res://Screens/GameScreen/Tabs/EquipmentTab/equipment_details.tscn" id="1_lvrgk"]
+[ext_resource type="Script" uid="uid://b3eh3gxls7ugw" path="res://Screens/GameScreen/Tabs/EquipmentTab/equipment_details_single_choice.gd" id="2_wt3lc"]
+
+[node name="EquipmentDetailsSingleChoice" instance=ExtResource("1_lvrgk")]
+script = ExtResource("2_wt3lc")
+
+[node name="Text_VBoxContainer#Button" type="Button" parent="." index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = " Purchase "

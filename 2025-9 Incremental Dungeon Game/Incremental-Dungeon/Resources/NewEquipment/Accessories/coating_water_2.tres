@@ -1,0 +1,190 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=6 format=3 uid="uid://vqbas1cxrf8x"]
+
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Resources/OldEquipment/equipment_grouping.gd" id="1_ynhbv"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="2_k1isq"]
+[ext_resource type="Script" uid="uid://bmbbygpmfs6mv" path="res://Resources/OldEquipment/accessory.gd" id="3_kgadq"]
+
+[sub_resource type="Resource" id="Resource_ol5fc"]
+script = ExtResource("1_ynhbv")
+isEligible = true
+quality = 3
+technology = 0
+weaponClass = -1
+armorClass = -1
+isFire = false
+isIce = false
+isEarth = false
+isWater = true
+isSignature = false
+
+[sub_resource type="Resource" id="Resource_ynhbv"]
+script = ExtResource("2_k1isq")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.22
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Conversion": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Damage Dealt": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Damage Taken": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Conversion": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.22,
+"Premultiplier": 1.0
+},
+"Physical Damage Dealt": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Damage Taken": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Effect": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Multiplicity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (DEX)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (DUR)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (INT)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (SKI)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (STR)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+
+[resource]
+script = ExtResource("3_kgadq")
+boostedAttr1 = 2
+boostedAttr2 = -1
+title = "Vial of Goddess Tears"
+description = "Keepers of old
+Keep us from the cold
+Let us fight once more
+'Til our honor is restored"
+myPacket = SubResource("Resource_ynhbv")
+equipmentGroups = SubResource("Resource_ol5fc")
+metadata/_custom_type_script = "uid://bmbbygpmfs6mv"

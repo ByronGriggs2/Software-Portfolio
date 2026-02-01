@@ -1,0 +1,196 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://7eecksn5hmgp"]
+
+[ext_resource type="Resource" uid="uid://dap36wppwgrsu" path="res://Resources/NewAction/Attacks/magic_slashing_sword_2h.tres" id="1_sis8h"]
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Resources/OldEquipment/equipment_grouping.gd" id="2_hjbw7"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="3_8qotv"]
+[ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Resources/OldEquipment/weapon.gd" id="4_8npyb"]
+
+[sub_resource type="Resource" id="Resource_hpbeh"]
+script = ExtResource("2_hjbw7")
+isEligible = true
+quality = 4
+technology = 0
+weaponClass = 0
+armorClass = -1
+isFire = true
+isIce = false
+isEarth = false
+isWater = false
+isSignature = false
+
+[sub_resource type="Resource" id="Resource_sis8h"]
+script = ExtResource("3_8qotv")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Conversion": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Damage Dealt": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Damage Taken": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Conversion": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Damage Dealt": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Damage Taken": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Effect": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Multiplicity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (DEX)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (DUR)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (INT)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (SKI)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (STR)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+
+[resource]
+script = ExtResource("4_8npyb")
+scaling = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.708,
+"Skill": 0.0,
+"Strength": 1.21
+}
+attackBonus = 108.0
+basicAttack = ExtResource("1_sis8h")
+isUnarmed = false
+title = "Magma Greatsword"
+description = "Forged from the rage of the Earth, this greatsword sunders the thickest of armors and burns flesh to ash."
+myPacket = SubResource("Resource_sis8h")
+equipmentGroups = SubResource("Resource_hpbeh")
+metadata/_custom_type_script = "uid://6qgd3qugycc1"

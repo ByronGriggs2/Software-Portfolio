@@ -1,0 +1,196 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://dak07b84snhn"]
+
+[ext_resource type="Resource" uid="uid://c5o1pdj2f8gqw" path="res://Resources/NewAction/Attacks/laser.tres" id="1_jgdbx"]
+[ext_resource type="Script" uid="uid://bjf2usx5yhgpu" path="res://Resources/OldEquipment/equipment_grouping.gd" id="2_66bii"]
+[ext_resource type="Script" uid="uid://drk1kxvptw3qa" path="res://Screens/GameScreen/Player/modifier_packet.gd" id="3_d68rm"]
+[ext_resource type="Script" uid="uid://6qgd3qugycc1" path="res://Resources/OldEquipment/weapon.gd" id="4_y0be8"]
+
+[sub_resource type="Resource" id="Resource_mf54y"]
+script = ExtResource("2_66bii")
+isEligible = true
+quality = 0
+technology = 2
+weaponClass = 1
+armorClass = -1
+isFire = false
+isIce = false
+isEarth = false
+isWater = false
+isSignature = false
+
+[sub_resource type="Resource" id="Resource_ohb8p"]
+script = ExtResource("3_d68rm")
+attributeMods = {
+"Dexterity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Durability": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Intelligence": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Skill": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Strength": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+statMods = {
+"Attack Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Damage Rating": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Max HP": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Defense": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+otherMods = {
+"Magic Conversion": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Damage Dealt": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Damage Taken": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Magic Find": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Conversion": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Damage Dealt": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Physical Damage Taken": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Effect": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Multiplicity": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (DEX)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (DUR)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (INT)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (SKI)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+},
+"Routine Speed (STR)": {
+"Postbonus": 0.0,
+"Postmultiplier": 0.0,
+"Prebonus": 0.0,
+"Premultiplier": 1.0
+}
+}
+
+[resource]
+script = ExtResource("4_y0be8")
+scaling = {
+"Dexterity": 0.0,
+"Durability": 0.0,
+"Intelligence": 0.875,
+"Skill": 0.0,
+"Strength": 0.0
+}
+attackBonus = 101.0
+basicAttack = ExtResource("1_jgdbx")
+isUnarmed = false
+title = "Ruby Staff"
+description = "Gem staves emit brilliant beams of concentrated light, capable of causing rapid immolation at long range. The ruby staff is the weakest of all gem staves. "
+myPacket = SubResource("Resource_ohb8p")
+equipmentGroups = SubResource("Resource_mf54y")
+metadata/_custom_type_script = "uid://6qgd3qugycc1"
