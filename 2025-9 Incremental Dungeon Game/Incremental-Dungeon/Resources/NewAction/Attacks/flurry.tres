@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_fbpe1")
 type = 0
-power = 0.225
+power = 0.195
 text = "Flurry"
 mode = 0
 warmup = 0.5

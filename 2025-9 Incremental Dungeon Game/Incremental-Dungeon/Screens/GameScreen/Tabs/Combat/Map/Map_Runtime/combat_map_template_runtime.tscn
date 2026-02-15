@@ -39,6 +39,7 @@ custom_minimum_size = Vector2(5760, 3240)
 layout_mode = 0
 offset_right = 5760.0
 offset_bottom = 3240.0
+mouse_filter = 2
 theme = ExtResource("3_r2v00")
 theme_override_styles/panel = SubResource("StyleBoxFlat_suu3s")
 script = ExtResource("4_d0cb0")
@@ -96,6 +97,7 @@ region_rect = Rect2(0, 0, 16, 16)
 texture_filter = 3
 custom_minimum_size = Vector2(205, 145)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("5_1o5bd")
 
 [connection signal="resized" from="." to="." method="_on_resized"]

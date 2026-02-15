@@ -1,5 +1,20 @@
 extends Panel
 
+var apophisKilled_comm : bool = false
+signal apophisKilledRequested
+var waitingOnApophisKilled : bool = false
+signal apophisKilledReceived
+func getApophisKilled() -> bool :
+	waitingOnApophisKilled = true
+	emit_signal("apophisKilledRequested", self)
+	if (waitingOnApophisKilled) :
+		await apophisKilledReceived
+	return apophisKilled_comm
+func provideApophisKilled(val : bool) :
+	apophisKilled_comm = val
+	waitingOnApophisKilled = false
+	emit_signal("apophisKilledReceived")
+
 var currentFloor = null
 var maxFloor : int = 0
 var currentRoom = null
@@ -103,7 +118,9 @@ func _on_combat_panel_victory(automaticReset : bool) -> void:
 	if (currentRoom == null) :
 		return
 	if ($MapContainer.get_child_count() >= 2 && currentFloor == $MapContainer.get_child(1) && (currentRoom.name as String) == "N0") :
-		emit_signal("tutorialRequested", Encyclopedia.tutorialName.row1, Vector2(0,0))
+		emit_signal("tutorialRequested", Encyclopedia.tutorialName.tooltips, Vector2(0,0))
+	elif ($MapContainer.get_child_count() >= 2 && currentFloor == $MapContainer.get_child(1) && (currentRoom.name as String) == "N1") :
+		emit_signal("tutorialRequested", Encyclopedia.tutorialName.row2, Vector2(0,0))
 	if (currentRoom != null) :
 		currentFloor.completeRoom(currentRoom)
 	if (automaticReset && currentRoom != null) :
@@ -161,6 +178,7 @@ func _on_player_class_requested(emitter) :
 func getTypicalEnemyDefense(myFloor : int) :
 	return $MapContainer.get_child(myFloor).getTypicalEnemyDefense()
 	
+const popupLoader = preload("res://Graphic Elements/popups/binary_decision.tscn")
 signal newFloorCompleted
 func _on_map_completed(emitter) :
 	currentRoom = null
@@ -168,7 +186,7 @@ func _on_map_completed(emitter) :
 	$CombatPanel.visible = false
 	showMapAndUI()
 	if (emitter.has_method("getEnvironment")) :
-		Helpers.handleBiomeAchievement(emitter.getEnvironment())
+		SteamWrapper.handleBiomeAchievement(emitter.getEnvironment())
 	var completedIndex = Helpers.findIndexInContainer($MapContainer, emitter)
 	if (completedIndex == maxFloor) :
 		## The only boss that starts with Hell Knight is the final boss
@@ -195,6 +213,28 @@ func _on_map_completed(emitter) :
 		emit_signal("tutorialRequested", Encyclopedia.tutorialName.floor1, Vector2(0,0))
 	elif ($MapContainer.get_child_count() >= 3 && emitter == $MapContainer.get_child(2)) :
 		emit_signal("tutorialRequested", Encyclopedia.tutorialName.floor2, Vector2(0,0))
+	
+	if (completedIndex == 190) :
+		endEndlessMode()
+		
+signal returnToMenuRequested
+func endEndlessMode() :
+	var popup = popupLoader.instantiate()
+	add_child(popup)
+	popup.getWindowRef().custom_minimum_size.x += 300
+	popup.setTitle("The End!")
+	popup.setText("Once a number reaches 1.7*10^308, the game breaks! This is expected to happen at floor 198, or in some cases as early as 196, so I'm cutting you off here to be safe. If you would like to make a permanent backup of your save (without taking up a save slot), just copy the save from \nC:\\Users\\<username>\\AppData\\Roaming\\Godot\\app_userdata\\Incremental Dungeon\nto your Desktop or something. The slot number is 1 less in the file than in game. Example: Save Slot 1 = \"save_slot_0.json\".\n\nIf you continue playing on this file, your save file may be corrupted.")
+	popup.setButton0Name("I wanna break the game! (Continue playing)")
+	popup.setButton1Name("Time to start a new save! (Return to menu)")
+	var choice = await popup.binaryChosen
+	if (choice == 0) :
+		return
+	else :
+		var popup2 = preload("res://Graphic Elements/popups/my_popup.tscn").instantiate()
+		add_child(popup2)
+		popup2.setTitle("Saving...")
+		popup2.setText("")
+		emit_signal("returnToMenuRequested")
 
 var narrativeWorking : bool = false
 func launchNarrative(title : String, myText : String, buttonText : String, waitToFinish : bool, isEnvironmentIntro : bool) :
@@ -240,7 +280,7 @@ func _on_floor_display_floor_up() -> void:
 		currentFloor.visible = false
 		currentFloor = $MapContainer.get_child(currentFloorIndex-1)
 		currentFloor.visible = true
-		$FloorDisplay.setFloor(currentFloorIndex-1)
+		$FloorDisplay.setFloor(currentFloorIndex-1, apophisKilledBool)
 	if (currentFloor.has_method("getEnvironment")) :
 		$FloorDisplay.setEnvironment(currentFloor.getEnvironment())
 	else :
@@ -252,7 +292,7 @@ func _on_floor_display_floor_down() -> void:
 		currentFloor.visible = false
 		currentFloor = $MapContainer.get_child(currentFloorIndex+1)
 		currentFloor.visible = true
-		$FloorDisplay.setFloor(currentFloorIndex+1)
+		$FloorDisplay.setFloor(currentFloorIndex+1, apophisKilledBool)
 	if (currentFloor.has_method("getEnvironment")) :
 		$FloorDisplay.setEnvironment(currentFloor.getEnvironment())
 	else :
@@ -327,8 +367,10 @@ func connectToMapSignals(map : Node) :
 		map.connect("apophisKilled", _on_apophis_killed)
 	map.connect("mapCompleted", _on_map_completed)
 	
+var apophisKilledBool : bool = false
 signal apophisKilled
 func _on_apophis_killed() :
+	apophisKilledBool = true
 	emit_signal("apophisKilled")
 
 const combatRewardsLoader = preload("res://Screens/GameScreen/Tabs/Combat/CombatRewards/combat_rewards.tscn")
@@ -412,7 +454,7 @@ func beforeLoad(newGame) :
 	friendlyParty.resize(1)
 	if (newGame) :
 		currentFloor = $MapContainer.get_child(0)
-		$FloorDisplay.setFloor(0)
+		$FloorDisplay.setFloor(0, apophisKilledBool)
 		$FloorDisplay.setTutorialBiome()
 		$MapContainer.visible = true
 		currentFloor.visible = true
@@ -453,15 +495,16 @@ func onLoad(loadDict : Dictionary) :
 	var currentFloorIndex = loadDict["currentFloorIndex"]
 	if (currentFloorIndex is String && currentFloorIndex == "null") :
 		currentFloor = $MapContainer.get_child(0)
-		$FloorDisplay.setFloor(0)
+		$FloorDisplay.setFloor(0, apophisKilledBool)
 		$FloorDisplay.setTutorialBiome()
 	else :
 		currentFloor = $MapContainer.get_child(currentFloorIndex)
-		$FloorDisplay.setFloor(currentFloorIndex)
+		$FloorDisplay.setFloor(currentFloorIndex, apophisKilledBool)
 		if (currentFloorIndex == 0) :
 			$FloorDisplay.setTutorialBiome()
 		else : 
-			$FloorDisplay.setEnvironment(currentFloor.getEnvironment())
+			var env : MyEnvironment = currentFloor.getEnvironment()
+			$FloorDisplay.setEnvironment(env)
 	enableUI()
 	$MapContainer.visible = true
 	currentFloor.visible = true
@@ -472,7 +515,8 @@ func onLoad(loadDict : Dictionary) :
 
 func onLoad_2() :
 	$CanvasLayer.offset = global_position
-
+	apophisKilledBool = await getApophisKilled()
+	$FloorDisplay.setFloor(Helpers.findIndexInContainer($MapContainer, currentFloor), apophisKilledBool)
 
 signal playerModifierDictionaryRequested
 func _on_combat_panel_player_modifier_dictionary_requested(emitter) -> void:
@@ -516,4 +560,4 @@ func _on_visibility_changed() -> void:
 
 
 func _on_resized() -> void:
-	onLoad_2()
+	$CanvasLayer.offset = global_position

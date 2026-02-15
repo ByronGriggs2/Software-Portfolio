@@ -41,6 +41,7 @@ offset_right = -7.0
 offset_bottom = -30.0
 
 [node name="Autosave" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true
 script = ExtResource("6_uk4bo")
 

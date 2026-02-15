@@ -23,9 +23,12 @@ func getBossName() -> String :
 	var boss = mapData.bossEncounter.enemies[0]
 	return boss.getName()
 func getEnvironment() -> MyEnvironment :
+	var ret : MyEnvironment
 	if (mapData == null) :
-		return MyEnvironment.new()
-	return MegaFile.getEnvironment(mapData.environmentName)
+		ret = MyEnvironment.new()
+	else :
+		ret = MegaFile.getEnvironment(mapData.environmentName)
+	return ret
 func getRoomRow(room : Node) :
 	return getRow(room)
 		
@@ -413,6 +416,18 @@ func forceBoundaries() :
 var debounceTimer = 0
 func _process(delta) :
 	debounceTimer += delta
+	if (dragging) :
+		var posDif = get_global_mouse_position()-dragPos
+		$CombatMap.global_position += posDif
+		dragPos = get_global_mouse_position()
+var dragging : bool = false
+var dragPos : Vector2 = Vector2(0,0)
+func _gui_input(event : InputEvent) :
+	if (event is InputEventMouseButton && (event.button_index == MOUSE_BUTTON_LEFT || event.button_index == MOUSE_BUTTON_RIGHT)) :
+		accept_event()
+		dragging = event.pressed
+		if (dragging) :
+			dragPos = get_global_mouse_position()
 func _unhandled_input(event: InputEvent) -> void :
 	if (!is_visible_in_tree() || !UIEnabled) :
 		return
@@ -474,7 +489,7 @@ func checkDragon(room) :
 			for enemy in encounter.enemies :
 				var myName = enemy.getName()
 				if (myName.to_upper().find("DRAGON") != -1) :
-					Helpers.unlockAchievement(Definitions.achievementEnum.legend)
+					SteamWrapper.unlockAchievement(Definitions.achievementEnum.legend)
 signal apophisKilled
 func checkApophis(room) :
 	if (room.has_method("getEncounterRef")) :

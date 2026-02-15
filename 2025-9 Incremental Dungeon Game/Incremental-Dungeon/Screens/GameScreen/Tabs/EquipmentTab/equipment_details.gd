@@ -529,6 +529,7 @@ func addWeaponScalingTooltips() :
 		var desc = $VBoxContainer/Text/VBoxContainer/Panel/ScrollContainer/VBoxContainer/Description
 		var newTooltip = tooltipLoader.instantiate()
 		desc.add_child(newTooltip)
+		newTooltip.currentLayer = currentLayer
 		myTooltips.append(newTooltip)
 		#newTooltip.setTitle(Definitions.attributeDictionaryShort[key] + " Scaling: " + letterCache[key])
 		#newTooltip.setDesc(str(currentItemSceneRef.core.getScaling(key)))

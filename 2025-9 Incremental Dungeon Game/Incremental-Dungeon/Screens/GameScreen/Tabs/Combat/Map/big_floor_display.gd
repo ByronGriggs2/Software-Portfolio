@@ -16,14 +16,14 @@ signal floorUp
 func _on_floor_display_floor_up() -> void:
 	emit_signal("floorUp")
 
-func setFloor(val) :
-	$FloorDisplay.setFloor(val)
+func setFloor(val, showMaxFloor : bool) :
+	$FloorDisplay.setFloor(val, showMaxFloor)
 	
 func setMaxFloor(val) :
 	$FloorDisplay.setMaxFloor(val)
 	
 func setEnvironment(val : MyEnvironment) :
-	$BiomeLabel.text = " " + val.getName().to_upper() + " "
+	$BiomeLabel.text = " " + val.title.to_upper() + " "
 	$FactionSymbol.clearAllSymbols()
 	for faction : EnemyGroups.factionEnum in val.permittedFactions :
 		$FactionSymbol.setSymbol(faction)

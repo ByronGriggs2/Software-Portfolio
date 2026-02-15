@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+func getWindowRef() -> PanelContainer :
+	return $Panel/CenterContainer/Window
+
 func hasScrollContainer() :
 	for child in $Panel/CenterContainer/Window.get_children() :
 		if child is ScrollContainer :

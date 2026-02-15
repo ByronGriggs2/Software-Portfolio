@@ -14,8 +14,8 @@ func _on_training_panel_training_changed(newTraining : AttributeTraining) -> voi
 		var multipliers = newTraining.getMultipliers()
 		#$TrainingPanel.cacheMultipliers(multipliers)
 		
-func getAttributeLevels() -> Array[int] :
-	var retVal : Array[int] = []
+func getAttributeLevels() -> Array[float] :
+	var retVal : Array[float] = []
 	for key in Definitions.attributeDictionary.keys() :
 		retVal.append($AttributeLevels.getLevel(key))
 	return retVal
@@ -96,7 +96,7 @@ func upgradeRoutine(routine) :
 func onRespec() :
 	for key in Definitions.attributeDictionary.keys() :
 		var oldVal = $AttributeLevels.getLevel(key)
-		$AttributeLevels.setLevel(key, round(oldVal/2.0))
+		$AttributeLevels.setLevel(key, round(oldVal*3.0/4.0))
 
 signal playerPortraitRequested
 signal playerPortraitReceived

@@ -1,12 +1,51 @@
-[gd_scene load_steps=8 format=3 uid="uid://des8iakulwgr5"]
+[gd_scene load_steps=10 format=3 uid="uid://des8iakulwgr5"]
 
 [ext_resource type="PackedScene" uid="uid://48l2vnrueam4" path="res://Graphic Elements/popups/my_popup.tscn" id="1_o4ltu"]
 [ext_resource type="Script" uid="uid://y2nd61es75ct" path="res://Graphic Elements/popups/actual_in_game_options.gd" id="2_evtk7"]
 [ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_18xpa"]
 [ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="4_o4ltu"]
-[ext_resource type="PackedScene" uid="uid://cj8ilswgtmol3" path="res://discard_filter.tscn" id="5_evtk7"]
 [ext_resource type="PackedScene" uid="uid://bgjlwljhs8ia8" path="res://master_volume.tscn" id="5_wq30p"]
-[ext_resource type="Script" uid="uid://cectcxesb42m" path="res://master_volume.gd" id="6_kshf8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18xpa"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq30p"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kshf8"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Theme" id="Theme_0p1rl"]
+OptionButton/styles/hover = SubResource("StyleBoxFlat_18xpa")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_wq30p")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_kshf8")
 
 [node name="ActualInGameOptions" instance=ExtResource("1_o4ltu")]
 script = ExtResource("2_evtk7")
@@ -25,30 +64,55 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="Encyclopedia" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0" instance=ExtResource("3_18xpa")]
-layout_mode = 2
-theme = ExtResource("4_o4ltu")
-theme_override_font_sizes/font_size = 20
-text = " Encyclopedia "
-
-[node name="keybinds" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="1" instance=ExtResource("3_18xpa")]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = " Key Bindings "
-
-[node name="Credits" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="2"]
+[node name="Credits" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0"]
 layout_mode = 2
 theme = ExtResource("4_o4ltu")
 theme_override_font_sizes/font_size = 20
 text = " Credits "
 
+[node name="Encyclopedia" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="1" instance=ExtResource("3_18xpa")]
+layout_mode = 2
+theme = ExtResource("4_o4ltu")
+theme_override_font_sizes/font_size = 20
+text = " Encyclopedia "
+
+[node name="keybinds" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="2" instance=ExtResource("3_18xpa")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = " Key Bindings "
+
 [node name="masterVolume" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="3" instance=ExtResource("5_wq30p")]
 layout_mode = 2
-script = ExtResource("6_kshf8")
 
-[node name="DiscardFilter" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="4" instance=ExtResource("5_evtk7")]
+[node name="WindowMode" type="PanelContainer" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="4"]
 layout_mode = 2
-theme = null
+theme = ExtResource("4_o4ltu")
+
+[node name="WindowMode" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/WindowMode" index="0"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/WindowMode/WindowMode" index="0"]
+layout_mode = 2
+text = "Window Mode  "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="WindowMode" type="OptionButton" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/WindowMode/WindowMode" index="1"]
+layout_mode = 2
+theme = SubResource("Theme_0p1rl")
+selected = 0
+item_count = 2
+popup/item_0/text = " Fullscreen "
+popup/item_0/id = 0
+popup/item_1/text = " Windowed "
+popup/item_1/id = 1
+
+[node name="FilterButton" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="5" instance=ExtResource("3_18xpa")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = " Item Filter "
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="3"]
 layout_mode = 2
@@ -74,8 +138,10 @@ visible = false
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/Encyclopedia" to="." method="_on_encyclopedia_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/keybinds" to="." method="_on_keybinds_pressed"]
-[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="item_selected" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/WindowMode/WindowMode/WindowMode" to="." method="_on_window_mode_item_selected"]
+[connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/FilterButton" to="." method="_on_filter_button_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2/Return" to="." method="_on_return_pressed"]

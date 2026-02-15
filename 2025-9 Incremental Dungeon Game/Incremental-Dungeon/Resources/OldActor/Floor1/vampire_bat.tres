@@ -1,12 +1,10 @@
-[gd_resource type="Resource" script_class="ActorPreset" load_steps=11 format=3 uid="uid://bl527sjpb7qcw"]
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=9 format=3 uid="uid://bl527sjpb7qcw"]
 
 [ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_1o17t"]
 [ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_572tu"]
 [ext_resource type="Resource" uid="uid://cn0edyyvhb6h8" path="res://Resources/OldAction/Attacks/Enemies/vampiric_bite.tres" id="2_rdjjd"]
 [ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="3_gxfwf"]
 [ext_resource type="Resource" uid="uid://daspnxu1gkr4k" path="res://Resources/OldAction/Attacks/leech_bolt_1.tres" id="3_our7q"]
-[ext_resource type="Resource" uid="uid://b68kmxwire120" path="res://Resources/OldEquipment/Weapons/bat_bat.tres" id="5_7doq8"]
-[ext_resource type="Resource" uid="uid://bwhv5jneisc7y" path="res://Resources/OldEquipment/Weapons/bat_staff.tres" id="6_urdl5"]
 [ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="7_7doq8"]
 [ext_resource type="Texture2D" uid="uid://3isv4yoyejtx" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/vault/microbat.png" id="7_our7q"]
 
@@ -34,7 +32,7 @@ DR = 47.8
 PHYSDEF = 11.7
 MAGDEF = 26.0
 actions = Array[ExtResource("1_1o17t")]([ExtResource("2_rdjjd"), ExtResource("3_our7q")])
-drops = Array[ExtResource("2_572tu")]([ExtResource("5_7doq8"), ExtResource("6_urdl5")])
+drops = Array[ExtResource("2_572tu")]([])
 dropChances = Array[float]([0.167, 0.25])
 enemyGroups = SubResource("Resource_urdl5")
 metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

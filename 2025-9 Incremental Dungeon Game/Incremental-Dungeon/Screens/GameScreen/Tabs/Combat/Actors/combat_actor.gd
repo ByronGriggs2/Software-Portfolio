@@ -31,6 +31,9 @@ func setHP(val) :
 		damageNumber.initialiseAndRun(damage, X0,X1,Y0,Y1)
 	HP = val
 
+func setHPText(val) :
+	$ResourceCard/VBoxContainer/HPBar.setCurrentHP(val)
+
 #Add more sophisticated AI later
 func _ready() :
 	if (Definitions.hasDLC && core.resourceName == "athena") :

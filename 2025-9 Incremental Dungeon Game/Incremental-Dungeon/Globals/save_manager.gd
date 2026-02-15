@@ -6,6 +6,57 @@ func getGlobalSettings() -> Dictionary :
 	return globalSettings.duplicate(true)
 func saveGlobalSettings(newVal : Dictionary) -> void :
 	globalSettings = newVal.duplicate(true)
+	
+const requiredNodes = [
+	"/root/Main/GameScreen/TopRibbon/Ribbon/Currency",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Equipment/Inventory",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Training/TrainingPanel",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Training",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Combat/ProceduralGenerationLogic",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Combat/MapContainer/TutorialMap/CombatMap/RoomContainer/OrcRoom",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Combat/MapContainer/TutorialMap/CombatMap/RoomContainer/ZombieRoom",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Combat/MapContainer/TutorialMap/CombatMap/RoomContainer/Room3",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Combat/MapContainer/TutorialMap/CombatMap/RoomContainer/WeaponRoom",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Combat/MapContainer/TutorialMap/CombatMap/RoomContainer/Room2",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Combat/MapContainer/TutorialMap/CombatMap/RoomContainer/Room1",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Combat/MapContainer/TutorialMap",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Combat/CombatPanel",
+	"/root/Main/GameScreen/MyTabContainer/InnerContainer/Combat",
+	"/root/Main/GameScreen/Player",
+	"/root/Main/GameScreen",
+	"/root/Main",
+	"/root/Shopping",
+	"/root/EnemyDatabase",
+	"/root/IGOptions",
+	"/root/SaveManager"
+]
+const popupLoader = preload("res://Graphic Elements/popups/my_popup_button.tscn")
+func saveCheck(saveDict : Dictionary) :
+	var OK : bool = true
+	var missing : Array = []
+	var keys = saveDict.keys()
+	var nodeStrs : Array = []
+	for key in keys :
+		nodeStrs.append(str(key))
+	for nodeStr in requiredNodes :
+		if (nodeStrs.find(nodeStr) == -1) :
+			OK = false
+			missing.append(nodeStr)
+	if (OK) :
+		return true
+	var warning = popupLoader.instantiate()
+	add_child(warning)
+	warning.layer = 999
+	warning.setTitle("Uh oh!")
+	warning.setText("The game just tried to corrupt your save data, but a failsafe introduced in patch 1.07 stopped it. Please let the developer know that this triggered and send them your most recent log file, located in C:\\Users\\<Username>\\AppData\\Roaming\\Godot\\app_userdata\\Incremental Dungeon\\logs. The best way to reach them is via the Discord on the store page.")
+	warning.setButtonText("Whoops")
+	print("V1.07 failsafe triggered. Missing nodes :")
+	for nodeStr in missing :
+		print(nodeStr)
+	print("*****************************************")
+	print("Save dictionary:") 
+	print(saveDict)
+	return false
 
 ##################################
 ## Internal
@@ -44,6 +95,18 @@ func saveExists() -> bool :
 		if (FileAccess.file_exists(Definitions.slotPaths[key])) :
 			return true
 	return false
+func validateSaves() -> int :
+	var keys = Definitions.slotNames.keys()
+	keys.sort_custom(func(a,b):return a<b)
+	for index in range(0, keys.size()) :
+		var key = keys[index]
+		if (!FileAccess.file_exists(Definitions.slotPaths[key])) :
+			continue
+		var text = FileAccess.open(Definitions.slotPaths[key], FileAccess.READ).get_as_text()
+		var dict = JSON.parse_string(text)
+		if (dict == null || dict == {}) :
+			return index
+	return -1
 #############################################################
 ## Saving Sequence
 
@@ -182,6 +245,7 @@ func handleSafetySave() :
 var saveActive : bool = false
 var saveMutex = Mutex.new()
 func saveGame(slot : Definitions.saveSlots) :
+	MainOptionsHelpers.saveSettings(globalSettings)
 	saveMutex.lock()
 	if (saveActive) :
 		saveMutex.unlock()
@@ -207,10 +271,16 @@ func generateFilepath(slot : Definitions.saveSlots) :
 		filePath = Definitions.slotPaths[slot]
 	return filePath
 
-func saveGame_noCheck(saveData, filePath) :
-	taskList.append(WorkerThreadPool.add_task(func():handleDiskAccess(saveData.duplicate(true), filePath)))
+func saveGame_noCheck(saveData : Dictionary, filePath) :
+	if (saveCheck(saveData)) :
+		taskList.append(WorkerThreadPool.add_task(func():handleDiskAccess(saveData.duplicate(true), filePath)))
+	else :
+		saveMutex.lock()
+		saveActive = false
+		saveMutex.unlock()
 
 var purging : bool = false
+signal purgeComplete
 var taskList : Array = []
 var purgeMutex = Mutex.new()
 func _process(_delta) :
@@ -229,6 +299,7 @@ func _process(_delta) :
 		purgeMutex.lock()
 		purging = false
 		purgeMutex.unlock()
+		emit_signal("purgeComplete")
 		return
 	saveMutex.unlock()
 	purgeMutex.unlock()
@@ -258,7 +329,7 @@ func loadSaveDict(slot : Definitions.saveSlots) :
 	if (!FileAccess.file_exists(Definitions.slotPaths[slot])) : return null
 	var text = FileAccess.open(Definitions.slotPaths[slot], FileAccess.READ).get_as_text()
 	var centralisedGameState = JSON.parse_string(text)
-	JSON.new().parse(text)
+	#JSON.new().parse(text)
 	if (centralisedGameState == null) :
 		centralisedGameState = {}
 	fixEnumRecursive(centralisedGameState)
@@ -329,7 +400,26 @@ func saveGameSaveSelection(parent : Node) :
 	if (parent.has_method("nestedPopupInit")) :
 		menu.nestedPopupInit(parent)
 func _on_save_menu_option_chosen(slot : Definitions.saveSlots) :
+	queueSaveGame_playSfx(slot)
+
+func queueSaveGame_playSfx(slot : Definitions.saveSlots) :
 	queueSaveGame(slot)
+	while (saveQueueSemaphore > 0) :
+		await saveFinished
+	while (true) :
+		purgeMutex.lock()
+		if (purging) :
+			purgeMutex.unlock()
+			await purgeComplete
+			break
+		elif (taskList.size() > 0) :
+			purgeMutex.unlock()
+			await purgeComplete
+			continue
+		else :
+			purgeMutex.unlock()
+			break
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.save)
 	
 signal newGameReady
 const newGameMenu = preload("res://SaveManager/new_game_menu.tscn")
@@ -343,9 +433,16 @@ func waitForDependencies() :
 	if (!MainOptionsHelpers.myReady) :
 		await MainOptionsHelpers.myReadySignal
 
+var saveQueueSemaphore = 0
+signal saveFinished
 func queueSaveGame(slot) :
+	var first : bool = true
+	await MainOptionsHelpers.queueSaveSettings(globalSettings)
 	while (true) :
 		saveMutex.lock()
+		if (first) :
+			first = false
+			saveQueueSemaphore += 1
 		if (!saveActive) :
 			break
 		saveMutex.unlock()
@@ -354,8 +451,9 @@ func queueSaveGame(slot) :
 	var data = generateSave()
 	var filePath = generateFilepath(slot)
 	saveGame_noCheck(data, filePath)
+	saveQueueSemaphore -= 1
 	saveMutex.unlock()
-	print("queued save success")
+	emit_signal("saveFinished")
 	
 func queueSaveGame_safety(saveData : Dictionary, filePath : String) :
 	while (true) :

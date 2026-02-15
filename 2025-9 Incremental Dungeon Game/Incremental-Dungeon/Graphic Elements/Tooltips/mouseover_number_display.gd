@@ -84,7 +84,7 @@ func _process(_delta) :
 	setText(Helpers.engineeringRound(myNumberRef.getFinal(),3))
 	#if ($TooltipTrigger.spawned) :
 		#return
-	if (!$TooltipTrigger.isOnNestedTooltip()) :
+	if (!$TooltipTrigger.isOnNestedTooltip() || $TooltipTrigger.spawned) :
 		return
 	var prebonuses = myNumberRef.getPrebonusesReference()
 	var premultipliers = myNumberRef.getPremultipliersReference()

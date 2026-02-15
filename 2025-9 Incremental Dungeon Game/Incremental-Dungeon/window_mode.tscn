@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bktakwc0gjk38"]
+
+[node name="WindowMode" type="HBoxContainer"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+text = "Window Mode  "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="WindowMode" type="OptionButton" parent="."]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = " Fullscreen "
+popup/item_0/id = 0
+popup/item_1/text = " Windowed "
+popup/item_1/id = 1

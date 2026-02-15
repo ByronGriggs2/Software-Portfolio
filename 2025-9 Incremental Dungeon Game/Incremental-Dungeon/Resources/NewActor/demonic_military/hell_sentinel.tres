@@ -23,8 +23,8 @@ faction = 5
 [resource]
 script = ExtResource("4_yy3fn")
 portrait = ExtResource("4_wna1e")
-text = "Hellforged Golem"
-description = "There are no finer forges in all the realms than the hellforges of the Underworld, and the pride and joy of Demonic craftsmen are the hellforged golems. While much smaller than the iron golems of the surface world, Hellforged Golems are superior in nearly every other way, from durability to infamy."
+text = "Hell Sentinel"
+description = "There are no finer forges in all the realms than the hellforges of the Underworld, and the pride and joy of Demonic craftsmen are the hell sentinels. While much smaller than the iron golems of the surface world, hell sentinels are superior in nearly every other way, from durability to infamy."
 MAXHP = -1.0
 AR = -1.0
 DR = -1.0

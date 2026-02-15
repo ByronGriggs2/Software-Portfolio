@@ -92,6 +92,7 @@ func resetCombat(friendlyCores : Array[ActorPreset], enemyCores : Array[ActorPre
 		newActor.size_flags_vertical = 0
 	initPartyPositions($FriendlyParty.get_children())
 	initPartyPositions($EnemyParty.get_children())
+	handleAthena()
 	if (Definitions.hasDLC) :
 		handleAthena()
 	else :
@@ -101,10 +102,11 @@ func handleAthena() :
 	if ($EnemyParty.get_child(0).core.getResourceName() != "athena") :
 		resumeCombat()
 		return
-	var skillcheck = 614000
+	var skillcheck = $EnemyParty.get_child(0).core.getSkillcheck()
 	if (currentPlayerMods["attribute"][Definitions.attributeDictionary[Definitions.attributeEnum.SKI]] < skillcheck) :
 		var newActions : Array[Action] = [MegaFile.getNewAction("blur")]
 		$EnemyParty.get_child(0).core.actions = newActions
+		$EnemyParty.get_child(0).setHPText("???")
 	else :
 		var oldActions : Array[Action] = EnemyDatabase.getEnemy("athena").actions
 		$EnemyParty.get_child(0).core.actions = oldActions
@@ -265,9 +267,14 @@ func searchPartyAlive(party, pos:int) :
 	return null
 
 func executeAction(emitter, action, target) :
+	if (target == null) :
+		return
+	playSfx(emitter, action)
 	if (Definitions.hasDLC && emitter.core.getResourceName() == "athena") :
 		if (action == MegaFile.getNewAction("blur")) :
-			var damage = 99999999
+			var hpMagnitude = ceil(log(emitter.core.MAXHP)/log(10))
+			### Rounds to 99999 with 5 sig figs regardless of magnitude
+			var damage = pow(10,hpMagnitude+1)-pow(10,hpMagnitude+1-5)
 			target.setHP(target.HP-damage)
 			return
 	## Not that it'll matter in Release, but the third term is to force me to playtest this obscure item effect if I forget.
@@ -363,3 +370,12 @@ func onLoad(loadDict : Dictionary) :
 	emit_signal("myReadySignal")
 	doneLoading = true
 	emit_signal("doneLoadingSignal")
+
+func playSfx(emitter : Node, action : Action) :
+	if (!is_visible_in_tree()) :
+		return
+	var sfx = $attackSfx.getSfx(action)
+	if (sfx == null) :
+		return
+	var reduceVolume = emitter != $FriendlyParty.get_child(0)
+	AudioHandler.playSfx(sfx, reduceVolume)

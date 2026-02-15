@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="ActorPreset" load_steps=10 format=3 uid="uid://m34gjdj8kv64"]
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://m34gjdj8kv64"]
 
 [ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_ycdp3"]
 [ext_resource type="Resource" uid="uid://cw8lnudnofvg5" path="res://Resources/OldAction/Attacks/dagger_basic.tres" id="2_4qo7t"]
 [ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_cd70x"]
 [ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="3_4qo7t"]
-[ext_resource type="Resource" uid="uid://7y4lfep3wrtv" path="res://Resources/OldEquipment/Weapons/kiwi_dagger.tres" id="4_1lh6i"]
-[ext_resource type="Resource" uid="uid://rh3e565namen" path="res://Resources/OldEquipment/Accessories/kiwi.tres" id="5_7ihbi"]
 [ext_resource type="Texture2D" uid="uid://ytleiv6xdvni" path="res://Images/Sprites/asdfadfa.png" id="6_7ihbi"]
 [ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="6_mvnnw"]
 
@@ -33,7 +31,7 @@ DR = 19.6
 PHYSDEF = 10.2
 MAGDEF = 15.2
 actions = Array[ExtResource("1_ycdp3")]([ExtResource("2_4qo7t")])
-drops = Array[ExtResource("2_cd70x")]([ExtResource("4_1lh6i"), ExtResource("5_7ihbi")])
+drops = Array[ExtResource("2_cd70x")]([])
 dropChances = Array[float]([0.167, 0.08])
 enemyGroups = SubResource("Resource_jegmg")
 metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

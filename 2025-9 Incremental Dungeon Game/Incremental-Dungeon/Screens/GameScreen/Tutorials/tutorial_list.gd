@@ -2,6 +2,7 @@ extends "res://Graphic Elements/popups/my_popup.gd"
 
 var individualTutorialDisableCopy : Dictionary = {}
 func initialise(individualTutorialDisable : Dictionary) :
+	Helpers.highVisScroll($Panel/CenterContainer/Window/VBoxContainer/ScrollContainer)
 	individualTutorialDisableCopy = individualTutorialDisable
 	var container = getTutorialListContainer()
 	for key in individualTutorialDisable.keys() :

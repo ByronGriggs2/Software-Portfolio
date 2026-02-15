@@ -1,33 +1,45 @@
 extends PanelContainer
 
-func getVolumeRef() -> Node :
-	return $VBoxContainer/HBoxContainer/HSlider
+func getVolumeRef(type : AudioHandler.bus) -> Node :
+	if (type == AudioHandler.bus.master) :
+		return $VBoxContainer/Master/HSlider
+	elif (type == AudioHandler.bus.music) :
+		return $VBoxContainer/Music/HSlider
+	if (type == AudioHandler.bus.sfx) :
+		return $VBoxContainer/Sfx/HSlider
+	else :
+		return null
 	
-func getTextRef() -> Node :
-	return $VBoxContainer/Percent
+func getTextRef(type : AudioHandler.bus) -> Node :
+	if (type == AudioHandler.bus.master) :
+		return $VBoxContainer/Master/Percent
+	elif (type == AudioHandler.bus.music) :
+		return $VBoxContainer/Music/Percent
+	if (type == AudioHandler.bus.sfx) :
+		return $VBoxContainer/Sfx/Percent
+	else :
+		return null
 
 func loadVolume() :
-	getVolumeRef().value = convertDB(AudioHandler.getMasterVolume())
-	
+	for key in AudioHandler.busDict.keys() :
+		getVolumeRef(key).value = convertDB(AudioHandler.getVolume(key))
+
 func convertDB(val) :
 	var linear = db_to_linear(val)
 	var proportion = linear/(1-0.001)
 	return round(proportion*100)
 	
-var oldValue = 0
+var oldValue = [0,0,0]
 func _process(_delta) :
-	var value = getValueDB()
-	if (value != oldValue) :
-		if (value == -999) :
-			AudioHandler.setMasterMute(true)
-		else :
-			AudioHandler.setMasterMute(false)
-			AudioHandler.setMasterVolume(value)
-		getTextRef().text = str(int(getVolumeRef().value)) + "%"
-		oldValue = value
+	for key in AudioHandler.busDict.keys() :
+		var value = getValueDB(key)
+		if (value != oldValue[key]) :
+			AudioHandler.setVolume(key, value)
+			getTextRef(key).text = str(int(getVolumeRef(key).value)) + "%"
+			oldValue[key] = value
 	
-func getValueDB() :
-	var value = round(getVolumeRef().value)
+func getValueDB(type : AudioHandler.bus) :
+	var value = round(getVolumeRef(type).value)
 	if (value == 0) :
 		return -999
 	var linear = ((value)/100.0)*(1-0.001)+0.001
@@ -41,10 +53,10 @@ func onExit() :
 func _ready() :
 	if (!AudioHandler.myReady) :
 		await AudioHandler.myReadySignal
-	var masterVolume = AudioHandler.getMasterVolume()
-	var masterMute = AudioHandler.getMasterMute()
-	if (masterMute) :
-		getVolumeRef().value = 0
-	else :
-		getVolumeRef().value = convertDB(masterVolume)
-	getTextRef().text = str(int(getVolumeRef().value)) + "%"
+	for key in AudioHandler.busDict.keys() :
+		var volume = AudioHandler.getVolume(key)
+		if (is_equal_approx(volume, -999)) :
+			getVolumeRef(key).value = 0
+		else :
+			getVolumeRef(key).value = convertDB(volume)
+		getTextRef(key).text = str(int(getVolumeRef(key).value)) + "%"

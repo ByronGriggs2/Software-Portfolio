@@ -15,3 +15,8 @@ func getWarmup() :
 	return warmup
 func getName() :
 	return text
+var resourceName = null
+func getResourceName() :
+	if (resourceName == null) :
+		resourceName = resource_path.get_file().get_basename()
+	return resourceName

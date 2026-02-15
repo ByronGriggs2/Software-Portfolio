@@ -35,7 +35,7 @@ func initialise(rewards : Dictionary) :
 			changed = true
 			encounteredItems.append(entry.getItemSceneRef().getItemName())
 	if (changed) :
-		encounteredItems.sort_custom(func(a,b) : a<b)
+		encounteredItems.sort_custom(func(a,b) : return a<b)
 		optionsCopy["encounteredItems"] = encounteredItems
 		IGOptions.saveAndUpdateIGOptions(optionsCopy)
 		IGOptions.updateGlobalSettings_items()
@@ -63,6 +63,8 @@ func initialise(rewards : Dictionary) :
 			delete = delete || !(filter["equipmentType"][entry.getItemSceneRef().getType()])
 			if (grouping.weaponClass != -1) :
 				delete = delete || !(filter["weaponType"][grouping.weaponClass])
+			else :
+				delete = delete || !(filter["weaponType"][2])
 		else :
 			for element in grouping.getElements() :
 				delete = delete || filter["element"][element]
@@ -70,6 +72,8 @@ func initialise(rewards : Dictionary) :
 			delete = delete || filter["equipmentType"][entry.getItemSceneRef().getType()]
 			if (grouping.weaponClass != -1) :
 				delete = delete || filter["weaponType"][grouping.weaponClass]
+			else :
+				delete = delete || filter["weaponType"][2]
 		if (delete) :
 			itemsToDelete.append(entry.getItemSceneRef())
 			continue

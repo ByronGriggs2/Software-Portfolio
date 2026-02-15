@@ -4,7 +4,7 @@ enum optionType {checkBox,dropdown}
 enum options {tutorialsEnabled, globalEncyclopedia}#,inventoryBehaviour}
 const optionNameDictionary = {
 	options.tutorialsEnabled : "Tutorials enabled",
-	options.globalEncyclopedia : "Global encyclopedia"
+	options.globalEncyclopedia : "Use global encyclopedia"
 	#options.inventoryBehaviour : "Inventory Behaviour"
 }
 const optionTypeDictionary = {
@@ -50,7 +50,7 @@ func getDefaultOptionDict() -> Dictionary :
 		"element" : [true,true,true,true,true],
 		"quality" : [true,true,true,true,true,true],
 		"equipmentType" : [true,true,true],
-		"weaponType" : [true,true],
+		"weaponType" : [true,true,true],
 		"directDowngrade" : [true,false,false,false,false]
 		}
 	tempDict["hyperMode"] = false
@@ -106,7 +106,7 @@ func checkEquipmentEncyclopedia() :
 			unlock = false
 			break
 	if (unlock) :
-		Helpers.unlockAchievement(Definitions.achievementEnum.all_equipment)
+		SteamWrapper.unlockAchievement(Definitions.achievementEnum.all_equipment)
 
 func getSaveDictionary() -> Dictionary :
 	var tempDict : Dictionary = {}
@@ -150,6 +150,9 @@ func compensateForOldSaves(myLoadDict) -> Dictionary :
 		temp["filter"]["weaponType"] = getDefaultOptionDict()["filter"]["weaponType"].duplicate(true)
 	if (temp["filter"]["directDowngrade"].size() != getDefaultOptionDict()["filter"]["directDowngrade"].size()) :
 		temp["filter"]["directDowngrade"] = getDefaultOptionDict()["filter"]["directDowngrade"].duplicate(true)
+	##V1.09 added "neither" to weapon filter
+	if (temp["filter"]["weaponType"].size() < 3) :
+		temp["filter"]["weaponType"] = getDefaultOptionDict()["filter"]["weaponType"].duplicate(true)
 	for key in optionDefaultDictionary :
 		if (temp.get(key) == null) :
 			temp[key] = optionDefaultDictionary[key]

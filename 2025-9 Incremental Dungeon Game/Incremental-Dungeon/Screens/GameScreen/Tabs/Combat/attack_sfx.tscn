@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcwdh23x5rnqn"]
+
+[ext_resource type="Script" uid="uid://bhw3ntx3b3pn2" path="res://Screens/GameScreen/Tabs/Combat/attackSfx.gd" id="1_33qcg"]
+
+[node name="attackSfx" type="Node"]
+script = ExtResource("1_33qcg")

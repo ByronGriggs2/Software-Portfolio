@@ -15,9 +15,10 @@ enum tutorialName {
 	dropIntro,
 	manticoreKill,
 	herophile,
-	row1,
+	row2,
 	floor1,
-	floor2
+	floor2,
+	tooltips
 	#apophis
 }
 const tutorialTitles : Dictionary = {
@@ -32,9 +33,10 @@ const tutorialTitles : Dictionary = {
 	tutorialName.dropIntro : "Drops Introduction",
 	tutorialName.manticoreKill : "Manticore Defeated",
 	tutorialName.herophile : "Training with Herophile",
-	tutorialName.row1 : "Beastiary and Item Drops",
+	tutorialName.row2 : "Beastiary and Item Drops",
 	tutorialName.floor1 : "Combat Rewards Filter",
-	tutorialName.floor2 : "Elements"
+	tutorialName.floor2 : "Elements",
+	tutorialName.tooltips : "Tooltips"
 	#tutorialName.apophis : "The Demon King is Slain!"
 }
 const tutorialDesc : Dictionary = {
@@ -56,9 +58,10 @@ const tutorialDesc : Dictionary = {
 	tutorialName.manticoreKill : "Congratulations on defeating the Manticore! Unfortunately this is the end of content in the current version. I hope you enjoyed the game, and I'd be happy to hear any feedback you have!",
 	tutorialName.herophile : "\"I am no match for you. I yield to your strength.\" Herophile says, kneeling. You turn towards the exit.\n\n\"However\"\n\nYou turn back towards the demigoddess, eyebrow raised.\n\n\"Your skill is clearly lacking.\" she says, grinning. \"I believe a mutually beneficial arrangement can be made.\"\n\n[i]The \"Spar with Herophile\" Routine has been unlocked![/i]",
 	#tutorialName.dropIntro : "From floor 1 onwards, enemies have a chance to drop items on death. Once a room has been entered, you can CTRL-click the enemies' names on the Combat Map to view their beastiary entries, which contain hints about what items they can drop. You can also access any of the beastiary entries in the Encyclopedia (F1), but only if the enemy has been defeated at least once.",
-	tutorialName.row1 : "From floor 1 onwards, enemies have a chance to drop items on death, but not all enemies drop from the same item pool! You can view the item pool Tags of an enemy on the Combat Map if you CTRL-Click their name.\n\nYou can also view the same entries in the Beastiary, found in the Encyclopedia (F1), provided you've won a battle against them at least once.",
+	tutorialName.row2 : "From floor 1 onwards, enemies have a chance to drop items on death, but not all enemies drop from the same item pool! You can view the item pool Tags of an enemy on the Combat Map if you CTRL-Click their name.\n\nYou can also view the same entries in the Beastiary, found in the Encyclopedia (F1), provided you've won a battle against them at least once.",
 	tutorialName.floor1 : "Tired of getting irrelevant items? You can filter rewards to be auto-discarded in the in-game options menu (F2). There, you can also choose to have your items auto-replaced when an upgrade drops!",
-	tutorialName.floor2 : "Have you been taking advantage of elemental synergies? Some equipment has one or more Elements. Although nonelemental equipment is 15% stronger, elemental equipment grants a boost of 25% when the synergy is activated!"
+	tutorialName.floor2 : "Have you been taking advantage of elemental synergies? Some equipment has one or more Elements. Although nonelemental equipment is 15% stronger, elemental equipment grants a boost of 25% when the synergy is activated!",
+	tutorialName.tooltips : "Any time you see a phrase in [color=#baa1e6]this color[/color], you can hover over it for a tooltip. The spawned tooltip may also have such phrases; to create a nested tooltip, wait for the circle in the upper right to fill, then mouse over the desired text. You can collapse the whole tree by mousing off of the tooltip (and original text), or part of the tree by mousing over only the topmost tooltip you want to keep.\n\nThe numbers on the Player Panel and under Routine Growth (in the Training Tab, once unlocked) also create tooltips, despite [color=white]being white.[/color])"
 	#tutorialName.apophis : "Congratulations, you've defeated the Demon King! The Surface world is saved! Or something. This game was going to have a more in depth story but game development is hard. In any case, there are actually 20 biomes, 25 bosses, and 10 factions in this game, and levels 1-9 are randomly generated! So I encourage you to check out endless mode or try one of the other classes. Thanks for playing!"
 }
 const tutorialPointers : Dictionary = {
@@ -76,9 +79,10 @@ const oneOffTutorials : Array = [
 	tutorialName.dropIntro,
 	tutorialName.manticoreKill,
 	tutorialName.herophile,
-	tutorialName.row1,
+	tutorialName.row2,
 	tutorialName.floor1,
-	tutorialName.floor2
+	tutorialName.floor2,
+	tutorialName.tooltips
 	#tutorialName.apophis
 ]
 
@@ -225,16 +229,16 @@ const keywords : Array[String] = [
 	"Skill",
 	"Routine Speed",
 	"Routine Effect",
-	"Wait",
-	"Inventory Behaviour",
+	#"Wait",
+	#"Inventory Behaviour",
 	"Action Power",
-	"Always Discard",
-	"Always Take",
+	#"Always Discard",
+	#"Always Take",
 	"Attack Rating",
 	"Attribute",
 	"Base",
 	"Class",
-	"Combat Reward Behaviour",
+	#"Combat Reward Behaviour",
 	"Combat Stat",
 	"Currency",
 	"Damage Rating",
@@ -342,7 +346,7 @@ const keyword_alternates : Dictionary = {
 	"Physical Damage Taken" : "PDT",
 	"Magic Damage Dealt" : "MDD",
 	"Magic Damage Taken" : "MDT",
-	"Miku Miku Dance" : "MMD",
+	#"Miku Miku Dance" : "MMD",
 	"Routine Growth Ratio" : "RGR",
 	"Cumulative Routine Level" : "CRL",
 	"Routine Effect" : "RE"
@@ -355,7 +359,7 @@ var descriptions : Dictionary = {
 	
 	#"Softcap" : "Every time the Bonus provided to an attribute by Cumulative Routine Levels reaches a new power of 10 (starting at 100), your Routine Speed for that attribute halves permanently.",
 	
-	"Class" : "Your Class determines your starting Attributes, Attribute multipliers, and unarmed Weapon Scaling. Fighter is the tankiest, Mage is the highest damage, and Rogue is balanced. You can respec about halfway through the game at the cost of half of your Cumulative Routine Levels",
+	"Class" : "Your Class determines your starting Attributes, Attribute multipliers, and unarmed Weapon Scaling. Fighter is the tankiest, Mage is the highest damage, and Rogue is balanced. You can respec about halfway through the game at the cost of 25% of your Cumulative Routine Levels",
 	
 	"Currency" : "Currency items do not take up inventory space and only exist to be exchanged at shops.\n\nThe amount of currency acquired from a victory depends only on how deep in the dungeon it is (except in the case of a particular wandering boss ;3)", 
 		
@@ -411,13 +415,13 @@ var descriptions : Dictionary = {
 	
 	"Routine Growth Ratio" : "The Routine Growth Ratio (RGR) is the Numbers displayed underneath each Routine under \"Routines\" in the Training tab. A Routine's RGR provides a Bonus to Base Routine Growth Rate of RGR*Routine Speed. Base RGR varies by Routine, and Bonuses to their Standard Multipliers can be bought in shops.",
 	
-	"Combat Reward Behaviour" : "Wait\n\nAlways Take\n\nAlways Discard",
+	#"Combat Reward Behaviour" : "Wait\n\nAlways Take\n\nAlways Discard",
 	
-	"Wait" : "This item must be manually taken or discarded from combat rewards.\nThis setting can be changed at any time per-item in the Encyclopedia (F1).",
+	#"Wait" : "This item must be manually taken or discarded from combat rewards.\nThis setting can be changed at any time per-item in the Encyclopedia (F1).",
 	
-	"Always Take" : "Always take this item from combat rewards.\nThis setting can be changed at any time per-item in the Encyclopedia (F1).\n\nBehaviour when inventory is full depends on \"Inventory Behaviour\" in the in-game options (F2)",
+	#"Always Take" : "Always take this item from combat rewards.\nThis setting can be changed at any time per-item in the Encyclopedia (F1).\n\nBehaviour when inventory is full depends on \"Inventory Behaviour\" in the in-game options (F2)",
 	
-	"Always Discard" : "Always discard this item from combat rewards.\nThis setting can be changed at any time per-item in the Encyclopedia (F1).",
+	#"Always Discard" : "Always discard this item from combat rewards.\nThis setting can be changed at any time per-item in the Encyclopedia (F1).",
 	
 	"Inventory Behaviour" : "Determines whether \"Always Take\" will wait or discard when the inventory is full. \"Always Take\" can be set per-item in the Encyclopedia (F1).",
 	
@@ -487,7 +491,7 @@ var descriptions : Dictionary = {
 	"Undead" : "The Undead Faction includes those that practice necromancy and their creations.",
 	"Merfolk" : "The Merfolk Faction are a proud and powerful race, unbothered by the affairs of surface or underworld dwellers.",
 	
-	"Biome" : "Each floor beyond the tutorial is generated with a specific Biome. The Biome determines what Elements are eligible to drop and what Factions are eligible to appear.\n\nThe Biome and its effects can be seen in the top right of the Combat Map.\n\nIf no elements are listed for a biome, equipment from any element can drop, but is 4x as rare (75% chance to be rerolled).",
+	"Biome" : "Each floor beyond the tutorial is generated with a specific Biome. The Biome determines what Elements are eligible to drop and what Factions are eligible to appear.\n\nThe Biome and its effects can be seen in the top right of the Combat Map.\n\nIf no elements are listed for a Biome, equipment from any element can drop, but is 4x as rare (75% chance to be rerolled).\n\nWanderkin can appear in any Biome.",
 	##################################################################
 	"Physical Damage Dealt" : "Physical Damage Dealt/PDD, applies after Physical Conversion.\n\t-Base PDD = 1.0",
 	"Magic Damage Dealt" : "Magic Damage Dealt/MDD, applies after Magic Conversion.\n\t-Base MDD = 1.0",
@@ -495,7 +499,7 @@ var descriptions : Dictionary = {
 	"Magic Damage Taken" : "Magic Damage Taken, aka MDT.\n\t-Base MDT = 1.0",
 	"Physical Conversion" : "Applies a portion of physical damage to the enemy's MAGDEF instead of their PHYSDEF.\n\t-Base Physical Conversion = 0.0",
 	"Magic Conversion" : "Applies a portion of magic damage to the enemy's PHYSDEF instead of their MAGDEF.\n\t-Base Magic Conversion = 0.0",
-	"Miku Miku Dance" : "henlo"
+	#"Miku Miku Dance" : "henlo"
 }
 #func getEncyclopediaEntries() -> Dictionary :
 	#var tempDict : Dictionary = {}

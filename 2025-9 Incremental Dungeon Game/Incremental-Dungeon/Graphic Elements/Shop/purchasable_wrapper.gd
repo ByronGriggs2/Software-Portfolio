@@ -24,7 +24,7 @@ func getPurchasable() :
 	
 func setCurrency(val : Texture2D) :
 	$PurchasableScene.setCurrency(val)
-func setPrice(val : int) :
+func setPrice(val : float) :
 	$PurchasableScene.setPrice(val)
 #func setName(val : String) :
 	#$PurchasableScene.setName(val)

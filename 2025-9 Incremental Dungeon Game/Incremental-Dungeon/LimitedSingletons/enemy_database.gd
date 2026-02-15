@@ -144,4 +144,4 @@ func _on_enemy_data_changed(_var) :
 		elif (enemy != "athena" && (forcedInclude.find(enemy) != -1 || getEnemy(enemy).enemyGroups.isEligible)) :
 			unlock = false
 	if (unlock && Definitions.steamEnabled) :
-		Helpers.unlockAchievement(Definitions.achievementEnum.all_monsters)
+		SteamWrapper.unlockAchievement(Definitions.achievementEnum.all_monsters)

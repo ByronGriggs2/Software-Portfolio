@@ -8,6 +8,9 @@ var optionDictCopy : Dictionary = {}
 var tooltipRef = null
 const tooltipLoader = preload("res://Graphic Elements/Tooltips/tooltip_trigger.tscn")
 func _ready() :
+	currentSettings = MainOptionsHelpers.loadSettings()
+	$Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/WindowMode/WindowMode/WindowMode.selected = currentSettings["Window Mode"]
+	oldWindowMode = currentSettings["Window Mode"]
 	optionDictCopy = IGOptions.getIGOptionsCopy()
 	for key in IGOptions.optionNameDictionary.keys() :
 		if (IGOptions.optionTypeDictionary[key] == IGOptions.optionType.checkBox) :
@@ -51,8 +54,8 @@ func _ready() :
 			newElement.select(optionDictCopy[key])
 		else :
 			pass
-	await $Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/DiscardFilter.initialise(optionDictCopy["filter"])
-	$Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/DiscardFilter.setCurrentLayer(layer)
+	#await $Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/DiscardFilter.initialise(optionDictCopy["filter"])
+	#$Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/DiscardFilter.setCurrentLayer(layer)
 	
 func _on_globalEncyclopedia_resized() :
 	if (tooltipRef != null) :
@@ -69,7 +72,7 @@ func _on_save_pressed() -> void:
 	updateOptionDict()
 	$Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/masterVolume.onSave()
 	IGOptions.saveAndUpdateIGOptions(optionDictCopy)
-	SaveManager.queueSaveGame(Definitions.saveSlots.current)
+	SaveManager.queueSaveGame_playSfx(Definitions.saveSlots.current)
 
 signal finished
 func _on_return_pressed() -> void:
@@ -88,7 +91,6 @@ func updateOptionDict() :
 			optionDictCopy[key] = getOptionsContainer().get_child(key+myOffset).get_child(1).get_selected()
 		else :
 			pass
-	optionDictCopy["filter"] = $Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/DiscardFilter.getData()
 
 const encyclopediaLoader = preload("res://Graphic Elements/popups/encyclopedia.tscn")
 func _on_encyclopedia_pressed() -> void:
@@ -107,3 +109,79 @@ func _on_credits_pressed() -> void:
 	var credits = creditsLoader.instantiate()
 	add_child(credits)
 	credits.nestedPopupInit(self)
+
+var myFilter : Node = null
+const filterLoader = preload("res://filter_new.tscn")
+func _on_filter_button_pressed() -> void:
+	if (myFilter != null) :
+		myFilter.queue_free()
+		myFilter = null
+	myFilter = filterLoader.instantiate()
+	add_child(myFilter)
+	myFilter.nestedPopupInit(self)
+	myFilter.initalise(optionDictCopy["filter"])
+	myFilter.connect("savePressed", _on_filter_save_pressed)
+
+func _on_filter_save_pressed() :
+	var tempCopy = IGOptions.getIGOptionsCopy()
+	tempCopy["filter"] = myFilter.getData()
+	optionDictCopy["filter"] = myFilter.getData()
+	IGOptions.saveAndUpdateIGOptions(tempCopy)
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.save)
+
+var currentSettings
+const popupLoader = preload("res://Graphic Elements/popups/my_popup_button.tscn")
+var oldWindowMode = 0
+var windowModeConfirmationPopup : Node = null
+var windowModeTimer : Timer = null
+var windowModeSubTimer : Timer = null
+func _on_window_mode_item_selected(index: int) -> void:
+	currentSettings = MainOptionsHelpers.loadSettings()
+	currentSettings["Window Mode"] = index
+	MainOptionsHelpers.applyWindowMode(index)
+	windowModeConfirmationPopup = popupLoader.instantiate()
+	add_child(windowModeConfirmationPopup)
+	windowModeConfirmationPopup.nestedPopupInit(self)
+	windowModeConfirmationPopup.setTitle("Confirm Window Mode")
+	windowModeConfirmationPopup.setText("Is this Window Mode okay? Reverting in 10 seconds.")
+	windowModeConfirmationPopup.setButtonText("Confirm and save setting")
+	windowModeConfirmationPopup.connect("finished", _on_window_mode_confirmed)
+	windowModeTimer = Timer.new()
+	add_child(windowModeTimer)
+	windowModeTimer.one_shot = true
+	windowModeTimer.wait_time = 10
+	windowModeTimer.connect("timeout", _revert_window_mode)
+	windowModeTimer.start()
+	windowModeSubTimer = Timer.new()
+	add_child(windowModeSubTimer)
+	windowModeSubTimer.wait_time = 1
+	windowModeSubTimer.connect("timeout", _update_window_mode_text)
+	windowModeSubTimer.start()
+	
+func killWindowModeChildren() :
+	windowModeConfirmationPopup = null
+	windowModeTimer.stop()
+	windowModeTimer.queue_free()
+	windowModeTimer = null
+	windowModeSubTimer.stop()
+	windowModeSubTimer.queue_free()
+	windowModeSubTimer = null
+
+var oldSettings
+func _on_window_mode_confirmed() :
+	killWindowModeChildren()
+	oldSettings = MainOptionsHelpers.loadSettings()
+	oldSettings["Window Mode"] = currentSettings["Window Mode"]
+	MainOptionsHelpers.saveSettings(oldSettings)
+	oldWindowMode = currentSettings["Window Mode"]
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.save)
+
+func _revert_window_mode() :
+	windowModeConfirmationPopup.queue_free()
+	killWindowModeChildren()
+	MainOptionsHelpers.applyWindowMode(oldWindowMode)
+	currentSettings["Window Mode"] = oldWindowMode
+	$Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/WindowMode/WindowMode/WindowMode.selected = oldWindowMode
+
+func _update_window_mode_text() :
+	windowModeConfirmationPopup.setText("Is this Window Mode okay? Reverting in " + str(Helpers.myRound(windowModeTimer.time_left,1)) + " seconds.")

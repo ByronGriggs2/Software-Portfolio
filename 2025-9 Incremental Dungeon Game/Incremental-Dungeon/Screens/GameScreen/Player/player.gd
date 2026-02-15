@@ -38,7 +38,7 @@ var unarmedWeapon : Node = null
 var equippedWeapon : Weapon = null
 var equippedArmor : Armor = null
 var equippedAccessory : Accessory = null
-var trainingLevels : Array[int] = []
+var trainingLevels : Array[float] = []
 
 ###############################
 ## Initialisation
@@ -61,7 +61,7 @@ func initialiseNumberObjects() :
 	otherStatObjects[Definitions.otherStatEnum.routineMultiplicity].setPrebonus("Humanoid", 1.0)
 ###############################
 ## Specific Modifiers
-func updateTrainingLevels(newLevels : Array[int]) :
+func updateTrainingLevels(newLevels : Array[float]) :
 	trainingLevels = newLevels
 func updateWeapon(val : Weapon) :
 	if (val == null) :
@@ -287,12 +287,15 @@ func setClass(character : CharacterClass) :
 	for key in Definitions.attributeDictionary.keys() :
 		attributeObjects[key].setPrebonus("Class", round(character.getBaseAttribute(key)/character.getAttributeScaling(key)*100.0)/100.0)
 		attributeObjects[key].setPremultiplier("Class", character.getAttributeScaling(key))
-	$ScrollContainer/VBoxContainer/AttributePanel/VBoxContainer/ClassLabel.text = "Class: " + character.getText()
+	if (mySubclass == -1) :
+		$ScrollContainer/VBoxContainer/AttributePanel/VBoxContainer/ClassLabel.text = "Class: " + character.getText()
 	unarmedWeapon = SceneLoader.createEquipmentScene("unarmed_" + Definitions.classDictionary[characterClass.classEnum])
 	$ScrollContainer/VBoxContainer/AttributePanel/VBoxContainer/ClassLabel.visible = true
+	$ScrollContainer/VBoxContainer/AttributePanel/VBoxContainer/AttributeLabel.visible = true
+	$ScrollContainer/VBoxContainer/AttributePanel/VBoxContainer/NameLabel.visible = true
 func setName(val) :
 	characterName = val
-	$ScrollContainer/VBoxContainer/NameLabel.text = val
+	$ScrollContainer/VBoxContainer/AttributePanel/VBoxContainer/NameLabel.text = val
 	core.text = val
 ###############################
 ## Getters
@@ -357,6 +360,8 @@ signal myReadySignal
 var doneLoading : bool = false
 signal doneLoadingSignal
 func _ready() :
+	Helpers.highVisScroll($ScrollContainer)
+	
 	initialiseNumberObjects()
 	$CustomMouseover.initialise($ScrollContainer/VBoxContainer, $ScrollContainer/VBoxContainer/DerivedStatPanel/StatTitle, $ScrollContainer/VBoxContainer/DerivedStatPanel/PanelContainer/OtherStatDisplay/AttackSpeed/Number, $ScrollContainer/VBoxContainer/DerivedStatPanel/PanelContainer/OtherStatDisplay/DamagePerHit/Number)
 	$ScrollContainer/VBoxContainer/CombatStatPanel.initialise(derivedStatObjects)

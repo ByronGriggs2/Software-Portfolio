@@ -68,6 +68,8 @@ func setVisibility(param) :
 ## Internal
 const enemyEntryLoader = preload("res://Screens/GameScreen/Tabs/Combat/Map/Map_Runtime/enemy_entry_runtime.tscn")
 func setupEnemies() :
+	var oldVis = $VBoxContainer.visible
+	$VBoxContainer.visible = false
 	if (encounter.enemies.size() > 1) :
 		$VBoxContainer.set_block_signals(true)
 	for index in range(0, encounter.enemies.size()) :
@@ -77,6 +79,7 @@ func setupEnemies() :
 		var newEntry = enemyEntryLoader.instantiate()
 		$VBoxContainer.add_child(newEntry)
 		newEntry.setEnemy(enemy)
+	$VBoxContainer.visible = oldVis
 		
 func createBigEntry() :
 	for child in $VBoxContainer.get_children() :

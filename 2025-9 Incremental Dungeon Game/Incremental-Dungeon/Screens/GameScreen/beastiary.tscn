@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnewip8lp4cus"]
+[gd_scene load_steps=10 format=3 uid="uid://cnewip8lp4cus"]
 
 [ext_resource type="PackedScene" uid="uid://bha3i0vfrpvx5" path="res://Graphic Elements/popups/my_popup_button.tscn" id="1_21j4d"]
 [ext_resource type="Script" uid="uid://dh4oaow711eiv" path="res://Screens/GameScreen/beastiary.gd" id="2_fbp8q"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://do805ikixd6a4" path="res://Graphic Elements/Buttons/my_check_box.tscn" id="3_p8put"]
 [ext_resource type="PackedScene" uid="uid://c5uhhdm6s5ims" path="res://Graphic Elements/Buttons/my_button.tscn" id="3_per2i"]
 [ext_resource type="Theme" uid="uid://c8cfcbe6ioxu5" path="res://Graphic Elements/Themes/subTab.tres" id="4_p8put"]
+[ext_resource type="Script" uid="uid://cd7sbmf3qejyk" path="res://Screens/GameScreen/grid_container.gd" id="5_cy7mb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_per2i"]
 content_margin_left = 30.0
@@ -39,8 +40,11 @@ border_color = Color(0, 0, 0, 1)
 script = ExtResource("2_fbp8q")
 
 [node name="Window" parent="Panel/CenterContainer" index="0"]
-custom_minimum_size = Vector2(371, 600)
+custom_minimum_size = Vector2(900, 900)
 theme_override_styles/panel = SubResource("StyleBoxFlat_per2i")
+
+[node name="VBoxContainer" parent="Panel/CenterContainer/Window" index="0"]
+theme_override_constants/separation = 10
 
 [node name="Title" parent="Panel/CenterContainer/Window/VBoxContainer" index="0"]
 text = "Encyclopedia - Beastiary"
@@ -83,7 +87,110 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CenterContainer/Window/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = " Filter by Tag "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="3"]
+layout_mode = 2
+theme = ExtResource("4_p8put")
+columns = 5
+script = ExtResource("5_cy7mb")
+
+[node name="Button" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_pressed = true
+text = " Unequipped "
+
+[node name="Button2" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_pressed = true
+text = " Poorly Equipped "
+
+[node name="Button3" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_pressed = true
+text = " Well Equipped "
+
+[node name="Button4" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="3"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_pressed = true
+text = " Elite "
+
+[node name="Button10" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="4"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_pressed = true
+text = " Dragon's Hoard "
+
+[node name="Button5" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="5"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = " Vanguard "
+
+[node name="Button6" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="6"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = " Backline"
+
+[node name="Button12" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="7"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = " Neither "
+
+[node name="Control2" type="Control" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="8"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="9"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="10"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = " Magical "
+
+[node name="Button8" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="11"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = " Resistant "
+
+[node name="Button9" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="12"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = " Hardened "
+
+[node name="Button11" type="Button" parent="Panel/CenterContainer/Window/VBoxContainer/GridContainer" index="13"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = " Ironclad "
+
+[node name="Control" type="Control" parent="Panel/CenterContainer/Window/VBoxContainer" index="4"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="5"]
 layout_mode = 2
 theme_override_constants/separation = 30
 
@@ -98,7 +205,7 @@ size_flags_horizontal = 1
 myText = "Include Undiscovered"
 pressedOnStartup = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="3"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="6"]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -106,7 +213,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fbp8q")
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer/ScrollContainer" index="0"]
-z_as_relative = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -116,15 +222,28 @@ visible = false
 layout_mode = 2
 theme = ExtResource("4_p8put")
 
-[node name="Text" parent="Panel/CenterContainer/Window/VBoxContainer" index="4"]
+[node name="Text" parent="Panel/CenterContainer/Window/VBoxContainer" index="7"]
 text = ""
 
-[node name="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="5"]
+[node name="VBoxContainer" parent="Panel/CenterContainer/Window/VBoxContainer" index="8"]
 size_flags_vertical = 1
 
 [node name="Button" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0"]
 size_flags_horizontal = 4
 text = "       Return       "
 
+[connection signal="filterChanged" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer" to="." method="_on_grid_container_filter_changed"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button2" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button3" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button4" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button10" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button5" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button6" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button12" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button7" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button8" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button9" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
+[connection signal="toggled" from="Panel/CenterContainer/Window/VBoxContainer/GridContainer/Button11" to="Panel/CenterContainer/Window/VBoxContainer/GridContainer" method="_on_button_toggled"]
 [connection signal="text_changed" from="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer2/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer2/myCheckBox" to="." method="_on_my_check_box_2_pressed"]

@@ -10,6 +10,7 @@ const forcedInclude = [
 ]
 
 func initialise() :
+	Helpers.highVisScroll($Panel/CenterContainer/Window/VBoxContainer/HBoxContainer/ScrollContainer)
 	var options = IGOptions.getIGOptionsCopy()
 	var globalEncyclopedia = IGOptions["optionDict"][IGOptions.options.globalEncyclopedia]
 	var allItems = EquipmentDatabase.getAllEquipment().duplicate()
@@ -61,7 +62,7 @@ func getDetails() :
 	return $Panel/CenterContainer/Window/VBoxContainer/HBoxContainer/EquipmentDetails
 signal finished
 func _on_return_button_pressed() -> void:
-	emit_signal("finished", workingDict)
+	emit_signal("finished")
 	queue_free()
 	
 func _on_equipment_details_individual_equipment_take_changed(itemSceneRef : Node, index : int) -> void:

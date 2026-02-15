@@ -330,7 +330,10 @@ func myRound(val : float, sigFigs : int) :
 		var retStr = strVal.substr(0,sigFigs+offset)
 		for index in range(0,trailingZeroes) :
 			retStr += "0"
-		return int(retStr)
+		if (val > 9000000000000000000) :
+			return float(retStr)
+		else :
+			return int(retStr)
 	
 	## CASE 2: the last significant figure is after the "."
 	var expectedLength = 1
@@ -409,7 +412,7 @@ func engineeringNotation(origVal) -> String :
 		else :
 			magnitude = floor(magnitude)
 		newVal = origVal/pow(10,magnitude)
-		suffix = "E" + str(magnitude)
+		suffix = "E" + str(int(magnitude))
 	elif (val >= pow(10,30)) :
 		newVal = origVal/pow(10,30)
 		suffix = "No"
@@ -448,42 +451,22 @@ func engineeringNotation(origVal) -> String :
 func pythag(val : Vector2) :
 	return sqrt(pow(val.x,2)+pow(val.y,2))
 
-var oneHundredAchCache : bool = false
-func unlockAchievement(val : Definitions.achievementEnum) :
-	if (!Definitions.steamEnabled || Definitions.GODMODE || Definitions.DEVMODE) :
-		return
-	if (!Steam.setAchievement(Definitions.achievementDictionary[val])) :
-		print("Failed to unlock achievement: " + Definitions.achievementDictionary[val])
-	if (!Steam.storeStats()) :
-		print("Failed to store achievement: " + Definitions.achievementDictionary[val])
-	if (oneHundredAchCache) :
-		return
-	var oneHundredAch = Steam.getAchievement(Definitions.achievementDictionary[Definitions.achievementEnum.all_complete]) 
-	var oneHundredCompleted : bool = oneHundredAch["achieved"]
-	if (oneHundredCompleted) :
-		oneHundredAchCache = true
-		return
-	var unlock : bool = true
-	for key in Definitions.achievementDictionary.keys() :
-		var ach = Steam.getAchievement(Definitions.achievementDictionary[key])
-		if (!ach["achieved"]) :
-			unlock = false
-			break
-	if (unlock) :
-		if (!Steam.setAchievement(Definitions.achievementDictionary[Definitions.achievementEnum.all_complete])) :
-			print("Failed to unlock achievement: " + Definitions.achievementDictionary[Definitions.achievementEnum.all_complete])
-		if (!Steam.storeStats()) :
-			print("Failed to store achievement: " + Definitions.achievementDictionary[Definitions.achievementEnum.all_complete])
-
 func isDLC(item : Equipment) -> bool :
 	if (Definitions.DLCWeapons.find(item.getItemName()) != -1) :
 		return true
 	return false
-	
-func handleBiomeAchievement(biome : MyEnvironment) :
-	var achEnum = Definitions.biomeAchievementMap.get(biome.getFileName())
-	if (achEnum != null) :
-		unlockAchievement(achEnum)
+		
+func highVisScroll(scrollContainer : ScrollContainer) :
+	var scroll : VScrollBar = scrollContainer.get_v_scroll_bar()
+	#scroll.custom_minimum_size = Vector2(10,0)
+	var styleBox : StyleBox = scroll.get_theme_stylebox("grabber").duplicate()
+	styleBox.bg_color = Color("ffffff")
+	styleBox.border_color = Color("000000")
+	styleBox.border_width_left = 1
+	styleBox.border_width_right = 1
+	styleBox.border_width_top = 2
+	styleBox.border_width_bottom = 2
+	scroll.add_theme_stylebox_override("grabber", styleBox)
 		
 func removeAffix(str : String, affix : String) -> String :
 	var pos = str.find(affix)
@@ -501,6 +484,10 @@ func engineeringRound(val, sigFigs : int) -> String :
 		if (magnitude == -INF) :
 			return "0"
 		var newVal = val*pow(10,-magnitude)
+		if (is_equal_approx(newVal, floor(newVal))) :
+			newVal = floor(newVal)
+		elif (is_equal_approx(newVal, ceil(newVal))) :
+			newVal = ceil(newVal)
 		return str(myRound(newVal, sigFigs))+"E"+str(int(magnitude))
 	#var myVal = abs(val)
 	#if (abs(val) < 1) :

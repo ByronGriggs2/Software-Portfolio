@@ -1,6 +1,7 @@
+class_name EnemyGroups
 extends Resource
 
-class_name EnemyGroups
+
 ## All enemies need to set these
 @export var isEligible : bool = true
 @export var glassCannonIndex : float = 1.0

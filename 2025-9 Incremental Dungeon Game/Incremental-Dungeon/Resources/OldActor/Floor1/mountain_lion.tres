@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="ActorPreset" load_steps=10 format=3 uid="uid://b5n6avi7qsxey"]
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://b5n6avi7qsxey"]
 
 [ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_rne41"]
 [ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_bmxbk"]
 [ext_resource type="Resource" uid="uid://tdgw1ivebucf" path="res://Resources/OldAction/Attacks/Enemies/bite.tres" id="2_k8jk5"]
 [ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="3_bsxf8"]
-[ext_resource type="Resource" uid="uid://ia64k6yhgi3v" path="res://Resources/OldEquipment/Armor/lion_armor.tres" id="4_awird"]
-[ext_resource type="Resource" uid="uid://cn7jabpvsp8cr" path="res://Resources/OldEquipment/Weapons/cat_claws.tres" id="5_ivuqq"]
 [ext_resource type="Texture2D" uid="uid://cyl80jp5lcoln" path="res://Images/Sprites/grizzly_bear.png" id="6_awird"]
 [ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="6_ivuqq"]
 
@@ -33,7 +31,7 @@ DR = 124.0
 PHYSDEF = 64.9
 MAGDEF = 64.9
 actions = Array[ExtResource("1_rne41")]([ExtResource("2_k8jk5")])
-drops = Array[ExtResource("2_bmxbk")]([ExtResource("4_awird"), ExtResource("5_ivuqq")])
+drops = Array[ExtResource("2_bmxbk")]([])
 dropChances = Array[float]([0.167, 0.167])
 enemyGroups = SubResource("Resource_212xy")
 metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

@@ -52,7 +52,7 @@ func updatePlayer() :
 	$Player.updateDirectModifier("Element Synergy", elementDirect)
 	## Specific
 	#Training
-	var newTrainingLevels : Array[int] = $MyTabContainer/InnerContainer/Training.getAttributeLevels()
+	var newTrainingLevels : Array[float] = $MyTabContainer/InnerContainer/Training.getAttributeLevels()
 	$Player.updateTrainingLevels(newTrainingLevels)
 	#Weapon
 	var newWeapon : Weapon = $MyTabContainer/InnerContainer/Equipment.getCurrentWeapon()
@@ -113,7 +113,7 @@ func _shopping_permanent_modifier(value : Array[float], type : String, statEnum 
 			if (isMultiplicative) :
 				permanentMods[source].otherMods[Definitions.otherStatDictionary[Definitions.otherStatEnum.routineSpeed_5]][modType] *= value[index]
 			else :
-				permanentMods[source].otherMods[Definitions.otherStatDictionary[Definitions.otherStatEnum.routineSpeed_5]] += value[index]
+				permanentMods[source].otherMods[Definitions.otherStatDictionary[Definitions.otherStatEnum.routineSpeed_5]][modType] += value[index]
 		elif (type == "attribute" && isMultiplicative) :
 			permanentMods[source].attributeMods[Definitions.attributeDictionary[statEnum[index]]][modType] *= value[index]
 		elif (type == "attribute" && !isMultiplicative) :
@@ -211,7 +211,7 @@ func _shopping_respec_requested() :
 	var confirmationPopup = binaryPopupLoader.instantiate()
 	add_child(confirmationPopup)
 	confirmationPopup.setTitle("Change Class")
-	confirmationPopup.setText("Are you sure you want to change your class? You will lose half your Cumulative Training Levels, but you may select a different class or subclass.")
+	confirmationPopup.setText("Are you sure you want to change your class? You will lose 25% of your Cumulative Training Levels, but you may select a different class or subclass.")
 	confirmationPopup.setButton0Name(" I'm ready ")
 	confirmationPopup.setButton1Name(" I changed my mind ")
 	var choice = await confirmationPopup.binaryChosen
@@ -249,7 +249,7 @@ func _shopping_upgrade_routine(routine : AttributeTraining) :
 	$MyTabContainer/InnerContainer/Training.upgradeRoutine(routine)
 	Shopping.provideConfirmation(true)
 	
-func _shopping_remove_currency(item : Currency, val : int) :
+func _shopping_remove_currency(item : Currency, val : float) :
 	var currentAmount = $TopRibbon/Ribbon/Currency.getCurrencyAmount(item)
 	var newAmount = max(currentAmount-val,0)
 	$TopRibbon/Ribbon/Currency.setCurrencyAmount(item, newAmount)
@@ -416,7 +416,13 @@ func _on_currently_equipped_item_requested(emitter, type) :
 		emitter.provideCurrentlyEquippedItem(ret.core)
 	else :
 		emitter.provideCurrentlyEquippedItem(null)
-
+func _on_apophis_killed_requested(emitter) :
+	emitter.provideApophisKilled(apophisKilledOnThisFile)
+func _on_return_to_menu_requested() :
+	await SaveManager.queueSaveGame(Definitions.saveSlots.current)
+	if (SaveManager.taskList.size() > 0) :
+		await SaveManager.purgeComplete
+	emit_signal("exitToMenu")
 func _on_shop_shortcut_selected(type : String) :
 	var details
 	if (type == "routine") :
@@ -620,6 +626,10 @@ func beforeLoad(newSave) :
 			tab.connect("itemListForYourInspectionGoodSir", _item_list_inspection)
 		if (tab.has_signal("currentlyEquippedItemRequested")) :
 			tab.connect("currentlyEquippedItemRequested", _on_currently_equipped_item_requested)
+		if (tab.has_signal("apophisKilledRequested")) :
+			tab.connect("apophisKilledRequested", _on_apophis_killed_requested)
+		if (tab.has_signal("returnToMenuRequested")) :
+			tab.connect("returnToMenuRequested", _on_return_to_menu_requested)
 		#if (tab.has_signal("isReforgedHoveredRequested")) :
 			#tab.connect("isReforgedHoveredRequested", _on_reforge_hovered_requested)
 		#if (tab.has_signal("playerAttributeModsRequested")) :
@@ -708,7 +718,7 @@ func createApophisScreen() :
 	var newPopup = binaryPopupLoader.instantiate()
 	add_child(newPopup)
 	newPopup.setTitle("The Demon King is Slain!")
-	newPopup.setText("Congratulations, you've defeated the Demon King! The Surface world is saved! Or something. This game was going to have a more in depth story but game development is hard. In any case, there are actually 20 biomes, 25 bosses, and 10 factions in this game, and levels 1-9 are randomly generated! So I encourage you to check out endless mode or try one of the other classes. Do be aware that endless mode will have integer overflow issues eventually! Thanks for playing!")
+	newPopup.setText("Congratulations, you've defeated the Demon King! The Surface world is saved! Or something. This game was going to have a more in depth story but game development is hard. In any case, there are actually 20 biomes, 25 bosses, and 10 factions in this game, and levels 1-9 are randomly generated! So I encourage you to check out endless* mode or try one of the other classes. Thanks for playing!\n\n*Endless mode ends at floor 190 because the numbers get too big.")
 	newPopup.setButton0Name(" Continue playing (begin endless mode) ")
 	newPopup.setButton1Name(" Return to Main Menu ")
 	var choice = await newPopup.binaryChosen

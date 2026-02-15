@@ -14,16 +14,27 @@ func handleAthena(mapInProgress : MapData) -> MapData :
 	var load = SaveManager.getGlobalSettings()
 	if (load["herophile"] == false) :
 		return retVal
+	var lateGeneration : bool = false
 	var currentFloor = previousMaps.size()+1
 	if (athenaFloor == -1) :
 		var maxFloor = 10
 		if (currentFloor > maxFloor) :
 			athenaFloor = currentFloor
+			lateGeneration = true
 		else :
 			athenaFloor = randi_range(currentFloor, maxFloor)
 	if (currentFloor == athenaFloor) :
+		var athenaRows
+		if (lateGeneration) :
+			athenaRows = getScalingRows_mapFinished(currentFloor+2,0)
+		else :
+			athenaRows = getScalingRows_mapFinished(12,0)
+		var lootRows = athenaRows + 5
+		var aegisRows = athenaRows + 8
 		var athenaEncounter : Encounter = Encounter.new()
-		var athena : ActorPreset = EnemyDatabase.getEnemy("athena").getAdjustedCopy(getEnemyScaling(getScalingRows_mapFinished(12,0)))
+		var athena : ActorPreset = EnemyDatabase.getEnemy("athena").getAdjustedCopy(getEnemyScaling(athenaRows))
+		if (lateGeneration) :
+			athena.adjustSkillcheck(max(0,currentFloor-10))
 		var dummyDragon = EnemyDatabase.getEnemy("fire_dragon")
 		var dummyChaos = MegaFile.getEnvironment("chaos")
 		$ItemPoolHandler.reset(dummyChaos, getAllItems())
@@ -33,7 +44,7 @@ func handleAthena(mapInProgress : MapData) -> MapData :
 			while (type == Definitions.equipmentTypeEnum.accessory) :
 				type = $DropHandler.rollType()
 			var drop : Equipment = $DropHandler.getItemOfQuality(EquipmentGroups.qualityEnum.legendary, type)
-			athena.drops.append(drop.getAdjustedCopy(getEquipmentScaling(getScalingRows_mapFinished(13,0))))
+			athena.drops.append(drop.getAdjustedCopy(getEquipmentScaling(lootRows)))
 		var otherDropQualities = $DropHandler.getDropQualities(5, 2)
 		for index in range(0, otherDropQualities.size()) :
 			var type = $DropHandler.rollType()
@@ -41,8 +52,8 @@ func handleAthena(mapInProgress : MapData) -> MapData :
 				while (type == Definitions.equipmentTypeEnum.accessory) :
 					type = $DropHandler.rollType()
 			var drop = $DropHandler.getItemOfQuality(otherDropQualities[index],type)
-			athena.drops.append(drop.getAdjustedCopy(getEquipmentScaling(getScalingRows_mapFinished(13,0))))
-		athena.drops.append(EquipmentDatabase.getEquipment("shield_5").getAdjustedCopy(getEquipmentScaling(getScalingRows_mapFinished(13,3))))
+			athena.drops.append(drop.getAdjustedCopy(getEquipmentScaling(lootRows)))
+		athena.drops.append(EquipmentDatabase.getEquipment("shield_5").getAdjustedCopy(getEquipmentScaling(aegisRows)))
 		athenaEncounter.enemies.append(athena)
 		
 		var deadEndCount = 0
@@ -71,7 +82,7 @@ func handleAthena(mapInProgress : MapData) -> MapData :
 					index += 1
 	return retVal
 
-var previousMaps : Array[MapData] = []
+var previousMaps : Array[Dictionary] = []
 func createMap() -> MapData :
 	var environment : MyEnvironment = getEnvironment()
 	$EnemyPoolHandler.reset(environment, getAllEnemies())
@@ -100,7 +111,7 @@ func createMap() -> MapData :
 			for enemy in room.enemies :
 				enemy.MAXHP *= 0.7
 	newMap = handleAthena(newMap)
-	previousMaps.append(newMap)
+	previousMaps.append(newMap.getShortVersion())
 	return newMap
 	
 ## moderately inefficent
@@ -124,15 +135,15 @@ func generateDrops(currentFloor : int, room : Node, environment : MyEnvironment,
 			item.title += " +"+str(scalingAmount-1)
 	var averageGold = getGoldScaling(getScalingRows_mapFinished(currentFloor, currentRow))
 	var goldRoll = randf_range(0, averageGold)
-	var goldCount : int = round(goldRoll)
-	var retVal2 : Array[int] = [goldCount]
+	var goldCount : float = round(goldRoll)
+	var retVal2 : Array[float] = [goldCount]
 	var averageOre = getOreScaling(getScalingRows_mapFinished(currentFloor, currentRow))
 	var oreRoll = randf_range(0,averageOre)
-	var oreCount : int = round(oreRoll)
+	var oreCount : float = round(oreRoll)
 	retVal2.append(oreCount)
 	var averageSouls = getSoulScaling(getScalingRows_mapFinished(currentFloor, currentRow))
 	var soulRoll = randf_range(0,averageSouls)
-	var soulCount : int = round(soulRoll)
+	var soulCount : float = round(soulRoll)
 	retVal2.append(soulCount)
 	if (room.has_method("getEncounterRef")) :
 		var enemies = room.getEncounterRef().enemies
@@ -199,13 +210,13 @@ func createdRecently(newEnv : MyEnvironment) -> bool :
 	## There are 20 environments and 10 floors... might as well ensure no repeats whatsoever outside of endless mode
 	if (previousMaps.size() < 10) :
 		for map in previousMaps :
-			if (map.environmentName == envName) :
+			if (map["environmentName"] == envName) :
 				return true
 		return false
 	else :
 		var mostRecentPermitted = previousMaps.size()-4
 		for index in range(mostRecentPermitted,previousMaps.size()) :
-			if (previousMaps[index].environmentName == envName) :
+			if (previousMaps[index]["environmentName"] == envName) :
 				return true
 		return false
 
@@ -569,7 +580,7 @@ func getSaveDictionary() -> Dictionary :
 	retVal["athenaFloor"] = athenaFloor
 	retVal["previousMaps"] = []
 	for map in previousMaps :
-		retVal["previousMaps"].append(map.getSaveDictionary())
+		retVal["previousMaps"].append(map)
 	return retVal
 func beforeLoad(newGame) :
 	myReady = false
@@ -584,7 +595,10 @@ func onLoad(loadDict : Dictionary) :
 	myReady = false
 	if (loadDict.get("previousMaps") != null) :
 		for map in loadDict.get("previousMaps") :
-			previousMaps.append(MapData.createFromSaveDictionary(map))
+			if (map.get("boss") == null) :
+				previousMaps.append(map)
+			else :
+				previousMaps.append(MapData.createFromSaveDictionary(map).getShortVersion())
 	if (loadDict.get("athenaGenerated") != null) :
 		athenaGenerated = loadDict["athenaGenerated"]
 	if (loadDict.get("athenaFloor") != null) :

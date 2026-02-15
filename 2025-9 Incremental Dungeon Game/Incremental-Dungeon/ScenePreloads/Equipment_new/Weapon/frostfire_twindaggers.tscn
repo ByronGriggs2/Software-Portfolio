@@ -7,7 +7,6 @@
 
 [node name="Icon" parent="SuperButton/HBoxContainer/Sprite" index="0"]
 texture = ExtResource("2_stp1w")
-flip_h = true
 
 [editable path="SuperButton"]
 [editable path="SuperButton/HBoxContainer/Sprite"]

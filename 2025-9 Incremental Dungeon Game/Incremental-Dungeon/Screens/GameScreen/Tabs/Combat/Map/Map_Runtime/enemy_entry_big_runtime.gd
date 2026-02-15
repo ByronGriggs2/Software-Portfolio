@@ -40,7 +40,12 @@ func writeAttack(attack, val) -> String :
 	description += attack.getName() + "\n"
 	if (attack is AttackAction) :
 		description += "\t\tType: " + Definitions.damageTypeDictionary[attack.getDamageType()] + "\n"
-		description += "\t\tPower: " + str(Helpers.myRound(attack.getPower(),3)) + "\n"
+		var powerStr
+		if (Definitions.hasDLC && attack.getResourceName() == "blur") :
+			powerStr = "Power: ???"
+		else :
+			powerStr = "\t\tPower: " + str(Helpers.myRound(attack.getPower(),3)) + "\n"
+		description += powerStr
 	description += "\t\tWarmup: " + str(Helpers.myRound(attack.getWarmup(),3)) + " seconds\n"
 	return description
 	

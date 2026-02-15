@@ -1,6 +1,6 @@
+class_name MyEnvironment
 extends Resource
 
-class_name MyEnvironment
 @export var title : String = ""
 @export_multiline var introText : String = ""
 @export var permittedFactions : Array[EnemyGroups.factionEnum] = []
@@ -8,6 +8,15 @@ class_name MyEnvironment
 @export var icePermitted : bool = false
 @export var earthPermitted : bool = false
 @export var waterPermitted : bool = false
+
+func _init(p_title = "", p_introText = "", p_permittedFactions : Array[EnemyGroups.factionEnum] = [], p_firePermitted = false, p_icePermitted = false, p_earthPermitted = false, p_waterPermitted = false) :
+	title = p_title
+	introText = p_introText
+	permittedFactions = p_permittedFactions
+	firePermitted = p_firePermitted
+	icePermitted = p_icePermitted
+	earthPermitted = p_earthPermitted
+	waterPermitted = p_waterPermitted
 
 func getName() :
 	return title

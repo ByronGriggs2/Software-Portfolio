@@ -52,7 +52,7 @@ func setEnemy(enemy : ActorPreset) :
 			def[index].visible = false
 	var sig = $Signature.get_children()
 	for index in range(0, sig.size()) :
-		if (index + 1 == stuff.enemyQuality as int) :
+		if (index + 1 == stuff.enemyQuality as int && !(enemy.getResourceName() == "apophis")) :
 			sig[index].visible = true
 		else :
 			sig[index].visible = false
@@ -66,7 +66,8 @@ func setEnemy(enemy : ActorPreset) :
 		else :
 			tagContainer.visible = true
 	updateAllRecursive(get_children())
-	addTooltipsRecursive(get_children())
+	var topLayer = Helpers.getTopLayer()
+	addTooltipsRecursive(get_children(), topLayer)
 	
 func updateAllRecursive(children : Array[Node]) :
 	for child in children :
@@ -75,20 +76,20 @@ func updateAllRecursive(children : Array[Node]) :
 		if (child.get_child_count() > 0) :
 			updateAllRecursive(child.get_children())
 
-func addTooltipsRecursive(children : Array[Node]) :
+func addTooltipsRecursive(children : Array[Node], topLayer) :
 	for child in children :
 		if (child.has_method("updateSize") && child.visible) :
-			addTooltip(child)
+			addTooltip(child, topLayer)
 		if (child.get_child_count() > 0) :
-			addTooltipsRecursive(child.get_children())
+			addTooltipsRecursive(child.get_children(), topLayer)
 			
 const tooltipLoader = preload("res://Graphic Elements/Tooltips/tooltip_trigger.tscn")
-func addTooltip(child : Node) :
+func addTooltip(child : Node, topLayer) :
 	var title : String = child.name
 	var upperLeft = Vector2(0,0)
 	var bottomRight = Vector2(16,16) * child.getScale() + Vector2(10,10)
 	var newTrigger = tooltipLoader.instantiate()
 	child.add_child(newTrigger)
 	newTrigger.initialise(title)
-	newTrigger.currentLayer = Helpers.getTopLayer()
+	newTrigger.currentLayer = topLayer
 	newTrigger.setPos(upperLeft, bottomRight)

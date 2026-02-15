@@ -26,6 +26,7 @@ func addModSet(sourceName : String) :
 	rightMod.setType("Post" + myType)
 	if (myType == "bonus") :
 		rightMod.visible = false
+		leftMod.custom_minimum_size.x = 371
 	
 func getSourceCol() :
 	return $PanelContainer/HBoxContainer/Source

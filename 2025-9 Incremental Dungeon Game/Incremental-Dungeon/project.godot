@@ -11,14 +11,16 @@ config_version=5
 [application]
 
 config/name="Incremental Dungeon"
-config/version="1.06"
+config/version="1.13"
 run/main_scene="uid://s0vapgk0mw0b"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Images/icon.svg"
 
 [autoload]
 
+MegaFile="*res://Resources/mega_resource_reference_file.gd"
 Definitions="*res://Globals/Definitions/Definitions.gd"
+SteamWrapper="*res://Globals/steam_wrapper.gd"
 SaveManager="*res://Globals/save_manager.gd"
 Helpers="*res://Globals/Helpers.gd"
 SceneLoader="*res://ScenePreloads/SceneLoader.gd"
@@ -26,7 +28,6 @@ Encyclopedia="*res://Globals/encyclopedia.gd"
 IGOptions="*res://Globals/IGOptions.gd"
 EnemyDatabase="*res://LimitedSingletons/enemy_database.gd"
 EquipmentDatabase="*res://LimitedSingletons/equipment_database.gd"
-MegaFile="*res://Resources/mega_resource_reference_file.gd"
 Shopping="*res://Globals/shopping.gd"
 MainOptionsHelpers="*res://Screens/MainOptions/main_options_helpers.gd"
 AudioHandler="*res://Globals/audio_handler.gd"

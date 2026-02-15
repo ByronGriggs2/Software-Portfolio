@@ -25,7 +25,7 @@ func getData() -> Dictionary :
 		retVal["equipmentType"].append(children[index].get_node("CheckBox").button_pressed)
 	retVal["weaponType"] = []
 	startIndex = Helpers.findIndexInContainer($PanelContainer/VBoxContainer/Filter, $PanelContainer/VBoxContainer/Filter/Option19)
-	stopIndexPlus1 = Helpers.findIndexInContainer($PanelContainer/VBoxContainer/Filter, $PanelContainer/VBoxContainer/Filter/Option20)+1
+	stopIndexPlus1 = Helpers.findIndexInContainer($PanelContainer/VBoxContainer/Filter, $PanelContainer/VBoxContainer/Filter/Option21)+1
 	for index in range(startIndex, stopIndexPlus1) :
 		retVal["weaponType"].append(children[index].get_node("CheckBox").button_pressed)
 		
@@ -60,7 +60,7 @@ func initialise(loadDict : Dictionary) :
 		children[index].get_node("CheckBox").set_pressed_no_signal(loadDict["equipmentType"][index-startIndex])
 		
 	startIndex = Helpers.findIndexInContainer($PanelContainer/VBoxContainer/Filter, $PanelContainer/VBoxContainer/Filter/Option19)
-	stopIndexPlus1 = Helpers.findIndexInContainer($PanelContainer/VBoxContainer/Filter, $PanelContainer/VBoxContainer/Filter/Option20)+1
+	stopIndexPlus1 = Helpers.findIndexInContainer($PanelContainer/VBoxContainer/Filter, $PanelContainer/VBoxContainer/Filter/Option21)+1
 	for index in range(startIndex, stopIndexPlus1) :
 		children[index].get_node("CheckBox").set_pressed_no_signal(loadDict["weaponType"][index-startIndex])
 		

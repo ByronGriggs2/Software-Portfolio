@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="ActorPreset" load_steps=10 format=3 uid="uid://biol8t6ag0xap"]
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://biol8t6ag0xap"]
 
 [ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_gn56d"]
 [ext_resource type="Script" uid="uid://dacb4xi1aop5r" path="res://Resources/OldEquipment/equipment.gd" id="2_3kgcd"]
 [ext_resource type="Resource" uid="uid://bhvmdpyce1qvp" path="res://Resources/OldAction/Attacks/sling_basic.tres" id="2_qr5li"]
 [ext_resource type="Script" uid="uid://ddpkx6a4ixuw2" path="res://Resources/OldActor/actor_preset.gd" id="3_33cxh"]
-[ext_resource type="Resource" uid="uid://dtepjhybd7cxd" path="res://Resources/OldEquipment/Weapons/sling.tres" id="4_8o3ca"]
-[ext_resource type="Resource" uid="uid://dy0gum2jq3g7k" path="res://Resources/OldEquipment/Armor/feathered_cloak.tres" id="5_npwqj"]
 [ext_resource type="Texture2D" uid="uid://b5sb506lbljxm" path="res://Images/CC0 Assets/Dungeon Crawl Stone Soup Full/monster/raven.png" id="6_8o3ca"]
 [ext_resource type="Script" uid="uid://buo4wm4u476wh" path="res://Resources/OldActor/enemy_grouping.gd" id="6_npwqj"]
 
@@ -33,7 +31,7 @@ DR = 29.5
 PHYSDEF = 55.0
 MAGDEF = 82.0
 actions = Array[ExtResource("1_gn56d")]([ExtResource("2_qr5li")])
-drops = Array[ExtResource("2_3kgcd")]([ExtResource("4_8o3ca"), ExtResource("5_npwqj")])
+drops = Array[ExtResource("2_3kgcd")]([])
 dropChances = Array[float]([0.167, 0.167])
 enemyGroups = SubResource("Resource_77nwu")
 metadata/_custom_type_script = "uid://ddpkx6a4ixuw2"

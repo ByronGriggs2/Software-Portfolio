@@ -25,6 +25,13 @@ func setStat(type : Definitions.baseStatEnum, val : float) :
 	elif (type == Definitions.baseStatEnum.MAGDEF) : MAGDEF = val
 	else :
 		return
+		
+const defaultSkillcheck = 614000
+var actualSkillcheck = defaultSkillcheck
+func adjustSkillcheck(floorDifference : int) :
+	actualSkillcheck = defaultSkillcheck * pow(2,5.0*floorDifference/4.0)
+func getSkillcheck() :
+	return actualSkillcheck
 
 func getStat(type : Definitions.baseStatEnum) -> float :
 	if (Engine.is_editor_hint()) :
@@ -101,8 +108,10 @@ func getSaveDictionary() -> Dictionary :
 	retVal["resourceName"] = getResourceName()
 	if retVal["resourceName"] == null :
 		pass
+	if (getResourceName() == "athena") :
+		retVal["actualSkillcheck"] = actualSkillcheck
 		#print("problem")
-	retVal["myScalingFactor"] = myScalingFactor
+	#retVal["myScalingFactor"] = myScalingFactor
 	#if (myScalingFactor != -1) :
 		#retVal["drops"] = []
 		#retVal["dropChances"] = []
@@ -112,12 +121,20 @@ func getSaveDictionary() -> Dictionary :
 	return retVal
 	
 ## If you ever make this virtual you have to remove static and use the stupid pattern
-static func createFromSaveDictionary(val : Dictionary) -> ActorPreset :
+static func createFromSaveDictionary(val : Dictionary, scaling) -> ActorPreset :
 	if (val.is_empty()) :
 		return ActorPreset.new()
-	var scalingFactor = val["myScalingFactor"]
+	var scalingFactor
+	if (scaling == null) :
+		scalingFactor = val["myScalingFactor"]
+	else :
+		scalingFactor = scaling
+	
 	#if (scalingFactor == -1) :
-	return EnemyDatabase.getEnemy(val["resourceName"]).getAdjustedCopy(scalingFactor)
+	var enemy = EnemyDatabase.getEnemy(val["resourceName"]).getAdjustedCopy(scalingFactor)
+	if (val.get("actualSkillcheck") != null) :
+		enemy.actualSkillcheck = val.get("actualSkillcheck")
+	return enemy
 	#else :
 		#var retVal = EnemyDatabase.getEnemy(val["resourceName"]).duplicate()
 		#retVal.resourceName = val["resourceName"]

@@ -1,11 +1,17 @@
 extends "res://ScenePreloads/Equipment_old/equipment.gd"
 
-var count : int = 0
+var count : float = 0
 
 func setCount(val) : 
-	count = val
+	if (val < 9*pow(10,18)) :
+		count = int(val)
+	else :
+		count = val
 func getCount() :
-	return count
+	if (count < 9*pow(10,18)) :
+		return int(count)
+	else :
+		return count
 func isEquipped() :
 	return false
 func equip() :

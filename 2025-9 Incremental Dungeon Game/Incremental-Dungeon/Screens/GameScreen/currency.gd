@@ -2,7 +2,7 @@ extends Control
 
 var currencyList : Array[Node] = []
 
-func getCurrencyAmount(type) -> int :
+func getCurrencyAmount(type) -> float :
 	var equip = getEquip(type)
 	if (equip == null) :
 		return -1
@@ -30,7 +30,19 @@ func addToCurrency(type, val) :
 		addNewCurrency(equip)
 		findCurrency(equip).setCount(val)
 	else :
-		currencyRef.setCount(currencyRef.getCount() + val)
+		var currentCount = currencyRef.getCount()
+		if (currentCount is float) :
+			currencyRef.setCount(currentCount + float(val))
+		elif (is_equal_approx(currentCount, 0)) :
+			currencyRef.setCount(val)
+		else :
+			var currentRatio = currentCount/(9.0*pow(10,18))
+			var newRatio = currentRatio * (1+val/float(currentCount))
+			if (newRatio >= 0.95) :
+				currencyRef.setCount(float(currentCount)+float(val))
+			else :
+				currencyRef.setCount(currentCount + val)
+		#currencyRef.setCount(currencyRef.getCount() + val)
 	updateCurrencyGraphic(equip)
 ###################################################
 ## Internal

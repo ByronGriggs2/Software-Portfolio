@@ -17,7 +17,7 @@ func _on_alphabetical_sort_pressed() -> void:
 	#for key in Definitions.attributeDictionary.keys() :
 		#var textBox = grid.get_child(Definitions.attributeDictionary.keys().size() + key)
 		#var newText = str(Helpers.engineeringRound(cachedMultipliers[key] * cachedRoutineSpeed[key] / 10.0,3))
-		#textBox.text = newText
+		#textBox.tegetxt = newText
 var playerNumberRefs : Array[NumberClass] = []
 var myNumberRefs : Array[NumberClass] = []
 ## Dependency injection of values from the Player Panel
@@ -76,7 +76,7 @@ func sortTraining(type) :
 		currentSortAttribute = type
 		currentSort = sortType.descending
 		
-	var children = $Con.get_children()
+	var children = $ScrollContainer/Con.get_children()
 	var entries : Array[Node] = []
 	for index in range(0, children.size()) :
 		if(index > 2) :
@@ -89,11 +89,11 @@ func sortTraining(type) :
 			var bScaling = b.getResource().scaling[Definitions.attributeDictionary[currentSortAttribute]]*(1+0.25*routineUpgradeLevels[b.getResource().getResourceName()])
 			return (aScaling>bScaling || (aScaling==bScaling&&a.name<b.name)))
 	for index in range(0, entries.size()) :
-		$Con.move_child(entries[index], index+3)
+		$ScrollContainer/Con.move_child(entries[index], index+3)
 	
 func setTrainingGraphic(val : AttributeTraining) :
-	for child in $Con.get_children() :
-		if (child == $Con/Title || child == $Con/Spacer || child == $Con/PanelContainer) :
+	for child in $ScrollContainer/Con.get_children() :
+		if (child == $ScrollContainer/Con/Title || child == $ScrollContainer/Con/Spacer || child == $ScrollContainer/Con/PanelContainer) :
 			continue
 		if (child.getResource() == val) :
 			child.setButton()
@@ -109,7 +109,7 @@ func _on_requested_enable(emitter) :
 	emit_signal("trainingChanged", await createUpgradedTraining(emitter.getResource()))
 	
 func unlockRoutine(routine : AttributeTraining) :
-	for child in $Con.get_children() :
+	for child in $ScrollContainer/Con.get_children() :
 		if (child.has_method("getResource") && child.getResource() == routine) :
 			child.visible = true
 			return
@@ -118,7 +118,7 @@ func upgradeRoutine(routine : AttributeTraining) :
 	routineUpgradeLevels[routine.resource_path.get_file().get_basename()] += 1
 	if (routine == currentTrainingResource) :
 		emit_signal("trainingChanged", await createUpgradedTraining(currentTrainingResource))
-	$Con.get_node(routine.text).setResource(routine, routineUpgradeLevels[routine.getResourceName()])
+	$ScrollContainer/Con.get_node(routine.text).setResource(routine, routineUpgradeLevels[routine.getResourceName()])
 		
 func createUpgradedTraining(routine : AttributeTraining) :
 	while (playerNumberRefs.size() != Definitions.attributeDictionary.keys().size()) :
@@ -142,20 +142,21 @@ func _ready() :
 	emit_signal("myReadySignal")
 func beforeLoad(newGame) :
 	myReady = false
+	Helpers.highVisScroll($ScrollContainer)
 	var routineList = MegaFile.getAllRoutine()
 	for routine in routineList :
 		routineUpgradeLevels[routine.resource_path.get_file().get_basename()] = 0
 	## Fill out header
 	for key in Definitions.attributeDictionary.keys() :
-		var newHeader = $Con/PanelContainer/HBoxContainer/HBoxContainer/Sample.duplicate()
-		$Con/PanelContainer/HBoxContainer/HBoxContainer.add_child(newHeader)
+		var newHeader = $ScrollContainer/Con/PanelContainer/HBoxContainer/HBoxContainer/Sample.duplicate()
+		$ScrollContainer/Con/PanelContainer/HBoxContainer/HBoxContainer.add_child(newHeader)
 		newHeader.visible = true
 		newHeader.name = Definitions.attributeDictionary[key]
 		newHeader.text = Definitions.attributeDictionaryShort[key]
 		newHeader.connect("myPressed", _on_header_button_pressed)
 	for key in MegaFile.Routine_FilesDictionary.keys() :
 		var newEntry = trainingEntry.instantiate()
-		$Con.add_child(newEntry)
+		$ScrollContainer/Con.add_child(newEntry)
 		newEntry.setResource(MegaFile.getRoutine(key), 0)
 		newEntry.name = newEntry.getResource().text
 		newEntry.visible = !newEntry.getResource().hidden
@@ -169,8 +170,8 @@ func beforeLoad(newGame) :
 func onLoad(loadDict : Dictionary) :
 	myReady = false
 	routineUpgradeLevels = loadDict["routineUpgrades"]
-	for node in $Con.get_children() :
-		if (node != $Con/Title && node != $Con/Spacer && node != $Con/PanelContainer) :
+	for node in $ScrollContainer/Con.get_children() :
+		if (node != $ScrollContainer/Con/Title && node != $ScrollContainer/Con/Spacer && node != $ScrollContainer/Con/PanelContainer) :
 			node.visible = loadDict["routineUnlocks"][node.name]
 			var upgrades = routineUpgradeLevels[node.getResource().getResourceName()]
 			node.setResource(node.getResource(),upgrades)
@@ -178,7 +179,7 @@ func onLoad(loadDict : Dictionary) :
 		currentTrainingResource = null
 	else :
 		currentTrainingResource = MegaFile.getRoutine(loadDict["currentTraining"])
-		for child in $Con.get_children() :
+		for child in $ScrollContainer/Con.get_children() :
 			if (child.has_method("getResource") && child.getResource().getResourceName() == loadDict["currentTraining"]) :
 				child.setButton()
 				break
@@ -190,8 +191,8 @@ func onLoad(loadDict : Dictionary) :
 func getSaveDictionary() -> Dictionary :
 	var retVal : Dictionary = {}
 	var routineUnlocks : Dictionary = {}
-	for node in $Con.get_children() :
-		if (node != $Con/Title && node != $Con/Spacer && node != $Con/PanelContainer) :
+	for node in $ScrollContainer/Con.get_children() :
+		if (node != $ScrollContainer/Con/Title && node != $ScrollContainer/Con/Spacer && node != $ScrollContainer/Con/PanelContainer) :
 			routineUnlocks[node.name] = node.visible
 	retVal["routineUnlocks"] = routineUnlocks
 	retVal["routineUpgrades"] = routineUpgradeLevels

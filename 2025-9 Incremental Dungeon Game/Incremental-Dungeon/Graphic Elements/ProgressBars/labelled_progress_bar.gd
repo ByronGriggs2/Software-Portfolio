@@ -1,6 +1,6 @@
 extends Control
 
-var currentLevel : int = 0
+var currentLevel : float = 0
 const baseGrowth = 10
 var growthMultiplier = 0
 const maxGrowth = 10000
@@ -19,20 +19,23 @@ func _process(delta) :
 	#and I'm scared of how Godot doesn't have security levels. Might do this the whole game,
 	#might not.
 	var oldProgress = actualProgress
-	var oldLevel : int = currentLevel
+	var oldLevel : float = currentLevel
 	var progressGained = currentGrowth*delta
 	
-	var baseLevelGained : int = floor((oldProgress+progressGained)/100)
-	var guaranteedThroughMultiplicity : int = baseLevelGained * floor(multiplicity)
+	var baseLevelGained : float = floor((oldProgress+progressGained)/100)
+	var guaranteedThroughMultiplicity : float = baseLevelGained * floor(multiplicity)
 	var total = guaranteedThroughMultiplicity
 	var chance : float = multiplicity-floor(multiplicity)
 	for index in range(0, baseLevelGained) :
 		if (randf_range(0,1) <= chance) :
 			total += 1
 	var newProgress = oldProgress + (progressGained - 100*baseLevelGained)
-	var newLevel : int = oldLevel + total
+	var newLevel : float = oldLevel + total
 	actualProgress = newProgress
-	currentLevel = newLevel
+	if (newLevel < 9*pow(10,18)) :
+		currentLevel = int(newLevel)
+	else :
+		currentLevel = newLevel
 	$LevelLabel.text = "Lv " + Helpers.engineeringRound(newLevel,3)	
 	if (currentGrowth > baseGrowth*55) :
 		$ProgressBar.value = 100
@@ -57,9 +60,12 @@ func getLabelWidth() :
 func setLabelWidth(val) :
 	$NameLabel.custom_minimum_size.x = val
 	
-func getLevel() -> int :
-	return currentLevel
-func setLevel(val : int) -> void :
+func getLevel() -> float :
+	if (currentLevel < 9*pow(10,18)) :
+		return int(currentLevel)
+	else :
+		return currentLevel
+func setLevel(val : float) -> void :
 	currentLevel = val
 func getProgress() :
 	return actualProgress

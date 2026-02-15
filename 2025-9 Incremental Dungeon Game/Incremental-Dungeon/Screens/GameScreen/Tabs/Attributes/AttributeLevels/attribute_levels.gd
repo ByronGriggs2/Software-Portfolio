@@ -53,7 +53,7 @@ func _process(_delta) :
 			
 func getLevel(type : Definitions.attributeEnum) :
 	return $Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[type]).getLevel()
-func setLevel(type : Definitions.attributeEnum, val : int) :
+func setLevel(type : Definitions.attributeEnum, val : float) :
 	$Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[type]).setLevel(val)
 func getProgress(type : Definitions.attributeEnum) :
 	return $Panel/HBoxContainer/Con.get_node(Definitions.attributeDictionary[type]).getProgress()

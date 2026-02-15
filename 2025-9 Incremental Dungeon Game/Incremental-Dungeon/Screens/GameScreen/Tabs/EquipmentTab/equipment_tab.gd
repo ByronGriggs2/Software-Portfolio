@@ -16,24 +16,27 @@ func getCurrentWeapon() -> Weapon :
 	if (itemSceneRef == null) :
 		return null
 	else :
+		itemSceneRef.core.getItemName()
+		itemSceneRef.core.basicAttack.getResourceName()
 		var temp = itemSceneRef.core.duplicate()
-		temp.resourceName = itemSceneRef.core.resourceName
 		return temp
 func getCurrentArmor() -> Armor :
 	var itemSceneRef = $Inventory.getEquippedItem(Definitions.equipmentTypeEnum.armor)
 	if (itemSceneRef == null) :
 		return null
 	else :
+		itemSceneRef.core.getItemName()
 		var temp = itemSceneRef.core.duplicate()
-		temp.resourceName = itemSceneRef.core.resourceName
+		#temp.resourceName = itemSceneRef.core.resourceName
 		return temp
 func getCurrentAccessory() -> Accessory :
 	var itemSceneRef = $Inventory.getEquippedItem(Definitions.equipmentTypeEnum.accessory)
 	if (itemSceneRef == null) :
 		return null
 	else :
+		itemSceneRef.core.getItemName()
 		var temp = itemSceneRef.core.duplicate()
-		temp.resourceName = itemSceneRef.core.resourceName
+		#temp.resourceName = itemSceneRef.core.resourceName
 		return temp
 func getEquippedItem(type) :
 	return $Inventory.getEquippedItem(type)
@@ -63,6 +66,7 @@ func _on_item_selected(itemSceneRef) -> void:
 	#$PagedEquipmentDetails.switchPage(tab)
 func _on_equip_requested_from_details(itemSceneRef) -> void:
 	$Inventory.equipItem(itemSceneRef)
+	#AudioHandler.playMenuSfx(AudioHandler.menuSfx.select)
 func _on_unequip_requested_from_details(itemSceneRef) -> void:
 	$Inventory.unequipItem(itemSceneRef.getType())
 func _on_current_equips_select_requested(itemSceneRef, type : Definitions.equipmentTypeEnum) -> void:
@@ -72,6 +76,7 @@ func _on_current_equips_select_requested(itemSceneRef, type : Definitions.equipm
 		$Inventory.selectItem(itemSceneRef)
 func _on_discard_requested_from_details(itemSceneRef) -> void:
 	$Inventory.discardItem(itemSceneRef)
+	#AudioHandler.playMenuSfx(AudioHandler.menuSfx.cancel)
 signal unequippedItem
 func _on_inventory_unequipped_item(itemSceneRef) -> void :
 	$CurrentEquips.setItemSceneRef(null, itemSceneRef.getType())

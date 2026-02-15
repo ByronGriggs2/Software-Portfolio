@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cxsgf25f6im46" path="res://Screens/GameScreen/Tabs/Attributes/AttributeMods/attribute_mod_entry.gd" id="1_w8ssh"]
 
 [node name="AttributeModEntry" type="HBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

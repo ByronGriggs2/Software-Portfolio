@@ -12,7 +12,7 @@ func _on_right_button_pressed() -> void:
 		return
 	emit_signal("floorDown")
 
-func setFloor(val : int) :
+func setFloor(val : int, showMaxFloor : bool) :
 	currentFloor = val
 	if (val == 0 || maxFloor == 0) :
 		$LeftButton.set_disabled(true)
@@ -22,7 +22,10 @@ func setFloor(val : int) :
 		$RightButton.set_disabled(true)
 	else :
 		$RightButton.set_disabled(false)
-	$FloorNumber2.text = " " + str(val) + " "
+	if (showMaxFloor) :
+		$FloorNumber2.text = " " + str(val) + "/190" + " "
+	else :
+		$FloorNumber2.text = " " + str(val) + " "
 	
 func setMaxFloor(val : int) :
 	maxFloor = val

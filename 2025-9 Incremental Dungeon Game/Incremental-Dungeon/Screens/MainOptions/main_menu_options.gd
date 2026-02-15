@@ -58,12 +58,14 @@ func _on_window_mode_confirmed() :
 	oldSettings["Window Mode"] = currentSettings["Window Mode"]
 	MainOptionsHelpers.saveSettings(oldSettings)
 	oldWindowMode = currentSettings["Window Mode"]
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.save)
 
 func _revert_window_mode() :
 	windowModeConfirmationPopup.queue_free()
 	killWindowModeChildren()
 	MainOptionsHelpers.applyWindowMode(oldWindowMode)
 	currentSettings["Window Mode"] = oldWindowMode
+	$Content/VBoxContainer/ScrollContainer/VBoxContainer/WindowMode/WindowMode.selected = oldWindowMode
 
 func _update_window_mode_text() :
 	windowModeConfirmationPopup.setText("Is this Window Mode okay? Reverting in " + str(Helpers.myRound(windowModeTimer.time_left,1)) + " seconds.")
@@ -72,6 +74,7 @@ func _on_save_pressed() -> void:
 	#$Content/VBoxContainer/ScrollContainer/VBoxContainer/masterVolume.onSave()
 	currentSettings["audio"] = AudioHandler.getMainOptionsDictionary()
 	MainOptionsHelpers.queueSaveSettings(currentSettings)
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.save)
 
 const keybindsLoader = preload("res://Screens/MainOptions/keybinds.tscn")
 func _on_keybinds_pressed() -> void:
@@ -99,3 +102,4 @@ func _on_reset_global_encyclopedia_pressed() -> void:
 		current["herophile"] = default["herophile"]
 		MainOptionsHelpers.saveSettings(current)
 		SaveManager.globalSettings = current.duplicate()
+		AudioHandler.playMenuSfx(AudioHandler.menuSfx.save)

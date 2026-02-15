@@ -13,10 +13,10 @@ baseAttributes = {
 "Strength": 6.0
 }
 attributeScaling = {
-"Dexterity": 0.75,
+"Dexterity": 0.9,
 "Durability": 0.9,
 "Intelligence": 1.2,
 "Skill": 1.0,
-"Strength": 0.75
+"Strength": 0.9
 }
 metadata/_custom_type_script = "uid://rkr30nwxygl8"

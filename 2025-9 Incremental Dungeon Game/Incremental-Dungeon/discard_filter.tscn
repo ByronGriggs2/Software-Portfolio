@@ -111,7 +111,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 tooltipTitle = "From inventory"
-tooltipText = "When equipment is dropped by an enemy, all direct downgrades of that item will be discarded, unless equipped. If any are discarded, the new item is auto-taken."
+tooltipText = "If equipment dropped from an enemy is a direct upgrade of non-equipped items in your inventory, it will be auto-taken and all downgrades will be auto-discarded."
 
 [node name="Option3" type="HBoxContainer" parent="PanelContainer2/DirectDowngrades/HBoxContainer"]
 layout_mode = 2
@@ -138,7 +138,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 tooltipTitle = "From equipped items"
-tooltipText = "When equipment is dropped by an enemy, if it is a direct upgrade of a currently equipped item, it will be auto-equipped and the old item will be discarded."
+tooltipText = "If equipment dropped from an enemy is a direct upgrade of your equipped item, it will be auto-taken and equipped, and the old item will be discarded."
 
 [node name="PanelContainer3" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -153,11 +153,23 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 0
 bbcode_enabled = true
-text = "Follow above setting even if item is: "
+text = "[color=#baa1e6]Follow above setting even if item is:[/color]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
+
+[node name="TooltipTrigger" parent="PanelContainer3/DirectDowngrades/RichTextLabel" instance=ExtResource("2_fl3of")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltipTitle = "Follow above setting even if item is:"
+tooltipText = "If these boxes are unchecked, the above setting is ignored if it would result in a legendary or signature item being discarded."
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer3/DirectDowngrades"]
 layout_mode = 2
@@ -223,7 +235,9 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 tooltipTitle = "Auto-discard filter"
-tooltipText = "Defines the conditions under which a dropped item is auto-discarded. Applies before direct downgrades are considered."
+tooltipText = "This filter applies before the direct downgrade settings above.
+
+When an enemy drops an item, it will be auto-discarded if it doesn't make it through this filter."
 
 [node name="Filter" type="GridContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -268,7 +282,9 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 tooltipTitle = "Whitelist"
-tooltipText = "Equipment will be auto-discarded unless it is in at least 1 category from each row."
+tooltipText = "Equipment will be auto-discarded unless it is in at least 1 category from each row below.
+
+For example, let's say you want to allow only arming swords and very similar items. You would check only \"Nonelemental\", \"Common\", \"Weapon\", and \"Melee\". If you want to also get longswords, you would need to check \"Uncommon\" as well."
 
 [node name="Option15" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Filter"]
 layout_mode = 2
@@ -295,7 +311,9 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 tooltipTitle = "Blacklist"
-tooltipText = "Equipment will be auto-discarded if is in any of the categories below."
+tooltipText = "Equipment will be auto-discarded if is in any of the categories below.
+
+For example, if you hate arming swords, you can just check \"Melee\". This will also get rid of (for example) longswords, however."
 
 [node name="Control6" type="Control" parent="PanelContainer/VBoxContainer/Filter"]
 layout_mode = 2
@@ -649,6 +667,21 @@ layout_mode = 2
 layout_mode = 2
 bbcode_enabled = true
 text = " Ranged "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Option21" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Filter"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/Filter/Option21"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/Filter/Option21"]
+layout_mode = 2
+bbcode_enabled = true
+text = " Neither "
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

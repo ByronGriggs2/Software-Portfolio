@@ -28,3 +28,8 @@ func getSaveDictionary() -> Dictionary :
 	retVal["environmentName"] = environmentName
 	retVal["shopName"] = shopName
 	return retVal
+
+func getShortVersion() -> Dictionary :
+	return {
+		"environmentName" : environmentName
+	}

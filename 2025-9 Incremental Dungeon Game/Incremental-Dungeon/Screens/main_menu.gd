@@ -14,6 +14,21 @@ func _ready() :
 func checkLoadGame() :
 	if (!SaveManager.saveExists()) :
 		$ButtonContainer.get_node("LoadButton").set_disabled(true)
+	var problemSlot = SaveManager.validateSaves()
+	if (problemSlot != -1) :
+		handleInvalid(problemSlot)
+	
+const popupLoader = preload("res://Graphic Elements/popups/my_popup_button.tscn")	
+func handleInvalid(slot : int) :
+	$ButtonContainer.get_node("LoadButton").set_disabled(true)
+	$ButtonContainer.get_node("NewButton").set_disabled(true)
+	$ButtonContainer.get_node("OptionsButton").set_disabled(true)
+	var popup = popupLoader.instantiate()
+	add_child(popup)
+	popup.getWindowRef().custom_minimum_size.x += 300
+	popup.setTitle("Invalid Save Data")
+	popup.setText("Invalid save data has been detected in save slot " + str(slot+1) + ". Play has been disabled to avoid further corrupting your save file. Please contact the developer for support.\n\nAlternatively, you could just delete or move the file and relaunch. It's located in\nC:\\Users\\<username>\\AppData\\Roaming\\Godot\\app_userdata\\Incremental Dungeon.\nThe filename will be 1 less than the in-game name. Example: Save Slot 1 = \"save_slot_0.json\"")
+	popup.setButtonText("Ok")
 
 var newMenu : Node = null
 func _on_new_button_pressed() -> void:
@@ -55,3 +70,8 @@ func _unhandled_input(event : InputEvent) :
 			newMenu.queue_free()
 			newMenu = null
 		
+
+const creditsLoader = preload("res://Graphic Elements/popups/credits.tscn")
+func _on_credits_button_pressed() -> void:
+	var credits = creditsLoader.instantiate()
+	add_child(credits)

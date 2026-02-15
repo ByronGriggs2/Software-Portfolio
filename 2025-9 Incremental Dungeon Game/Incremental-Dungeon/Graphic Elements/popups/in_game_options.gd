@@ -10,7 +10,7 @@ func _on_load_ready() :
 	emit_signal("loadGameNow")
 
 func _on_quit_button_0_pressed() -> void:
-	SaveManager.queueSaveGame(Definitions.saveSlots.current)
+	await SaveManager.queueSaveGame_playSfx(Definitions.saveSlots.current)
 	emit_signal("exitToMenu")
 
 func _on_return_button_pressed() -> void:

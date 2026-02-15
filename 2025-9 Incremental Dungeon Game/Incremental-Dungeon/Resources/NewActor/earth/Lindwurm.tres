@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://1o0v87q5vo8c"]
+[gd_resource type="Resource" script_class="ActorPreset" load_steps=8 format=3 uid="uid://cbt3be422y1sm"]
 
 [ext_resource type="Script" uid="uid://7vyskwb74kdn" path="res://Resources/OldAction/action.gd" id="1_r8mlr"]
 [ext_resource type="Resource" uid="uid://b2serwufoqsqm" path="res://Resources/NewAction/EnemyExclusiveAttacks/bite_acid_2.tres" id="2_8jrlc"]

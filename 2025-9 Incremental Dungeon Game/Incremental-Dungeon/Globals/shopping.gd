@@ -100,6 +100,7 @@ var weaponUnlocked : bool = false
 func onLoad(loadDict) :
 	myReady = false
 	updateToVersion105(loadDict)
+	updateToVersion107(loadDict)
 	allRoutinesPurchased = loadDict["allRoutines"]
 	if (loadDict.get("unlockedRoutines") != null) :
 		unlockedRoutines = loadDict["unlockedRoutines"]
@@ -156,6 +157,30 @@ func updateToVersion105(loadDict : Dictionary) :
 	var magnitude = log(currentPrice/oldBase)/log(10)
 	if (is_equal_approx(magnitude, floor(magnitude)) || is_equal_approx(magnitude, ceil(magnitude))) :
 		loadDict["itemPrices"]["routine"][routinePurchasable.mixed] = itemPriceBase["routine"][routinePurchasable.mixed] * pow(10,magnitude)
+		
+func updateToVersion107(loadDict : Dictionary) :
+	for index in range(0,loadDict["unlockedRoutines"].size()) :
+		if (loadDict["unlockedRoutines"][index].find("Resource#") != -1) :
+			loadDict["unlockedRoutines"][index] = "spar_herophile"
+	if (loadDict["allRoutines"]) :
+		return
+	var routineList = MegaFile.getAllRoutine()
+	var mySet : bool = true
+	var herophileUnlocked : bool = false
+	for routine in routineList :
+		if (routine.getResourceName() == "spar_herophile" && loadDict["unlockedRoutines"].find("spar_herophile") != -1) :
+			herophileUnlocked = true
+			continue
+		if (loadDict["unlockedRoutines"].find(routine.getResourceName()) == -1) :
+			mySet = false
+			break
+	if (mySet) :
+		loadDict["allRoutines"] = true
+		loadDict["unlockedRoutines"] = []
+		for routine in routineList :
+			if (routine == MegaFile.getRoutine("spar_herophile") && !herophileUnlocked) :
+				continue
+			loadDict["unlockedRoutines"].append(routine.getResourceName())
 ###################################################################################
 ## General
 var subclassPurchased : bool = false
@@ -205,12 +230,21 @@ func purchaseItem(type : String, item : int, purchase : Purchasable) -> bool:
 		return false
 	var currencyCount = await getCurrencyAmount(currency)
 	if (currencyCount < purchase.purchasablePrice) :
+		AudioHandler.playMenuSfx(AudioHandler.menuSfx.warning)
 		return false
 	if (await givePurchaseBenefit(type, item, purchase)) :
+		if (type == "soul" && (item >= soulPurchasable.fighterSubclass_1 && item <= soulPurchasable.mageSubclass_2)) :
+			AudioHandler.playMenuSfx(AudioHandler.menuSfx.save)
+		else :
+			AudioHandler.playMenuSfx(AudioHandler.menuSfx.select)
 		emit_signal("removeCurrencyRequested", currency, purchase.purchasablePrice)
 	else :
 		return false
-	itemPrices[type][item] = getNextItemPrice(type, item)
+	var price = getNextItemPrice(type, item)
+	if (price < 9*pow(10,18)) :
+		itemPrices[type][item] = int(price)
+	else :
+		itemPrices[type][item] = price
 	return true
 	
 func givePurchaseBenefit(type : String, item : int, purchase : Purchasable) -> bool:
@@ -230,7 +264,7 @@ func givePurchaseBenefit(type : String, item : int, purchase : Purchasable) -> b
 		await confirmationReceived
 	return confirmed
 
-func getNextItemPrice(type, item) -> int :
+func getNextItemPrice(type, item) -> float :
 	var currentVal = itemPrices[type][item]
 	if (currentVal == -1) :
 		return -1
@@ -245,7 +279,7 @@ func getNextItemPrice(type, item) -> int :
 	else :
 		return -1
 
-func getNextItemPrice_routine(item) -> int :
+func getNextItemPrice_routine(item) -> float :
 	var standardScale = pow(2,0.25)
 	var currentVal = itemPrices["routine"][item]
 	if (item == routinePurchasable.speed) :
@@ -263,7 +297,7 @@ func getNextItemPrice_routine(item) -> int :
 		else :
 			return currentVal * standardScale
 	elif (item == routinePurchasable.mixed) :
-		return round(currentVal * 10)
+		return round(currentVal * 100.0)
 	## It's 25x more expensive (5000) at the end of floor 5, after 9 purchases
 	elif (item == routinePurchasable.randomRoutine) :
 		return round(currentVal * 1.43)
@@ -273,7 +307,7 @@ func getNextItemPrice_routine(item) -> int :
 	else :
 		return -1
 		
-func getNextItemPrice_armor(item) -> int :
+func getNextItemPrice_armor(item) -> float :
 	var currentVal = itemPrices["armor"][item]
 	if (item == armorPurchasable.premadeArmor) :
 		## One time purchase
@@ -288,7 +322,7 @@ func getNextItemPrice_armor(item) -> int :
 		return round(currentVal * 2.484)
 	else :
 		return -1
-func getNextItemPrice_weapon(item) -> int :
+func getNextItemPrice_weapon(item) -> float :
 	var currentVal = itemPrices["weapon"][item]
 	if (item == weaponPurchasable.premadeWeapon) :
 		## One time purchase
@@ -304,7 +338,7 @@ func getNextItemPrice_weapon(item) -> int :
 	else :
 		return -1
 		
-func getNextItemPrice_soul(item) -> int :
+func getNextItemPrice_soul(item) -> float :
 	var currentVal = itemPrices["soul"][item]
 	if ((soulPurchasable.fighterSubclass_1 as int) <= (item as int) && (item as int) <= (soulPurchasable.mageSubclass_2 as int)) :
 		return currentVal
@@ -362,9 +396,9 @@ func provideConfirmation(val) :
 
 signal currencyAmountRequested
 signal currencyAmountReceived
-var currencyAmount_comm : int
+var currencyAmount_comm : float
 var waitingForCurrencyAmount : bool = false
-func getCurrencyAmount(item : Currency) -> int :
+func getCurrencyAmount(item : Currency) -> float :
 	waitingForCurrencyAmount = true
 	emit_signal("currencyAmountRequested", item, self)
 	if (waitingForCurrencyAmount) :
@@ -402,8 +436,15 @@ func _on_purchase_requested(item, _price, myCurrency, emitter, purchase : Purcha
 			emitter.onSubclassPurchased()
 		elif (type == "soul" && index == soulPurchasable.respec) :
 			emitter.reset()
-		elif (type == "routine" && index == routinePurchasable.randomRoutine && unlockedRoutines.size() == 15) :
-			allRoutinesPurchased = true
+		elif (type == "routine" && index == routinePurchasable.randomRoutine) :
+			var threshold
+			if (unlockedRoutines.find("spar_herophile")) :
+				threshold = 16
+			else :
+				threshold = 15
+			if (unlockedRoutines.size() >= threshold) :
+				allRoutinesPurchased = true
+			emitter.refreshPrice(item, itemPrices[type][index])
 		else :
 			emitter.refreshPrice(item, itemPrices[type][index])
 		emitter.softNotification(purchase)
@@ -772,7 +813,7 @@ func createSoulShop() :
 	var respecItem = Purchasable.new()
 	respecItem.equipment_optional = null
 	respecItem.purchasableName = soulPurchasableDictionary[soulPurchasable.respec]
-	respecItem.description = "Remove your subclass (if any) and choose a new class! [color=red]You will lose half of your [/color]Cumulative Routine Levels[color=red].[/color]"
+	respecItem.description = "Remove your subclass (if any) and choose a new class! [color=red]You will lose 25% of your [/color]Cumulative Routine Levels[color=red].[/color]"
 	respecItem.purchasablePrice = -1
 	column1.purchasables.append(respecItem)
 	
@@ -862,7 +903,8 @@ func givePurchaseBenefit_routine(item : routinePurchasable) :
 			lastBought["boughtRoutine"] = MegaFile.getRoutine(chosenRoutine)
 			emit_signal("unlockRoutineRequested", self, lastBought["boughtRoutine"])
 			return
-			
+		
+		
 		var routineList = MegaFile.getAllRoutine()
 		var optionCount = routineList.size()-1-unlockedRoutines.size()
 		var roll = randi_range(0, optionCount-1)
@@ -894,7 +936,8 @@ func givePurchaseBenefit_routine(item : routinePurchasable) :
 		
 var herophileUnlocked : bool = false
 func unlockHerophile() :
-	unlockedRoutines.append("spar_herophile")
+	if (unlockedRoutines.find("spar_herophile") == -1) :
+		unlockedRoutines.append("spar_herophile")
 	var settings = SaveManager.getGlobalSettings()
 	settings["herophile"] = true
 	SaveManager.saveGlobalSettings(settings)
@@ -976,8 +1019,8 @@ func givePurchaseBenefitSoul(item : soulPurchasable, _purchase : Purchasable) :
 		var isMultiplicative = false
 		
 		var attrCount = Definitions.attributeDictionary.keys().size()
-		var statCount = Definitions.attributeDictionary.keys().size()
-		var otherCount = Definitions.attributeDictionary.keys().size()
+		var statCount = Definitions.baseStatDictionary.keys().size()
+		var otherCount = Definitions.otherStatDictionary.keys().size()
 		var totalCount = attrCount + statCount + otherCount
 		
 		var allUpgradedRoll = randi_range(0,99)
@@ -998,7 +1041,7 @@ func givePurchaseBenefitSoul(item : soulPurchasable, _purchase : Purchasable) :
 		else :
 			type = "otherStat"
 			var roll = randi_range(0,otherCount-1)
-			while (roll == Definitions.otherStatEnum.physicalConversion || roll == Definitions.otherStatEnum.magicConversion) :
+			while (roll == Definitions.otherStatEnum.physicalConversion || roll == Definitions.otherStatEnum.magicConversion || (roll >= Definitions.otherStatEnum.routineSpeed_0 && roll < Definitions.otherStatEnum.routineSpeed_5)) :
 				roll = randi_range(0,otherCount-1)
 			value.append(getOtherStatUpgrade(roll as Definitions.otherStatEnum, false))
 			statEnum.append(roll)
@@ -1082,7 +1125,7 @@ func upgradeAllStats() :
 	emit_signal("addPermanentModifierRequested", value, type, statEnum, source, modType, isMultiplicative, false)
 	
 func getOtherStatUpgrade(key : Definitions.otherStatEnum, isAllStat : bool) :
-	if (key == Definitions.otherStatEnum.magicConversion || key == Definitions.otherStatEnum.physicalConversion) :
+	if (key == Definitions.otherStatEnum.magicConversion || key == Definitions.otherStatEnum.physicalConversion || (key >= Definitions.otherStatEnum.routineSpeed_0 && key < Definitions.otherStatEnum.routineSpeed_5)) :
 		return 0
 	elif (key == Definitions.otherStatEnum.routineSpeed_5 || key == Definitions.otherStatEnum.routineEffect) :
 		if (isAllStat) :

@@ -157,17 +157,17 @@ alignment = 1
 [node name="Mage" parent="AppearanceContainer/Carousels/PresetContainer/HBoxContainer" instance=ExtResource("16_63urx")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Mage"
+text = " Mary "
 
 [node name="Fighter" parent="AppearanceContainer/Carousels/PresetContainer/HBoxContainer" instance=ExtResource("16_63urx")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = " Fighter "
+text = " Fiona "
 
 [node name="Rogue" parent="AppearanceContainer/Carousels/PresetContainer/HBoxContainer" instance=ExtResource("16_63urx")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = " Rogue "
+text = " Renna "
 
 [node name="Control" type="Control" parent="AppearanceContainer/Carousels/PresetContainer/HBoxContainer"]
 custom_minimum_size = Vector2(25, 0)

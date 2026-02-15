@@ -73,6 +73,7 @@ func spamNotifications(_child, upgraded : Array[String]) :
 		var newNotif = notificationLoader.instantiate()
 		get_parent().get_parent().get_parent().add_child(newNotif)
 		getSoftPos(item, newNotif)
+		AudioHandler.playMenuSfx(AudioHandler.menuSfx.select)
 	remove_child(myTimer)
 	myTimer.queue_free()
 

@@ -1,33 +1,16 @@
 extends Node
-const currentVersion : String = "V1.06 development"
-var GODMODE : bool = true
-var DEVMODE : bool = true
+const currentVersion : String = "V1.13 release"
+var GODMODE : bool = false
+var DEVMODE : bool = false
 var steamEnabled : bool = false
 var hasDLC : bool = false
 func _ready() :
 	attributeCount = 0
 	for key in attributeDictionary :
 		attributeCount += 1
-	if (currentVersion != "V1.06 development") :
+	if (currentVersion != "V1.12 development") :
 		GODMODE = false
 		DEVMODE = false
-	if (steamInitialise()) :
-		steamEnabled = true
-
-func steamInitialise() -> bool :
-	var initialize_response: Dictionary = Steam.steamInitEx()
-	print("Initialising steam...")
-	if initialize_response['status'] <= Steam.STEAM_API_INIT_RESULT_OK:
-		var dlc = Steam.getDLCData()
-		var owned = Steam.isSubscribedApp(4352850)
-		var installed = Steam.isDLCInstalled(4352850)
-		print("DLC Data:")
-		print(dlc)
-		print("Owned: " + str(owned)) 
-		print("Installed: " + str(installed))
-		hasDLC = owned && installed
-		return true
-	return false
 	
 const DLCWeapons = [
 	"phantasm",
@@ -253,10 +236,10 @@ var slotPaths = {
 	saveSlots.slot3 : "user://save_slot_3.json"
 }
 var slotNames = {
-	saveSlots.slot0 : "save slot 0",
-	saveSlots.slot1 : "save slot 1",
-	saveSlots.slot2 : "save slot 2",
-	saveSlots.slot3 : "save slot 3"
+	saveSlots.slot0 : "save slot 1",
+	saveSlots.slot1 : "save slot 2",
+	saveSlots.slot2 : "save slot 3",
+	saveSlots.slot3 : "save slot 4"
 }
 const mainSettingsPath = "user://main_settings.json"
 #enum scalingEnum {
@@ -325,6 +308,6 @@ const subclassDescriptions = {
 	subclass.knight : "-DR Multiplier [color=red]x0.75[/color].\n-Bonus to Base DR of [color=green]+N[/color], where N = 190% of the average of your equipped Armor's PHYSDEF and MAGDEF.\n\nYou feel naked in anything less than full plate.",
 	subclass.ammo : "-HP Multiplier [color=red]x0.9[/color]\n-While a non-melee weapon is equipped:\n-AR Multiplier [color=green]x1.35[/color].\n-All damage is dealt to the lower of your enemy's resistances.\n\nYour custom ammunition always hits the enemy where it's weakest.",
 	subclass.whirl : "While a non-ranged weapon is equipped:\n-Attack speed Multiplier [color=green]x1.16[/color]\n-PHYSDEF Multiplier [color=green]x1.08[/color]\n-MAGDEF Multiplier [color=green]x1.08[/color]\n\nYou fight with such ferocity that no opponent can get within arms reach unharmed.",
-	subclass.enchant : "While an elemental weapon is equipped:\n-DR Multiplier [color=green]x1.1[/color].\nWhile an elemental armor is equipped:\n-MAGDEF and PHYSDEF Multiplier [color=green]x1.1[/color].\nWhile an elemental accessory is equipped:\n-Skill Multiplier [color=green]x1.05[/color].\n-The effect of Elemental synergy is increased from [color=green]1.25x[/color] to [color=green]1.2625x[/color]\n\nYou've spent countless hours studying and attuning to enchanted equipment, and can use it expertly.",
+	subclass.enchant : "-The effect of Elemental synergy is increased from [color=green]1.25x[/color] to [color=green]1.2625x[/color]\nWhile an elemental weapon is equipped:\n\t-DR Multiplier [color=green]x1.1[/color].\nWhile an elemental armor is equipped:\n\t-MAGDEF and PHYSDEF Multiplier [color=green]x1.1[/color].\nWhile an elemental accessory is equipped:\n\t-Skill Multiplier [color=green]x1.05[/color].\n\nYou've spent countless hours studying and attuning to enchanted equipment, and can use it expertly.",
 	subclass.soul : "-HP Multiplier [color=red]x0.85[/color]\n-Bonus to HP Standard Multiplier of [color=green]+N[/color]\n-Bonus to DR Standard Multiplier of [color=green]+N[/color]\n-N=-0.00004x^2+0.0105x-0.25,\nwhere x is unique enemies killed (see beastiary)\n\nYou performed a ritual that allows your body to gain power from the souls of your enemies. Your heart stopped for a couple seconds and now you have jaundice, but it's probably nothing to worry about."
 }
