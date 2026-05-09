@@ -80,6 +80,7 @@ static func scalingToLetter(scalingVal : float) -> String :
 const referenceValue = 0.161979/1.08/1.15
 func getAdjustedCopy(scalingFactor : float) -> Weapon :
 	var retVal = super(scalingFactor) as Weapon##not sure if copies weapon properties
+	retVal.basicAttack.resourceName = basicAttack.getResourceName()
 	retVal.attackBonus *= scalingFactor*referenceValue
 	if (!retVal.equipmentGroups.isElemental()) :
 		retVal.attackBonus *= 1.15

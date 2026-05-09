@@ -261,7 +261,30 @@ func generateSave() -> Dictionary :
 	centralisedGameState[self.get_path()] = self.getSaveDictionary()
 	for node in get_tree().get_nodes_in_group("Saveable") :
 		centralisedGameState[node.get_path()] = node.getSaveDictionary()
-	return centralisedGameState
+	var ret = centralisedGameState.duplicate(true)
+	fixFloatRecursive(ret)
+	return ret
+	
+const encodedFloatStr = "encodedFloat_asdjf;ajd"
+	
+func fixFloatRecursive(val : Dictionary) :
+	for key in val.keys() :
+		if (val[key] is Dictionary) :
+			fixFloatRecursive(val[key])
+		elif (val[key] is float) :
+			if (abs(val[key]) <= 0.001 && val[key] != 0) :
+				val[key] = encodedFloatStr + Helpers.engineeringRound(val[key], 5)
+				
+func decodeFloatRecursive(val : Dictionary) :
+	for key in val.keys() :
+		if (val[key] is Dictionary) :
+			decodeFloatRecursive(val[key])
+		elif (val[key] is String) :
+			if (val[key].find(encodedFloatStr) == -1) :
+				continue
+			var actualVal = val[key].substr(encodedFloatStr.length())
+			val[key] = Helpers.decodeEngineeringRound(actualVal)
+			
 
 func generateFilepath(slot : Definitions.saveSlots) :
 	var filePath : String
@@ -329,11 +352,13 @@ func loadSaveDict(slot : Definitions.saveSlots) :
 	if (!FileAccess.file_exists(Definitions.slotPaths[slot])) : return null
 	var text = FileAccess.open(Definitions.slotPaths[slot], FileAccess.READ).get_as_text()
 	var centralisedGameState = JSON.parse_string(text)
-	#JSON.new().parse(text)
+	JSON.new().parse(text)
 	if (centralisedGameState == null) :
 		centralisedGameState = {}
 	fixEnumRecursive(centralisedGameState)
 	fixNullRecursive(centralisedGameState)
+	convertTo115(centralisedGameState)
+	decodeFloatRecursive(centralisedGameState)
 	return centralisedGameState
 	
 func loadGame(slot : Definitions.saveSlots) :
@@ -468,3 +493,92 @@ func queueSaveGame_safety(saveData : Dictionary, filePath : String) :
 	
 func queueSaveGlobalSettings_immediate(settings) :
 	MainOptionsHelpers.queueSaveSettings(settings)
+
+##cases to check
+##late game with 0
+##late game without 0
+##late game with near 0
+##just bought once
+func convertTo115(val : Dictionary) :
+	## Check if field exists
+	var gameScreenDict = val.get("/root/Main/GameScreen")
+	if !(gameScreenDict is Dictionary) :
+		print("Gamescreen is null in 115")
+		return
+	var mods = gameScreenDict.get("permanentMods")
+	if !(mods is Dictionary) :
+		return
+	var refined = mods.get("Refined Fundamentals")
+	if !(refined is Dictionary) :
+		return
+	var other = refined.get("other")
+	if !(other is Dictionary) :
+		print("other is null in 115")
+		return
+	var modPacket = other.get("Routine Speed")
+	if !(modPacket is Dictionary) :
+		print("modPacket is null in 115")
+		return
+	var multiplier = modPacket.get("Premultiplier")
+	if (multiplier == null) :
+		print("multiplier is null in 115")
+		return
+	
+	##Check if price exists
+	var shopping = val.get("/root/Shopping")
+	if !(shopping is Dictionary) :
+		print ("shopping is null in 115")
+		return
+	var shoppingPrices = shopping.get("itemPrices")
+	if !(shoppingPrices is Dictionary) :
+		print("prices are null in 115")
+		return
+	var routinePrices = shoppingPrices.get("routine")
+	if !(routinePrices is Dictionary) :
+		print("routinePrices null in 115")
+		return
+	var refinedFundamentalsPrice = routinePrices.get(Shopping.routinePurchasable.mixed)
+	if (refinedFundamentalsPrice == null) :
+		print("refinedFundamentalsPrice is null in 115")
+		return
+		
+	##Check if currency exists
+	var currency = val.get("/root/Main/GameScreen/TopRibbon/Ribbon/Currency")
+	if !(currency is Dictionary) :
+		print("currency null in 115")
+		return
+	var currencyList = currency.get("currencyList")
+	if !(currencyList is Dictionary) :
+		print("currencyList null in 115") 
+		return
+	var goldCount = null
+	var goldStruct = null
+	for key in currencyList.keys() :
+		var currencyStruct = currencyList[key]
+		if !(currencyStruct is Dictionary) :
+			print("currencyStruct is null in 115")
+			return
+		var currencyName = currencyStruct.get("name")
+		if (currencyName == null) :
+			print("currencyName is null in 115")
+			return
+		if (currencyName == "gold_coin") :
+			goldStruct = currencyStruct
+			goldCount = currencyStruct.get("count")
+			break
+	if (goldCount == null) :
+		print ("goldCount is null in 115")
+		return
+	
+	##Check if the bug is actually present
+	if (!(multiplier is float && multiplier == 0.0)) :
+		return
+	##Reset the benefit
+	mods.erase("Refined Fundamentals")
+	##Refund the price
+	goldStruct["count"] += routinePrices[Shopping.routinePurchasable.mixed]/100.0
+	##Reset the price
+	routinePrices[Shopping.routinePurchasable.mixed] = float(300000.0)
+
+	
+	

@@ -76,6 +76,7 @@ func _on_save_pressed() -> void:
 
 signal finished
 func _on_return_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	$Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/masterVolume.onExit()
 	emit_signal("finished")
 	queue_free()
@@ -94,18 +95,21 @@ func updateOptionDict() :
 
 const encyclopediaLoader = preload("res://Graphic Elements/popups/encyclopedia.tscn")
 func _on_encyclopedia_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	var encyclopedia = encyclopediaLoader.instantiate()
 	add_child(encyclopedia)
 	encyclopedia.nestedPopupInit(self)
 
 const keybindsLoader = preload("res://Screens/MainOptions/keybinds.tscn")
 func _on_keybinds_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	var keybinds = keybindsLoader.instantiate()
 	add_child(keybinds)
 	keybinds.nestedPopupInit(self)
 
 const creditsLoader = preload("res://Graphic Elements/popups/credits.tscn")
 func _on_credits_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	var credits = creditsLoader.instantiate()
 	add_child(credits)
 	credits.nestedPopupInit(self)
@@ -113,6 +117,7 @@ func _on_credits_pressed() -> void:
 var myFilter : Node = null
 const filterLoader = preload("res://filter_new.tscn")
 func _on_filter_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	if (myFilter != null) :
 		myFilter.queue_free()
 		myFilter = null
@@ -136,6 +141,7 @@ var windowModeConfirmationPopup : Node = null
 var windowModeTimer : Timer = null
 var windowModeSubTimer : Timer = null
 func _on_window_mode_item_selected(index: int) -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	currentSettings = MainOptionsHelpers.loadSettings()
 	currentSettings["Window Mode"] = index
 	MainOptionsHelpers.applyWindowMode(index)

@@ -3,6 +3,7 @@ extends Control
 signal swapToMainMenu
 
 func _on_return_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	$Content/VBoxContainer/ScrollContainer/VBoxContainer/masterVolume.onExit()
 	emit_signal("swapToMainMenu")
 
@@ -101,5 +102,5 @@ func _on_reset_global_encyclopedia_pressed() -> void:
 		current["globalEncyclopedia"] = default["globalEncyclopedia"]
 		current["herophile"] = default["herophile"]
 		MainOptionsHelpers.saveSettings(current)
-		SaveManager.globalSettings = current.duplicate()
+		SaveManager.globalSettings = current.duplicate(true)
 		AudioHandler.playMenuSfx(AudioHandler.menuSfx.save)

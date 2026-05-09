@@ -126,6 +126,7 @@ func _on_button2_pressed(emitter : Node) :
 signal characterDone
 const popup = preload("res://Graphic Elements/popups/binary_decision.tscn")
 func _on_my_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	var tempPop = popup.instantiate()
 	add_child(tempPop)
 	tempPop.setTitle("Are you sure?")
@@ -136,6 +137,7 @@ func _on_my_button_pressed() -> void:
 		
 const hyperLoader = preload("res://Graphic Elements/popups/hyperModePopup.tscn")
 func _on_binary_chosen(chosen : int) :
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	if (chosen == 0) :
 		var myClass = $ClassContainer/CharacterCreator/VBoxContainer2/StatDescription.currentStats
 		var myName = $VBoxContainer/LineEdit.text

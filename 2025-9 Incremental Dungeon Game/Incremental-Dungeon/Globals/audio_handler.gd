@@ -1,38 +1,4 @@
 extends Node
-
-const originalTheme = preload("res://Audio/OST/theme_01.wav")
-const mainMenuTheme = originalTheme
-
-enum sfx {rangedPhysical,rangedMagic,meleeSlice}
-const combatSounds = {
-	sfx.rangedPhysical : [
-		preload("res://Audio/SFX/Combat/bow_01.wav"),
-		preload("res://Audio/SFX/Combat/bow_02.wav")
-	],
-	sfx.rangedMagic : [
-		preload("res://Audio/SFX/Combat/magic_01.wav"),
-		preload("res://Audio/SFX/Combat/magic_02.wav")
-	],
-	sfx.meleeSlice : [
-		preload("res://Audio/SFX/Combat/sword_01.wav"),
-		preload("res://Audio/SFX/Combat/sword_02.wav"),
-		preload("res://Audio/SFX/Combat/sword_03.wav")
-	]
-}
-enum menuSfx {save,select,cancel,warning}
-const menuSounds = {
-	menuSfx.save : preload("res://Audio/SFX/Menu/save.wav"),
-	menuSfx.select : preload("res://Audio/SFX/Menu/select.wav"),
-	menuSfx.cancel : preload("res://Audio/SFX/Menu/cancel.wav"),
-	menuSfx.warning : preload("res://Audio/SFX/Menu/alert.wav")
-}
-
-enum bus {master,music,sfx}
-const busDict = {
-	bus.master : "Master",
-	bus.music : "Music",
-	bus.sfx : "Sfx"
-}
 var musicStream : AudioStreamPlayer = null
 var sfxStream : AudioStreamPlayer = null
 var masterBus : int = -1
@@ -54,9 +20,7 @@ func _ready() :
 	musicBus = AudioServer.get_bus_index("Music")
 	masterBus = AudioServer.get_bus_index("Master")
 	sfxBus = AudioServer.get_bus_index("Sfx")
-	
-	#setVolume(bus.music, -6.012)
-	#AudioServer.set_bus_volume_db(musicBus, -6.012)
+
 	loadMainOptions()
 	
 	musicStream = AudioStreamPlayer.new()
@@ -199,11 +163,14 @@ func getIdx(type : bus) :
 func setVolume(type : bus, val : float) :
 	var idx = getIdx(type)
 	if (idx != -1) :
-		if (is_equal_approx(val, -999)) :
+		var minVolume = defaultVolume[type]-volumeRange[type]/2.0
+		var maxVolume = defaultVolume[type]+volumeRange[type]/2.0
+		var clampedVolume = clamp(val, minVolume, maxVolume)
+		if (is_equal_approx(clampedVolume, minVolume)) :
 			AudioServer.set_bus_mute(idx, true)
 		else :
 			AudioServer.set_bus_mute(idx, false)
-			AudioServer.set_bus_volume_db(idx, val)
+			AudioServer.set_bus_volume_db(idx, clampedVolume)
 func setMasterVolume(val) :
 	setVolume(bus.master, val)
 func setMasterMute(val) :
@@ -227,7 +194,7 @@ func loadMainOptions() :
 	if (settings == null) :
 		return
 	if (settings.get("masterVolume") != null) :
-		setMasterVolume(settings["masterVolume"])
+		setVolume(bus.master, settings["masterVolume"])
 	if (settings.get("musicVolume") != null) :
 		setVolume(bus.music, settings["musicVolume"])
 	if (settings.get("sfxVolume") != null) :
@@ -247,9 +214,9 @@ func getMainOptionsDictionary() -> Dictionary :
 	
 func getDefaultMainOptionsDictionary() -> Dictionary :
 	var retVal : Dictionary = {}
-	retVal["masterVolume"] = -6.012
-	retVal["musicVolume"] = -6.012
-	retVal["sfxVolume"] = -6.012
+	retVal["masterVolume"] = defaultVolume[bus.master]
+	retVal["musicVolume"] = defaultVolume[bus.music]
+	retVal["sfxVolume"] = defaultVolume[bus.sfx]
 	return retVal
 	
 func waitForDependencies() :
@@ -305,3 +272,139 @@ func playSfx_internal(sfxType : String, myEnum : int, lowerVolume : bool) :
 	tempPlayer.play()
 	await tempPlayer.finished
 	tempPlayer.queue_free()
+###################################################################
+const originalTheme = preload("res://Audio/OST/theme_01.wav")
+const mainMenuTheme = originalTheme
+const defaultVolume = {
+	bus.master : 0,
+	bus.music : -10,
+	bus.sfx : 1
+}
+const volumeRange = {
+	bus.master : 40,
+	bus.music : 40,
+	bus.sfx : 40
+}
+
+enum sfx {
+	##Melee weapons
+	meleeSlice,
+	meleeBlunt,
+	meleeWhip,
+	##Ranged weapons
+	rangedPhysical,
+	##Magic weapons
+	magicGeneric,
+	magicFire,
+	magicLaserScifi,
+	magicLightning,
+	##Other
+	blunderbuss,
+	boulder,
+	##Enemies
+	biteBark,
+	biteBig,
+	biteAcid,
+	biteIce,
+	biteIceBig,
+	biteVenom,
+	
+	breathAcid,
+	breathFire,
+	breathIce,
+	breathWater,
+	
+	lavaSpray,
+	psychicScream
+	}
+const combatSounds = {
+	sfx.meleeSlice : [
+		preload("res://Audio/SFX/Combat/sword_01.wav"),
+		preload("res://Audio/SFX/Combat/sword_02.wav"),
+		preload("res://Audio/SFX/Combat/sword_03.wav")
+	],
+	sfx.meleeBlunt : [
+		preload("res://Audio/SFX/Combat/club.wav"),
+		preload("res://Audio/SFX/Combat/club_2.wav"),
+		preload("res://Audio/SFX/Combat/punch.wav"),
+		preload("res://Audio/SFX/Combat/punch_02.wav")
+	],
+	sfx.meleeWhip : [
+		preload("res://Audio/SFX/Combat/flame_whip.wav")
+	],
+	sfx.rangedPhysical : [
+		preload("res://Audio/SFX/Combat/bow_01.wav"),
+		preload("res://Audio/SFX/Combat/bow_02.wav")
+	],
+	sfx.magicGeneric : [
+		preload("res://Audio/SFX/Combat/magic_01.wav"),
+		preload("res://Audio/SFX/Combat/magic_02.wav")
+	],
+	sfx.magicFire : [
+		preload("res://Audio/SFX/Combat/fire_blast.wav"),
+		preload("res://Audio/SFX/Combat/fire_blaste_2.wav")
+	],
+	sfx.magicLaserScifi : [
+		preload("res://Audio/SFX/Combat/laser.wav"),
+	],
+	sfx.magicLightning : [
+		preload("res://Audio/SFX/Combat/lightning.wav"),
+	],
+	sfx.blunderbuss : [
+		preload("res://Audio/SFX/Combat/blunderbuss.wav"),
+	],
+	sfx.boulder : [
+		preload("res://Audio/SFX/Combat/thorw_boulder.wav"),
+	],
+	sfx.biteBark : [
+		preload("res://Audio/SFX/Combat/bite_fire.wav")
+	],
+	sfx.biteBig : [
+		preload("res://Audio/SFX/Combat/bite_generic.wav")
+	],
+	sfx.biteAcid : [
+		preload("res://Audio/SFX/Combat/bite_acid.wav")
+	],
+	sfx.biteIce : [
+		preload("res://Audio/SFX/Combat/bite_ice.wav")
+	],
+	sfx.biteIceBig : [
+		preload("res://Audio/SFX/Combat/bite_ice2.wav")
+	],
+	sfx.biteVenom : [
+		preload("res://Audio/SFX/Combat/bite_venomous.wav")
+	],
+	sfx.breathAcid : [
+		preload("res://Audio/SFX/Combat/breathe_acid.wav")
+	],
+	sfx.breathFire : [
+		preload("res://Audio/SFX/Combat/breathe_fire.wav")
+	],
+	sfx.breathIce : [
+		preload("res://Audio/SFX/Combat/breathe_ice.wav")
+	],
+	sfx.breathWater : [
+		preload("res://Audio/SFX/Combat/breathe_water.wav")
+	],
+	sfx.lavaSpray : [
+		preload("res://Audio/SFX/Combat/lava.wav")
+	],
+	sfx.psychicScream : [
+		preload("res://Audio/SFX/Combat/psychic_scream.wav")
+	]
+}
+enum menuSfx {save,select,cancel,warning,select2NauPhy}
+const menuSounds = {
+	menuSfx.save : preload("res://Audio/SFX/Menu/save.wav"),
+	menuSfx.select : preload("res://Audio/SFX/Menu/select.wav"),
+	menuSfx.cancel : preload("res://Audio/SFX/Menu/cancel.wav"),
+	menuSfx.warning : preload("res://Audio/SFX/Menu/alert.wav"),
+	menuSfx.select2NauPhy : preload("res://Audio/SFX/Combat/select_2.wav")
+}
+
+enum bus {master,music,sfx}
+const busDict = {
+	bus.master : "Master",
+	bus.music : "Music",
+	bus.sfx : "Sfx"
+}

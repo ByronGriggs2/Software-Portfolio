@@ -30,3 +30,8 @@ func handleBiomeAchievement(val : MyEnvironment) :
 	if (steamManager == null) :
 		return
 	steamManager.handleBiomeAchievement(val)
+	
+func checkAllEnemies(globalKillDict : Dictionary) :
+	if (steamManager == null) :
+		return
+	steamManager.checkAllEnemies(globalKillDict)

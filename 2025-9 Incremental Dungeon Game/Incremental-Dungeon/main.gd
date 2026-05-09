@@ -91,6 +91,8 @@ func _ready() :
 	swapToMenu()
 	connect("mainMenuLoaded", AudioHandler._on_main_menu_loaded)
 	connect("gameLoaded", AudioHandler._on_game_loaded)
+	var killedDictionary = MainOptionsHelpers.loadSettings()["globalEncyclopedia"]["beastiary"]
+	SteamWrapper.checkAllEnemies(killedDictionary)
 	myReady = true
 	emit_signal("myReadySignal")
 

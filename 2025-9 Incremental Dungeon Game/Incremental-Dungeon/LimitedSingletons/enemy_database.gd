@@ -1,5 +1,6 @@
 extends Node
 
+signal checkForAllEnemiesAchievement
 var killedDictionary : Dictionary = {}
 var itemsObtainedDictionary : Dictionary = {}
 
@@ -25,13 +26,19 @@ func getEnemyKilled(enemyName : String) -> bool :
 	#killedDictionary[enemyName] = val
 	#emit_signal("enemyDataChanged", enemyName)
 func incrementKills(enemyName : String) :
+	var newEntry : bool = false;
+	if (killedDictionary.get(enemyName) == null) :
+		killedDictionary[enemyName] = 0
 	killedDictionary[enemyName] += 1
 	var current = SaveManager.getGlobalSettings()
-	if (current["globalEncyclopedia"]["beastiary"].get(enemyName) == null) :
+	if (current["globalEncyclopedia"]["beastiary"].get(enemyName) == null || current["globalEncyclopedia"]["beastiary"].get(enemyName) == 0) :
 		current["globalEncyclopedia"]["beastiary"][enemyName] = 1
+		newEntry = true;
 	else :
 		current["globalEncyclopedia"]["beastiary"][enemyName] += 1
 	SaveManager.saveGlobalSettings(current)
+	if (newEntry) :
+		emit_signal("checkForAllEnemiesAchievement", current["globalEncyclopedia"]["beastiary"])
 	emit_signal("enemyDataChanged", enemyName)
 func getAllEnemyDropsCollected(enemyName : String) -> bool :
 	if (!getEnemyKilled(enemyName)) :
@@ -63,6 +70,8 @@ func getAdasRatio() :
 	return typicalAdasRatio
 func beforeLoad(newGame) :
 	myReady = false
+	if (!has_connections("checkForAllEnemiesAchievement")) :
+		connect("checkForAllEnemiesAchievement", _check_for_all_enemies_achievement)
 	var sum = 0
 	var attacks = MegaFile.getAllNewAction()
 	for attack in attacks :
@@ -90,6 +99,9 @@ func resetEntry(key) :
 func onLoad(loadDict : Dictionary) :
 	myReady = false
 	killedDictionary = loadDict["killed"]
+	for enemy : ActorPreset in getAllEnemies() :
+		if (killedDictionary.get(enemy.getResourceName()) == null) :
+			resetEntry(enemy.getResourceName())
 	var current = SaveManager.getGlobalSettings()
 	var changed : bool = false
 	for key in killedDictionary.keys() :
@@ -98,6 +110,7 @@ func onLoad(loadDict : Dictionary) :
 			changed = true
 	if (changed) :
 		SaveManager.saveGlobalSettings(current)
+		emit_signal("checkForAllEnemiesAchievement", current["globalEncyclopedia"]["beastiary"])
 	itemsObtainedDictionary = loadDict["items"]
 	await get_tree().process_frame
 	emit_signal("enemyDataChanged", "ALL")
@@ -106,15 +119,7 @@ func onLoad(loadDict : Dictionary) :
 	doneLoading = true
 	emit_signal("doneLoadingSignal")
 
-const forcedInclude = [
-	"goblin",
-	"hobgoblin",
-	"orc",
-	"rat",
-	"zombie",
-	"athena",
-	"apophis"
-]
+
 
 #func getEnemyList() :
 	#var retVal : Array = []
@@ -135,13 +140,11 @@ var souls : int = 0
 func getSoulCount() :
 	return souls
 
-func _on_enemy_data_changed(_var) :
+func _on_enemy_data_changed(val) :
 	souls = 0
-	var unlock : bool = true
 	for enemy in killedDictionary.keys() :
 		if (killedDictionary[enemy] > 0) :
 			souls += 1
-		elif (enemy != "athena" && (forcedInclude.find(enemy) != -1 || getEnemy(enemy).enemyGroups.isEligible)) :
-			unlock = false
-	if (unlock && Definitions.steamEnabled) :
-		SteamWrapper.unlockAchievement(Definitions.achievementEnum.all_monsters)
+
+func _check_for_all_enemies_achievement(globalKillDict : Dictionary) :
+	SteamWrapper.checkAllEnemies(globalKillDict)

@@ -40,9 +40,8 @@ alignment = 2
 
 [node name="ReturnButton" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer" index="0" instance=ExtResource("3_w6h7y")]
 layout_mode = 2
-size_flags_horizontal = 4
 theme = ExtResource("4_am02b")
 theme_override_font_sizes/font_size = 30
-text = " Save and Return "
+text = " Return "
 
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

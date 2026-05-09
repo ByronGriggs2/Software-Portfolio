@@ -55,11 +55,11 @@ func getSoftPos(text, newNotif) :
 	var estimatedSize = Vector2(0,20)
 	var mousePos = get_global_mouse_position()
 	estimatedSize.x = await Helpers.getTextWidthWaitFrame(null, 35, text) + 50
-	var screenSize : Vector2i = Engine.get_singleton("DisplayServer").screen_get_size()
+	var screenSize : Vector2i = get_viewport().get_visible_rect().size
 	var X0 = clamp(mousePos.x - 150, 0, screenSize.x-estimatedSize.x)
 	var X1 = clamp(mousePos.x + 150,0,screenSize.x-estimatedSize.x)
 	var Y0 = clamp(mousePos.y - 150,100,screenSize.y-estimatedSize.y)
-	var Y1 = mousePos.y-estimatedSize.y
+	var Y1 = clamp(mousePos.y-estimatedSize.y,0,screenSize.y);
 	newNotif.initialiseAndRun(text,X0,X1,Y0,Y1)
 	
 func spamNotifications(_child, upgraded : Array[String]) :

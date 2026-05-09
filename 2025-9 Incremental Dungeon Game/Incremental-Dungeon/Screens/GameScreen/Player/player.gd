@@ -304,7 +304,7 @@ func setName(val) :
 func getClass() :
 	return characterClass.duplicate()
 func getCore() :
-	return core.duplicate()
+	return core.duplicate(true)
 func getAttributeMods() -> Array[NumberClass] :
 	var retVal : Array[NumberClass] = []
 	for attr in attributeObjects :

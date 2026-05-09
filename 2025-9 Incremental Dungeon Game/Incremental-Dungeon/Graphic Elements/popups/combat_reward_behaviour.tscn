@@ -90,7 +90,6 @@ isInIGOptions = true
 
 [node name="ReturnButton" parent="Panel/CenterContainer/Window/VBoxContainer" index="4" instance=ExtResource("5_jyau4")]
 layout_mode = 2
-size_flags_horizontal = 4
 text = " Return "
 
 [connection signal="text_changed" from="Panel/CenterContainer/Window/VBoxContainer/HBoxContainer2/LineEdit" to="." method="_on_line_edit_text_changed"]

@@ -32,6 +32,7 @@ func handleInvalid(slot : int) :
 
 var newMenu : Node = null
 func _on_new_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	newMenu = SaveManager.newGameSaveSelection()
 	newMenu.connect("optionChosen", _on_new_menu_finished)
 	
@@ -43,6 +44,7 @@ func _new_game_ready() :
 
 var loadMenu : Node = null
 func _on_load_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	loadMenu = SaveManager.loadGameSaveSelection(self)
 	loadMenu.connect("finished", _on_load_menu_finished)
 	await SaveManager.finished
@@ -52,9 +54,11 @@ func _load_game_ready() :
 	emit_signal("loadGame")
 
 func _on_quit_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	get_tree().quit()
 
 func _on_options_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	emit_signal("swapToMainMenuOptions")
 	
 func _on_load_menu_finished() :
@@ -73,5 +77,6 @@ func _unhandled_input(event : InputEvent) :
 
 const creditsLoader = preload("res://Graphic Elements/popups/credits.tscn")
 func _on_credits_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	var credits = creditsLoader.instantiate()
 	add_child(credits)

@@ -47,10 +47,6 @@ theme = ExtResource("4_vfm63")
 theme_override_font_sizes/font_size = 25
 text = "Return to game"
 
-[node name="Control" type="Control" parent="Panel/CenterContainer/Window/VBoxContainer/VBoxContainer2" index="1"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/ManualSaveButton" to="." method="_on_manual_save_button_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/Window/VBoxContainer/QuitButton0" to="." method="_on_quit_button_0_pressed"]

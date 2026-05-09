@@ -62,6 +62,7 @@ func getDetails() :
 	return $Panel/CenterContainer/Window/VBoxContainer/HBoxContainer/EquipmentDetails
 signal finished
 func _on_return_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	emit_signal("finished")
 	queue_free()
 	

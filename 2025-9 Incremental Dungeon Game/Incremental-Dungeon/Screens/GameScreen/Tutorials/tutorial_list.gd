@@ -33,5 +33,6 @@ func _on_tutorial_continue(type : Encyclopedia.tutorialName, disabled : bool) :
 
 signal tutorialListFinished
 func _on_return_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	emit_signal("tutorialListFinished", individualTutorialDisableCopy)
 	queue_free()

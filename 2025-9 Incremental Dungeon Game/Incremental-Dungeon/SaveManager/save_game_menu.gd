@@ -25,6 +25,7 @@ func _on_return_button_pressed() -> void:
 const menuLoader = preload("res://Graphic Elements/popups/binary_decision.tscn")
 var saveSlotCheck_tempSlot
 func saveSlotCheck(slot : Definitions.saveSlots) :
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	if (!FileAccess.file_exists(Definitions.slotPaths[slot])) :
 		emit_signal("optionChosen", slot)
 		queue_free()

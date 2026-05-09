@@ -12,4 +12,5 @@ func _ready() :
 
 signal continueSignal
 func _on_my_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	emit_signal("continueSignal", self)

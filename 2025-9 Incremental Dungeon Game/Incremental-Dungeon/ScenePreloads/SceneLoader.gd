@@ -191,4 +191,3 @@ func createEquipmentScene(itemName : String) :
 	var newScene = equipmentSceneDictionary[itemName].instantiate()
 	newScene.core = EquipmentDatabase.getEquipment(itemName)
 	return newScene
-

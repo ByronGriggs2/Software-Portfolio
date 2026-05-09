@@ -374,7 +374,7 @@ signal currencyScalingRequested
 signal currencyScalingReceived
 var waitingOnCurrencyScaling : bool = false
 var currencyScaling_comm : float = 0
-func getCurrencyScaling(type) :
+func getCurrencyScaling(type) -> float :
 	waitingOnCurrencyScaling = true
 	emit_signal("currencyScalingRequested", type)
 	if (waitingOnCurrencyScaling) :
@@ -438,7 +438,7 @@ func _on_purchase_requested(item, _price, myCurrency, emitter, purchase : Purcha
 			emitter.reset()
 		elif (type == "routine" && index == routinePurchasable.randomRoutine) :
 			var threshold
-			if (unlockedRoutines.find("spar_herophile")) :
+			if (unlockedRoutines.find("spar_herophile") != -1) :
 				threshold = 16
 			else :
 				threshold = 15
@@ -549,27 +549,27 @@ const weaponPurchasableDictionary = {
 const itemPriceBase : Dictionary = {
 	"routine" : {
 		##10 minutes of farming at node 5 yields 2 of each (40)
-		routinePurchasable.speed : 6,
-		routinePurchasable.effect : 8,
-		routinePurchasable.mixed : 300000,
-		routinePurchasable.randomRoutine : 40, 
+		routinePurchasable.speed : 6.0,
+		routinePurchasable.effect : 8.0,
+		routinePurchasable.mixed : 300000.0,
+		routinePurchasable.randomRoutine : 40.0, 
 		## 8 routines
-		routinePurchasable.upgradeRoutine : 1000
+		routinePurchasable.upgradeRoutine : 1000.0
 	},
 	## Currency is 1x ore
 	## Expected currency/node at start is 48
 	"armor" : {
-		armorPurchasable.premadeArmor: 24,
-		armorPurchasable.newArmor : 18,
-		armorPurchasable.reforge : 24,
-		armorPurchasable.statUpgrade_phys : 40,
-		armorPurchasable.statUpgrade_mag : 40
+		armorPurchasable.premadeArmor: 24.0,
+		armorPurchasable.newArmor : 18.0,
+		armorPurchasable.reforge : 24.0,
+		armorPurchasable.statUpgrade_phys : 40.0,
+		armorPurchasable.statUpgrade_mag : 40.0
 	},
 	"weapon" : {
-		weaponPurchasable.premadeWeapon : 24,
-		weaponPurchasable.newWeapon : 24,
-		weaponPurchasable.reforge : 16,
-		weaponPurchasable.statUpgrade_DR : 95
+		weaponPurchasable.premadeWeapon : 24.0,
+		weaponPurchasable.newWeapon : 24.0,
+		weaponPurchasable.reforge : 16.0,
+		weaponPurchasable.statUpgrade_DR : 95.0
 	},
 	"soul" : {
 		soulPurchasable.fighterSubclass_1 : 1,
@@ -579,8 +579,8 @@ const itemPriceBase : Dictionary = {
 		soulPurchasable.mageSubclass_1 : 1,
 		soulPurchasable.mageSubclass_2 : 1,
 		soulPurchasable.respec : -1,
-		soulPurchasable.randomStat : 80,
-		soulPurchasable.inventorySpace : 20
+		soulPurchasable.randomStat : 80.0,
+		soulPurchasable.inventorySpace : 20.0
 	}
 }
 enum soulPurchasable{
@@ -614,13 +614,18 @@ func getEquipmentTime(type : Definitions.equipmentTypeEnum) -> float :
 	else :
 		return -1
 		
-func getReforgePrice(type : Definitions.equipmentTypeEnum) -> int :
+func getReforgePrice(type : Definitions.equipmentTypeEnum) :
+	var ret
 	if (type == Definitions.equipmentTypeEnum.armor) :
-		return itemPrices["armor"][armorPurchasable.reforge]
+		ret = itemPrices["armor"][armorPurchasable.reforge]
 	elif (type == Definitions.equipmentTypeEnum.weapon) :
-		return itemPrices["weapon"][weaponPurchasable.reforge]
+		ret = itemPrices["weapon"][weaponPurchasable.reforge]
 	else :
-		return 0
+		ret = 0
+	if (ret < 9*pow(10,18)) :
+		return int(ret)
+	else :
+		return float(ret)
 	
 func _on_equipment_shop_launched(type : Definitions.equipmentTypeEnum) :
 	if (type == Definitions.equipmentTypeEnum.armor) :
@@ -915,7 +920,11 @@ func givePurchaseBenefit_routine(item : routinePurchasable) :
 			elif (count != roll) :
 				count += 1
 			elif (routineList[index] == MegaFile.getRoutine("spar_herophile")) :
-				unlockedRoutines.append(routineList[index+1].getResourceName())
+				for index2 in range(0, routineList.size()) :
+					if (unlockedRoutines.find(routineList[index2].getResourceName()) == -1 and routineList[index2] != MegaFile.getRoutine("spar_herophile")) :
+						unlockedRoutines.append(routineList[index2].getResourceName())
+						break
+				break
 			else :
 				unlockedRoutines.append(routineList[index].getResourceName())
 				break
@@ -1202,7 +1211,7 @@ func _on_weapon_timeout() :
 	weaponTimer.wait_time = 30*60
 	weaponTimer.start()
 	weaponScaling = await getEquipmentScaling()
-	var currencyScaling = await getCurrencyScaling("weapon")
+	var currencyScaling : float = await getCurrencyScaling("weapon")
 	currencyScaling /= pow(2,5.0/4.0)
 	var var1 = itemPriceBase.duplicate(true)["weapon"][weaponPurchasable.premadeWeapon]
 	var var2 = itemPriceBase.duplicate(true)["weapon"][weaponPurchasable.newWeapon]

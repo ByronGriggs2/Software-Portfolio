@@ -526,13 +526,13 @@ func getEquipmentScaling(scalingRows) :
 	else :
 		rows = scalingRows
 	return pow(getEnemyScaling_internal_getStandardScaling(scalingRows),0.25)
-func getGoldScaling(scalingRows) :
+func getGoldScaling(scalingRows) -> float :
 	return pow(2,(scalingRows-1)/4.0)
-func getOreScaling(scalingRows) :
+func getOreScaling(scalingRows) -> float:
 	if (scalingRows < 7) :
 		return 0
 	return pow(2,(scalingRows - 8)/4.0)
-func getSoulScaling(scalingRows) :
+func getSoulScaling(scalingRows) -> float :
 	if (scalingRows < 17) :
 		return 0
 	return pow(2,(scalingRows-18)/4.0)

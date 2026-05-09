@@ -386,6 +386,12 @@ func handleCombatRewards(rewards : Dictionary) :
 		emit_signal("tutorialRequested", Encyclopedia.tutorialName.equipment, Vector2(0,0))
 	var rewardHandler = combatRewardsLoader.instantiate()
 	add_child(rewardHandler)
+	var children = get_children()
+	for index in range(0, children.size()) :
+		if (children[index].has_method("addShopColumn")) :
+			move_child(rewardHandler, index)
+			break
+
 	rewardHandler.connect("addToInventoryRequested", _on_add_to_inventory_request)
 	rewardHandler.connect("waitingForUser", _on_reward_pending)
 	rewardHandler.connect("itemListForYourInspectionGoodSir", _item_list_inspection)

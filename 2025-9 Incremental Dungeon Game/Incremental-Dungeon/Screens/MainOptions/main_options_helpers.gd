@@ -9,6 +9,7 @@ func getDefaultSettings() -> Dictionary :
 		"beastiary" : {},
 		"items" : []
 	}
+	updateTo118(tempDict)
 	tempDict["herophile"] = false
 	tempDict["audio"] = AudioHandler.getDefaultMainOptionsDictionary()
 	return tempDict
@@ -55,6 +56,7 @@ func loadSettings() :
 			"beastiary" : {},
 			"items" : []
 		}
+	updateTo118(dict)
 	var audioDict = AudioHandler.getDefaultMainOptionsDictionary()
 	if (dict.get("audio") == null) :
 		dict["audio"] = audioDict
@@ -69,6 +71,12 @@ func loadSettings() :
 	if (dict.get("herophile") == null) :
 		dict["herophile"] = dict["globalEncyclopedia"]["beastiary"]["champion_of_poseidon"] >= 1
 	return dict
+	
+func updateTo118(dict : Dictionary) :
+	var allEnemies = EnemyDatabase.getAllEnemies();
+	for enemy in allEnemies :
+		if (dict["globalEncyclopedia"]["beastiary"].get(enemy.getResourceName()) == null) :
+			dict["globalEncyclopedia"]["beastiary"][enemy.getResourceName()] = 0
 	
 ## This function creates an up to date global beastiary for those with edited or outdated save files. It is not guaranteed to
 ## have the correct number of kills for every enemy, but it is guaranteed to correctly indicated whether an enemy has been killed before.

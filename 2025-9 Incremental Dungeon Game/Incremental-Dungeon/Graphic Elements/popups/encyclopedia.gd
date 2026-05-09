@@ -6,18 +6,21 @@ func _ready() :
 
 const keywordLoader = preload("res://Graphic Elements/Tooltips/encyclopedia_list.tscn")
 func _on_keywords_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	var keywords = keywordLoader.instantiate()
 	add_child(keywords)
 	keywords.nestedPopupInit(self)
 
 const beastiaryLoader = preload("res://Screens/GameScreen/beastiary.tscn")
 func _on_beastiary_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	var beast = beastiaryLoader.instantiate()
 	add_child(beast)
 	beast.nestedPopupInit(self)
 
 const equipmentLoader = preload("res://Graphic Elements/popups/combat_reward_behaviour.tscn")
 func _on_equipment_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	var equips = equipmentLoader.instantiate()
 	add_child(equips)
 	equips.initialise()
@@ -31,6 +34,7 @@ func _on_combat_reward_settings_finished() :
 	
 const tutorialListLoader = preload("res://Screens/GameScreen/Tutorials/tutorial_list.tscn")
 func _on_tutorials_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	var myTutorialList = tutorialListLoader.instantiate()
 	add_child(myTutorialList)
 	myTutorialList.initialise(optionDictCopy["individualTutorialDisable"].duplicate())

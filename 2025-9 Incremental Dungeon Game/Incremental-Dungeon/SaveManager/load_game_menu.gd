@@ -29,6 +29,7 @@ func _on_slot_3_button_pressed(_throw) -> void:
 const confirmLoad = preload("res://Graphic Elements/popups/binary_decision.tscn")
 var checkDelete_tempSlot
 func checkDelete(slot : Definitions.saveSlots) :
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	if (!currentlyDeleting) :
 		emit_signal("loadRequested", slot)
 		emit_signal("finished")
@@ -45,6 +46,7 @@ func checkDelete(slot : Definitions.saveSlots) :
 	checkDelete_tempSlot = slot
 	
 func _on_confirm_chosen(val : int) :
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	if (val == 0) :
 		DirAccess.remove_absolute(Definitions.slotPaths[checkDelete_tempSlot])
 		refreshSaveInformation()
@@ -52,11 +54,13 @@ func _on_confirm_chosen(val : int) :
 		stopDelete()
 
 func _on_return_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	emit_signal("finished")
 	queue_free()
 
 var currentlyDeleting : bool = false
 func _on_delete_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	if (currentlyDeleting) :
 		currentlyDeleting = false
 		stopDelete()

@@ -14,10 +14,13 @@ func _on_quit_button_0_pressed() -> void:
 	emit_signal("exitToMenu")
 
 func _on_return_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	queue_free()
 
 func _on_manual_save_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	SaveManager.saveGameSaveSelection(self)
 
 func _on_load_button_pressed() -> void:
+	AudioHandler.playMenuSfx(AudioHandler.menuSfx.select2NauPhy)
 	SaveManager.loadGameSaveSelection(self)

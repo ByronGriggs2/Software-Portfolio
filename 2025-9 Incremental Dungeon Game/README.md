@@ -21,4 +21,4 @@ so that optimisation wouldn't really save much time. </br>
 
 Notes: </br>	\*The "Audio" folder has been removed, as I did not make it, and it has its own license. The Godot editor will therefore not launch the game unless the AudioHandler global
 singleton is removed in the project settings.</br>
-	\*This game was made in Godot 4.4.
+	\*This game was made in Godot 4.4.1

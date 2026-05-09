@@ -330,7 +330,7 @@ func myRound(val : float, sigFigs : int) :
 		var retStr = strVal.substr(0,sigFigs+offset)
 		for index in range(0,trailingZeroes) :
 			retStr += "0"
-		if (val > 9000000000000000000) :
+		if (myVal > 9000000000000000000) :
 			return float(retStr)
 		else :
 			return int(retStr)
@@ -406,7 +406,7 @@ func engineeringNotation(origVal) -> String :
 	var newVal = origVal
 	var suffix : String = ""
 	if (val >= pow(10,33)) :
-		var magnitude = log(newVal)/log(10)
+		var magnitude = log(val)/log(10)
 		if (is_equal_approx(magnitude, ceil(magnitude))) :
 			magnitude = ceil(magnitude)
 		else :
@@ -475,7 +475,7 @@ func removeAffix(str : String, affix : String) -> String :
 	return str.substr(0,pos)
 
 func engineeringRound(val, sigFigs : int) -> String :
-	if (is_equal_approx(0,val)) :
+	if (abs(val) <= 0.001) :
 		var magnitude = log(abs(val))/log(10)
 		if (is_equal_approx(magnitude, ceil(magnitude))) :
 			magnitude = ceil(magnitude)
@@ -489,52 +489,18 @@ func engineeringRound(val, sigFigs : int) -> String :
 		elif (is_equal_approx(newVal, ceil(newVal))) :
 			newVal = ceil(newVal)
 		return str(myRound(newVal, sigFigs))+"E"+str(int(magnitude))
-	#var myVal = abs(val)
-	#if (abs(val) < 1) :
-		#var magnitude = floor(log(myVal)/log(10))
-		#var symbol = ""
-		#if (val < 0) :
-			#symbol = "-"
-		#
-		#var lastPos = 2+(-magnitude)+(sigFigs-1)-1
-		#var valString = str(myVal)
-		#var retString = symbol + str(myVal).substr(0,2+(-magnitude)+(sigFigs-1))
-		#if (int(valString.substr(lastPos,1)) >= 5) :
-			#retString = retString.substr(0,retString.length()-1) + str(int(retString.substr(retString.length()-1,1))+1)
 	var rounded = myRound(val, sigFigs)
-	#var expectedLength = 0
-	#var leadingZeroes
-	#var trailingZeroes
-	#var magnitude = floor(log(myVal)/log(10))
-	#if (rounded is int) :
-		#expectedLength = magnitude+1
-	#else :
-		##period
-		#if (abs(val) >= 1) :
-			#leadingZeroes = 0
-		#else :
-			#leadingZeroes = -(magnitude)
-		#if (abs(val) >= 1) :
-			#trailingZeroes = max(magnitude-1-(sigFigs-1),0)
-		#else :
-			#trailingZeroes = 0
-		#if (val < 0) :
-			#expectedLength += 1
-		#expectedLength += 1+sigFigs+leadingZeroes+trailingZeroes
-	#var roundStr = str(rounded)
-	#if (roundStr.length() > expectedLength) :
-		#var newStr = roundStr.substr(0,expectedLength)
-		#if (int(roundStr.substr(expectedLength,1)) >= 5) :
-			#newStr = newStr.substr(0,newStr.length()-1) + str(int(newStr.substr(newStr.length()-1,1))+1)
-		#var earliestExcludedDigit = int(roundStr.substr(expectedLength,1))
-		#rounded = float(newStr)
-			
-
 	var ret = engineeringNotation(rounded)
-	#if (val < 0) :
-		#var pos = ret.find("]")
-		#ret = ret.insert(pos+1,"-")
 	return ret
+
+func decodeEngineeringRound(val : String) -> float :
+	var EPos = val.find("E")
+	if (EPos == -1 || val.find("E",EPos+1) != -1) :
+		print("Invalid decode engineering round format")
+		return 0.0
+	var firstNum = float(val.substr(0,EPos))
+	var secondNum = float(val.substr(EPos+1))
+	return firstNum*pow(10,secondNum)
 	
 var internalPopupBool : bool = false
 func notifyPopupStart() :

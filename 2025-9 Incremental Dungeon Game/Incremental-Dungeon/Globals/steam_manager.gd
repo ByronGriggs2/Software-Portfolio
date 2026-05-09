@@ -81,3 +81,35 @@ func handleBiomeAchievement(biome : MyEnvironment) :
 	var achEnum = Definitions.biomeAchievementMap.get(biome.getFileName())
 	if (achEnum != null) :
 		unlockAchievement(achEnum)
+
+const forcedEnemyInclude = [
+	"goblin",
+	"hobgoblin",
+	"orc",
+	"rat",
+	"zombie",
+	"apophis"
+]
+func checkAllEnemies(globalKillDict : Dictionary) :
+	if (globalKillDict.is_empty()) :
+		return
+	var unlock : bool = true
+	for key in globalKillDict.keys() :
+		## Conditions where an unlock is allowed
+		## enemy has been killed
+		if (globalKillDict[key] > 0) :
+			continue
+		## enemy is DLC boss
+		if (key == "athena") :
+			continue
+		var enemy = EnemyDatabase.getEnemy(key)
+		## enemy is corrupt data
+		if (enemy == null) :
+			continue
+		## enemy cannot be encountered in game
+		if ((!enemy.enemyGroups.isEligible) && (forcedEnemyInclude.find(key) == -1)) :
+			continue
+		unlock = false
+		break
+	if (unlock) :
+		unlockAchievement(Definitions.achievementEnum.all_monsters)
