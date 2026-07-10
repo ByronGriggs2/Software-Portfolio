@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGameplayTags.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\i_love_vampires_2.uproject" />
+    <Filter Include="Plugins">
+      <UniqueIdentifier>{BB38096A-B391-30DC-A0D4-4F3EA6B44507}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\VisualStudioTools">
+      <UniqueIdentifier>{41769F9C-1A97-316F-BB54-C3A5E5B67BD9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\VisualStudioTools\Config">
+      <UniqueIdentifier>{CB5E8725-3658-331E-9E61-542E2997D7C5}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\VisualStudioTools\Config\FilterPlugin.ini">
+      <Filter>Plugins\VisualStudioTools\Config</Filter>
+    </None>
+    <Filter Include="Plugins\VisualStudioTools\Source">
+      <UniqueIdentifier>{1D6F83A9-DB28-3ED2-9726-5CBD49662E2A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper">
+      <UniqueIdentifier>{DA293EF3-DE5E-3E0C-8AB9-5D9B37A141A4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private">
+      <UniqueIdentifier>{D4B7A11D-48EF-383A-B625-62F4B65D3FD8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private\VisualStudioBlueprintDebuggerHelperModule.cpp">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private\VisualStudioBlueprintDebuggerHelperModule.h">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private</Filter>
+    </ClInclude>
+    <None Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\VisualStudioBlueprintDebuggerHelper.Build.cs">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper</Filter>
+    </None>
+    <Filter Include="Plugins\VisualStudioTools\Source\VisualStudioTools">
+      <UniqueIdentifier>{E48AC123-3582-39B0-901B-970708A27A9A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\VisualStudioTools\Source\VisualStudioTools\Private">
+      <UniqueIdentifier>{75F6F5BA-F8E5-3E94-8434-FA6DC9ABBA70}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\BlueprintAssetHelper.cpp">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\BlueprintAssetHelpers.h">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\BlueprintReferencesCommandlet.cpp">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\BlueprintReferencesCommandlet.h">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\FSmartBSTR.h">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioTools.cpp">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsBlueprintBreakpointExtension.cpp">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsBlueprintBreakpointExtension.h">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsCommandlet.cpp">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsCommandlet.h">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsCommandletBase.cpp">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsCommandletBase.h">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VSServerCommandlet.cpp">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VSServerCommandlet.h">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VSTestAdapterCommandlet.cpp">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VSTestAdapterCommandlet.h">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\VisualStudioTools\Source\VisualStudioTools\Public">
+      <UniqueIdentifier>{333EB5AC-492F-3ED7-9C7F-15701C1818EC}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Public\VisualStudioTools.h">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Public</Filter>
+    </ClInclude>
+    <None Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\VisualStudioTools.Build.cs">
+      <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools</Filter>
+    </None>
+    <None Include="..\..\Plugins\VisualStudioTools\VisualStudioTools.uplugin">
+      <Filter>Plugins\VisualStudioTools</Filter>
+    </None>
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\i_love_vampires_2.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\i_love_vampires_2Editor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Source\i_love_vampires_2">
+      <UniqueIdentifier>{504BE5C7-FE83-3724-A1A3-F2A8D7DC1721}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\i_love_vampires_2\i_love_vampires_2.Build.cs">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source\i_love_vampires_2\MyGAS">
+      <UniqueIdentifier>{169b674e-d901-4235-abb3-4f86b9d8e591}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Active">
+      <UniqueIdentifier>{6695fa63-c8e1-4d86-8f29-0178cf83d6a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Combatant">
+      <UniqueIdentifier>{aeab76ae-6260-4df6-a252-8753dc8084a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Combatant\Components">
+      <UniqueIdentifier>{9484fd05-a2d4-4937-a733-e175be198a90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Attacks">
+      <UniqueIdentifier>{e61ca6b6-03fc-4b8b-957a-ff23e5fc66cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Attacks\Enums">
+      <UniqueIdentifier>{264e3a83-0737-4991-99a8-bf2b2396378d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks">
+      <UniqueIdentifier>{372d6ecb-4583-4c95-9cf2-2693bedc4326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Spawner">
+      <UniqueIdentifier>{2df28ad9-ea3f-4b41-b26e-c06788a6550f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Subsystems">
+      <UniqueIdentifier>{8a2dcb3b-9aba-4b18-b258-53ff045944c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Subsystems\World">
+      <UniqueIdentifier>{35e57fb3-88a3-42bf-8c50-29dcdcdcfbad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Subsystems\Instance">
+      <UniqueIdentifier>{e741e7cd-06d2-4b50-9ea3-97fae5ace726}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Widgets">
+      <UniqueIdentifier>{e4029c16-2038-46c2-a3de-df175415c70d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Admin">
+      <UniqueIdentifier>{839ad65d-ce5e-4bbb-b01d-dff25ea47e60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Status Effects">
+      <UniqueIdentifier>{3ca1a024-2b2c-4a5b-b3e5-c52c4906fcb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Arena">
+      <UniqueIdentifier>{56c1f749-7652-4ab9-a821-3be83426334f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Widgets\Action UI">
+      <UniqueIdentifier>{926a4ffb-1fbe-46d5-a695-4f0393664237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Widgets\Meta Progression">
+      <UniqueIdentifier>{90e420e9-0908-4419-848a-f2fb9477b2bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Subsystems\Instance\GlobalSave">
+      <UniqueIdentifier>{dd18ea24-6132-477f-9ae9-3dbfef6c8c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Subsystems\Instance\GlobalSave\Keymaps">
+      <UniqueIdentifier>{0fc44a23-ab3b-4a50-aacf-cba6890ddeb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\System Overrides">
+      <UniqueIdentifier>{b507985b-f9bd-404b-b1c6-ad18b7052c6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Audio">
+      <UniqueIdentifier>{0265ed77-4f04-410c-99a2-c3238e36eaa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Individual Weapons">
+      <UniqueIdentifier>{581fc65a-7a0b-4fed-a545-1f925e54a6df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Special Effects">
+      <UniqueIdentifier>{be785aaa-8940-482c-a96c-a2368755f37c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Attacks\Summon">
+      <UniqueIdentifier>{b42fef3f-66a5-44db-b3d6-cc370261ab22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo">
+      <UniqueIdentifier>{283922e0-beaa-49ab-922b-3f3abc1836b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Status Effects\Tags">
+      <UniqueIdentifier>{de0b1d73-81fc-49d0-b8c5-7c2c145c1487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Abstract Classes">
+      <UniqueIdentifier>{80f8fc7b-4335-444b-87e4-aa01bc6afaba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Abstract Classes\Disk">
+      <UniqueIdentifier>{761cb82d-0230-4a42-af76-c921b6ec80de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Abstract Classes\Runtime">
+      <UniqueIdentifier>{ffb90942-ff94-44bb-b02e-5bf0d0c0bb4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Combatant\Friendlies">
+      <UniqueIdentifier>{209d45e0-3480-48a8-af70-96a05b281758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\Admin\Channels">
+      <UniqueIdentifier>{74714af7-3a50-4e4e-9f40-0c49c8fe849d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo\NestedAOE">
+      <UniqueIdentifier>{6222a4f0-1422-4a6c-8c2f-beb725a2dde0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\i_love_vampires_2\MyGAS\Combatant\Utility">
+      <UniqueIdentifier>{8cfe0ff2-2693-4270-b27f-7ae88d3ecd95}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Active.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Active</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ActiveEnum.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Active</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ActiveSocket.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\AOE.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\AOEEnum.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\AOESpawner.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Spawner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\AOESpawner_line.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Spawner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\AssetRefs.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\AttackActor.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\AutomaticAssetRefs.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\BaseAttributeData.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Disk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\BaseConfig.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Disk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\BaseLevelContainer.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Disk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\BaseTemplate.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Disk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\BaseAttributeWrapper.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\BaseAttributes.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\BaseAttributeSet.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Combatant.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\CombatantManager.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\World</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\CombatGameModeBase.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\World</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ContainerTemplate.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Definitions.h">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\DynamicAssetManager.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\EffectStruct.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Status Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\EnemyBase.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\EnemySpawner.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\World</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ExperienceShard.h">
+      <Filter>Source\i_love_vampires_2\Arena</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ExplosiveProjectile.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\helpers.h">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\i_love_vampires_2.h">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\MyGameplayStatics.h">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Passive.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Projectile.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ProjectileEnum.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\SpriteSorter.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\StatusEnum.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Status Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\unrealHelpers.h">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\WeaponContainer.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\WeaponContainerUnreal.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\GIRefSingleton.h">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\DamageNumber.h">
+      <Filter>Source\i_love_vampires_2\Widgets\Action UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\LevelUp.h">
+      <Filter>Source\i_love_vampires_2\Widgets\Action UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\InputGrabbingUserWidget.h">
+      <Filter>Source\i_love_vampires_2\Widgets\Action UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\MetaProgression.h">
+      <Filter>Source\i_love_vampires_2\Widgets\Meta Progression</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\TechWidget.h">
+      <Filter>Source\i_love_vampires_2\Widgets\Meta Progression</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\MetaProgressionEnums.h">
+      <Filter>Source\i_love_vampires_2\Widgets\Meta Progression</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\GlobalSave.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance\GlobalSave</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\InputEnum.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance\GlobalSave\Keymaps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\KeybindSection.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance\GlobalSave\Keymaps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\MapTemplate.h">
+      <Filter>Source\i_love_vampires_2\Arena</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\EnemySpawnLogic.h">
+      <Filter>Source\i_love_vampires_2\Arena</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\AlbumData.h">
+      <Filter>Source\i_love_vampires_2\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\SniperBullet.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Individual Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\WidgetSubsystem.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Trail.h">
+      <Filter>Source\i_love_vampires_2\Special Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\MyGameInstanceBase.h">
+      <Filter>Source\i_love_vampires_2\System Overrides</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\MyGameViewport.h">
+      <Filter>Source\i_love_vampires_2\System Overrides</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Technology.h">
+      <Filter>Source\i_love_vampires_2\Widgets\Meta Progression</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\AttackTrail.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Backstab.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Individual Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\SummonAttack.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Summon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\SummonEnum.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Summon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\NestedAOE.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo\NestedAOE</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ExplosiveAOE.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo\NestedAOE</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ConcentricAOE.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo\NestedAOE</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ProjectileSword.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\TagManager.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Status Effects\Tags</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\MyGameplayTag.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Status Effects\Tags</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\MyPlayer.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Friendlies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Summon.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Friendlies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ChasingSummon.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Friendlies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\FriendlyCombatant.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Friendlies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\CustomChannels.h">
+      <Filter>Source\i_love_vampires_2\Admin\Channels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\CustomChannelEnums.h">
+      <Filter>Source\i_love_vampires_2\Admin\Channels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\GlobalSaveRuntime.h">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance\GlobalSave</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Suplex.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Individual Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\MultiAttack.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Donut.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\TestingDefinitions.h">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\SingleTarget.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\Uppercut.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Individual Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\ForcedMovement.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\i_love_vampires_2\CollidingForcedMovement.h">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Active.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Active</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\ActiveSocket.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\AOE.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\AOESpawner.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\AOESpawner_line.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\AssetRefs.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\AttackActor.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\AutomaticAssetRefs.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\BaseAttributeData.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Disk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\BaseConfig.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Disk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\BaseLevelContainer.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Disk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\BaseTemplate.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Disk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\BaseAttributes.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\BaseAttributeSet.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\BaseAttributeWrapper.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Abstract Classes\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Combatant.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\CombatantManager.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\World</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\CombatGameModeBase.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\World</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\ContainerTemplate.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Definitions.cpp">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\DynamicAssetManager.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\EffectStruct.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Status Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\EnemyBase.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\EnemySpawner.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\World</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\ExperienceShard.cpp">
+      <Filter>Source\i_love_vampires_2\Arena</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\ExplosiveProjectile.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\helpers.cpp">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\i_love_vampires_2.cpp">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\MyGameplayStatics.cpp">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Passive.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Projectile.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\SpriteSorter.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\StatusEnum.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Status Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\unrealHelpers.cpp">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\WeaponContainer.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\WeaponContainerUnreal.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\GIRefSingleton.cpp">
+      <Filter>Source\i_love_vampires_2\Admin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\DamageNumber.cpp">
+      <Filter>Source\i_love_vampires_2\Widgets\Action UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\LevelUp.cpp">
+      <Filter>Source\i_love_vampires_2\Widgets\Action UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\InputGrabbingUserWidget.cpp">
+      <Filter>Source\i_love_vampires_2\Widgets\Action UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Technology.cpp">
+      <Filter>Source\i_love_vampires_2\Widgets\Meta Progression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\MetaProgression.cpp">
+      <Filter>Source\i_love_vampires_2\Widgets\Meta Progression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\TechWidget.cpp">
+      <Filter>Source\i_love_vampires_2\Widgets\Meta Progression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\GlobalSaveRuntime.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance\GlobalSave</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\GlobalSave.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance\GlobalSave</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\InputEnum.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance\GlobalSave\Keymaps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\KeybindSection.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance\GlobalSave\Keymaps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\MyGameInstanceBase.cpp">
+      <Filter>Source\i_love_vampires_2\System Overrides</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\MyGameViewport.cpp">
+      <Filter>Source\i_love_vampires_2\System Overrides</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\MapTemplate.cpp">
+      <Filter>Source\i_love_vampires_2\Arena</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\EnemySpawnLogic.cpp">
+      <Filter>Source\i_love_vampires_2\Arena</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\AlbumData.cpp">
+      <Filter>Source\i_love_vampires_2\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\SniperBullet.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Individual Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\WidgetSubsystem.cpp">
+      <Filter>Source\i_love_vampires_2\Subsystems\Instance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Trail.cpp">
+      <Filter>Source\i_love_vampires_2\Special Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\AttackTrail.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Backstab.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Individual Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\SummonAttack.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Summon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\NestedAOE.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo\NestedAOE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\ExplosiveAOE.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo\NestedAOE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\ConcentricAOE.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo\NestedAOE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\ProjectileSword.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\MyGameplayTag.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Status Effects\Tags</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\TagManager.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Status Effects\Tags</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\MyPlayer.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Friendlies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\ChasingSummon.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Friendlies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Summon.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Friendlies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\FriendlyCombatant.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Friendlies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\CustomChannels.cpp">
+      <Filter>Source\i_love_vampires_2\Admin\Channels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Suplex.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Individual Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\MultiAttack.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Combo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Donut.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\SingleTarget.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\Uppercut.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Attacks\Special Attacks\Individual Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\ForcedMovement.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\i_love_vampires_2\CollidingForcedMovement.cpp">
+      <Filter>Source\i_love_vampires_2\MyGAS\Combatant\Utility</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
