@@ -1,0 +1,1 @@
+The purpose of this project was to lay out a Buck Smart Power Stage voltage regulator in metal and silicon using the Cadence design software. It features hysteresis and a bandgap circuit. The design was simulated in Spectre and Ultrasim. </br>
